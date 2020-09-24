@@ -1,0 +1,8 @@
+ssl://smtp.yandex.ru
+zakaz@1001kover.com.ua
+dH9gSWtEBd
+465
+5
+
+
+zakaz@1001kover.com.ua
