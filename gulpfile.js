@@ -43,8 +43,10 @@ gulp.task('styles', function() {
 // JS
 gulp.task('scripts', function() {
 	return gulp.src([
-		'app/libs/jquery/dist/jquery.min.js',
+		'app/libs/jquery/dist/jquery.min.js', // Jquery
 		'app/libs/slick/slick.min.js', // Slick
+		'app/libs/popup/YouTubePopUp.jquery.js', // Popup
+		'app/libs/scrollbar/jquery.custom-scrollbar.js', // ScrolL Bar
 		'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))
