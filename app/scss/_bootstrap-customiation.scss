@@ -1,0 +1,48 @@
+.btn-primary {
+  background: $accent;
+  border-color: $accent;
+  &:hover {
+    background: darken($accent, 5%);
+    border-color: darken($accent, 5%);
+  }
+}
+
+.btn-outline-primary {
+  color: $accent;
+  border: 2px solid $accent;
+  &:hover {
+    background: $accent;
+    border-color: $accent;
+  }
+}
+
+.font-weight-semibold {
+  font-weight: 500;
+}
+
+.flex-grow-1 {
+  flex-grow: 1 !important;
+}
+
+.w-35 {
+  width: 35% !important;
+}
+
+.w-55 {
+  width: 55% !important;
+}
+
+.text {
+  &-muted {
+    color: #4D4D4D;
+  }
+  &-dark {
+    color: #444;
+  }
+}
+
+.bg {
+  &-light {
+    background-color: #F5F5F5 !important;
+  }
+}
