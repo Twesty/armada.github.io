@@ -1,6 +1,7 @@
 @import "vars";
 //@import "fonts";
 @import "libs";
+@import "parts/rating";
 
 ::placeholder {
 	color: #666;
@@ -1206,5 +1207,5 @@ a {
 	}
 }
 
-@import "bootstrap-customiation"; // Always at the end
+@import "bootstrap-customiation";
 @import "media"; // Always at the end
