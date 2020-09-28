@@ -148,6 +148,7 @@
 }
 
 .gallery {
+  user-select: none;
   &__arrow {
     position: relative;
     display: inline-flex;
