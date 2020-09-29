@@ -46,6 +46,9 @@ gulp.task('scripts', function() {
 		'app/libs/jquery/dist/jquery.min.js', // Jquery
 		'app/libs/slick/slick.min.js', // Slick
 		'app/libs/popup/YouTubePopUp.jquery.js', // Popup
+		'app/libs/popper.min.js', // Popper
+		'app/libs/bootstrap/js/bootstrap.min.js', // Bootstrap
+		'app/libs/bootstrap/js/bootstrap.bundle.min.js', // Bootstrap Bundle
 		'app/libs/scrollbar/jquery.custom-scrollbar.js', // ScrolL Bar
 		'app/js/common.js', // Always at the end
 		])
