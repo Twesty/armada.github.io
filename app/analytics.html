@@ -397,7 +397,9 @@
             <div class="analytics vendor__analytics vendor__content col-12 col-md-9">
                 <div class="analytics__header">
                     <h2 class="analytics__title">Аналитика</h2>
-                    <div class="analytics__date"></div>
+                    <div class="analytics__date">
+                        <input type="text" name="daterange" value="Выберите период..." />
+                    </div>
                 </div>
                 <ul class="analytics__tabs row">
                     <li class="analytics__tab col-6 col-md-3">
@@ -430,7 +432,7 @@
                         <div class="graph__header">
                             <h2 class="graph__title analytics__block-title">Сегодняшние тренды</h2>
                             <div class="graph__settings">
-                                <span class="graph__date">Выбранный перид: 22.09.20 - 31.09.20</span>
+                                <span class="graph__date">Выбранный перид: <span>...</span></span>
                                 <span class="graph__lines">
                                     <span class="graph__line graph__line--current">Данный период</span>
                                 <span class="graph__line graph__line--prev">Предыдущий период </span>
