@@ -58,9 +58,9 @@ b, strong {
 }
 
 * {
-  transition: color .2s, background-color .2s, background .2s, fill .2s, border-color .2s;
+  transition: color .2s, background-color .2s, background .2s, fill .2s, border-color .2s, opacity .2s;
   &:hover {
-    transition: color .2s, background-color .2s, background .2s, fill .2s, border-color .2s;
+    transition: color .2s, background-color .2s, background .2s, fill .2s, border-color .2s, opacity .2s;
   }
 }
 

@@ -26,6 +26,7 @@
 		"gulp-util": "^3.0.8"
 	},
 	"dependencies": {
-		"@popperjs/core": "^2.5.2"
+		"@popperjs/core": "^2.5.2",
+		"mdbootstrap": "^4.19.1"
 	}
 }

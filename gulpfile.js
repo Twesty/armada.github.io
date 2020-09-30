@@ -49,6 +49,7 @@ gulp.task('scripts', function() {
 		'app/libs/popper.min.js', // Popper
 		'app/libs/bootstrap/js/bootstrap.min.js', // Bootstrap
 		'app/libs/bootstrap/js/bootstrap.bundle.min.js', // Bootstrap Bundle
+		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		'app/libs/scrollbar/jquery.custom-scrollbar.js', // ScrolL Bar
 		'app/js/common.js', // Always at the end
 		])
