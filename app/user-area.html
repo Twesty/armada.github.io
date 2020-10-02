@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <!-- <base href="/"> -->
 
-    <title>ARMADA - каталог</title>
+    <title>ARMADA - торговый комплекс</title>
     <meta name="description" content="ARMADA - мебельный торговый комплекс">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,11 +23,10 @@
     <!-- Custom Browsers Color End -->
 
     <link rel="stylesheet" href="css/main.min.css">
-    <link rel="stylesheet" href="css/page-catalog/catalog.min.css">
+    <link rel="stylesheet" href="css/page-user-area/user-area.min.css">
     <link rel="stylesheet" href="css/fonts.min.css">
 
 </head>
-
 <body>
 
     <header class="header">
@@ -761,946 +760,202 @@
         </div>
     </header>
 
-    <main class="main-content page-catalog">
+    <main class="main-content page-user-area">
 
-        <section class="section container">
-            <div class="section__header">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/">Главная</a></li>
-                        <li class="breadcrumb-item"><a href="/">Товары для дома</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Диваны</li>
-                    </ol>
-                </nav>
-                <div class="section__header-text section__header-text--search">
-                    <span>Не можете найти нужный раздел?</span>
-                    <a href="#">
-                        <span>Воспользуйтесь поиском</span>
-                        <svg width="29" height="8" viewBox="0 0 29 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M28.3536 4.35355C28.5488 4.15829 28.5488 3.84171 28.3536 3.64645L25.1716 0.464466C24.9763 0.269204 24.6597 0.269204 24.4645 0.464466C24.2692 0.659728 24.2692 0.976311 24.4645 1.17157L27.2929 4L24.4645 6.82843C24.2692 7.02369 24.2692 7.34027 24.4645 7.53553C24.6597 7.7308 24.9763 7.7308 25.1716 7.53553L28.3536 4.35355ZM0 4.5H28V3.5H0V4.5Z"
-                                  fill="#EC6676"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="page-catalog__subcategories container">
-            <h2 class="page-title">Диваны</h2>
-            <ul class="list-style-none p-0 mb-0 row">
-                <li class="category-card col-md-2">
-                    <a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/1.png" alt="Category image">
-							</span>
-                        <span class="category-card__title">Освещение</span>
-                    </a>
-                </li>
-                <li class="category-card col-md-2">
-                    <a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/2.png" alt="Category image">
-							</span>
-                        <span class="category-card__title">Диваны</span>
-                    </a>
-                </li>
-                <li class="category-card col-md-2">
-                    <a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/3.png" alt="Category image">
-							</span>
-                        <span class="category-card__title">Кресла</span>
-                    </a>
-                </li>
-                <li class="category-card col-md-2">
-                    <a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/4.png" alt="Category image">
-							</span>
-                        <span class="category-card__title">Пуфы</span>
-                    </a>
-                </li>
-                <li class="category-card col-md-2">
-                    <a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/5.png" alt="Category image">
-							</span>
-                        <span class="category-card__title">Столы</span>
-                    </a>
-                </li>
-                <li class="category-card col-md-2">
-                    <a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/6.png" alt="Category image">
-							</span>
-                        <span class="category-card__title">Стулья</span>
-                    </a>
-                </li>
-            </ul>
-        </section>
-
-        <section class="container catalog page-catalog__catalog">
+        <div class="container personal_cab page-user-area__content">
             <div class="row">
-                <aside class="filters catalog__filters col-12 col-md-3">
-                    <div class="filters__checkbox-group mb-4">
-                        <p class="font-weight-semibold">Алфавитный указатель</p>
-                        <div class="custom-scrollbar default-skin" style="max-height: 340px">
-                            <ul class="list-style-none mb-b p-0">
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-1"
-                                           class="custom-control-input">
-                                    <label for="vendor-1" class="custom-control-label">Производитель 1</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-2"
-                                           class="custom-control-input"><label
-                                        for="vendor-2" class="custom-control-label">Производитель 2</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-3"
-                                           class="custom-control-input"><label
-                                        for="vendor-3" class="custom-control-label">Производитель 3</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-4"
-                                           class="custom-control-input"><label
-                                        for="vendor-4" class="custom-control-label">Производитель 4</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-5"
-                                           class="custom-control-input"><label
-                                        for="vendor-5" class="custom-control-label">Производитель 5</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-6"
-                                           class="custom-control-input"><label
-                                        for="vendor-6" class="custom-control-label">Производитель 6</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-7"
-                                           class="custom-control-input"><label
-                                        for="vendor-7" class="custom-control-label">Производитель 7</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-8"
-                                           class="custom-control-input"><label
-                                        for="vendor-8" class="custom-control-label">Производитель 8</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-9"
-                                           class="custom-control-input"><label
-                                        for="vendor-9" class="custom-control-label">Производитель 9</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-10"
-                                           class="custom-control-input"><label
-                                        for="vendor-10" class="custom-control-label">Производитель 10</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-11"
-                                           class="custom-control-input"><label
-                                        for="vendor-11" class="custom-control-label">Производитель 11</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-12"
-                                           class="custom-control-input"><label
-                                        for="vendor-12" class="custom-control-label">Производитель 12</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-13"
-                                           class="custom-control-input"><label
-                                        for="vendor-13" class="custom-control-label">Производитель 13</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-14"
-                                           class="custom-control-input"><label
-                                        for="vendor-14" class="custom-control-label">Производитель 14</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-15"
-                                           class="custom-control-input"><label
-                                        for="vendor-15" class="custom-control-label">Производитель 15</label></li>
-                            </ul>
+                <div class="col-12 col-md-3">
+                    <div class="user_name d-flex justify-content-start">
+                        <svg width="19" height="22" viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.3 13.0625C12.0828 13.0625 11.4975 13.75 9.5 13.75C7.50246 13.75 6.92143 13.0625 5.7 13.0625C2.55312 13.0625 0 15.6492 0 18.8375V19.9375C0 21.0762 0.91183 22 2.03571 22H16.9643C18.0882 22 19 21.0762 19 19.9375V18.8375C19 15.6492 16.4469 13.0625 13.3 13.0625ZM16.9643 19.9375H2.03571V18.8375C2.03571 16.7922 3.68125 15.125 5.7 15.125C6.3192 15.125 7.32433 15.8125 9.5 15.8125C11.6926 15.8125 12.6766 15.125 13.3 15.125C15.3187 15.125 16.9643 16.7922 16.9643 18.8375V19.9375ZM9.5 12.375C12.8717 12.375 15.6071 9.60352 15.6071 6.1875C15.6071 2.77148 12.8717 0 9.5 0C6.12835 0 3.39286 2.77148 3.39286 6.1875C3.39286 9.60352 6.12835 12.375 9.5 12.375ZM9.5 2.0625C11.7435 2.0625 13.5714 3.91445 13.5714 6.1875C13.5714 8.46055 11.7435 10.3125 9.5 10.3125C7.25647 10.3125 5.42857 8.46055 5.42857 6.1875C5.42857 3.91445 7.25647 2.0625 9.5 2.0625Z" fill="black"/>
+                        </svg>
+                        <div>
+                            <b>Иванов Иван</b>
+                            <span>mail_albertov@gmail.com</span>
                         </div>
                     </div>
-                    <div class="price-range filters__price">
-                        <p class="font-weight-semibold">Цена</p>
-                        <div class="price-range__values">
-                            <input type="number" min="0" max="9900" value="6" oninput="validity.valid||(value='0');" id="min_price" class="price-range-field bg-light border-0 rounded" />
-                            <span></span>
-                            <input type="number" min="0" max="60000" value="60000" oninput="validity.valid||(value='10000');" id="max_price" class="price-range-field bg-light border-0 rounded" />
-                        </div>
-                        <div id="slider-range" class="price-range__slider price-filter-range" name="rangeInput"></div>
-                    </div>
-                    <div class="filters__checkbox-group mt-4">
-                        <p class="font-weight-semibold">Страна производитель</p>
-                        <div class="custom-scrollbar default-skin" style="max-height: 340px">
-                            <ul class="list-style-none mb-b p-0">
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-1"
-                                           class="custom-control-input">
-                                    <label for="vendor-1" class="custom-control-label">Производитель 1</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-2"
-                                           class="custom-control-input"><label
-                                        for="vendor-2" class="custom-control-label">Производитель 2</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-3"
-                                           class="custom-control-input"><label
-                                        for="vendor-3" class="custom-control-label">Производитель 3</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-4"
-                                           class="custom-control-input"><label
-                                        for="vendor-4" class="custom-control-label">Производитель 4</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-5"
-                                           class="custom-control-input"><label
-                                        for="vendor-5" class="custom-control-label">Производитель 5</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-6"
-                                           class="custom-control-input"><label
-                                        for="vendor-6" class="custom-control-label">Производитель 6</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-7"
-                                           class="custom-control-input"><label
-                                        for="vendor-7" class="custom-control-label">Производитель 7</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-8"
-                                           class="custom-control-input"><label
-                                        for="vendor-8" class="custom-control-label">Производитель 8</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-9"
-                                           class="custom-control-input"><label
-                                        for="vendor-9" class="custom-control-label">Производитель 9</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-10"
-                                           class="custom-control-input"><label
-                                        for="vendor-10" class="custom-control-label">Производитель 10</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-11"
-                                           class="custom-control-input"><label
-                                        for="vendor-11" class="custom-control-label">Производитель 11</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-12"
-                                           class="custom-control-input"><label
-                                        for="vendor-12" class="custom-control-label">Производитель 12</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-13"
-                                           class="custom-control-input"><label
-                                        for="vendor-13" class="custom-control-label">Производитель 13</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-14"
-                                           class="custom-control-input"><label
-                                        for="vendor-14" class="custom-control-label">Производитель 14</label></li>
-                                <li class="custom-control custom-checkbox mb-2">
-                                    <input type="checkbox" id="vendor-15"
-                                           class="custom-control-input"><label
-                                        for="vendor-15" class="custom-control-label">Производитель 15</label></li>
-                            </ul>
-                        </div>
-                    </div>
-                </aside>
-                <div class="catalog__content col-12 col-md-9">
-                    <div class="catalog__header d-flex align-items-center justify-content-end">
-                        <label for="select_filter" class="select_label mb-0 mr-4">Сортировка:</label>
-                        <select class="form-control w-auto bg-light border-0" id="select_filter">
-                            <option>От дорогих к дешевым</option>
-                            <option>От дешевых к дорогим</option>
-                            <option>Выбор 3</option>
-                            <option>Выбор 4</option>
-                        </select>
-                    </div>
-                    <ul class="catalog__items row list-style-none p-0 mb-0">
-                        <li class="product-card col-12 col-md-3">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content product-card__content--wp">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
+                    <ul class="list-style-none p-0 mb-0 personal_cab_item">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-dark">
+                                <img src="img/rost/Ellipse 22.png">
+                                <img src="img/rost/shopping-cart (1) 1.png" class="item_img"> Мои заказы
+                            </a>
                         </li>
-                        <li class="product-card col-12 col-md-3">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content product-card__content--wp">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-dark">
+                                <img src="img/rost/Ellipse 22.png">
+                                <img src="img/rost/Vector.png" class="item_img_2"> Список желаний
+                            </a>
                         </li>
-                        <li class="product-card col-12 col-md-3">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content product-card__content--wp">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
+                        <hr class="hr_276px_2">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-dark">
+                                <img src="img/rost/Ellipse 22.png">
+                                <img src="img/rost/Vector Eye.png" class="item_img_2"> Просмотренные товары
+                            </a>
                         </li>
-                        <li class="product-card col-12 col-md-3">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content product-card__content--wp">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-dark">
+                                <img src="img/rost/Ellipse 22.png">
+                                <img src="img/rost/Vector Comments.png" class="item_img">
+                                <p class="d-inline text_1"> Рассылки</p>
+                            </a>
                         </li>
-                        <li class="product-card col-12 col-md-3">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content product-card__content--wp">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-dark">
+                                <img src="img/rost/Ellipse 22.png">
+                                <img src="img/rost/Vector Pig.png" class="item_img_2">
+                                <p class="d-inline text_4"> Мои бонусы</p>
+                            </a>
                         </li>
-                        <li class="product-card col-12 col-md-3">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content product-card__content--wp">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-dark">
+                                <img src="img/rost/Ellipse 22.png">
+                                <img src="img/rost/Vector Doc.png" class="item_img_3">
+                                <p class="d-inline text_2"> Мои отзывы</p>
+                            </a>
                         </li>
-                        <li class="product-card col-12 col-md-3">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content product-card__content--wp">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-dark">
+                                <img src="img/rost/Ellipse 22.png">
+                                <img src="img/rost/Vector Pen.png" class="item_img"> Моя переписка
+                            </a>
                         </li>
-                        <li class="product-card col-12 col-md-3">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content product-card__content--wp">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-dark">
+                                <img src="img/rost/Ellipse 22.png">
+                                <img src="img/rost/Vector Share.png" class="item_img_2"> Участие в акциях
+                            </a>
                         </li>
-                        <li class="product-card col-12 col-md-3">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content product-card__content--wp">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="product-card col-12 col-md-3">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content product-card__content--wp">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="product-card col-12 col-md-3">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content product-card__content--wp">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="product-card col-12 col-md-3">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content product-card__content--wp">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="product-card col-12 col-md-3">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content product-card__content--wp">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="product-card col-12 col-md-3">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content product-card__content--wp">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="product-card col-12 col-md-3">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content product-card__content--wp">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="product-card col-12 col-md-3">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content product-card__content--wp">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
+                        <hr class="hr_276px_2">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-dark">
+                                <img src="img/rost/Ellipse 22.png">
+                                <img src="img/rost/Vector Man.png" class="item_img_4">
+                                <p class="d-inline text_3">Помощь</p>
+                            </a>
                         </li>
                     </ul>
-                    <div class="pagination page-catalog__pagination">
-                        <button class="show-more pagination__more btn btn-outline-primary">Показать ещё 16 товаров</button>
-                        <div class="pagination__wrap">
-                            <div class="pagination__arrow pagination__arrow--prev">
-                                <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0.292893 7.29289C-0.097631 7.68342 -0.0976311 8.31658 0.292893 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928933C7.68054 0.538408 7.04738 0.538408 6.65685 0.928933L0.292893 7.29289ZM3 7L1 7L1 9L3 9L3 7Z" fill="#282C34"/>
-                                </svg>
-                            </div>
-                            <ul class="pagination__items">
-                                <li class="pagination__item active">1</li>
-                                <li class="pagination__item">2</li>
-                                <li class="pagination__item">3</li>
-                                <li class="pagination__item">4</li>
-                            </ul>
-                            <div class="pagination__arrow pagination__arrow--next">
-                                <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.70711 8.70711C9.09763 8.31658 9.09763 7.68342 8.70711 7.29289L2.34315 0.928932C1.95262 0.538408 1.31946 0.538408 0.928932 0.928932C0.538408 1.31946 0.538408 1.95262 0.928932 2.34315L6.58579 8L0.928932 13.6569C0.538408 14.0474 0.538408 14.6805 0.928932 15.0711C1.31946 15.4616 1.95262 15.4616 2.34315 15.0711L8.70711 8.70711ZM6 9H8V7H6V9Z" fill="#282C34"/>
-                                </svg>
-                            </div>
+                </div>
+                <div class="col-12 col-md-9">
+                    <p class="font-weight-bold p_text">Личные данные</p>
+                    <div class="personal_data">
+                        <img src="img/rost/input_icon.png" class="personal_cab_img">
+                        <p class="font-weight-bold personal_cab_p">Личный кабинет</p>
+                        <a href="" class="personal_cab_a float-right"><img src="img/rost/Mask Group.png" class="link_img">Редактировать</a>
+                        <div class="d-flex">
+                            <p class="col-4 personal_cab_text_1"><span class="personal_cab_span">Фамилия</span><br>Афонин
+                            </p>
+                            <p class="col-4 personal_cab_text_2"><span class="personal_cab_span">Имя</span><br>Александр</p>
+                            <p class="col-4 personal_cab_text_3"><span class="personal_cab_span">Отчество</span><br>Не указано
+                            </p>
+                        </div>
+                        <div class="d-flex">
+                            <p class="col-4 personal_cab_text_1"><span class="personal_cab_span">Дата рождения</span><br>Не указан
+                            </p>
+                            <p class="col-4 personal_cab_text_2"><span class="personal_cab_span">Пол</span><br>Не указан</p>
+                            <p class="col-4 personal_cab_text_3"><span class="personal_cab_span">Язык общения с
+                                поддержкой</span><br>Русский</p>
                         </div>
                     </div>
+                    <div class="personal_data_2">
+                        <img src="img/rost/Contacts.png" class="personal_cab_img">
+                        <p class="font-weight-bold personal_cab_p">Контакты</p>
+                        <a href="" class="personal_cab_a float-right"><img src="img/rost/Mask Group.png" class="link_img">Редактировать</a>
+                        <div class="d-flex">
+                            <p class="col-4 personal_cab_text_1"><span class="personal_cab_span">Электронная
+                                почта</span><br>mail_albertov@gmail.com</p>
+                            <p class="col-4 personal_cab_text_2"><span class="personal_cab_span">Телефон</span><br>+7 800 88 98 456</p>
+                            <p class="col-4 personal_cab_text_3"><span class="personal_cab_span">Контактный
+                                телефон</span><br>+7 800 88 98 456</p>
+                        </div>
+                    </div>
+                    <div class="personal_data_2">
+                        <img src="img/rost/XMLID 11.png" class="personal_cab_img">
+                        <p class="font-weight-bold personal_cab_p">Адрес доставки</p>
+                        <a href="" class="personal_cab_a float-right"><img src="img/rost/Mask Group.png" class="link_img">Редактировать</a>
+                        <div class="d-flex">
+                            <p class="col-4 personal_cab_text_1"><span class="personal_cab_span">Адрес</span><br>Не указано
+                            </p>
+                        </div>
+                    </div>
+                    <div class="personal_data_2">
+                        <img src="img/rost/input_icon.png" class="personal_cab_img">
+                        <p class="font-weight-bold personal_cab_p">Логин</p>
+                        <a href="" class="personal_cab_a float-right"><img src="img/rost/Mask Group.png" class="link_img">Редактировать</a>
+                        <div class="d-flex">
+                            <p class="col-4 personal_cab_text_1"><span class="personal_cab_span">Логин</span><br>mail_albertov@gmail.com</p>
+                            <p class="col-4 personal_cab_text_1"><span class="personal_cab_span">Пароль</span><br>********56
+                            </p>
+                        </div>
+                    </div>
+                    <div class="personal_data_3">
+                        <img src="img/rost/info.png" class="personal_cab_img">
+                        <p class="font-weight-bold personal_cab_p">Дополнительная информация</p>
+                        <a href="" class="personal_cab_a float-right"><img src="img/rost/Mask Group.png" class="link_img">Редактировать</a>
+                        <div class="d-flex">
+                            <label class="container_label personal_cab_checkbox col-5">
+                                <input type="checkbox" id="checkbox_catalog">Этот аккаунт используется юридическим лицом,
+                                представителем компании или частным предпринимателем
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="container_label personal_cab_checkbox col-5">
+                                <input type="checkbox" id="checkbox_catalog">Не сохранять мои карты для оплаты онлайн (ранее
+                                сохраненные карты можно удалить в разделе "Мои банковские карты")
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <p class="social_net_alert">Связывайте учетную запись Армады с учетными записями соцсетей <br> и входите на сайт, как пользователь Facebook или Google</p>
+                    <div class="d-flex justify-content-between align-items-center social_net_link">
+                        <span class="d-flex">
+                            <a href="#" class="facebook_link_2">
+                                <p class="facebook_p_2 d-flex">
+                                    <span>
+                                        <img src="img/rost/facebook 1.png" class="facebook_logo">
+                                    </span>
+                                    <span>
+                                        <span class="facebook_span">Facebook</span>
+                                        <span class="account_facebook">Связать учетную запись</span>
+                                    </span>
+                                </p>
+                            </a>
+                            <a href="#" class="google_link_2">
+                                <p class="google_p_2 d-flex">
+                                    <span>
+                                        <img src="img/rost/Googleg 1.png" class="goodle_logo">
+                                    </span>
+                                    <span>
+                                        <span class="google_span">Google</span>
+                                        <span class="account_google">Связать учетную запись</span>
+                                    </span>
+                                </p>
+                            </a>
+                        </span>
+                        <a href="" class="delate_acc float-right"><img src="img/rost/trash.png" class="link_img"> Удалить аккаунт</a>
+                    </div>
+                    <button type="button" class="btn btn-secondary font-weight-bold btn_exit_acc">
+                        Выйти из профиля
+                    </button>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section class="section slideshow section--slideshow viewed page-catalog__viewed">
-            <div class="section__background section__background--pr">
-                <img src="img/sections-bg/viewed-bg.jpg" alt="">
-            </div>
+        <section class="subscribe page-user-area__subscribe">
+            <div class="subscribe__bg" style="background: url('img/subscribe-bg.jpg')"></div>
             <div class="container">
-                <div class="section__header">
-                    <h2 class="section__title section__title--light">Просмотренные товары</h2>
-                    <div class="section__arrows">
-                        <div class="section__arrow section__arrow--prev slideshow__arrow--prev">
-                            <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="18.5" cy="18.5" r="18.5" fill="white"/>
-                                <path d="M14.2929 18.2929C13.9024 18.6834 13.9024 19.3166 14.2929 19.7071L20.6569 26.0711C21.0474 26.4616 21.6805 26.4616 22.0711 26.0711C22.4616 25.6805 22.4616 25.0474 22.0711 24.6569L16.4142 19L22.0711 13.3431C22.4616 12.9526 22.4616 12.3195 22.0711 11.9289C21.6805 11.5384 21.0474 11.5384 20.6569 11.9289L14.2929 18.2929ZM16 18L15 18L15 20L16 20L16 18Z" fill="black"/>
-                            </svg>
-                        </div>
-                        <div class="section__arrow section__arrow--next slideshow__arrow--next">
-                            <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="18.5" cy="18.5" r="18.5" fill="white"/>
-                                <path d="M14.2929 18.2929C13.9024 18.6834 13.9024 19.3166 14.2929 19.7071L20.6569 26.0711C21.0474 26.4616 21.6805 26.4616 22.0711 26.0711C22.4616 25.6805 22.4616 25.0474 22.0711 24.6569L16.4142 19L22.0711 13.3431C22.4616 12.9526 22.4616 12.3195 22.0711 11.9289C21.6805 11.5384 21.0474 11.5384 20.6569 11.9289L14.2929 18.2929ZM16 18L15 18L15 20L16 20L16 18Z" fill="black"/>
-                            </svg>
-                        </div>
+                <div class="subscribe__wrap">
+                    <div class="subscribe__content">
+                        <img src="img/subscribe-icon.png" alt="Icon">
+                        <p>Подпишитесь на рассылку о наших акциях и <span style="background: #FFF; color: #252525; display: inline-block; padding: 0 5px">получите 500 рублей в подарок!</span></p>
+                    </div>
+                    <div class="subscribe__right-side">
+                        <form action="#" class="subscribe__form">
+                            <input type="email" placeholder="Введите email" required>
+                            <button type="submit" class="button button--accent">Подписаться</button>
+                        </form>
                     </div>
                 </div>
-                <div class="section__content viewed__content">
-                    <ul class="slideshow__items viewed__items">
-                        <li class="product-card">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                            <span class="product-card__sticker product-card__sticker--new">Новинка</span>
-                                        </div>
-                                        <div class="product-card__favorite active">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="product-card">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--new">Новинка</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <span class="price__current">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="product-card">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <span class="price__current">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="product-card">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <span class="price__current">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="product-card">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <span class="price__current">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="product-card">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                            <span class="product-card__sticker product-card__sticker--new">Новинка</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-                                            <span class="price__special">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="product-card">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--new">Новинка</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <span class="price__current">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="product-card">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <span class="price__current">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="product-card">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <span class="price__current">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </li>
-                        <li class="product-card">
-                            <article class="product-card__wrap">
-                                <a href="#" class="product-card__link">
-                                    <div class="product-card__image">
-                                        <div class="product-card__stickers">
-                                            <span class="product-card__sticker product-card__sticker--sale">-8%</span>
-                                        </div>
-                                        <div class="product-card__favorite">
-                                            <svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-                                            </svg>
-                                        </div>
-                                        <img src="img/products/1.png" alt="Product image" />
-                                    </div>
-                                    <div class="product-card__content">
-                                        <h4 class="product-card__title">Стол для детей</h4>
-                                        <span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-                                        <div class="price product-card__price">
-                                            <span class="price__current">90 400 <span class="price__currency">тг</span></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </article>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="seo-text section about page-catalog__about container">
-            <div class="section__header">
-                <h2 class="section__title">О торговом комплексе</h2>
-            </div>
-            <div class="seo-text__content section__content default-skin">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales</p>
-                <p>pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctu</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales</p>
-                <p>pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctu</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales</p>
-                <p>pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctu</p>
             </div>
         </section>
 
@@ -1773,43 +1028,43 @@
                         <b class="footer__column-title">Контакты</b>
                         <ul class="footer__contacts-items">
                             <li class="footer__contacts-item">
-								<span>
-									<img src="img/location-accent.png" width="12" alt="Location">
-								</span>
+                                    <span>
+                                        <img src="img/location-accent.png" width="12" alt="Location">
+                                    </span>
                                 <span>Алматы, ул. Каблова (Марченка) 1.8, ул. Саина</span>
                             </li>
                             <li class="footer__contacts-item">
-								<span>
-									<img src="img/phone.png" width="14" alt="phone">
-								</span>
+                                    <span>
+                                        <img src="img/phone.png" width="14" alt="phone">
+                                    </span>
                                 <span>
-									<span>Справочная:</span><br>
-									<b><a href="tel:87273279027">8 (727) 327 90 27</a></b>
-								</span>
+                                        <span>Справочная:</span><br>
+                                        <b><a href="tel:87273279027">8 (727) 327 90 27</a></b>
+                                    </span>
                             </li>
                             <li class="footer__contacts-item">
-								<span>
-									<img src="img/whatsapp.png" width="16" alt="watsapp">
-								</span>
+                                    <span>
+                                        <img src="img/whatsapp.png" width="16" alt="watsapp">
+                                    </span>
                                 <span>
-									<span>Напишите:</span><br>
-									<b><a href="tel:87273279027">8 (727) 327 90 27</a></b>
-								</span>
+                                        <span>Напишите:</span><br>
+                                        <b><a href="tel:87273279027">8 (727) 327 90 27</a></b>
+                                    </span>
                             </li>
                             <li class="footer__contacts-item">
-								<span>
-									<img src="img/mail.png" width="17" alt="mail">
-								</span>
+                                    <span>
+                                        <img src="img/mail.png" width="17" alt="mail">
+                                    </span>
                                 <span>
-									<span>Электронная почта:</span><br>
-									<b><a href="mailto:info@armada.kz">info@armada.kz</a></b>
-								</span>
+                                        <span>Электронная почта:</span><br>
+                                        <b><a href="mailto:info@armada.kz">info@armada.kz</a></b>
+                                    </span>
                             </li>
                             <li class="footer__contacts-item">
                                 <span></span>
                                 <span>
-									<span>&copy; TK ARMADA, 2020</span>
-								</span>
+                                        <span>&copy; TK ARMADA, 2020</span>
+                                    </span>
                             </li>
                         </ul>
                     </div>
