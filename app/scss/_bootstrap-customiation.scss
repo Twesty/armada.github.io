@@ -16,8 +16,21 @@
   }
 }
 
+.btn-outline-secondary {
+  color: $secondary;
+  border: 2px solid $secondary;
+  &:hover {
+    background-color: $secondary;
+    border-color: $secondary;
+  }
+}
+
 .font-weight-semibold {
   font-weight: 500;
+}
+
+.w-auto {
+  width: auto !important;
 }
 
 .flex-grow-1 {
@@ -66,6 +79,18 @@
   border: 1px solid #B1B1B1;
 }
 
-.text-underline {
-  text-decoration: underline;
+.custom-checkbox {
+  .custom-control-label {
+    &:before {
+      width: 21px;
+      height: 21px;
+      background: #EDEDED;
+      border-radius: 1px;
+      border: none;
+    }
+    &:after {
+      top: .45rem;
+      left: .17rem;
+    }
+  }
 }

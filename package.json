@@ -27,6 +27,8 @@
 	},
 	"dependencies": {
 		"@popperjs/core": "^2.5.2",
-		"mdbootstrap": "^4.19.1"
+		"jquery-ui": "^1.12.1",
+		"mdbootstrap": "^4.19.1",
+		"nouislider": "^14.6.2"
 	}
 }

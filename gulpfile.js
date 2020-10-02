@@ -50,6 +50,7 @@ gulp.task('scripts', function() {
 		'app/libs/bootstrap/js/bootstrap.min.js', // Bootstrap
 		'app/libs/bootstrap/js/bootstrap.bundle.min.js', // Bootstrap Bundle
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
+		'app/libs/jquery-ui/jquery-ui.min.js', // Jquery UI
 		'app/libs/scrollbar/jquery.custom-scrollbar.js', // ScrolL Bar
 		'app/libs/dateRangePicker/moment.min.js', // Date range picker
 		'app/libs/dateRangePicker/daterangepicker.min.js', // Date range picker
