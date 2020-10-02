@@ -1,0 +1,61 @@
+@import "../vars";
+
+.page-shops {
+  &__subscribe {
+
+  }
+  &__catalog {
+    padding-bottom: 120px;
+  }
+}
+
+.catalog {
+  &__wrap {
+    margin-top: 60px;
+  }
+  &__sidebar {
+    padding-bottom: 80px;
+    padding-right: 50px;
+    font-size: 17px;
+  }
+  &__categories {
+    padding-bottom: 35px;
+    margin-bottom: 35px;
+    border-bottom: 1px solid #F0F0F0;;
+  }
+  &__categories-list {
+    margin: 20px 0 0 0;
+    padding: 0;
+    list-style: none;
+    max-height: 415px;
+    font-size: 15px;
+  }
+  &__category {
+    margin-bottom: 10px;
+  }
+  &__abc {
+
+  }
+  &__shops {
+    margin: 0 0 -60px 0;
+    padding: 0;
+    list-style: none;
+  }
+  &__shop {
+    margin-bottom: 60px;
+  }
+  &__pagination {
+    margin-top: 60px;
+  }
+}
+
+.abc {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 15px;
+  margin-right: -16px;
+  margin-bottom: 30px;
+  a {
+    margin-right: 16px;
+  }
+}
