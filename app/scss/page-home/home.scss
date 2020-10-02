@@ -9,8 +9,7 @@
     padding-bottom: 115px;
   }
   &__viewed {
-    padding-top: 45px;
-    padding-bottom: 55px;
+
   }
   &__recommended {
     padding-top: 65px;
@@ -175,3 +174,5 @@
 .about {
 
 }
+
+@import "home-responsive";

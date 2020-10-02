@@ -7,6 +7,15 @@
   }
 }
 
+.btn-outline-dark {
+  color: #787B84;
+  border: 1px solid #787B84;
+  &:hover {
+    background-color: $accent;
+    border-color: $accent;
+  }
+}
+
 .btn-outline-primary {
   color: $accent;
   border: 2px solid $accent;

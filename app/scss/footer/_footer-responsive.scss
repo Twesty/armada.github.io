@@ -1,0 +1,40 @@
+@import "../vars";
+
+/*==========  Desktop First  ==========*/
+
+// ≥1440px
+@include media-breakpoint-down(xl) {
+
+}
+
+// ≥1280px
+@include media-breakpoint-down(lg) {
+
+  .footer {
+    &__bottom-wrap {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    &__payments {
+      margin-bottom: 20px;
+    }
+  }
+
+}
+
+// ≥1024px
+@include media-breakpoint-down(md) {
+
+}
+
+// ≥768px
+@include media-breakpoint-down(sm) {
+
+}
+
+// ≥360px
+@include media-breakpoint-down(xs) {
+
+}

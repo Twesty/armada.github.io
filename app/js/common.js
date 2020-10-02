@@ -2,7 +2,24 @@
 
 $(function() {
 
+    // Header responsive menu
 
+    {
+        let button = $('.header__bars');
+        let overlay = $('.overlay');
+        let menu = $('.header__responsive');
+
+        overlay.on('click', function () {
+            menu.removeClass('active');
+        });
+
+        $.each(button, function () {
+            $( this ).on('click', function () {
+                overlay.fadeIn(200);
+                menu.toggleClass('active');
+            })
+        })
+    }
 
     // Tooltips
 
@@ -98,7 +115,15 @@ $(function() {
                 autoplaySpeed: 3000,
                 arrows: true,
                 nextArrow: nextArrow,
-                prevArrow: prevArrow
+                prevArrow: prevArrow,
+                responsive: [
+                    {
+                        breakpoint: 1280,
+                        settings: {
+                            slidesToShow: 4
+                        }
+                    }
+                ]
             })
         })
     }

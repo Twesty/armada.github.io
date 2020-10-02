@@ -1,0 +1,109 @@
+@import "../vars";
+
+/*==========  Desktop First  ==========*/
+
+// ≥1440px
+@include media-breakpoint-down(xl) {
+
+  .header {
+    &__top {
+      font-size: 12px;
+    }
+    &__top-pages {
+      ul {
+        margin: 0 -7.5px;
+      }
+      li {
+        margin: 0 7.5px;
+      }
+    }
+    &__middle-wrap {
+      padding: 15px 0;
+    }
+    &__bottom {
+      font-size: 13px;
+    }
+    &__user {
+      img {
+        transform: scale(.85);
+      }
+    }
+  }
+
+  .categories {
+    &__main {
+      li {
+        padding-bottom: 12.5px;
+      }
+    }
+  }
+
+}
+
+// ≥1280px
+@include media-breakpoint-down(lg) {
+
+  .header {
+    &__logo {
+      img {
+        max-width: 145px;
+      }
+    }
+    &__bottom,
+    &__top {
+      display: none;
+    }
+    &__cabinet {
+      span {
+        display: none;
+      }
+    }
+    &__favorite {
+      padding-left: 15px;
+      padding-right: 10px;
+    }
+    &__responsive {
+      .header__logo {
+        img {
+          max-width: 120px;
+        }
+      }
+      .header__user {
+        img {
+          transform: scale(.70);
+        }
+      }
+    }
+  }
+
+  .contact {
+    &__main-phone {
+      font-size: 14px;
+    }
+    &__callback {
+      font-size: 13px;
+    }
+  }
+
+  .advantages {
+    &__content {
+      margin-top: 20px;
+    }
+  }
+
+}
+
+// ≥1024px
+@include media-breakpoint-down(md) {
+
+}
+
+// ≥768px
+@include media-breakpoint-down(sm) {
+
+}
+
+// ≥360px
+@include media-breakpoint-down(xs) {
+
+}

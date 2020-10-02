@@ -1,8 +1,8 @@
 @import "vars";
 //@import "fonts";
 @import "libs";
-@import "parts/header";
-@import "parts/footer";
+@import "header/header";
+@import "footer/footer";
 @import "parts/rating";
 
 ::placeholder {
@@ -67,7 +67,7 @@ b, strong {
 a {
   color: inherit;
   &:hover {
-    color: inherit;
+    color: $accent;
     text-decoration: none;
   }
 }
@@ -85,6 +85,8 @@ a {
 	font-weight: 700;
 	cursor: pointer;
 	border: none;
+	min-width: 120px;
+	text-align: center;
 	&--accent {
 		border-radius: 1px;
 		background: $accent;
@@ -648,6 +650,10 @@ a {
 		align-items: flex-start;
 		justify-content: center;
 		padding: 60px 40px;
+		&--right {
+			float: right;
+			padding-right: 95px
+		}
 	}
 	&__bg {
 		position: absolute;
@@ -930,7 +936,7 @@ a {
 	left: 0;
 	right: 0;
 	display: none;
-	z-index: 999;
+	z-index: 10;
 	background: rgba(0,0,0,.5);
 	cursor: pointer;
 }

@@ -9,8 +9,8 @@ $text: #242E35;
 // Customization Bootstrap vars from "app/libs/bootstrap/scss/_variables.scss"
 $grid-gutter-width: 30px;
 $grid-columns: 12;
-$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1580px);
-$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1310px);
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 1024px, xl: 1280px, xxl: 1440px);
+$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1170px, xxl: 1310px);
 $breadcrumb-divider: quote("▪");
 
 $gutter: $grid-gutter-width;

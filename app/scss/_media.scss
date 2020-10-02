@@ -1,14 +1,83 @@
 @import "vars";
 
-
 /*==========  Desktop First  ==========*/
 
-// ≥1200px
+// ≥1440px
+@include media-breakpoint-down(xl) {
+
+  .search {
+    input {
+      padding: 9px 40px 10px 15px;
+    }
+  }
+
+  .section {
+    &__background {
+      &--pr {
+        right: 0;
+      }
+    }
+    &__title {
+      font-size: 28px;
+    }
+  }
+  
+  .viewed {
+    &__background {
+      display: none;
+    }
+  }
+
+  .product-card {
+    &__image {
+      height: 220px;
+    }
+  }
+
+  .subscribe {
+    &__form {
+      input {
+        min-width: 300px;
+      }
+    }
+  }
+
+  .bars {
+    &__bar {
+      height: 3px;
+      margin-bottom: 5px;
+    }
+    &__title {
+      line-height: 1;
+    }
+  }
+
+  .button {
+    padding: 9px 24px 7px 24px;
+  }
+
+  .stocks-item {
+    &__wrap {
+      &--right {
+        padding-right: 45px;
+      }
+    }
+  }
+
+  .subscribe {
+    &__content {
+      font-size: 15px;
+    }
+  }
+
+}
+
+// ≥1280px
 @include media-breakpoint-down(lg) {
 
 }
 
-// ≥992px
+// ≥1024px
 @include media-breakpoint-down(md) {
 
 }
@@ -18,30 +87,7 @@
 
 }
 
-// ≥576px
+// ≥360px
 @include media-breakpoint-down(xs) {
 
-}
-
-
-/*==========  Mobile First  ==========*/
-
-// ≤576px
-@include media-breakpoint-up(sm) {
-
-}
-
-// ≤768px
-@include media-breakpoint-up(md) {
-
-}
-
-// ≤992px
-@include media-breakpoint-up(lg) {
-
-}
-
-// ≤1200px
-@include media-breakpoint-up(xl) {
-	
 }
