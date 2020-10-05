@@ -54,6 +54,15 @@
 
   .button {
     padding: 9px 24px 7px 24px;
+    &--border-bottom {
+      padding: 5px 0;
+    }
+  }
+
+  .stocks {
+    &__item {
+      min-height: 350px;
+    }
   }
 
   .stocks-item {
@@ -70,20 +79,194 @@
     }
   }
 
+  .seo-text {
+    &__content {
+      font-size: 14px;
+      p {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .subscribe {
+    &__form {
+      input {
+        font-size: 11px;
+        min-width: 160px;
+        padding: 10px 15px;
+      }
+      button {
+        font-size: 10px;
+        height: 38px;
+      }
+    }
+  }
+
+
+
 }
 
 // ≥1280px
 @include media-breakpoint-down(lg) {
+
+
 
 }
 
 // ≥1024px
 @include media-breakpoint-down(md) {
 
+  .subscribe {
+    &__wrap {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    &__content {
+      margin-bottom: 15px;
+      text-align: center;
+      img {
+        display: none;
+      }
+    }
+  }
+
+  .stocks {
+    &__item {
+      min-height: 300px;
+      margin-bottom: 25px;
+    }
+  }
+
+  .stocks-item {
+    &__wrap {
+      padding: 30px 20px;
+    }
+  }
+
 }
 
 // ≥768px
 @include media-breakpoint-down(sm) {
+
+  .search {
+    input {
+      padding: 7px 40px 7px 15px;
+    }
+  }
+
+  .section {
+    &__title {
+      width: 100%;
+      text-align: center;
+      font-size: 24px;
+    }
+    &__header-text {
+      display: none;
+    }
+    &__content {
+      margin-top: 25px;
+    }
+    &__title {
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      color: $text !important;
+    }
+    &__arrows {
+      display: none;
+    }
+    &__background {
+      display: none;
+    }
+  }
+
+  .slideshow {
+    &__items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0 -9px -15px -9px;
+    }
+    &__item {
+      width: calc(50% - 18px);
+      margin: 0 9px 15px 9px;
+    }
+  }
+
+  .category-card {
+    &__image {
+      height: 155px;
+      img {
+        height: 80%;
+      }
+    }
+    &__title {
+      font-size: 14px;
+    }
+  }
+
+  .product-card {
+    &__header {
+      top: 8px;
+      left: 12px;
+      right: 12px;
+    }
+    &__favorite {
+      svg {
+        width: 18px;
+      }
+    }
+    &__sticker {
+      font-size: 10px;
+      padding-top: 1px;
+      height: 18px;
+    }
+    &__image {
+      height: 200px;
+    }
+    &__content {
+      padding: 13px 0 15px 0;
+    }
+    &__title {
+      font-size: 13px;
+    }
+    &__vendor {
+      display: block;
+      font-size: 11px;
+      line-height: 1.35
+    }
+    &__price {
+      margin-top: 7px;
+    }
+  }
+
+  .price {
+    &__previous {
+      font-size: 12px;
+      display: block;
+    }
+    &__current,
+    &__special {
+      font-size: 14px;
+      margin-left: 0;
+    }
+  }
+
+  .stocks {
+    &__item {
+      min-height: 210px;
+    }
+  }
+
+  .stocks-item {
+    &__title {
+      font-size: 15px;
+    }
+    &__terms,
+    &__button {
+      font-size: 9px;
+    }
+  }
 
 }
 

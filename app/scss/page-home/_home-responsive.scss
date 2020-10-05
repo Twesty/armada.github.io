@@ -25,12 +25,6 @@
     }
   }
 
-  .stocks {
-    &__item {
-      min-height: 350px;
-    }
-  }
-
   .youtube {
     &__items {
       margin-bottom: -30px;
@@ -49,13 +43,165 @@
 }
 
 // ≥1280px
-@include media-breakpoint-down(lg) {}
+@include media-breakpoint-down(lg) {
+
+
+
+}
 
 // ≥1024px
-@include media-breakpoint-down(md) {}
+@include media-breakpoint-down(md) {
+
+  .page-home {
+    &__advantages {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    &__about {
+      padding-bottom: 50px;
+      padding-top: 50px;
+    }
+    &__youtube {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  }
+
+  .advantages {
+    &__content {
+      margin-top: 20px;
+    }
+    &__item {
+      text-align: center;
+      justify-content: center;
+    }
+  }
+
+  .advantage {
+    &__description {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .stocks-item {
+    &__wrap {
+      padding: 35px 30px;
+      &--right {
+        float: left
+      }
+    }
+  }
+
+}
 
 // ≥768px
-@include media-breakpoint-down(sm) {}
+@include media-breakpoint-down(sm) {
+
+  .page-home {
+    &__banner {
+      margin: 18px 15px 0 15px
+    }
+    &__popular-categories {
+      padding-bottom: 0;
+    }
+    &__viewed,
+    &__special,
+    &__recent {
+      position: relative;
+      padding-bottom: 25px;
+      &:before {
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 15px;
+        right: 15px;
+        height: 4px;
+        background: #F0F0F0;
+      }
+    }
+    &__recommended {
+      padding-top: 40px;
+    }
+    &__youtube {
+      padding-top: 35px;
+    }
+  }
+
+  .banner {
+    &__controls {
+      justify-content: center;
+    }
+    &__arrows {
+      display: none;
+    }
+    &__item {
+      height: 495px;
+    }
+  }
+
+  .banner-item {
+    text-align: center;
+    &__content {
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 65px;
+    }
+    &__title {
+      font-size: 27px;
+    }
+    &__description {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    &__button {
+      font-size: 12px;
+    }
+  }
+
+  .advantages {
+    border: none;
+    &__subtitle {
+      text-align: center;
+      font-size: 13px;
+    }
+    &__content {
+      margin-top: 0;
+    }
+  }
+
+  .advantage {
+    &__image {
+      img {
+        object-position: center;
+      }
+    }
+    &__title {
+      font-size: 14px;
+    }
+    &__description {
+      font-size: 13px;
+      max-width: 300px;
+    }
+  }
+
+  .video {
+    &__title {
+      font-size: 14px;
+    }
+  }
+  
+  .youtube {
+    &__chanel-name {
+      display: none;
+    }
+    &__content {
+      padding: 0 10px;
+      margin-top: 30px;
+    }
+  }
+
+}
 
 // ≥360px
 @include media-breakpoint-down(xs) {}

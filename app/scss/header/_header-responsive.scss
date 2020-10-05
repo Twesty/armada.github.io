@@ -44,6 +44,12 @@
 @include media-breakpoint-down(lg) {
 
   .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #FFF;
+    z-index: 15;
     &__logo {
       img {
         max-width: 145px;
@@ -96,11 +102,66 @@
 // ≥1024px
 @include media-breakpoint-down(md) {
 
+  .header {
+    &__logo {
+      img {
+        max-width: 115px;
+      }
+    }
+    &__search {
+      padding-right: 0;
+    }
+    &__contact {
+      display: none;
+    }
+    &__user {
+      & > * {
+        margin-left: 15px;
+      }
+    }
+  }
+
 }
 
 // ≥768px
 @include media-breakpoint-down(sm) {
 
+  .header {
+    &__middle-wrap {
+      flex-wrap: wrap;
+      padding-bottom: 22px;
+    }
+    &__logo {
+      flex-grow: 1;
+    }
+    &__search {
+      width: 100%;
+      order: 4;
+      margin-top: 20px;
+      padding: 0;
+    }
+    &__user {
+      & > * {
+        margin-left: 10px;
+      }
+      svg {
+        width: 25px;
+      }
+    }
+    &__favorite {
+      padding-left: 10px;
+    }
+    &__cabinet {
+      padding-left: 20px;
+      svg {
+        width: 22px;
+      }
+    }
+    &__bars {
+      margin-right: 10px;
+    }
+  }
+  
 }
 
 // ≥360px

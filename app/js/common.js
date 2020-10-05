@@ -5,6 +5,7 @@ $(function() {
     // Header responsive menu
 
     {
+        let header = $('.header');
         let button = $('.header__bars');
         let overlay = $('.overlay');
         let menu = $('.header__responsive');
@@ -26,6 +27,17 @@ $(function() {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
+
+    // Header media position fixed
+
+    {
+        let headerHeight = $('.header').height();
+        let mainContent = $('.main-content');
+
+        if($(window).width() < 1280) {
+            mainContent.css({'margin-top': headerHeight + 'px'});
+        };
+    }
 
     // Header categories dropdown
 
@@ -87,8 +99,8 @@ $(function() {
             arrows: true,
             nextArrow: arrowNext,
             prevArrow: arrowPrev,
-            autoplay: true,
-            autoplaySpeed: 3000
+            //autoplay: true,
+            autoplaySpeed: 5000
         });
 
         let dots = itemsWrap.find('.slick-dots');
@@ -118,7 +130,7 @@ $(function() {
             items.slick({
                 slidesToShow: 5,
                 slidesToScroll: 1,
-                autoplay: true,
+                //autoplay: true,
                 autoplaySpeed: 3000,
                 arrows: true,
                 nextArrow: nextArrow,
@@ -129,6 +141,16 @@ $(function() {
                         settings: {
                             slidesToShow: 4
                         }
+                    },
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: "unslick"
                     }
                 ]
             })
