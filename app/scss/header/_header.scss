@@ -66,6 +66,21 @@
   &__user {
     display: flex;
     align-items: center;
+    svg {
+      display: flex;
+    }
+    a {
+      &:hover {
+        span {
+          color: $accent;
+        }
+        svg {
+          path {
+            fill: $accent;
+          }
+        }
+      }
+    }
   }
   &__cabinet {
     display: flex;
@@ -175,10 +190,19 @@
 
 .categories {
   &__show {
+    margin-right: 12.5px;
     & > span {
       display: flex;
       align-items: center;
       cursor: pointer;
+      &:hover {
+        span {
+          color: $accent;
+        }
+        .bars__bar {
+          background: $accent;
+        }
+      }
       .bars {
         margin-right: 10px;
       }

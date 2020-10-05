@@ -369,6 +369,7 @@ a {
 		z-index: 1;
 	}
 	&__wrap {
+		position: relative;
 		border-radius: 5px;
 		background: #FFF;
 		overflow: hidden;
@@ -538,6 +539,11 @@ a {
 	}
 	&__arrow {
 		cursor: pointer;
+		&:hover {
+			path {
+				fill: $accent;
+			}
+		}
 		svg {
 			display: flex;
 		}
