@@ -108,6 +108,13 @@ $(function() {
             let nextArrow = $( this ).find('.slideshow__arrow--next');
             let prevArrow = $( this ).find('.slideshow__arrow--prev');
 
+            items.on('setPosition', function () {
+                $(this).find('.slick-slide').height('auto');
+                let slickTrack = $(this).find('.slick-track');
+                let slickTrackHeight = $(slickTrack).height();
+                $(this).find('.slick-slide').css('height', slickTrackHeight + 'px');
+            });
+
             items.slick({
                 slidesToShow: 5,
                 slidesToScroll: 1,
