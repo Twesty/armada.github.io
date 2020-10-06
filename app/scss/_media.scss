@@ -154,6 +154,10 @@
     }
   }
 
+  .page-title {
+    font-size: 22px;
+  }
+
   .section {
     &__title {
       width: 100%;
@@ -224,6 +228,9 @@
     &__image {
       height: 200px;
     }
+    &__wrap {
+      background: none;
+    }
     &__content {
       padding: 13px 0 15px 0;
     }
@@ -265,6 +272,28 @@
     &__terms,
     &__button {
       font-size: 9px;
+    }
+  }
+
+  .pagination {
+    &__more {
+      padding: 7px 15px;
+      font-size: 14px;
+    }
+    &__item {
+      font-size: 14px;
+      min-width: 30px;
+      height: 30px;
+    }
+    &__arrow {
+      width: 30px;
+      height: 30px;
+      &--prev {
+        margin-right: 15px;
+      }
+      &--next {
+        margin-left: 15px;
+      }
     }
   }
 

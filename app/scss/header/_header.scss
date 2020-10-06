@@ -136,6 +136,7 @@
     transform: translateX(-100%);
     transition: transform .4s;
     background: #FFF;
+    color: $text;
     z-index: 999;
     &.active {
       transform: none;

@@ -1,15 +1,141 @@
 @import "../vars";
 
 .page-user-area {
+  padding-top: 50px;
   background: #FBFBFB;
   &__subscribe {
 
   }
   &__content {
-    padding-top: 55px;
     padding-bottom: 90px;
   }
+  &__favorites {
+    padding-bottom: 60px;
+  }
+  &__sidebar {
+
+  }
+  &__pagination {
+    margin-top: 50px;
+  }
 }
+
+.user-sidebar {
+  &__user {
+    padding-bottom: 17px;
+  }
+  &__user-wrap {
+    display: flex;
+    padding: 12px 22px 9px 22px;
+    background: #FCE8E6;
+    border-radius: 5px;
+    svg {
+      margin-right: 20px;
+      margin-top: 4px;
+    }
+  }
+  &__username {
+    display: block;
+    font-size: 17px;
+    line-height: 1.2;
+  }
+  &__user-mail {
+    font-size: 14px;
+    color: #494949;
+  }
+  &__items {
+    margin: 0;
+    padding: 17px 10px;
+    list-style: none;
+  }
+  &__item {
+    color: #202224;
+    a {
+      display: flex;
+      align-items: center;
+    }
+    &:not(:last-child) {
+      margin-bottom: 17px;
+    }
+    svg {
+      display: flex;
+      margin-right: 15px;
+    }
+  }
+}
+
+.favorites {
+  &__content {
+
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 25px 0;
+    padding: 15px 0;
+  }
+  &__items {
+    margin-bottom: 0;
+    padding: 0;
+    list-style: none;
+  }
+  &__item {
+    margin-bottom: 25px;
+  }
+  &__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 15px;
+  }
+  &__action {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-right: 15px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    &.disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+    svg {
+      margin-right: 7px;
+    }
+  }
+  &__sort {
+
+  }
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+    padding-top: 20px;
+    button {
+      margin-left: 20px;
+    }
+  }
+  &__count {
+    display: block;
+    color: #828282;
+    font-size: 15px;
+  }
+  &__total {
+    font-size: 24px;
+  }
+}
+
+@import "user-area-responsive";
+
+
+
+
+
+
+/////// Rostik
+
 .enter-form {
   margin-top: 50px;
 }

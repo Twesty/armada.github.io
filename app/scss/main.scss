@@ -172,7 +172,7 @@ a {
 }
 
 .page-title {
-	font-size: 38px;
+	font-size: 30px;
 	font-weight: 700;
 }
 
@@ -369,6 +369,7 @@ a {
 		z-index: 1;
 	}
 	&__wrap {
+		height: 100%;
 		position: relative;
 		border-radius: 5px;
 		background: #FFF;
@@ -436,15 +437,57 @@ a {
 		color: #252525;
 	}
 	&__vendor {
+		display: block;
 		padding: 5px 0;
 		font-size: 14px;
 		color: #444;
+		line-height: 1.35;
 	}
 	&__price {
-
+		&--favorite {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 10px;
+			padding-right: 5px;
+			button {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 7px 9px 7px 8px;
+				border-radius: 5px;
+				background: #f7f7f7;
+				border: none;
+				cursor: pointer;
+				&:hover {
+					background: #eeeeee;
+					path {
+						fill: $green;
+					}
+				}
+				svg {
+					display: flex;
+				}
+			}
+			.price__previous {
+				display: block;
+			}
+			.price__special {
+				margin-left: 0;
+		 	}
+		}
 	}
 	&__count {
 		margin-top: 10px;
+	}
+	&__checkbox {
+		cursor: pointer;
+		.custom-checkbox .custom-control-label:before {
+			cursor: pointer;
+			background: #FFF;
+			border-radius: 2px;
+			border: 1px solid #969696;
+		}
 	}
 }
 
