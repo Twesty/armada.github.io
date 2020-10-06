@@ -43,6 +43,10 @@
 // ≥1024px
 @include media-breakpoint-down(md) {
 
+  .page-user-area {
+    padding-top: 35px;
+  }
+
 }
 
 // ≥768px
