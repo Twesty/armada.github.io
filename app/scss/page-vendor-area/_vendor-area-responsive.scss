@@ -69,12 +69,6 @@
 // ≥1280px
 @include media-breakpoint-down(lg) {
 
-  .vendor {
-    &__analytics {
-      padding-left: 15px;
-    }
-  }
-
   .analytics {
     &__tab-wrap {
       padding: 10px 15px;
@@ -106,6 +100,7 @@
 
   .vendor {
     &__analytics {
+      padding-left: 15px;
       padding-bottom: 35px;
     }
     &__nav-items {
