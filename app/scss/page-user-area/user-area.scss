@@ -19,6 +19,9 @@
   &__pagination {
     margin-top: 50px;
   }
+  &__notation {
+    width: 75%;
+  }
 }
 
 .user-sidebar {
@@ -185,6 +188,12 @@
   }
   &__value {
     font-size: 15px;
+    & > *:not(span) {
+      display: none;
+    }
+    .select-wrapper input.select-dropdown {
+      height: 38px;
+    }
   }
 }
 
