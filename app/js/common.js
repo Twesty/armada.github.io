@@ -2,6 +2,12 @@
 
 $(function() {
 
+    // Tooltips
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
     // Header responsive menu
 
     {
@@ -22,20 +28,15 @@ $(function() {
         })
     }
 
-    // Tooltips
-
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-
     // Header media position fixed
 
     {
         let mainContent = $('.main-content');
-        let headerHeight = $('.header').height();
+        let header = $('.header');
+        let headerHeight = header.outerHeight();
 
         $( window ).resize(function(){
-            let headerHeight = $('.header').height();
+            let headerHeight = header.outerHeight();
             if(($(window).width() + 17) < 1280) {
                 mainContent.css({'margin-top': headerHeight + 'px'});
             } else {

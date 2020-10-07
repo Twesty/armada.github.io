@@ -1,5 +1,4 @@
 @import '../vars';
-@import '../parts/header-area';
 
 .page-vendor-area {
   padding-top: 50px;
@@ -11,7 +10,6 @@
   }
   &__pagination {
     padding-top: 45px;
-    margin-bottom: 45px;
   }
 }
 
@@ -442,3 +440,5 @@
     color: #9FA2B4;
   }
 }
+
+@import "vendor-area-responsive";
