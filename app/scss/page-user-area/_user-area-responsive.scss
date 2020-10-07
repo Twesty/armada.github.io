@@ -1,14 +1,10 @@
-@import "../vars";
 @import "../../libs/bootstrap/scss/mixins/breakpoints";
+@import "../vars";
 
 /*==========  Desktop First  ==========*/
 
 // ≥1440px
-@include media-breakpoint-down(xl) {
-    .personal_cab_text_2 {
-        margin-left: -23px;
-    }
-}
+@include media-breakpoint-down(xl) {}
 
 // ≥1280px
 @include media-breakpoint-down(lg) {
@@ -38,15 +34,21 @@
             }
         }
     }
+    .personal_cab_checkbox_2 {
+        margin-left: 17px;
+    }
+    .facebook_link_2 {
+        width: 228px;
+    }
+    .social_net_alert {
+        font-size: 14px;
+    }
 }
 
 // ≥1024px
 @include media-breakpoint-down(md) {
     .page-user-area {
         padding-top: 35px;
-    }
-    .user-sidebar__user-mail {
-        font-size: 12px;
     }
 }
 
@@ -86,4 +88,14 @@
 }
 
 // ≥360px
-@include media-breakpoint-down(xs) {}
+@include media-breakpoint-down(xs) {
+    .personal_data {
+        width: auto;
+    }
+    .personal_data_2 {
+        width: auto;
+    }
+    .personal_data_3 {
+        width: auto;
+    }
+}
