@@ -31,12 +31,21 @@ $(function() {
     // Header media position fixed
 
     {
-        let headerHeight = $('.header').height();
         let mainContent = $('.main-content');
+        let headerHeight = $('.header').height();
 
-        if($(window).width() < 1280) {
+        $( window ).resize(function(){
+            let headerHeight = $('.header').height();
+            if(($(window).width() + 17) < 1280) {
+                mainContent.css({'margin-top': headerHeight + 'px'});
+            } else {
+                mainContent.css({'margin-top': '0'});
+            }
+        });
+
+        if(($(window).width() + 17) < 1280) {
             mainContent.css({'margin-top': headerHeight + 'px'});
-        };
+        }
     }
 
     // Header categories dropdown
@@ -62,6 +71,36 @@ $(function() {
                 container.slideUp(200);
             }
         });
+    }
+
+    // Filter apply
+
+    {
+        let button = $('.filter-apply');
+        let filters = $('.filters');
+        let triggers = $('.filters input');
+
+        let close = $('.filter-apply button:first-child');
+
+        close.on('click', function () {
+            button.fadeOut(100);
+        });
+
+        $.each(triggers, function() {
+            $( this ).on('change', function(){
+                let inputOffset = $( this ).offset();
+                let filtersOffset = filters.offset();
+                let offsetTop = inputOffset.top;
+                let offsetLeft = filtersOffset.left;
+                let filtersWidth = filters.width();
+
+                button.css({
+                    'top' : offsetTop + 'px',
+                    'left' : offsetLeft + filtersWidth + 25 + 'px',
+                    'display' : 'block'
+                });
+            })
+        })
     }
 
     // Header subcategories dropdown
@@ -333,8 +372,8 @@ $(function() {
                     return false;
                 }
 
-                $("#min_price").val(ui.values[0]);
-                $("#max_price").val(ui.values[1]);
+                $("#min_price").val(ui.values[0]).trigger('change');
+                $("#max_price").val(ui.values[1]).trigger('change');
             }
         });
     }

@@ -1,0 +1,89 @@
+@import "../vars";
+@import "../../libs/bootstrap/scss/mixins/breakpoints";
+
+/*==========  Desktop First  ==========*/
+
+// ≥1440px
+@include media-breakpoint-down(xl) {
+    .personal_cab_text_2 {
+        margin-left: -23px;
+    }
+}
+
+// ≥1280px
+@include media-breakpoint-down(lg) {
+    .user-sidebar {
+        font-size: 14px;
+        &__user {
+            &:not(&--responsive) {
+                font-size: 14px;
+                svg {
+                    display: none;
+                }
+            }
+        }
+        &__user-wrap {
+            padding: 12px 15px 9px 15px;
+        }
+        &__items {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        &__item {
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+            svg {
+                margin-right: 7px;
+            }
+        }
+    }
+}
+
+// ≥1024px
+@include media-breakpoint-down(md) {
+    .page-user-area {
+        padding-top: 35px;
+    }
+    .user-sidebar__user-mail {
+        font-size: 12px;
+    }
+}
+
+// ≥768px
+@include media-breakpoint-down(sm) {
+    .page-user-area {
+        padding-top: 20px;
+        &__pagination {
+            margin-top: 10px;
+        }
+        &__favorites {
+            padding-bottom: 30px;
+        }
+    }
+    .favorites {
+        &__header {
+            flex-direction: column-reverse;
+        }
+        &__actions {
+            flex-direction: column;
+            margin-top: 15px;
+            justify-content: center;
+            flex-wrap: nowrap;
+        }
+    }
+    .favorites {
+        &__footer {
+            justify-content: center;
+            flex-wrap: wrap;
+            button {
+                font-size: 14px;
+                padding: 6px 15px;
+                line-height: 1;
+            }
+        }
+    }
+}
+
+// ≥360px
+@include media-breakpoint-down(xs) {}
