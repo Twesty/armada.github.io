@@ -16,6 +16,10 @@
   }
 }
 
+.custom-control-label {
+  cursor: pointer;
+}
+
 .btn-outline-primary {
   color: $accent;
   border: 2px solid $accent;
@@ -32,6 +36,12 @@
     background-color: $secondary;
     border-color: $secondary;
   }
+}
+
+.btn-outline-dark {
+  border: 2px solid #474747;
+  color: #474747;
+  border-radius: 2px;
 }
 
 .font-weight-semibold {

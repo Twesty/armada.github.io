@@ -1677,5 +1677,39 @@ a {
 	}
 }
 
+.social-login {
+	display: flex;
+	padding: 10px 15px;
+	background: #FFF;
+	border-radius: 4px;
+	color: #3E4446;
+	font-size: 15px;
+	cursor: pointer;
+	line-height: 1.4;
+	&--facebook {
+		background: #556494;
+		color: #FFF;
+		&:hover {
+			background: darken(#556494, 10%);
+		}
+	}
+	&--google {
+		border: 1px solid #BDBDBD;
+		&:hover {
+			background: #ededed;
+		}
+	}
+	&__icon {
+		margin-top: 3px;
+		margin-right: 10px;
+		img {
+			max-width: 25px;
+		}
+	}
+	&__name {
+		font-weight: 500;
+	}
+}
+
 @import "bootstrap-customiation";
 @import "media"; // Always at the end
