@@ -946,62 +946,58 @@
     <main class="main-content page-register" style="background: url('img/sections-bg/register-bg.jpg')">
         <section class="container page-register__form">
             <div class="row justify-content-center">
-                <div class="col-auto enter-form">
-                    <div class="card card-outline-secondary login-card">
-                        <div class="login-text">
-                            <h2 class="text-center font-weight-bold">Вход</h2>
-                            <p class="text-center">Вход для пользователей</p>
-                        </div>
-                        <div class="card-body login-card-body">
-                            <form class="form" role="form" autocomplete="off" id="loginForm" novalidate=""
-                                  method="POST">
-                                <div class="form-group">
-
-                                    <label for="uname1"></label>
-                                    <input type="text" class="form-control input-style" name="uname1" id="uname1"
-                                           placeholder="Введите логин" required="">
-                                    <div class="invalid-feedback">Введите свой логин</div>
+                <div class="col-md-12">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="card card-outline-secondary login-card_2">
+                                <div class="login-text">
+                                    <h2 class="text-center page-title">Регистрация</h2>
                                 </div>
-                                <div class="form-group">
-                                    <label for="pwd1"></label>
-                                    <input type="password" class="form-control input-style" id="pwd1"
-                                           placeholder="Введите пароль" required="" autocomplete="new-password">
-                                    <div class="invalid-feedback">Введите свой пароль</div>
+                                <div class="card-body login-card-body">
+                                    <form class="form" role="form" autocomplete="off" id="loginForm" novalidate="" method="POST">
+                                        <div class="form-group_2">
+                                            <label for="uname1"></label>
+                                            <input type="text" class="form-control input-style" name="uname1" id="uname1" placeholder="Введите имя" required="">
+                                            <div class="invalid-feedback">Имя</div>
+                                        </div>
+                                        <div class="form-group_2">
+                                            <label for="pwd1"></label>
+                                            <input type="text" class="form-control input-style" id="pwd1" placeholder="Введите фамилию" required="" autocomplete="new-password">
+                                            <div class="invalid-feedback">Фамилия</div>
+                                        </div>
+                                        <div class="form-group_2">
+                                            <label for="pwd1"></label>
+                                            <input type="tel" class="form-control input-style" id="pwd1" placeholder="Введите телефон" required="" autocomplete="new-password">
+                                            <div class="invalid-feedback">Телефон</div>
+                                        </div>
+                                        <div class="form-group_2">
+                                            <label for="pwd1"></label>
+                                            <input type="email" class="form-control input-style" id="pwd1" placeholder="Введите почту" required="" autocomplete="new-password">
+                                            <div class="invalid-feedback">Почта</div>
+                                        </div>
+                                        <div class="form-group_2">
+                                            <label for="pwd1"></label>
+                                            <input type="text" class="form-control input-style" id="pwd1" placeholder="Введите логин" required="" autocomplete="new-password">
+                                            <div class="invalid-feedback">Логин</div>
+                                        </div>
+                                        <div class="form-group_2">
+                                            <label for="pwd1"></label>
+                                            <input type="password" class="form-control input-style" id="pwd1" placeholder="Введите пароль" required="" autocomplete="new-password">
+                                            <div class="invalid-feedback">Пароль</div>
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-center align-items-center">
+                                            <button type="submit" class="button btn-primary my-3 w-100" id="btnLogin">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+                                            <button type="submit" class="button btn-outline-primary w-100" id="btnLogin">ВОЙТИ</button>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="form-check small">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input"> <span>Запомнить меня</span>
-                                    </label>
-                                </div>
-                                <div class="site_link">
-                                    <p><a href="#" class="text-primary float-right">Напомнить пароль</a></p>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-lg font-weight-semibold login-btn" id="btnLogin">ВОЙТИ</button>
-                            </form>
-                        </div>
-                        <div class="d-flex justify-content-center register_text">
-                            <p class="text-muted">Нет аккаунта?</p>
-                            <p><a href="#" class="text-dark font-weight-bold register_link">Регистрация</a></p>
-                        </div>
-                        <div class="login_bottom">
-                            <hr class="float-left hr_left">
-                            <div class="d-flex justify-content-center">
-                                <p class="text-muted sign_through">Войти через</p>
                             </div>
-                            <hr class="float-right hr_right">
-                        </div>
-                        <div class="d-flex justify-content-center social_link">
-                            <p class="text-center facebook_p">
-                                <img src="img/page-register/facebook 1.png">
-                                <a href="#" class="facebook_link">Facebook</a></p>
-                            <p class="text-center google_p">
-                                <img src="img/page-register/Googleg 1.png">
-                                <a href="#" class="google_link">Google</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
         <section class="subscribe page-home__subscribe">
             <div class="subscribe__bg" style="background: url('img/subscribe-bg.jpg')"></div>
             <div class="container">
