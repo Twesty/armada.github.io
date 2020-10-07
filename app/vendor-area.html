@@ -248,7 +248,7 @@
 
 		<section class="vendor page-vendor-area__vendor container">
 			<div class="row">
-				<nav class="vendor__nav col-12 col-md-3">
+				<nav class="vendor__nav d-none d-lg-block col-12 col-lg-3">
 					 <ul class="vendor__nav-items flex-column border-right">
 						 <li class="vendor__nav-item">
 							 <div class="vendor__nav-item-title d-flex align-items-center">
@@ -559,11 +559,11 @@
 						 </li>
 					 </ul>
 				</nav>
-				<div class="vendor__content col-12 col-md-9">
+				<div class="vendor__content col-12 col-lg-9">
 					<div class="orders vendor__orders">
 						<div class="orders__header">
-							<h2 class="orders__title">Все заказы</h2>
-							<form id="search" action="#" class="search orders__search">
+							<h2 class="page-title orders__title">Все заказы</h2>
+							<form id="search2" action="#" class="search orders__search">
 								<input type="text" placeholder="Номер заказа">
 								<button type="submit">
 									<img src="img/svg/search.svg" alt="Search">
@@ -571,7 +571,25 @@
 							</form>
 							<span class="orders__count">Найдено <b>1463 заказов</b> по фильтру</span>
 						</div>
-						<ul class="orders__sort d-flex align-items-center justify-content-between bg-light rounded">
+						<div class="orders__sort d-block d-md-none">
+							<div class="orders__sort-title">
+								<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M14.465 0H0.536692C0.24082 0 0.000976562 0.239843 0.000976562 0.535715V3.21423C0.00100795 3.36603 0.0654495 3.5107 0.178293 3.61227L5.35804 8.27397V14.464C5.35791 14.7599 5.59763 14.9998 5.8935 15C5.97671 15 6.05879 14.9807 6.13322 14.9435L9.34745 13.3364C9.52906 13.2456 9.64379 13.06 9.64369 12.8569V8.27397L14.8234 3.61334C14.9366 3.51155 15.001 3.36643 15.0008 3.21423V0.535715C15.0007 0.239843 14.7609 0 14.465 0ZM13.9293 2.97583L8.74958 7.63646C8.63646 7.73826 8.57201 7.88337 8.57227 8.03557V12.5259L6.42944 13.5973V8.03557C6.4294 7.88378 6.36496 7.73911 6.25212 7.63756L1.07238 2.97583V1.0714H13.9293V2.97583Z" fill="#121313"/>
+								</svg>
+								<span>Фильтр</span>
+							</div>
+							<select class="browser-default custom-select">
+								<option value="1" selected>Статус</option>
+								<option value="2">Способ доставки</option>
+								<option value="3">Дата</option>
+								<option value="4">Покупатель</option>
+								<option value="5">Город</option>
+								<option value="6">Телефон</option>
+								<option value="7">Сумма</option>
+								<option value="8">Товар</option>
+							</select>
+						</div>
+						<ul class="orders__sort d-none d-md-flex align-items-center justify-content-between bg-light rounded">
 							<li class="orders__sort-item">
 								<a href="#" data-sort-status="up">
 									<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -579,17 +597,17 @@
 									</svg>
 									<span>Статус</span>
 									<span class="orders__sort-item-status-wrap">
-										<span class="orders__sort-item-status orders__sort-item-status--up">
-											<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M10 5L5 4.37114e-07L0 5L10 5Z" fill="#11B603"/>
-											</svg>
-										</span>
-										<span class="orders__sort-item-status orders__sort-item-status--down">
-											<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M0 0L5 5L10 0H0Z" fill="#E0001A"/>
-											</svg>
-										</span>
-									</span>
+								<span class="orders__sort-item-status orders__sort-item-status--up">
+									<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M10 5L5 4.37114e-07L0 5L10 5Z" fill="#11B603"/>
+									</svg>
+								</span>
+								<span class="orders__sort-item-status orders__sort-item-status--down">
+									<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M0 0L5 5L10 0H0Z" fill="#E0001A"/>
+									</svg>
+								</span>
+							</span>
 								</a>
 							</li>
 							<li class="orders__sort-item">
@@ -600,17 +618,17 @@
 									</svg>
 									<span>Способ доставки</span>
 									<span class="orders__sort-item-status-wrap">
-										<span class="orders__sort-item-status orders__sort-item-status--up">
-											<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M10 5L5 4.37114e-07L0 5L10 5Z" fill="#11B603"/>
-											</svg>
-										</span>
-										<span class="orders__sort-item-status orders__sort-item-status--down">
-											<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M0 0L5 5L10 0H0Z" fill="#E0001A"/>
-											</svg>
-										</span>
-									</span>
+								<span class="orders__sort-item-status orders__sort-item-status--up">
+									<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M10 5L5 4.37114e-07L0 5L10 5Z" fill="#11B603"/>
+									</svg>
+								</span>
+								<span class="orders__sort-item-status orders__sort-item-status--down">
+									<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M0 0L5 5L10 0H0Z" fill="#E0001A"/>
+									</svg>
+								</span>
+							</span>
 								</a>
 							</li>
 							<li class="orders__sort-item">
@@ -622,17 +640,17 @@
 									</svg>
 									<span>Дата</span>
 									<span class="orders__sort-item-status-wrap">
-										<span class="orders__sort-item-status orders__sort-item-status--up">
-											<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M10 5L5 4.37114e-07L0 5L10 5Z" fill="#11B603"/>
-											</svg>
-										</span>
-										<span class="orders__sort-item-status orders__sort-item-status--down">
-											<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M0 0L5 5L10 0H0Z" fill="#E0001A"/>
-											</svg>
-										</span>
-									</span>
+								<span class="orders__sort-item-status orders__sort-item-status--up">
+									<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M10 5L5 4.37114e-07L0 5L10 5Z" fill="#11B603"/>
+									</svg>
+								</span>
+								<span class="orders__sort-item-status orders__sort-item-status--down">
+									<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M0 0L5 5L10 0H0Z" fill="#E0001A"/>
+									</svg>
+								</span>
+							</span>
 								</a>
 							</li>
 							<li class="orders__sort-item">
@@ -642,17 +660,17 @@
 									</svg>
 									<span>Покупатель</span>
 									<span class="orders__sort-item-status-wrap">
-										<span class="orders__sort-item-status orders__sort-item-status--up">
-											<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M10 5L5 4.37114e-07L0 5L10 5Z" fill="#11B603"/>
-											</svg>
-										</span>
-										<span class="orders__sort-item-status orders__sort-item-status--down">
-											<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M0 0L5 5L10 0H0Z" fill="#E0001A"/>
-											</svg>
-										</span>
-									</span>
+								<span class="orders__sort-item-status orders__sort-item-status--up">
+									<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M10 5L5 4.37114e-07L0 5L10 5Z" fill="#11B603"/>
+									</svg>
+								</span>
+								<span class="orders__sort-item-status orders__sort-item-status--down">
+									<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M0 0L5 5L10 0H0Z" fill="#E0001A"/>
+									</svg>
+								</span>
+							</span>
 								</a>
 							</li>
 							<li class="orders__sort-item">
@@ -662,17 +680,17 @@
 									</svg>
 									<span>Город</span>
 									<span class="orders__sort-item-status-wrap">
-										<span class="orders__sort-item-status orders__sort-item-status--up">
-											<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M10 5L5 4.37114e-07L0 5L10 5Z" fill="#11B603"/>
-											</svg>
-										</span>
-										<span class="orders__sort-item-status orders__sort-item-status--down">
-											<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M0 0L5 5L10 0H0Z" fill="#E0001A"/>
-											</svg>
-										</span>
-									</span>
+								<span class="orders__sort-item-status orders__sort-item-status--up">
+									<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M10 5L5 4.37114e-07L0 5L10 5Z" fill="#11B603"/>
+									</svg>
+								</span>
+								<span class="orders__sort-item-status orders__sort-item-status--down">
+									<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M0 0L5 5L10 0H0Z" fill="#E0001A"/>
+									</svg>
+								</span>
+							</span>
 								</a>
 							</li>
 							<li class="orders__sort-item">
@@ -682,17 +700,17 @@
 									</svg>
 									<span>Телефон</span>
 									<span class="orders__sort-item-status-wrap">
-										<span class="orders__sort-item-status orders__sort-item-status--up">
-											<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M10 5L5 4.37114e-07L0 5L10 5Z" fill="#11B603"/>
-											</svg>
-										</span>
-										<span class="orders__sort-item-status orders__sort-item-status--down">
-											<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M0 0L5 5L10 0H0Z" fill="#E0001A"/>
-											</svg>
-										</span>
-									</span>
+								<span class="orders__sort-item-status orders__sort-item-status--up">
+									<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M10 5L5 4.37114e-07L0 5L10 5Z" fill="#11B603"/>
+									</svg>
+								</span>
+								<span class="orders__sort-item-status orders__sort-item-status--down">
+									<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M0 0L5 5L10 0H0Z" fill="#E0001A"/>
+									</svg>
+								</span>
+							</span>
 								</a>
 							</li>
 							<li class="orders__sort-item">
@@ -703,17 +721,17 @@
 									</svg>
 									<span>Сумма</span>
 									<span class="orders__sort-item-status-wrap">
-										<span class="orders__sort-item-status orders__sort-item-status--up">
-											<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M10 5L5 4.37114e-07L0 5L10 5Z" fill="#11B603"/>
-											</svg>
-										</span>
-										<span class="orders__sort-item-status orders__sort-item-status--down">
-											<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M0 0L5 5L10 0H0Z" fill="#E0001A"/>
-											</svg>
-										</span>
-									</span>
+								<span class="orders__sort-item-status orders__sort-item-status--up">
+									<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M10 5L5 4.37114e-07L0 5L10 5Z" fill="#11B603"/>
+									</svg>
+								</span>
+								<span class="orders__sort-item-status orders__sort-item-status--down">
+									<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M0 0L5 5L10 0H0Z" fill="#E0001A"/>
+									</svg>
+								</span>
+							</span>
 								</a>
 							</li>
 							<li class="orders__sort-item">
@@ -731,21 +749,21 @@
 									</svg>
 									<span>Товар</span>
 									<span class="orders__sort-item-status-wrap">
-										<span class="orders__sort-item-status orders__sort-item-status--up">
-											<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M10 5L5 4.37114e-07L0 5L10 5Z" fill="#11B603"/>
-											</svg>
-										</span>
-										<span class="orders__sort-item-status orders__sort-item-status--down">
-											<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M0 0L5 5L10 0H0Z" fill="#E0001A"/>
-											</svg>
-										</span>
-									</span>
+								<span class="orders__sort-item-status orders__sort-item-status--up">
+									<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M10 5L5 4.37114e-07L0 5L10 5Z" fill="#11B603"/>
+									</svg>
+								</span>
+								<span class="orders__sort-item-status orders__sort-item-status--down">
+									<svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M0 0L5 5L10 0H0Z" fill="#E0001A"/>
+									</svg>
+								</span>
+							</span>
 								</a>
 							</li>
 						</ul>
-						<div class="orders__column-titles d-flex align-items-center justify-content-between">
+						<div class="orders__column-titles d-none d-xxl-flex align-items-center justify-content-between">
 							<div class="orders__column orders__column--title">Номер заказа</div>
 							<div class="orders__column orders__column--title">Дата заказа</div>
 							<div class="orders__column orders__column--title">Покупатель</div>
@@ -753,188 +771,342 @@
 							<div class="orders__column orders__column--title">Сумма</div>
 							<div class="orders__column orders__column--title">Товар</div>
 						</div>
-						<ul class="orders__items">
-							<li class="order-item orders__item bg-light rounded" data-order-status="completed">
-								<div class="orders__column order-item__number">
-									<span class="order-item__status-bar"></span>
-									<span>№ 997 556 744</span>
-									<div class="order-item__status">Выполнен</div>
+						<ul class="orders__items row">
+							<li class="order-item orders__item col-12 col-md-6 col-xxl-12">
+								<div class="order-item__wrap bg-light rounded" data-order-status="completed">
+									<div class="orders__column order-item__number">
+										<div class="order-item__title">Номер заказа</div>
+										<span class="order-item__status-bar"></span>
+										<span>№ 997 556 744</span>
+										<div class="order-item__status">Выполнен</div>
+									</div>
+									<div class="orders__column order-item__date">
+										<div class="order-item__title">Дата заказа</div>
+										<span>21.06.2020</span>
+									</div>
+									<div class="orders__column order-item__customer">
+										<div class="order-item__title">Покупатель</div>
+										<span>Семенов Антон Ф...</span>
+										<a href="tel:+399877744512" class="order-item__customer-phone">+399877744512</a>
+									</div>
+									<div class="orders__column order-item__seller">
+										<div class="order-item__title">Продавец</div>
+										<span>Армада</span>
+									</div>
+									<div class="orders__column order-item__total-price">
+										<div class="order-item__title">Сумма</div>
+										<span>3000 <span class="currency">тг</span></span>
+									</div>
+									<div class="orders__column order-item__thumbnails">
+										<span class="order-item__title">Товар</span>
+										<ul>
+											<li class="order-item__thumbnail">
+												<a href="#">
+													<img src="img/products/1.png" alt="">
+												</a>
+											</li>
+											<li class="order-item__thumbnail">
+												<a href="#">
+													<img src="img/products/1.png" alt="">
+												</a>
+											</li>
+										</ul>
+									</div>
 								</div>
-								<div class="orders__column order-item__date">21.06.2020</div>
-								<div class="orders__column order-item__customer">
-									<span>Семенов Антон Ф...</span>
-									<a href="tel:+399877744512" class="order-item__customer-phone">+399877744512</a>
-								</div>
-								<div class="orders__column order-item__seller">Армада</div>
-								<div class="orders__column order-item__total-price">3000 <span class="currency">тг</span></div>
-								<ul class="orders__column order-item__thumbnails">
-									<li class="order-item__thumbnail">
-										<a href="#">
-											<img src="img/categories/1.png" alt="">
-										</a>
-									</li>
-									<li class="order-item__thumbnail">
-										<a href="#">
-											<img src="img/categories/3.png" alt="">
-										</a>
-									</li>
-								</ul>
 							</li>
-							<li class="order-item orders__item bg-light rounded" data-order-status="frozen">
-								<div class="orders__column order-item__number">
-									<span class="order-item__status-bar"></span>
-									<span>№ 997 556 744</span>
-									<div class="order-item__status">Заморожено</div>
+							<li class="order-item orders__item col-12 col-md-6 col-xxl-12">
+								<div class="order-item__wrap bg-light rounded" data-order-status="frozen">
+									<div class="orders__column order-item__number">
+										<div class="order-item__title">Номер заказа</div>
+										<span class="order-item__status-bar"></span>
+										<span>№ 997 556 744</span>
+										<div class="order-item__status">Выполнен</div>
+									</div>
+									<div class="orders__column order-item__date">
+										<div class="order-item__title">Дата заказа</div>
+										<span>21.06.2020</span>
+									</div>
+									<div class="orders__column order-item__customer">
+										<div class="order-item__title">Покупатель</div>
+										<span>Семенов Антон Ф...</span>
+										<a href="tel:+399877744512" class="order-item__customer-phone">+399877744512</a>
+									</div>
+									<div class="orders__column order-item__seller">
+										<div class="order-item__title">Продавец</div>
+										<span>Армада</span>
+									</div>
+									<div class="orders__column order-item__total-price">
+										<div class="order-item__title">Сумма</div>
+										<span>3000 <span class="currency">тг</span></span>
+									</div>
+									<div class="orders__column order-item__thumbnails">
+										<span class="order-item__title">Товар</span>
+										<ul>
+											<li class="order-item__thumbnail">
+												<a href="#">
+													<img src="img/products/1.png" alt="">
+												</a>
+											</li>
+											<li class="order-item__thumbnail">
+												<a href="#">
+													<img src="img/products/1.png" alt="">
+												</a>
+											</li>
+										</ul>
+									</div>
 								</div>
-								<div class="orders__column order-item__date">21.06.2020</div>
-								<div class="orders__column order-item__customer">
-									<span>Семенов Антон Ф...</span>
-									<a href="tel:+399877744512" class="order-item__customer-phone">+399877744512</a>
-								</div>
-								<div class="orders__column order-item__seller">Армада</div>
-								<div class="orders__column order-item__total-price">3000 <span class="currency">тг</span></div>
-								<ul class="orders__column order-item__thumbnails">
-									<li class="order-item__thumbnail">
-										<a href="#">
-											<img src="img/categories/5.png" alt="">
-										</a>
-									</li>
-									<li class="order-item__thumbnail">
-										<a href="#">
-											<img src="img/categories/9.png" alt="">
-										</a>
-									</li>
-								</ul>
 							</li>
-							<li class="order-item orders__item bg-light rounded" data-order-status="canceled">
-								<div class="orders__column order-item__number">
-									<span class="order-item__status-bar"></span>
-									<span>№ 997 556 744</span>
-									<div class="order-item__status">Отменен</div>
+							<li class="order-item orders__item col-12 col-md-6 col-xxl-12">
+								<div class="order-item__wrap bg-light rounded" data-order-status="completed">
+									<div class="orders__column order-item__number">
+										<div class="order-item__title">Номер заказа</div>
+										<span class="order-item__status-bar"></span>
+										<span>№ 997 556 744</span>
+										<div class="order-item__status">Выполнен</div>
+									</div>
+									<div class="orders__column order-item__date">
+										<div class="order-item__title">Дата заказа</div>
+										<span>21.06.2020</span>
+									</div>
+									<div class="orders__column order-item__customer">
+										<div class="order-item__title">Покупатель</div>
+										<span>Семенов Антон Ф...</span>
+										<a href="tel:+399877744512" class="order-item__customer-phone">+399877744512</a>
+									</div>
+									<div class="orders__column order-item__seller">
+										<div class="order-item__title">Продавец</div>
+										<span>Армада</span>
+									</div>
+									<div class="orders__column order-item__total-price">
+										<div class="order-item__title">Сумма</div>
+										<span>3000 <span class="currency">тг</span></span>
+									</div>
+									<div class="orders__column order-item__thumbnails">
+										<span class="order-item__title">Товар</span>
+										<ul>
+											<li class="order-item__thumbnail">
+												<a href="#">
+													<img src="img/products/1.png" alt="">
+												</a>
+											</li>
+											<li class="order-item__thumbnail">
+												<a href="#">
+													<img src="img/products/1.png" alt="">
+												</a>
+											</li>
+										</ul>
+									</div>
 								</div>
-								<div class="orders__column order-item__date">21.06.2020</div>
-								<div class="orders__column order-item__customer">
-									<span>Семенов Антон Ф...</span>
-									<a href="tel:+399877744512" class="order-item__customer-phone">+399877744512</a>
-								</div>
-								<div class="orders__column order-item__seller">Армада</div>
-								<div class="orders__column order-item__total-price">3000 <span class="currency">тг</span></div>
-								<ul class="orders__column order-item__thumbnails">
-									<li class="order-item__thumbnail">
-										<a href="#">
-											<img src="img/categories/6.png" alt="">
-										</a>
-									</li>
-									<li class="order-item__thumbnail">
-										<a href="#">
-											<img src="img/categories/2.png" alt="">
-										</a>
-									</li>
-								</ul>
 							</li>
-							<li class="order-item orders__item bg-light rounded" data-order-status="canceled">
-								<div class="orders__column order-item__number">
-									<span class="order-item__status-bar"></span>
-									<span>№ 997 556 744</span>
-									<div class="order-item__status">Отменен</div>
+							<li class="order-item orders__item col-12 col-md-6 col-xxl-12">
+								<div class="order-item__wrap bg-light rounded" data-order-status="expect">
+									<div class="orders__column order-item__number">
+										<div class="order-item__title">Номер заказа</div>
+										<span class="order-item__status-bar"></span>
+										<span>№ 997 556 744</span>
+										<div class="order-item__status">Выполнен</div>
+									</div>
+									<div class="orders__column order-item__date">
+										<div class="order-item__title">Дата заказа</div>
+										<span>21.06.2020</span>
+									</div>
+									<div class="orders__column order-item__customer">
+										<div class="order-item__title">Покупатель</div>
+										<span>Семенов Антон Ф...</span>
+										<a href="tel:+399877744512" class="order-item__customer-phone">+399877744512</a>
+									</div>
+									<div class="orders__column order-item__seller">
+										<div class="order-item__title">Продавец</div>
+										<span>Армада</span>
+									</div>
+									<div class="orders__column order-item__total-price">
+										<div class="order-item__title">Сумма</div>
+										<span>3000 <span class="currency">тг</span></span>
+									</div>
+									<div class="orders__column order-item__thumbnails">
+										<span class="order-item__title">Товар</span>
+										<ul>
+											<li class="order-item__thumbnail">
+												<a href="#">
+													<img src="img/products/1.png" alt="">
+												</a>
+											</li>
+											<li class="order-item__thumbnail">
+												<a href="#">
+													<img src="img/products/1.png" alt="">
+												</a>
+											</li>
+										</ul>
+									</div>
 								</div>
-								<div class="orders__column order-item__date">21.06.2020</div>
-								<div class="orders__column order-item__customer">
-									<span>Семенов Антон Ф...</span>
-									<a href="tel:+399877744512" class="order-item__customer-phone">+399877744512</a>
-								</div>
-								<div class="orders__column order-item__seller">Армада</div>
-								<div class="orders__column order-item__total-price">3000 <span class="currency">тг</span></div>
-								<ul class="orders__column order-item__thumbnails">
-									<li class="order-item__thumbnail">
-										<a href="#">
-											<img src="img/categories/1.png" alt="">
-										</a>
-									</li>
-									<li class="order-item__thumbnail">
-										<a href="#">
-											<img src="img/categories/3.png" alt="">
-										</a>
-									</li>
-								</ul>
 							</li>
-							<li class="order-item orders__item bg-light rounded" data-order-status="completed">
-								<div class="orders__column order-item__number">
-									<span class="order-item__status-bar"></span>
-									<span>№ 997 556 744</span>
-									<div class="order-item__status">Выполнен</div>
+							<li class="order-item orders__item col-12 col-md-6 col-xxl-12">
+								<div class="order-item__wrap bg-light rounded" data-order-status="canceled">
+									<div class="orders__column order-item__number">
+										<div class="order-item__title">Номер заказа</div>
+										<span class="order-item__status-bar"></span>
+										<span>№ 997 556 744</span>
+										<div class="order-item__status">Выполнен</div>
+									</div>
+									<div class="orders__column order-item__date">
+										<div class="order-item__title">Дата заказа</div>
+										<span>21.06.2020</span>
+									</div>
+									<div class="orders__column order-item__customer">
+										<div class="order-item__title">Покупатель</div>
+										<span>Семенов Антон Ф...</span>
+										<a href="tel:+399877744512" class="order-item__customer-phone">+399877744512</a>
+									</div>
+									<div class="orders__column order-item__seller">
+										<div class="order-item__title">Продавец</div>
+										<span>Армада</span>
+									</div>
+									<div class="orders__column order-item__total-price">
+										<div class="order-item__title">Сумма</div>
+										<span>3000 <span class="currency">тг</span></span>
+									</div>
+									<div class="orders__column order-item__thumbnails">
+										<span class="order-item__title">Товар</span>
+										<ul>
+											<li class="order-item__thumbnail">
+												<a href="#">
+													<img src="img/products/1.png" alt="">
+												</a>
+											</li>
+											<li class="order-item__thumbnail">
+												<a href="#">
+													<img src="img/products/1.png" alt="">
+												</a>
+											</li>
+										</ul>
+									</div>
 								</div>
-								<div class="orders__column order-item__date">21.06.2020</div>
-								<div class="orders__column order-item__customer">
-									<span>Семенов Антон Ф...</span>
-									<a href="tel:+399877744512" class="order-item__customer-phone">+399877744512</a>
-								</div>
-								<div class="orders__column order-item__seller">Армада</div>
-								<div class="orders__column order-item__total-price">3000 <span class="currency">тг</span></div>
-								<ul class="orders__column order-item__thumbnails">
-									<li class="order-item__thumbnail">
-										<a href="#">
-											<img src="img/categories/1.png" alt="">
-										</a>
-									</li>
-									<li class="order-item__thumbnail">
-										<a href="#">
-											<img src="img/categories/3.png" alt="">
-										</a>
-									</li>
-								</ul>
 							</li>
-							<li class="order-item orders__item bg-light rounded" data-order-status="expect">
-								<div class="orders__column order-item__number">
-									<span class="order-item__status-bar"></span>
-									<span>№ 997 556 744</span>
-									<div class="order-item__status">Ожидает</div>
+							<li class="order-item orders__item col-12 col-md-6 col-xxl-12">
+								<div class="order-item__wrap bg-light rounded" data-order-status="canceled">
+									<div class="orders__column order-item__number">
+										<div class="order-item__title">Номер заказа</div>
+										<span class="order-item__status-bar"></span>
+										<span>№ 997 556 744</span>
+										<div class="order-item__status">Выполнен</div>
+									</div>
+									<div class="orders__column order-item__date">
+										<div class="order-item__title">Дата заказа</div>
+										<span>21.06.2020</span>
+									</div>
+									<div class="orders__column order-item__customer">
+										<div class="order-item__title">Покупатель</div>
+										<span>Семенов Антон Ф...</span>
+										<a href="tel:+399877744512" class="order-item__customer-phone">+399877744512</a>
+									</div>
+									<div class="orders__column order-item__seller">
+										<div class="order-item__title">Продавец</div>
+										<span>Армада</span>
+									</div>
+									<div class="orders__column order-item__total-price">
+										<div class="order-item__title">Сумма</div>
+										<span>3000 <span class="currency">тг</span></span>
+									</div>
+									<div class="orders__column order-item__thumbnails">
+										<span class="order-item__title">Товар</span>
+										<ul>
+											<li class="order-item__thumbnail">
+												<a href="#">
+													<img src="img/products/1.png" alt="">
+												</a>
+											</li>
+											<li class="order-item__thumbnail">
+												<a href="#">
+													<img src="img/products/1.png" alt="">
+												</a>
+											</li>
+										</ul>
+									</div>
 								</div>
-								<div class="orders__column order-item__date">21.06.2020</div>
-								<div class="orders__column order-item__customer">
-									<span>Семенов Антон Ф...</span>
-									<a href="tel:+399877744512" class="order-item__customer-phone">+399877744512</a>
-								</div>
-								<div class="orders__column order-item__seller">Армада</div>
-								<div class="orders__column order-item__total-price">3000 <span class="currency">тг</span></div>
-								<ul class="orders__column order-item__thumbnails">
-									<li class="order-item__thumbnail">
-										<a href="#">
-											<img src="img/categories/1.png" alt="">
-										</a>
-									</li>
-									<li class="order-item__thumbnail">
-										<a href="#">
-											<img src="img/categories/3.png" alt="">
-										</a>
-									</li>
-								</ul>
 							</li>
-							<li class="order-item orders__item bg-light rounded" data-order-status="completed">
-								<div class="orders__column order-item__number">
-									<span class="order-item__status-bar"></span>
-									<span>№ 997 556 744</span>
-									<div class="order-item__status">Выполнен</div>
+							<li class="order-item orders__item col-12 col-md-6 col-xxl-12">
+								<div class="order-item__wrap bg-light rounded" data-order-status="completed">
+									<div class="orders__column order-item__number">
+										<div class="order-item__title">Номер заказа</div>
+										<span class="order-item__status-bar"></span>
+										<span>№ 997 556 744</span>
+										<div class="order-item__status">Выполнен</div>
+									</div>
+									<div class="orders__column order-item__date">
+										<div class="order-item__title">Дата заказа</div>
+										<span>21.06.2020</span>
+									</div>
+									<div class="orders__column order-item__customer">
+										<div class="order-item__title">Покупатель</div>
+										<span>Семенов Антон Ф...</span>
+										<a href="tel:+399877744512" class="order-item__customer-phone">+399877744512</a>
+									</div>
+									<div class="orders__column order-item__seller">
+										<div class="order-item__title">Продавец</div>
+										<span>Армада</span>
+									</div>
+									<div class="orders__column order-item__total-price">
+										<div class="order-item__title">Сумма</div>
+										<span>3000 <span class="currency">тг</span></span>
+									</div>
+									<div class="orders__column order-item__thumbnails">
+										<span class="order-item__title">Товар</span>
+										<ul>
+											<li class="order-item__thumbnail">
+												<a href="#">
+													<img src="img/products/1.png" alt="">
+												</a>
+											</li>
+											<li class="order-item__thumbnail">
+												<a href="#">
+													<img src="img/products/1.png" alt="">
+												</a>
+											</li>
+										</ul>
+									</div>
 								</div>
-								<div class="orders__column order-item__date">21.06.2020</div>
-								<div class="orders__column order-item__customer">
-									<span>Семенов Антон Ф...</span>
-									<a href="tel:+399877744512" class="order-item__customer-phone">+399877744512</a>
+							</li>
+							<li class="order-item orders__item col-12 col-md-6 col-xxl-12">
+								<div class="order-item__wrap bg-light rounded" data-order-status="completed">
+									<div class="orders__column order-item__number">
+										<div class="order-item__title">Номер заказа</div>
+										<span class="order-item__status-bar"></span>
+										<span>№ 997 556 744</span>
+										<div class="order-item__status">Выполнен</div>
+									</div>
+									<div class="orders__column order-item__date">
+										<div class="order-item__title">Дата заказа</div>
+										<span>21.06.2020</span>
+									</div>
+									<div class="orders__column order-item__customer">
+										<div class="order-item__title">Покупатель</div>
+										<span>Семенов Антон Ф...</span>
+										<a href="tel:+399877744512" class="order-item__customer-phone">+399877744512</a>
+									</div>
+									<div class="orders__column order-item__seller">
+										<div class="order-item__title">Продавец</div>
+										<span>Армада</span>
+									</div>
+									<div class="orders__column order-item__total-price">
+										<div class="order-item__title">Сумма</div>
+										<span>3000 <span class="currency">тг</span></span>
+									</div>
+									<div class="orders__column order-item__thumbnails">
+										<span class="order-item__title">Товар</span>
+										<ul>
+											<li class="order-item__thumbnail">
+												<a href="#">
+													<img src="img/products/1.png" alt="">
+												</a>
+											</li>
+											<li class="order-item__thumbnail">
+												<a href="#">
+													<img src="img/products/1.png" alt="">
+												</a>
+											</li>
+										</ul>
+									</div>
 								</div>
-								<div class="orders__column order-item__seller">Армада</div>
-								<div class="orders__column order-item__total-price">3000 <span class="currency">тг</span></div>
-								<ul class="orders__column order-item__thumbnails">
-									<li class="order-item__thumbnail">
-										<a href="#">
-											<img src="img/categories/1.png" alt="">
-										</a>
-									</li>
-									<li class="order-item__thumbnail">
-										<a href="#">
-											<img src="img/categories/3.png" alt="">
-										</a>
-									</li>
-								</ul>
 							</li>
 						</ul>
 					</div>
