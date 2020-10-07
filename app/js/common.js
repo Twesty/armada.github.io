@@ -269,7 +269,15 @@ $(function() {
             nextArrow: nextArrow,
             swipeToSlide: true,
             infinite: false,
-            speed: 200
+            speed: 200,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        vertical: false
+                    }
+                }
+            ]
         });
 
     }
@@ -286,8 +294,26 @@ $(function() {
             slidesToScroll: 1,
             arrows: true,
             nextArrow: nextArrow,
-            prevArrow: prevArrow
-        })
+            prevArrow: prevArrow,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        dots: true
+                    }
+                }
+            ]
+        });
+
+        let dots = items.find('.slick-dots');
+
+        if(window.matchMedia('(max-width: 1024px)').matches){
+            dots.append(nextArrow);
+            dots.prepend(prevArrow);
+        } else {
+
+        }
+
     }
 
     // Image popup

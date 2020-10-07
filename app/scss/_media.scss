@@ -53,7 +53,7 @@
   }
 
   .button {
-    padding: 9px 24px 7px 24px;
+    padding: 9px 24px 9px 24px;
     &--border-bottom {
       padding: 5px 0;
     }
@@ -307,10 +307,50 @@
     }
   }
 
+  .reviews {
+    &__content {
+      padding: 0 40px;
+    }
+  }
+
 }
 
 // ≥768px
 @include media-breakpoint-down(sm) {
+
+  .breadcrumb {
+    padding-top: 20px;
+    margin-bottom: 0;
+    font-size: 11px;
+  }
+
+  .rating {
+    &__label {
+      font-size: .6rem;
+    }
+  }
+
+  .quantity {
+    &__title {
+      font-size: 12px;
+    }
+    &__input-wrap {
+      width: 110px;
+    }
+    &__input {
+      height: 30px;
+    }
+    &__operation {
+      width: 26px;
+      height: 26px;
+    }
+  }
+
+  .availability {
+    svg {
+      margin-right: 10px;
+    }
+  }
 
   .search {
     input {
@@ -494,6 +534,49 @@
     &__thumbnail {
       width: 42px;
       height: 30px;
+    }
+  }
+
+  .reviews {
+    &__content {
+      padding: 0 15px;
+    }
+    &__item {
+      padding: 30px 0;
+    }
+  }
+
+  .review {
+    &__date {
+      margin-top: 15px;
+      margin-left: 0;
+    }
+    &__text {
+      font-size: 13px;
+    }
+    &__advantages {
+      font-size: 13px;
+    }
+  }
+
+  .faq {
+    &__item {
+      box-shadow: 10px 13px 20px rgba(0, 0, 0, 0.07);
+      padding: 0;
+      background: #F7F7F7;
+      border-radius: 5px;
+      border: none;
+    }
+    &__question {
+      padding: 10px 15px;
+      font-size: 15px;
+    }
+    &__response {
+      margin-top: 0;
+      padding: 20px 20px 25px 20px;
+      max-width: 100%;
+      background: #FFF;
+      font-size: 13px;
     }
   }
 

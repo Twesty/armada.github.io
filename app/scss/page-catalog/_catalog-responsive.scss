@@ -17,6 +17,9 @@
 @include media-breakpoint-down(md) {
 
   .page-catalog {
+    &__subcategories {
+      margin-bottom: 20px;
+    }
     &__pagination {
       padding-bottom: 30px;
     }
