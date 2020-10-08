@@ -59,7 +59,7 @@ gulp.task('scripts', function() {
 		])
 	.pipe(concat('scripts.min.js'))
 	// .pipe(uglify()) // Mifify js (opt.)
-	.pipe(gulp.dest('app/js/dest'))
+	.pipe(gulp.dest('app/js/'))
 	.pipe(browserSync.reload({ stream: true }))
 });
 

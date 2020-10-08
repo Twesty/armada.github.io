@@ -1,12 +1,37 @@
 'use strict';
 
-$(function() {
+$( document ).ready(function () {
 
     // Tooltips
 
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });
+
+    // Banner slider
+
+    {
+        let itemsWrap = $('.banner__items');
+        let arrowNext = $('.banner__arrow--next');
+        let arrowPrev = $('.banner__arrow--prev');
+
+        itemsWrap.slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true,
+            arrows: true,
+            nextArrow: arrowNext,
+            prevArrow: arrowPrev,
+            //autoplay: true,
+            autoplaySpeed: 5000
+        });
+
+        let dots = itemsWrap.find('.slick-dots');
+
+        dots.wrap('<div class="banner__dots"></div>');
+
+        dots = $('.banner__dots').appendTo('.banner__controls');
+    }
 
     // Filters responsive
 
@@ -26,6 +51,42 @@ $(function() {
                 overlay.fadeIn(200);
                 filters.toggleClass('active');
             })
+        })
+    }
+
+    // Header autocomplete
+
+    {
+        let autosearch = $('.autosearch');
+        let autosearchWrap = $('.autosearch__wrap');
+
+        let overlay = $('.overlay');
+
+        overlay.on('click', function () {
+            overlay.fadeOut(200);
+            autosearch.slideUp(200);
+        });
+
+        let searchBox = $('.header__search .search');
+        let searchInput = searchBox.find('input');
+        let searchBoxWidth = searchBox.width();
+        let searchBoxOffset = searchBox.offset();
+        let searchBoxOffsetLeft = searchBoxOffset.left;
+
+        searchInput.keyup(function(){
+            if($( this ).val().length === 0) {
+                autosearch.slideUp(200);
+                searchBox.find('button').removeClass('active');
+                overlay.fadeOut(200);
+            } else {
+                overlay.fadeIn(200);
+                searchBox.find('button').addClass('active');
+                autosearchWrap.css({
+                    'max-width' : 'calc(100% - ' + searchBoxOffsetLeft - 40 + 'px)',
+                    'left' : searchBoxOffsetLeft + 'px'
+                });
+                autosearch.slideDown(200);
+            }
         })
     }
 
@@ -96,6 +157,27 @@ $(function() {
         });
     }
 
+    // Header subcategories dropdown
+
+    {
+        let item = $('.all-categories__main-item--has-children');
+        let wrap = $('.all-categories__wrap');
+
+        $.each(item, function(){
+            let dropdown = $( this ).find('.all-categories__subcategories');
+
+            $( this ).on('mouseenter', function () {
+                dropdown.show();
+                wrap.addClass('active');
+            })
+
+            $( this ).on('mouseleave', function () {
+                dropdown.hide();
+                wrap.removeClass('active');
+            })
+        })
+    }
+
     // Filter apply
 
     {
@@ -124,52 +206,6 @@ $(function() {
                 });
             })
         })
-    }
-
-    // Header subcategories dropdown
-
-    {
-        let item = $('.all-categories__main-item--has-children');
-        let wrap = $('.all-categories__wrap');
-
-        $.each(item, function(){
-            let dropdown = $( this ).find('.all-categories__subcategories');
-
-            $( this ).on('mouseenter', function () {
-                dropdown.show();
-                wrap.addClass('active');
-            })
-
-            $( this ).on('mouseleave', function () {
-                dropdown.hide();
-                wrap.removeClass('active');
-            })
-        })
-    }
-
-    // Banner slider
-
-    {
-        let itemsWrap = $('.banner__items');
-        let arrowNext = $('.banner__arrow--next');
-        let arrowPrev = $('.banner__arrow--prev');
-
-        itemsWrap.slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            dots: true,
-            arrows: true,
-            nextArrow: arrowNext,
-            prevArrow: arrowPrev,
-            //autoplay: true,
-            autoplaySpeed: 5000
-        });
-
-        let dots = itemsWrap.find('.slick-dots');
-
-        dots.wrap('<div class="banner__dots"></div>');
-
-        dots = $('.banner__dots').appendTo('.banner__controls');
     }
 
     // Slideshow

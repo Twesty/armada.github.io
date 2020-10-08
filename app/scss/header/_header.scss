@@ -1,7 +1,9 @@
 
 .header {
+  position: relative;
   box-shadow: 0 6.21477px 11.6527px rgba(0, 0, 0, 0.05);
   z-index: 10;
+  background: #FFF;
   &__overlay {
     position: absolute;
     top: 0;
@@ -70,6 +72,12 @@
   &__search {
     flex-grow: 1;
     padding: 0 45px;
+  }
+  &__search-autosearch {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
   }
   &__contact {
 
