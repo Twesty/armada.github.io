@@ -26,6 +26,22 @@
 
 .details {
   font-size: 15px;
+  .select-wrapper {
+    margin: 0 !important;
+    & > input.select-dropdown {
+      height: 56px !important;
+      padding: 15px 20px !important;
+      border-radius: 3px !important;
+      border: 1px solid #646464 !important;
+    }
+    span {
+      &.caret {
+        top: 50%;
+        transform: translateY(-50%);
+        right: 15px;
+      }
+    }
+  }
   label {
     cursor: pointer;
   }
