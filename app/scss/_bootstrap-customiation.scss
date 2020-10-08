@@ -21,11 +21,12 @@
 }
 
 .btn-outline-primary {
-  color: $accent;
-  border: 2px solid $accent;
+  color: $accent !important;
+  border: 2px solid $accent !important;
   &:hover {
-    background-color: $accent;
-    border-color: $accent;
+    color: #FFF !important;
+    background-color: $accent !important;
+    border-color: $accent !important;
   }
 }
 

@@ -2,11 +2,33 @@
 
 $( document ).ready(function () {
 
+    // Header media position fixed
+
+    {
+        let mainContent = $('.main-content');
+        let header = $('.header');
+        let headerHeight = header.outerHeight();
+
+        $( window ).resize(function(){
+            let headerHeight = header.outerHeight();
+            if(($(window).width() + 17) < 1280) {
+                mainContent.css({'margin-top': headerHeight + 'px'});
+            } else {
+                mainContent.css({'margin-top': '0'});
+            }
+        });
+
+        if(($(window).width() + 17) < 1280) {
+            mainContent.css({'margin-top': headerHeight + 'px'});
+        }
+    }
+
     // Tooltips
 
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });
+
 
     // Banner slider
 
@@ -31,6 +53,27 @@ $( document ).ready(function () {
         dots.wrap('<div class="banner__dots"></div>');
 
         dots = $('.banner__dots').appendTo('.banner__controls');
+    }
+
+    // Header responsive menu
+
+    {
+        let header = $('.header');
+        let button = $('.header__bars');
+        let overlay = $('.overlay, .header__overlay');
+        let menu = $('.header__responsive');
+
+        overlay.on('click', function () {
+            overlay.fadeOut(200);
+            menu.removeClass('active');
+        });
+
+        $.each(button, function () {
+            $( this ).on('click', function () {
+                overlay.fadeIn(200);
+                menu.toggleClass('active');
+            })
+        })
     }
 
     // Filters responsive
@@ -88,48 +131,6 @@ $( document ).ready(function () {
                 autosearch.slideDown(200);
             }
         })
-    }
-
-    // Header responsive menu
-
-    {
-        let header = $('.header');
-        let button = $('.header__bars');
-        let overlay = $('.overlay, .header__overlay');
-        let menu = $('.header__responsive');
-
-        overlay.on('click', function () {
-            overlay.fadeOut(200);
-            menu.removeClass('active');
-        });
-
-        $.each(button, function () {
-            $( this ).on('click', function () {
-                overlay.fadeIn(200);
-                menu.toggleClass('active');
-            })
-        })
-    }
-
-    // Header media position fixed
-
-    {
-        let mainContent = $('.main-content');
-        let header = $('.header');
-        let headerHeight = header.outerHeight();
-
-        $( window ).resize(function(){
-            let headerHeight = header.outerHeight();
-            if(($(window).width() + 17) < 1280) {
-                mainContent.css({'margin-top': headerHeight + 'px'});
-            } else {
-                mainContent.css({'margin-top': '0'});
-            }
-        });
-
-        if(($(window).width() + 17) < 1280) {
-            mainContent.css({'margin-top': headerHeight + 'px'});
-        }
     }
 
     // Header categories dropdown
