@@ -2,15 +2,43 @@
 
 $(function() {
 
+    // Tooltips
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
+    // Filters responsive
+
+    {
+        let filters = $('.filters');
+        let open = $('.filters__open');
+        let close = $('.filters__close, .overlay, .header__overlay');
+        let overlay = $('.overlay, .header__overlay');
+
+        close.on('click', function () {
+            filters.removeClass('active');
+            overlay.fadeOut(200);
+        });
+
+        $.each(open, function () {
+            $( this ).on('click', function () {
+                overlay.fadeIn(200);
+                filters.toggleClass('active');
+            })
+        })
+    }
+
     // Header responsive menu
 
     {
         let header = $('.header');
         let button = $('.header__bars');
-        let overlay = $('.overlay');
+        let overlay = $('.overlay, .header__overlay');
         let menu = $('.header__responsive');
 
         overlay.on('click', function () {
+            overlay.fadeOut(200);
             menu.removeClass('active');
         });
 
@@ -22,20 +50,15 @@ $(function() {
         })
     }
 
-    // Tooltips
-
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-
     // Header media position fixed
 
     {
         let mainContent = $('.main-content');
-        let headerHeight = $('.header').height();
+        let header = $('.header');
+        let headerHeight = header.outerHeight();
 
         $( window ).resize(function(){
-            let headerHeight = $('.header').height();
+            let headerHeight = header.outerHeight();
             if(($(window).width() + 17) < 1280) {
                 mainContent.css({'margin-top': headerHeight + 'px'});
             } else {
