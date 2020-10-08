@@ -945,161 +945,169 @@
 
 	<main class="main-content page-order">
 
-		<h2 class="page-order__title container">Оформление заказа</h2>
+		<h2 class="page-order__title container page-title">Оформление заказа</h2>
 
 		<section class="order page-order__order container">
 			<form action="#" class="order__form row">
-				<div class="details order__details col-12 col-md-6">
-					<p class="h4 mb-4">Покупатель</p>
+				<div class="details order__details col-12 col-lg-6">
+					<div class="details__wrap">
+						<p class="h4 mb-4">Покупатель</p>
 
-					<p>
-						<label for="fio">Введите Ф.И.О. *</label>
-						<input type="text" id="fio" class="form-control" placeholder="Ф.И.О. *" required>
-					</p>
-
-					<div class="form-row mb-4">
-						<div class="col">
-							<!-- Phone number -->
-							<label for="phone">Введите Ваш Телефон</label>
-							<input type="text" id="phone" class="form-control" placeholder="Телефон *" required>
-						</div>
-						<p class="col">
-							<!-- Phone number -->
-							<label for="phone2">Введите Ваш Телефон</label>
-							<input type="text" id="phone2" class="form-control" placeholder="Телефон *" required>
+						<p>
+							<label for="fio">Введите Ф.И.О. *</label>
+							<input type="text" id="fio" class="form-control" placeholder="Ф.И.О. *" required>
 						</p>
-					</div>
 
-					<p class="h4 mb-4">Адрес доставки</p>
-
-					<div class="form-row mb-4">
-						<div class="col">
-							<!-- Phone number -->
-							<label>Введите страну *</label>
-							<select class="mdb-select md-form" searchable="Поиск..." id="country">
-								<option value="" disabled selected>Выберите страну</option>
-								<option value="1">USA</option>
-								<option value="2">Germany</option>
-								<option value="3">France</option>
-								<option value="3">Poland</option>
-								<option value="3">Japan</option>
-							</select>
+						<div class="form-row mb-4">
+							<div class="col-12 col-md">
+								<label for="phone">Введите Ваш Телефон</label>
+								<input type="text" id="phone" class="form-control" placeholder="Телефон *" required>
+							</div>
+							<p class="col-12 col-md mt-4 mt-md-0">
+								<label for="phone2">Введите Ваш Телефон</label>
+								<input type="text" id="phone2" class="form-control" placeholder="Телефон *" required>
+							</p>
 						</div>
-						<div class="col">
-							<!-- Phone number -->
-							<label>Введите город *</label>
-							<select class="mdb-select md-form" searchable="Поиск..." id="city">
-								<option value="" disabled selected>Выберите город</option>
-								<option value="1">USA</option>
-								<option value="2">Germany</option>
-								<option value="3">France</option>
-								<option value="3">Poland</option>
-								<option value="3">Japan</option>
-							</select>
-						</div>
-					</div>
 
-					<p>
-						<label for="address">Адрес для доставки товара</label>
-						<input type="text" id="address" class="form-control" placeholder="Адрес *" required>
-					</p>
+						<p class="h4 mb-4">Адрес доставки</p>
 
-					<p class="form-group">
-						<label for="comment">Ваш комментарий к заказу</label>
-						<textarea class="form-control" id="comment" rows="4" placeholder="Комментарии"></textarea>
-					</p>
-
-					<br>
-					<p class="h4 mb-4">Способ доставки</p>
-
-					<div class="form-row mb-4 justify-content-around">
-						<div class="col-4">
-							<div class="custom-control custom-radio">
-								<input type="radio" class="custom-control-input" id="delivery-method" name="delivery-method" checked>
-								<label class="custom-control-label" for="delivery-method">Способ доставки 1</label>
+						<div class="form-row mb-4">
+							<div class="col-12 col-md-6">
+								<!-- Phone number -->
+								<label>Введите страну *</label>
+								<select class="mdb-select md-form" searchable="Поиск..." id="country">
+									<option value="" disabled selected>Выберите страну</option>
+									<option value="1">USA</option>
+									<option value="2">Germany</option>
+									<option value="3">France</option>
+									<option value="3">Poland</option>
+									<option value="3">Japan</option>
+								</select>
+							</div>
+							<div class="col-12 col-md-6">
+								<!-- Phone number -->
+								<label>Введите город *</label>
+								<select class="mdb-select md-form" searchable="Поиск..." id="city">
+									<option value="" disabled selected>Выберите город</option>
+									<option value="1">USA</option>
+									<option value="2">Germany</option>
+									<option value="3">France</option>
+									<option value="3">Poland</option>
+									<option value="3">Japan</option>
+								</select>
 							</div>
 						</div>
-						<div class="col-3 text-center">Бесплатно</div>
-						<div class="col-5">Будет передавно в службу доставки 23 августа</div>
-					</div>
 
-					<div class="form-row mb-4 justify-content-around">
-						<div class="col-4">
-							<div class="custom-control custom-radio">
-								<input type="radio" class="custom-control-input" id="delivery-method-2" name="delivery-method">
-								<label class="custom-control-label" for="delivery-method-2">Способ доставки 1</label>
+						<p>
+							<label for="address">Адрес для доставки товара</label>
+							<input type="text" id="address" class="form-control" placeholder="Адрес *" required>
+						</p>
+
+						<p class="form-group">
+							<label for="comment">Ваш комментарий к заказу</label>
+							<textarea class="form-control" id="comment" rows="4" placeholder="Комментарии"></textarea>
+						</p>
+
+						<br>
+
+						<div class="details__block">
+							<p class="h4 mb-4">Способ доставки</p>
+
+							<div class="form-row mb-4 justify-content-around">
+								<div class="col-8 col-xl-4">
+									<div class="custom-control custom-radio">
+										<input type="radio" class="custom-control-input" id="delivery-method" name="delivery-method" checked>
+										<label class="custom-control-label" for="delivery-method">Способ доставки 1</label>
+									</div>
+								</div>
+								<div class="col-4 col-md-6 col-xl-3 font-weight-semibold text-left text-xl-center">Бесплатно</div>
+								<div class="col-12 col-md-6 col-xl-5 mt-2 mt-xl-0">Будет передавно в службу доставки 23 августа</div>
+							</div>
+
+							<div class="form-row mb-4 justify-content-around">
+								<div class="col-8 col-xl-4">
+									<div class="custom-control custom-radio">
+										<input type="radio" class="custom-control-input" id="delivery-method-2" name="delivery-method">
+										<label class="custom-control-label" for="delivery-method-2">Способ доставки 1</label>
+									</div>
+								</div>
+								<div class="col-4 col-md-6 col-xl-3 font-weight-semibold text-left text-xl-center">Бесплатно</div>
+								<div class="col-12 col-md-6 col-xl-5 mt-2 mt-xl-0">Будет передавно в службу доставки 23 августа</div>
+							</div>
+
+							<div class="form-row mb-4 justify-content-around">
+								<div class="col-8 col-xl-4">
+									<div class="custom-control custom-radio">
+										<input type="radio" class="custom-control-input" id="delivery-method-3" name="delivery-method">
+										<label class="custom-control-label" for="delivery-method-3">Способ доставки 1</label>
+									</div>
+								</div>
+								<div class="col-4 col-md-6 col-xl-3 font-weight-semibold text-left text-xl-center">Бесплатно</div>
+								<div class="col-12 col-md-6 col-xl-5 mt-2 mt-xl-0">Будет передавно в службу доставки 23 августа</div>
 							</div>
 						</div>
-						<div class="col-3 text-center">Бесплатно</div>
-						<div class="col-5">Будет передавно в службу доставки 23 августа</div>
-					</div>
 
-					<div class="form-row mb-4 justify-content-around">
-						<div class="col-4">
-							<div class="custom-control custom-radio">
-								<input type="radio" class="custom-control-input" id="delivery-method-3" name="delivery-method">
-								<label class="custom-control-label" for="delivery-method-3">Способ доставки 1</label>
+						<br>
+
+						<div class="details__block">
+							<p class="h4 mb-4">Способ оплаты</p>
+
+							<p class="custom-control custom-radio">
+								<input type="radio" class="custom-control-input" id="payment-method" name="payment-method" checked>
+								<label class="custom-control-label" for="payment-method">Способ доставки 1</label>
+							</p>
+
+							<p class="custom-control custom-radio">
+								<input type="radio" class="custom-control-input" id="payment-method-2" name="payment-method">
+								<label class="custom-control-label" for="payment-method-2">Способ доставки 1</label>
+							</p>
+
+							<p class="custom-control custom-radio">
+								<input type="radio" class="custom-control-input" id="payment-method-3" name="payment-method">
+								<label class="custom-control-label" for="payment-method-3">Способ доставки 1</label>
+							</p>
+
+							<p class="custom-control custom-radio">
+								<input type="radio" class="custom-control-input" id="payment-method-4" name="payment-method">
+								<label class="custom-control-label" for="payment-method-4">Способ доставки 1</label>
+							</p>
+						</div>
+
+						<br>
+
+						<div class="details__block">
+							<p class="h4 mb-4">Способ оплаты</p>
+
+							<p class="custom-control custom-radio">
+								<input type="radio" class="custom-control-input" id="me" name="recipient" checked>
+								<label class="custom-control-label" for="me">Я</label>
+							</p>
+
+							<p class="custom-control custom-radio">
+								<input type="radio" class="custom-control-input" id="other" name="recipient">
+								<label class="custom-control-label" for="other">Другой человек</label>
+							</p>
+
+							<p>
+								<label for="address">Введите Ф.И.О. получателя *</label>
+								<input type="text" id="recipient-fio" class="form-control" placeholder="Ф.И.О. *" required>
+							</p>
+
+							<div class="form-row mb-4">
+								<div class="custom-radio col-12 col-md-6">
+									<label for="recipient-phone">Введите Телефон получателя</label>
+									<input type="text" id="recipient-phone" class="form-control" placeholder="Телефон *" required>
+								</div>
 							</div>
-						</div>
-						<div class="col-3 text-center">Бесплатно</div>
-						<div class="col-5">Будет передавно в службу доставки 23 августа</div>
-					</div>
 
-					<br>
-					<p class="h4 mb-4">Способ оплаты</p>
-
-					<p class="custom-control custom-radio">
-						<input type="radio" class="custom-control-input" id="payment-method" name="payment-method" checked>
-						<label class="custom-control-label" for="payment-method">Способ доставки 1</label>
-					</p>
-
-					<p class="custom-control custom-radio">
-						<input type="radio" class="custom-control-input" id="payment-method-2" name="payment-method">
-						<label class="custom-control-label" for="payment-method-2">Способ доставки 1</label>
-					</p>
-
-					<p class="custom-control custom-radio">
-						<input type="radio" class="custom-control-input" id="payment-method-3" name="payment-method">
-						<label class="custom-control-label" for="payment-method-3">Способ доставки 1</label>
-					</p>
-
-					<p class="custom-control custom-radio">
-						<input type="radio" class="custom-control-input" id="payment-method-4" name="payment-method">
-						<label class="custom-control-label" for="payment-method-4">Способ доставки 1</label>
-					</p>
-
-					<br>
-					<p class="h4 mb-4">Способ оплаты</p>
-
-					<p class="custom-control custom-radio">
-						<input type="radio" class="custom-control-input" id="me" name="recipient" checked>
-						<label class="custom-control-label" for="me">Я</label>
-					</p>
-
-					<p class="custom-control custom-radio">
-						<input type="radio" class="custom-control-input" id="other" name="recipient">
-						<label class="custom-control-label" for="other">Другой человек</label>
-					</p>
-
-					<p>
-						<label for="address">Введите Ф.И.О. получателя *</label>
-						<input type="text" id="recipient-fio" class="form-control" placeholder="Ф.И.О. *" required>
-					</p>
-
-					<div class="form-row mb-4">
-						<div class="custom-radio col-6">
-							<label for="recipient-phone">Введите Телефон получателя</label>
-							<input type="text" id="recipient-phone" class="form-control" placeholder="Телефон *" required>
+							<p class="custom-checkbox">
+								<input type="checkbox" class="custom-control-input" id="callback">
+								<label class="custom-control custom-control-label" for="callback">Не перезванивать мне, я уверен в заказе</label>
+							</p>
 						</div>
 					</div>
-
-					<p class="custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="callback">
-						<label class="custom-control custom-control-label" for="callback">Не перезванивать мне, я уверен в заказе</label>
-					</p>
-
 				</div>
-				<div class="order__order-total col-12 col-md-6">
+				<div class="order__order-total col-12 col-lg-6">
 					<div class="order-total__wrap rounded bg-light">
 						<div class="order-total__title">Итого</div>
 						<ul class="order-total__items">
@@ -1162,13 +1170,13 @@
 						<p class="font-weight-bold text-uppercase mt-4">Добавить промокод</p>
 						<p class="medium">Введите Ваш промокод ниже</p>
 						<div class="input-group mb-3 medium">
-							<input type="text" class="form-control px-4" placeholder="Промокод" aria-label="Recipient's username"
+							<input type="text" class="form-control px-4" placeholder="Промокод" aria-label="Введиет промокод..."
 								   aria-describedby="button-addon2">
 							<div class="input-group-append">
-								<button class="btn btn-md btn-outline-default m-0 px-4 font-weight-semibold py-2 z-depth-0 waves-effect text-uppercase text-white bg-dark py-3" type="button" id="button-addon2">Применить</button>
+								<button class="btn btn-md btn-default m-0 px-4 font-weight-semibold py-2 z-depth-0 waves-effect text-uppercase text-white bg-dark py-3" type="button" id="button-addon2">Применить</button>
 							</div>
 						</div>
-						<div class="order-total__total my-5">
+						<div class="order-total__total my-4 my-xl-5">
 							<span>К оплате: </span>
 							<span class="price price__current">90 400 <span class="currency">тг</span></span>
 						</div>
