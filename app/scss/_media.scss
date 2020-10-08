@@ -612,6 +612,7 @@
 
   .autosearch {
     &__wrap {
+      width: calc(100% - 30px);
       max-height: 500px;
       flex-direction: column;
       padding: 0 20px 215px 20px;
@@ -628,6 +629,9 @@
       &:not(:last-child) {
         border-right: none;
         border-bottom: 1px solid #E0E0E0;
+      }
+      .product-card__link {
+        justify-content: flex-start;
       }
       .product-card__title,
       .product-card__vendor {
