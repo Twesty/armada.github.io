@@ -1741,7 +1741,7 @@ a {
 		background: #FFF;
 	}
 	&__column-wrap {
-		height: 265px;
+		max-height: 265px;
 		overflow-y: auto;
 	}
 	&__column {

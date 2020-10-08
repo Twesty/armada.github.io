@@ -200,6 +200,15 @@
     font-size: 13px;
   }
 
+  .autosearch {
+    &__wrap {
+      left: 50% !important;
+      right: 40px !important;
+      max-width: 100% !important;
+      transform: translateX(-50%);
+    }
+  }
+
 }
 
 // ≥1024px
@@ -320,6 +329,17 @@
   .reviews {
     &__content {
       padding: 0 40px;
+    }
+  }
+
+  .autosearch {
+    &__column {
+      padding: 15px 20px 30px 20px;
+      &:last-child {
+        ul {
+          padding-right: 20px;
+        }
+      }
     }
   }
 
@@ -590,9 +610,50 @@
     }
   }
 
+  .autosearch {
+    &__wrap {
+      max-height: 500px;
+      flex-direction: column;
+      padding: 0 20px 215px 20px;
+      overflow-y: auto;
+    }
+    &__column {
+      padding: 20px 0;
+      &:last-child {
+        padding-right: 0;
+        ul {
+          padding-right: 0;
+        }
+      }
+      &:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid #E0E0E0;
+      }
+      .product-card__title,
+      .product-card__vendor {
+        font-size: 14px;
+        line-height: 1.3 !important;
+      }
+      .product-card__image {
+        img {
+          object-position: top center;
+        }
+      }
+    }
+    &__column-wrap {
+      overflow: initial;
+    }
+  }
+
 }
 
 // ≥360px
 @include media-breakpoint-down(xs) {
+
+  .autosearch {
+    .product-card__title {
+      display: block;
+    }
+  }
 
 }
