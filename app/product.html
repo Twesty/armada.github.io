@@ -31,6 +31,7 @@
 <body>
 
 <header class="header">
+    <div class="header__overlay"></div>
     <div class="header__top">
         <div class="container">
             <div class="header__top-wrap">
@@ -955,15 +956,6 @@
                         <li class="breadcrumb-item active" aria-current="page">Диван-кровать Сириус Blue темно-голубого цвета</li>
                     </ol>
                 </nav>
-                <div class="section__header-text section__header-text--search">
-                    <span>Не можете найти нужный раздел?</span>
-                    <a href="#">
-                        <span>Воспользуйтесь поиском</span>
-                        <svg width="29" height="8" viewBox="0 0 29 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M28.3536 4.35355C28.5488 4.15829 28.5488 3.84171 28.3536 3.64645L25.1716 0.464466C24.9763 0.269204 24.6597 0.269204 24.4645 0.464466C24.2692 0.659728 24.2692 0.976311 24.4645 1.17157L27.2929 4L24.4645 6.82843C24.2692 7.02369 24.2692 7.34027 24.4645 7.53553C24.6597 7.7308 24.9763 7.7308 25.1716 7.53553L28.3536 4.35355ZM0 4.5H28V3.5H0V4.5Z" fill="#EC6676"/>
-                        </svg>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
@@ -971,7 +963,7 @@
     <section class="product page-product__product">
         <div class="container">
             <div class="product__wrap row">
-                <div class="gallery product__gallery col-12 col-md-6">
+                <div class="gallery product__gallery col-12 col-lg-6">
                     <div class="d-flex">
                         <div class="gallery__thumbnails-wrap">
                             <div class="gallery__arrow gallery__arrow--prev">
@@ -1016,7 +1008,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product__content col-12 col-md-6">
+                <div class="product__content col-12 col-lg-6">
                     <h2 class="product__title">Диван-кровать Сириус Blue темно-голубого цвета</h2>
                     <ul class="product__chars">
                         <li class="product__char">
@@ -1058,18 +1050,18 @@
                                 <span onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="quantity__operation quantity__operation--minus">-</span>
                             </span>
                         </span>
-                        <a href="#" class="product__compare">
+                        <a href="#" class="product__compare d-none d-md-inline">
                             <svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M27.114 12.8905H26.9359L24.3826 5.99219C25.0617 5.84931 25.6946 5.51285 26.1915 5.01596C26.5376 4.66999 26.5376 4.10896 26.1915 3.76293C25.8456 3.41696 25.2845 3.41696 24.9385 3.76293C24.5833 4.11817 24.0926 4.31269 23.5896 4.29733C23.0976 4.28203 22.6498 4.07346 22.3288 3.70989C21.329 2.57759 19.8898 1.92819 18.3801 1.92819C17.0405 1.92819 15.8164 2.4314 14.8861 3.25824V0.983203C14.8861 0.493875 14.4894 0.097168 14.0001 0.097168C13.5107 0.097168 13.114 0.493875 13.114 0.983203V3.25819C12.1836 2.43134 10.9597 1.92813 9.61997 1.92813C8.11041 1.92813 6.67119 2.57753 5.67127 3.70989C5.35023 4.0734 4.90249 4.28203 4.4105 4.29727C3.90718 4.31269 3.41679 4.11805 3.06155 3.76287C2.71558 3.4169 2.15454 3.4169 1.80852 3.76287C1.46249 4.10884 1.46249 4.66988 1.80852 5.0159C2.30534 5.51273 2.93845 5.84954 3.61733 5.99243L1.06419 12.8905H0.886035C0.396707 12.8905 0 13.2872 0 13.7765V13.9784C0 16.4069 1.97574 18.3827 4.40436 18.3827H4.51541C6.94391 18.3827 8.91971 16.4069 8.91971 13.9784V13.7765C8.91971 13.2872 8.523 12.8905 8.03368 12.8905H7.85558L5.28561 5.94736C5.945 5.77057 6.53675 5.40706 6.99962 4.88282C7.6632 4.13123 8.61828 3.7002 9.61992 3.7002C11.5466 3.7002 13.114 5.26759 13.114 7.19419V19.6625C11.9118 19.9803 10.9636 20.9286 10.6457 22.1307H9.61986C9.13053 22.1307 8.73382 22.5274 8.73382 23.0168C8.73382 23.5061 9.13053 23.9028 9.61986 23.9028H18.3801C18.8694 23.9028 19.2661 23.5061 19.2661 23.0168C19.2661 22.5274 18.8694 22.1307 18.3801 22.1307H17.3542C17.0364 20.9286 16.0881 19.9803 14.886 19.6625V7.19419C14.886 5.26759 16.4534 3.7002 18.38 3.7002C19.3817 3.7002 20.3367 4.13123 21.0003 4.88282C21.4631 5.40706 22.0549 5.77063 22.7143 5.94736L20.1444 12.8905H19.9663C19.477 12.8905 19.0803 13.2872 19.0803 13.7765V13.9784C19.0803 16.4069 21.056 18.3827 23.4846 18.3827H23.5956C26.0241 18.3827 27.9999 16.4069 27.9999 13.9784V13.7765C28 13.2872 27.6033 12.8905 27.114 12.8905ZM4.51535 16.6106H4.4043C3.18943 16.6106 2.16411 15.7834 1.86221 14.6626H7.05738C6.75548 15.7834 5.73028 16.6106 4.51535 16.6106ZM2.32383 12.8905L4.45983 7.11964L6.59582 12.8905H2.32383ZM15.4471 22.1307H12.553C12.8519 21.6445 13.3887 21.3195 14.0001 21.3195C14.6114 21.3195 15.1482 21.6445 15.4471 22.1307ZM23.5402 7.11964L25.6762 12.8905H21.4042L23.5402 7.11964ZM23.5958 16.6106H23.4847C22.2698 16.6106 21.2446 15.7834 20.9427 14.6626H26.1378C25.8359 15.7834 24.8106 16.6106 23.5958 16.6106Z" fill="#A6A5A5"/>
                             </svg>
                         </a>
-                        <a href="#" class="product__favorite">
+                        <a href="#" class="product__favorite d-none d-md-inline">
                             <svg width="27" height="25" viewBox="0 0 27 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M13.5 24.1305C13.2208 24.1305 12.9417 24.0241 12.7286 23.8111L2.11511 13.1975C0.751184 11.8336 0 10.0201 0 8.09118C0 6.16226 0.751184 4.34873 2.11511 2.9848C3.47903 1.62088 5.29257 0.869629 7.22143 0.869629C9.15035 0.869629 10.9638 1.62081 12.3278 2.98474L13.4999 4.15692L14.6721 2.98474C17.4877 0.169122 22.0691 0.169184 24.8848 2.98474C26.2488 4.34873 26.9999 6.1622 26.9999 8.09112C26.9999 10.02 26.2488 11.8336 24.8848 13.1975L23.0612 15.0211L14.2713 23.8111C14.0583 24.024 13.7791 24.1305 13.5 24.1305ZM7.22149 3.05374C5.93093 3.05374 4.64031 3.54499 3.65787 4.5275C2.70591 5.4794 2.18168 6.74496 2.18168 8.09112C2.18168 9.43734 2.70591 10.7029 3.65781 11.6548L13.5 21.4971L23.3422 11.6549C24.2941 10.703 24.8183 9.43734 24.8183 8.09118C24.8183 6.74496 24.2941 5.4794 23.3422 4.5275C22.3903 3.5756 21.1247 3.05131 19.7785 3.05131C18.4323 3.05131 17.1667 3.57554 16.2148 4.52744L14.2713 6.47094C13.8453 6.89693 13.1546 6.89693 12.7286 6.47094L10.7851 4.52744C9.80267 3.54493 8.51205 3.05374 7.22149 3.05374Z" fill="#FFA900"/>
                             </svg>
                         </a>
                     </div>
-                    <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center justify-content-between justify-content-md-start flex-wrap">
                         <span class="price product__price">
                             <strike class="price__previous">98 000 <span class="currency">тг</span></strike>
                             <span class="price__special">90 400 <span class="currency">тг</span></span>
@@ -1084,6 +1076,20 @@
                             </svg>
                         </button>
                         <button type="button" class="btn btn-outline-dark product__callback">Онлайн консультация</button>
+                    </div>
+                    <div class="d-flex d-md-none align-items-center">
+                        <a href="#" class="product__compare d-flex align-items-center">
+                            <svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M27.114 12.8905H26.9359L24.3826 5.99219C25.0617 5.84931 25.6946 5.51285 26.1915 5.01596C26.5376 4.66999 26.5376 4.10896 26.1915 3.76293C25.8456 3.41696 25.2845 3.41696 24.9385 3.76293C24.5833 4.11817 24.0926 4.31269 23.5896 4.29733C23.0976 4.28203 22.6498 4.07346 22.3288 3.70989C21.329 2.57759 19.8898 1.92819 18.3801 1.92819C17.0405 1.92819 15.8164 2.4314 14.8861 3.25824V0.983203C14.8861 0.493875 14.4894 0.097168 14.0001 0.097168C13.5107 0.097168 13.114 0.493875 13.114 0.983203V3.25819C12.1836 2.43134 10.9597 1.92813 9.61997 1.92813C8.11041 1.92813 6.67119 2.57753 5.67127 3.70989C5.35023 4.0734 4.90249 4.28203 4.4105 4.29727C3.90718 4.31269 3.41679 4.11805 3.06155 3.76287C2.71558 3.4169 2.15454 3.4169 1.80852 3.76287C1.46249 4.10884 1.46249 4.66988 1.80852 5.0159C2.30534 5.51273 2.93845 5.84954 3.61733 5.99243L1.06419 12.8905H0.886035C0.396707 12.8905 0 13.2872 0 13.7765V13.9784C0 16.4069 1.97574 18.3827 4.40436 18.3827H4.51541C6.94391 18.3827 8.91971 16.4069 8.91971 13.9784V13.7765C8.91971 13.2872 8.523 12.8905 8.03368 12.8905H7.85558L5.28561 5.94736C5.945 5.77057 6.53675 5.40706 6.99962 4.88282C7.6632 4.13123 8.61828 3.7002 9.61992 3.7002C11.5466 3.7002 13.114 5.26759 13.114 7.19419V19.6625C11.9118 19.9803 10.9636 20.9286 10.6457 22.1307H9.61986C9.13053 22.1307 8.73382 22.5274 8.73382 23.0168C8.73382 23.5061 9.13053 23.9028 9.61986 23.9028H18.3801C18.8694 23.9028 19.2661 23.5061 19.2661 23.0168C19.2661 22.5274 18.8694 22.1307 18.3801 22.1307H17.3542C17.0364 20.9286 16.0881 19.9803 14.886 19.6625V7.19419C14.886 5.26759 16.4534 3.7002 18.38 3.7002C19.3817 3.7002 20.3367 4.13123 21.0003 4.88282C21.4631 5.40706 22.0549 5.77063 22.7143 5.94736L20.1444 12.8905H19.9663C19.477 12.8905 19.0803 13.2872 19.0803 13.7765V13.9784C19.0803 16.4069 21.056 18.3827 23.4846 18.3827H23.5956C26.0241 18.3827 27.9999 16.4069 27.9999 13.9784V13.7765C28 13.2872 27.6033 12.8905 27.114 12.8905ZM4.51535 16.6106H4.4043C3.18943 16.6106 2.16411 15.7834 1.86221 14.6626H7.05738C6.75548 15.7834 5.73028 16.6106 4.51535 16.6106ZM2.32383 12.8905L4.45983 7.11964L6.59582 12.8905H2.32383ZM15.4471 22.1307H12.553C12.8519 21.6445 13.3887 21.3195 14.0001 21.3195C14.6114 21.3195 15.1482 21.6445 15.4471 22.1307ZM23.5402 7.11964L25.6762 12.8905H21.4042L23.5402 7.11964ZM23.5958 16.6106H23.4847C22.2698 16.6106 21.2446 15.7834 20.9427 14.6626H26.1378C25.8359 15.7834 24.8106 16.6106 23.5958 16.6106Z" fill="#A6A5A5"/>
+                            </svg>
+                            <span>Добавить к сравнению</span>
+                        </a>
+                        <a href="#" class="product__favorite d-flex align-items-center">
+                            <svg width="27" height="25" viewBox="0 0 27 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.5 24.1305C13.2208 24.1305 12.9417 24.0241 12.7286 23.8111L2.11511 13.1975C0.751184 11.8336 0 10.0201 0 8.09118C0 6.16226 0.751184 4.34873 2.11511 2.9848C3.47903 1.62088 5.29257 0.869629 7.22143 0.869629C9.15035 0.869629 10.9638 1.62081 12.3278 2.98474L13.4999 4.15692L14.6721 2.98474C17.4877 0.169122 22.0691 0.169184 24.8848 2.98474C26.2488 4.34873 26.9999 6.1622 26.9999 8.09112C26.9999 10.02 26.2488 11.8336 24.8848 13.1975L23.0612 15.0211L14.2713 23.8111C14.0583 24.024 13.7791 24.1305 13.5 24.1305ZM7.22149 3.05374C5.93093 3.05374 4.64031 3.54499 3.65787 4.5275C2.70591 5.4794 2.18168 6.74496 2.18168 8.09112C2.18168 9.43734 2.70591 10.7029 3.65781 11.6548L13.5 21.4971L23.3422 11.6549C24.2941 10.703 24.8183 9.43734 24.8183 8.09118C24.8183 6.74496 24.2941 5.4794 23.3422 4.5275C22.3903 3.5756 21.1247 3.05131 19.7785 3.05131C18.4323 3.05131 17.1667 3.57554 16.2148 4.52744L14.2713 6.47094C13.8453 6.89693 13.1546 6.89693 12.7286 6.47094L10.7851 4.52744C9.80267 3.54493 8.51205 3.05374 7.22149 3.05374Z" fill="#FFA900"/>
+                            </svg>
+                            <span>Добавить в избранное</span>
+                        </a>
                     </div>
                     <a href="#" class="d-flex align-items-center product__price-drop">
                         <svg width="26" height="14" viewBox="0 0 26 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1152,24 +1158,24 @@
                             </ul>
                         </span>
                     </div>
-                    <div class="d-flex border rounded py-4 px-4 my-5">
-                        <span class="pr-5"><b>от 500 тг/месяц</b> при покупке товара в кредит или оплате частями.</span>
+                    <div class="d-flex flex-column flex-md-row border rounded py-3 py-md-4 px-3 px-md-4 my-3 mt-md-5">
+                        <span class="mb-4 mb-md-0 pr-md-5"><b>от 500 тг/месяц</b> при покупке товара в кредит или оплате частями.</span>
                         <button class="btn btn-primary px-4 font-weight-semibold">Купить в кредит</button>
                     </div>
-                    <div class="product__vendor rounded d-flex bg-light py-4 px-4">
+                    <div class="product__vendor rounded d-flex flex-column-reverse flex-md-row bg-light py-3 py-md-4 px-3 px-md-4">
                         <span class="flex-grow-1">
                             Продавец товара: <b>Армада</b><br>
                             Рейтинг товара: <b>4.1</b><br>
                             Отзывы о продавце: <b>50</b><br>
                             <a href="#" class="button button--border-bottom color--secondary">См. больше в магазине</a>
                         </span>
-                        <span class="flex-grow-1 d-flex align-items-center justify-content-center">
+                        <span class="flex-grow-1 d-flex align-items-center justify-content-start justify-content-md-center">
                             <img src="img/logo.png" width="145" alt="Company logo">
                         </span>
                     </div>
-                    <div class="product__info rounded border py-5 px-4 mt-5">
+                    <div class="product__info rounded border py-4 py-md-5 px-3 px-md-4 mt-3 mt-md-5">
                         <h4>Характеристики</h4>
-                        <ul class="d-flex flex-column pl-0 mb-0 mt-4 w-75">
+                        <ul class="d-flex flex-column pl-0 mb-0 mt-4 w-md-75">
                             <li class="d-flex mb-2">
                                 <span class="w-35 text-muted">Название:</span>
                                 <span class="w-55">Диван-кровать Сириус Blue темно-голубого цвета</span>
@@ -1210,7 +1216,7 @@
                             </svg>
                         </a>
                     </div>
-                    <div class="product__links mt-5">
+                    <div class="product__links mt-3 mt-md-5">
                         <h4>Информация о продукте</h4>
                         <a href="#" class="d-flex align-items-center d-inline-block mt-3">
                             <a href="#" class="button button--border-bottom color--secondary font-weight-semibold">Сравнение с похожими товарами</a>
@@ -1250,7 +1256,7 @@
                     <ul class="together__items bg-white rounded">
                         <li class="together-item together__item">
                             <div class="row together-item__wrap m-0">
-                                <div class="together-item__product col-12 col-md-6 border-right">
+                                <div class="together-item__product col-12 col-lg-6 border-right">
                                     <div class="product-card product-card--vertical">
                                         <article class="product-card__wrap">
                                             <a href="#" class="product-card__link">
@@ -1268,7 +1274,7 @@
                                         </article>
                                     </div>
                                 </div>
-                                <div class="together-item__product col-12 col-md-6">
+                                <div class="together-item__product col-12 col-lg-6">
                                     <div class="product-card product-card--vertical">
                                         <article class="product-card__wrap">
                                             <a href="#" class="product-card__link">
@@ -1288,7 +1294,7 @@
                                 </div>
                                 <div class="together-item__total col-12 border-top">
                                     <span class="text-dark">Код комплекта: 93982488 8937245</span>
-                                    <span class="d-flex">
+                                    <span class="d-flex flex-column align-items-center flex-md-row">
                                         <span class="price d-flex align-items-center mr-4">
                                             <span class="price__special">180 800 <span class="currency">тг</span></span>
                                         </span>
@@ -1307,7 +1313,7 @@
                         </li>
                         <li class="together-item together__item">
                             <div class="row together-item__wrap m-0">
-                                <div class="together-item__product col-12 col-md-6 border-right">
+                                <div class="together-item__product col-12 col-lg-6 border-right">
                                     <div class="product-card product-card--vertical">
                                         <article class="product-card__wrap">
                                             <a href="#" class="product-card__link">
@@ -1325,7 +1331,7 @@
                                         </article>
                                     </div>
                                 </div>
-                                <div class="together-item__product col-12 col-md-6">
+                                <div class="together-item__product col-12 col-lg-6">
                                     <div class="product-card product-card--vertical">
                                         <article class="product-card__wrap">
                                             <a href="#" class="product-card__link">
@@ -1345,7 +1351,7 @@
                                 </div>
                                 <div class="together-item__total col-12 border-top">
                                     <span class="text-dark">Код комплекта: 93982488 8937245</span>
-                                    <span class="d-flex">
+                                    <span class="d-flex flex-column align-items-center flex-md-row">
                                         <span class="price d-flex align-items-center mr-4">
                                             <span class="price__special">180 800 <span class="currency">тг</span></span>
                                         </span>
@@ -1364,7 +1370,7 @@
                         </li>
                         <li class="together-item together__item">
                             <div class="row together-item__wrap m-0">
-                                <div class="together-item__product col-12 col-md-6 border-right">
+                                <div class="together-item__product col-12 col-lg-6 border-right">
                                     <div class="product-card product-card--vertical">
                                         <article class="product-card__wrap">
                                             <a href="#" class="product-card__link">
@@ -1382,7 +1388,7 @@
                                         </article>
                                     </div>
                                 </div>
-                                <div class="together-item__product col-12 col-md-6">
+                                <div class="together-item__product col-12 col-lg-6">
                                     <div class="product-card product-card--vertical">
                                         <article class="product-card__wrap">
                                             <a href="#" class="product-card__link">
@@ -1402,7 +1408,7 @@
                                 </div>
                                 <div class="together-item__total col-12 border-top">
                                     <span class="text-dark">Код комплекта: 93982488 8937245</span>
-                                    <span class="d-flex">
+                                    <span class="d-flex flex-column align-items-center flex-md-row">
                                         <span class="price d-flex align-items-center mr-4">
                                             <span class="price__special">180 800 <span class="currency">тг</span></span>
                                         </span>
@@ -1420,6 +1426,11 @@
                             </div>
                         </li>
                     </ul>
+                    <div class="together__controls">
+                        <div class="together__dots">
+
+                        </div>
+                    </div>
                 </div>
                 <div class="together__arrow together__arrow--next">
                     <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1912,7 +1923,7 @@
             <h2 class="section__title text-center d-block w-100 font-weight-semibold">Информация о продукте</h2>
         </div>
         <div class="row">
-            <div class="seo-text__content offset-1 col-10 section__content default-skin">
+            <div class="seo-text__content col-12 offset-lg-1 col-lg-10 section__content default-skin">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales</p>
                 <p>pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctu</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales</p>
@@ -1929,25 +1940,25 @@
         </div>
         <div class="section__content">
             <ul class="interior__items row">
-                <li class="interior__item rounded overflow-hidden col-6 col-md-3 image-popup">
+                <li class="interior__item rounded overflow-hidden col-6 col-md-4 col-lg-3 image-popup">
                     <img class="hover-shadow w-100" src="img/interior/1.jpg" alt="Interior">
                 </li>
-                <li class="interior__item rounded overflow-hidden col-6 col-md-3 image-popup">
+                <li class="interior__item rounded overflow-hidden col-6 col-md-4 col-lg-3 image-popup">
                     <img class="hover-shadow w-100" src="img/interior/2.jpg" alt="Interior">
                 </li>
-                <li class="interior__item rounded overflow-hidden col-6 col-md-3 image-popup">
+                <li class="interior__item rounded overflow-hidden col-6 col-md-4 col-lg-3 image-popup">
                     <img class="hover-shadow w-100" src="img/interior/3.jpg" alt="Interior">
                 </li>
-                <li class="interior__item rounded overflow-hidden col-6 col-md-3 image-popup">
+                <li class="interior__item rounded overflow-hidden col-6 col-md-4 col-lg-3 image-popup">
                     <img class="hover-shadow w-100" src="img/interior/4.jpg" alt="Interior">
                 </li>
-                <li class="interior__item rounded overflow-hidden col-6 col-md-3 image-popup">
+                <li class="interior__item rounded overflow-hidden col-6 col-md-4 col-lg-3 image-popup">
                     <img class="hover-shadow w-100" src="img/interior/5.jpg" alt="Interior">
                 </li>
-                <li class="interior__item rounded overflow-hidden col-6 col-md-3 image-popup">
+                <li class="interior__item rounded overflow-hidden col-6 col-md-4 col-lg-3 image-popup">
                     <img class="hover-shadow w-100" src="img/interior/6.jpg" alt="Interior">
                 </li>
-                <li class="interior__item rounded overflow-hidden col-6 col-md-3 image-popup">
+                <li class="interior__item rounded overflow-hidden col-6 col-md-4 col-lg-3 image-popup">
                     <img class="hover-shadow w-100" src="img/interior/7.jpg" alt="Interior">
                 </li>
             </ul>
@@ -1969,7 +1980,7 @@
     </div>
 
     <section class="reviews page-product__reviews">
-        <div class="container">
+        <div class="container p-0 px-md-3">
             <div class="section__header reviews__header">
                 <h2 class="section__title section__title--dark">Отзывы (<span>2</span>)</h2>
                 <div class="section__header-text">
@@ -1982,7 +1993,7 @@
                         <div class="review__header mb-4 d-flex align-items-center justify-content-between">
                             <span>
                                 <b class="review__author">Алексей Андреевич</b>
-                                <span class="review__date">12.08.2020</span>
+                                <span class="review__date d-none d-md-inline">12.08.2020</span>
                             </span>
                             <div class="review_rating">
                                 <span class="rating-group">
@@ -2012,32 +2023,33 @@
                                 <p>Хороший материал на ощупь</p>
                             </div>
                             <ul class="review__images mt-4">
-                               <li class="review__image w-25 image-popup">
+                               <li class="review__image w-50 w-md-25 image-popup">
                                    <img src="img/interior/1.jpg" alt="" class="hover-shadow">
                                </li>
-                               <li class="review__image w-25 image-popup">
+                               <li class="review__image w-50 w-md-25 image-popup">
                                    <img src="img/interior/2.jpg" alt="" class="hover-shadow">
                                </li>
-                               <li class="review__image w-25 image-popup">
+                               <li class="review__image w-50 w-md-25 image-popup">
                                    <img src="img/interior/3.jpg" alt="" class="hover-shadow">
                                </li>
-                               <li class="review__image w-25 image-popup">
+                               <li class="review__image w-50 w-md-25 image-popup">
                                    <img src="img/interior/4.jpg" alt="" class="hover-shadow">
                                </li>
-                               <li class="review__image w-25 image-popup">
+                               <li class="review__image w-50 w-md-25 image-popup">
                                    <img src="img/interior/5.jpg" alt="" class="hover-shadow">
                                </li>
-                               <li class="review__image w-25 image-popup">
+                               <li class="review__image w-50 w-md-25 image-popup">
                                    <img src="img/interior/6.jpg" alt="" class="hover-shadow">
                                </li>
                             </ul>
                         </div>
+                        <span class="review__date d-block d-md-none">12.08.2020</span>
                     </li>
                     <li class="review reviews__item">
                         <div class="review__header mb-4 d-flex align-items-center justify-content-between">
                             <span>
                                 <b class="review__author">Алексей Андреевич</b>
-                                <span class="review__date">12.08.2020</span>
+                                <span class="review__date d-none d-md-inline">12.08.2020</span>
                             </span>
                             <div class="review_rating">
                                 <span class="rating-group">
@@ -2067,6 +2079,7 @@
                                 <p>Хороший материал на ощупь</p>
                             </div>
                         </div>
+                        <span class="review__date d-block d-md-none">12.08.2020</span>
                     </li>
                 </ul>
             </div>
@@ -2078,14 +2091,14 @@
             <h2 class="section__title text-center d-block w-100">Вопросы и ответы</h2>
         </div>
         <div class="row">
-            <div class="offset-1 col-10 section__content">
+            <div class="col-12 offset-xl-1 col-xl-10 section__content">
                 <ul class="faq__items">
                     <li class="faq__item rounded ">
                         <b class="faq__question font-weight-semibold">
                             <span>Cколько стоит доставка?</span>
                             <span class="faq__expand"></span>
                         </b>
-                        <p class="faq__response mt-2 mb-0">Доставка товара «Органайзер для кухни stag белого цвета» в пределах МКАД: — от 390 руб для мелкогабаритного товара, — от 790 руб для среднегабаритного, от 1490 руб — для крупногабаритного товара. Бесплатная доставка при заказе от 50000 рублей 🙈 .
+                        <p class="faq__response mt-md-2 mb-0">Доставка товара «Органайзер для кухни stag белого цвета» в пределах МКАД: — от 390 руб для мелкогабаритного товара, — от 790 руб для среднегабаритного, от 1490 руб — для крупногабаритного товара. Бесплатная доставка при заказе от 50000 рублей 🙈 .
                             <br>Подробнее о тарифах <span style="color: #E0001A; text-decoration:underline;">здесь.</span></p>
                     </li>
                     <li class="faq__item rounded ">
@@ -2093,7 +2106,7 @@
                             <span>Cколько стоит доставка?</span>
                             <span class="faq__expand"></span>
                         </b>
-                        <p class="faq__response mt-2 mb-0">Доставка товара «Органайзер для кухни stag белого цвета» в пределах МКАД: — от 390 руб для мелкогабаритного товара, — от 790 руб для среднегабаритного, от 1490 руб — для крупногабаритного товара. Бесплатная доставка при заказе от 50000 рублей 🙈 .
+                        <p class="faq__response mt-md-2 mb-0">Доставка товара «Органайзер для кухни stag белого цвета» в пределах МКАД: — от 390 руб для мелкогабаритного товара, — от 790 руб для среднегабаритного, от 1490 руб — для крупногабаритного товара. Бесплатная доставка при заказе от 50000 рублей 🙈 .
                             <br>Подробнее о тарифах <span style="color: #E0001A; text-decoration:underline;">здесь.</span></p>
                     </li>
                     <li class="faq__item rounded ">
@@ -2101,7 +2114,7 @@
                             <span>Cколько стоит доставка?</span>
                             <span class="faq__expand"></span>
                         </b>
-                        <p class="faq__response mt-2 mb-0">Доставка товара «Органайзер для кухни stag белого цвета» в пределах МКАД: — от 390 руб для мелкогабаритного товара, — от 790 руб для среднегабаритного, от 1490 руб — для крупногабаритного товара. Бесплатная доставка при заказе от 50000 рублей 🙈 .
+                        <p class="faq__response mt-md-2 mb-0">Доставка товара «Органайзер для кухни stag белого цвета» в пределах МКАД: — от 390 руб для мелкогабаритного товара, — от 790 руб для среднегабаритного, от 1490 руб — для крупногабаритного товара. Бесплатная доставка при заказе от 50000 рублей 🙈 .
                             <br>Подробнее о тарифах <span style="color: #E0001A; text-decoration:underline;">здесь.</span></p>
                     </li>
                 </ul>

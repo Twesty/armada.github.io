@@ -5,9 +5,8 @@
     padding-bottom: 75px;
   }
   &__title {
-    margin-top: 65px;
-    margin-bottom: 55px;
-    font-size: 38px;
+    padding-top: 65px;
+    padding-bottom: 55px;
     font-weight: 700;
   }
 }
@@ -26,6 +25,25 @@
 
 .details {
   font-size: 15px;
+  .custom-control {
+    padding-left: 2.25rem;
+  }
+  .select-wrapper {
+    margin: 0 !important;
+    & > input.select-dropdown {
+      height: 56px !important;
+      padding: 15px 20px !important;
+      border-radius: 3px !important;
+      border: 1px solid #646464 !important;
+    }
+    span {
+      &.caret {
+        top: 50%;
+        transform: translateY(-50%);
+        right: 15px;
+      }
+    }
+  }
   label {
     cursor: pointer;
   }
@@ -118,3 +136,5 @@
     font-size: 15px;
   }
 }
+
+@import "order-responsive";

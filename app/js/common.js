@@ -50,6 +50,43 @@ $(function() {
         })
     }
 
+    // Data Picker Initialization
+    $('.datepicker').datepicker();
+
+    // Material Select Initialization
+    $(document).ready(function() {
+        $('.mdb-select').materialSelect();
+    });
+
+    // User edit input
+
+    {
+        let userBlock = $('.user-block');
+
+        $.each(userBlock, function () {
+            let editButton = $( this ).find('.user-block__edit');
+            let inputs = $( this ).find('.user-block-info__value > *:not(span)');
+            let currentValue = $( this ).find('.user-block-info__value > span');
+
+            editButton.on('click', function (e) {
+                e.preventDefault();
+                let form = $( this ).parents('.user-block__wrap');
+
+                if( $( this ).hasClass('active') ) {
+                    form.submit();
+                } else {
+                    $( this ).addClass('active');
+                    editButton.find('span').text('Сохранить');
+                    currentValue.fadeOut(200);
+
+                    setTimeout(function () {
+                        inputs.fadeIn(200);
+                    }, 200);
+                }
+            })
+        })
+    }
+
     // Header media position fixed
 
     {
@@ -269,7 +306,15 @@ $(function() {
             nextArrow: nextArrow,
             swipeToSlide: true,
             infinite: false,
-            speed: 200
+            speed: 200,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        vertical: false
+                    }
+                }
+            ]
         });
 
     }
@@ -286,8 +331,26 @@ $(function() {
             slidesToScroll: 1,
             arrows: true,
             nextArrow: nextArrow,
-            prevArrow: prevArrow
-        })
+            prevArrow: prevArrow,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        dots: true
+                    }
+                }
+            ]
+        });
+
+        let dots = items.find('.slick-dots');
+
+        if(window.matchMedia('(max-width: 1024px)').matches){
+            dots.append(nextArrow);
+            dots.prepend(prevArrow);
+        } else {
+
+        }
+
     }
 
     // Image popup
