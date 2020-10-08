@@ -14,6 +14,7 @@ var gulp          = require('gulp')
 		rsync         = require('gulp-rsync'),
 		imageResize   = require('gulp-image-resize'),
 		imagemin      = require('gulp-imagemin'),
+		minify        = require('gulp-minify'),
 		del           = require('del');
 
 // Local Server
@@ -58,8 +59,16 @@ gulp.task('scripts', function() {
 		])
 	.pipe(concat('scripts.min.js'))
 	// .pipe(uglify()) // Mifify js (opt.)
-	.pipe(gulp.dest('app/js'))
+	.pipe(gulp.dest('app/js/dest'))
 	.pipe(browserSync.reload({ stream: true }))
+});
+
+gulp.task('page-scripts', function() {
+	return gulp.src('app/js/src/**/*.*')
+		//.pipe(concat('scripts.min.js'))
+		.pipe(minify()) // Mifify js (opt.)
+		.pipe(gulp.dest('app/js/dest'))
+		.pipe(browserSync.reload({ stream: true }))
 });
 
 // Images @x1 & @x2 + Compression | Required graphicsmagick (sudo apt update; sudo apt install graphicsmagick)
@@ -109,12 +118,13 @@ if (gulpVersion == 3) {
 	// Img Processing Task for Gulp 3
 	gulp.task('img', ['img1x', 'img2x']);
 	
-	var taskArr = ['styles', 'scripts', 'browser-sync'];
+	var taskArr = ['styles', 'scripts', 'page-scripts', 'browser-sync'];
 	gmWatch && taskArr.unshift('img');
 
 	gulp.task('watch', taskArr, function() {
 		gulp.watch('app/'+syntax+'/**/*.'+syntax+'', ['styles']);
 		gulp.watch(['libs/**/*.js', 'app/js/common.js'], ['scripts']);
+		gulp.watch(['app/js/src/**/*.js', 'app/js/common.js'], ['page-scripts']);
 		gulp.watch('app/*.html', ['code']);
 		gmWatch && gulp.watch('app/img/_src/**/*', ['img']);
 	});
@@ -131,10 +141,11 @@ if (gulpVersion == 4) {
 	gulp.task('watch', function() {
 		gulp.watch('app/'+syntax+'/**/*.'+syntax+'', gulp.parallel('styles'));
 		gulp.watch(['libs/**/*.js', 'app/js/common.js'], gulp.parallel('scripts'));
+		gulp.watch('app/js/src/**/*.js', gulp.parallel('page-scripts'));
 		gulp.watch('app/*.html', gulp.parallel('code'));
 		gmWatch && gulp.watch('app/img/_src/**/*', gulp.parallel('img')); // GraphicsMagick watching image sources if allowed.
 	});
-	gmWatch ? gulp.task('default', gulp.parallel('img', 'styles', 'scripts', 'browser-sync', 'watch')) 
-					: gulp.task('default', gulp.parallel('styles', 'scripts', 'browser-sync', 'watch'));
+	gmWatch ? gulp.task('default', gulp.parallel('img', 'styles', 'scripts', 'page-scripts', 'browser-sync', 'watch'))
+			: gulp.task('default', gulp.parallel('styles', 'scripts', 'page-scripts', 'browser-sync', 'watch'));
 
 };
