@@ -57,8 +57,8 @@ gulp.task('scripts', function() {
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		'app/js/common.js', // Always at the end
 		])
-	.pipe(concat('scripts.min.js'))
-	// .pipe(uglify()) // Mifify js (opt.)
+	.pipe(concat('scripts.js'))
+	.pipe(minify()) // Mifify js (opt.)
 	.pipe(gulp.dest('app/js/'))
 	.pipe(browserSync.reload({ stream: true }))
 });
