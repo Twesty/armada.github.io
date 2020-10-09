@@ -339,7 +339,6 @@ $( document ).ready(function () {
 
             if(titleText.length > standartLimit || vendorText.length > standartLimit) {
                 let productContent = $( this ).find('.product-card__content');
-                let productImage = $( this ).find('.product-card__image');
 
                 $( this ).on('mouseenter', function () {
 
@@ -354,24 +353,16 @@ $( document ).ready(function () {
                         }
                     });
 
-                    // productContent.css({
-                    //     'margin-top' : '-' + ((titleHeight * limitRatio) + (vendorHeight * limitRatio) - 50) + 'px',
-                    // });
-
-                    productImage.css({
-                        'margin-bottom' : '-' + ((titleHeight * limitRatio) + (vendorHeight * limitRatio) - 90) + 'px',
+                    productContent.css({
+                        'margin-top' : '-' + ((titleHeight * limitRatio) + (vendorHeight * limitRatio) - 50) + 'px',
                     });
 
                 });
 
                 $( this ).on('mouseleave', function () {
 
-                    // productContent.css({
-                    //     'margin-top' : '0'
-                    // });
-
-                    productImage.css({
-                        'margin-bottom' : '0',
+                    productContent.css({
+                        'margin-top' : '0'
                     });
 
                     $.each([title, vendor], function () {
