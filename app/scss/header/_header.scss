@@ -1,4 +1,3 @@
-
 .header {
   position: relative;
   box-shadow: 0 6.21477px 11.6527px rgba(0, 0, 0, 0.05);
@@ -117,7 +116,9 @@
     padding-right: 35px;
   }
   &__cart {
-
+    border: none;
+    background: none;
+    cursor: pointer;
   }
   &__bottom {
     position: relative;
