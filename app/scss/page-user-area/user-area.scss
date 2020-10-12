@@ -40,7 +40,20 @@
     }
     &__user-mail {
         font-size: 14px;
-        color: #494949;
+        b,
+        span {
+            color: #494949;
+        }
+        &:hover,
+        .active {
+            path {
+                fill: $accent;
+            }
+            b,
+            span {
+                color: $accent;
+            }
+        }
     }
     &__items {
         margin: 0;
