@@ -30,6 +30,16 @@
 // ≥768px
 @include media-breakpoint-down(sm) {
 
+  .page-catalog {
+    &__viewed {
+      padding-bottom: 0;
+    }
+    &__about {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+  }
+
 }
 
 // ≥360px
