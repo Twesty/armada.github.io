@@ -78,13 +78,16 @@
     .product-card__wrap {
       background: none;
     }
+    .product-card__content {
+      background: none;
+    }
     .product-card__link {
       align-items: flex-start;
       justify-content: flex-start;
     }
     .product-card__image {
       width: 135px;
-      height: 175px;
+      min-height: 175px;
       background: #FFF;
       img {
         width: 80%;
