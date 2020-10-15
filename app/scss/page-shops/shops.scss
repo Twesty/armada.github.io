@@ -37,7 +37,7 @@
 
   }
   &__shops {
-    margin: 0 0 -60px 0;
+    margin: 0 -15px -60px -15px;
     padding: 0;
     list-style: none;
   }
@@ -59,3 +59,5 @@
     margin-right: 16px;
   }
 }
+
+@import "shops-responsive.scss";

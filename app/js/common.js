@@ -259,7 +259,7 @@ $( document ).ready(function () {
     // Seo text content scrollbar
 
     {
-        let content = $('.seo-text__content, .catalog__categories-list, .custom-scrollbar');
+        let content = $('.seo-text__content, .catalog__categories-list, .custom-scrollbar, .filters');
 
         $.each(content, function () {
             $( this ).mCustomScrollbar();
