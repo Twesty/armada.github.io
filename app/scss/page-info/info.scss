@@ -1,7 +1,12 @@
 @import "../vars";
 
 .page-info {
-
+  &__map {
+    margin-bottom: 90px;
+  }
+  &__contacts {
+    padding-bottom: 40px;
+  }
 }
 
 

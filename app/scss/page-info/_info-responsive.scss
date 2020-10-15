@@ -21,6 +21,18 @@
 // ≥768px
 @include media-breakpoint-down(sm) {
 
+  .page-info {
+    &__map {
+      margin-bottom: 30px;
+      #map {
+        height: 300px !important;
+      }
+    }
+    &__contacts {
+      font-size: 14px;
+    }
+  }
+
 }
 
 // ≥360px
