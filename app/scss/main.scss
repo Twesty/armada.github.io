@@ -1831,6 +1831,12 @@ a {
 		position: relative;
 		display: inline-flex;
 		background: #FFF;
+		#mCSB_1_container {
+			display: flex;
+		}
+		#mCSB_1 {
+			width: 100%;
+		}
 	}
 	&__column-wrap {
 		max-height: 265px;

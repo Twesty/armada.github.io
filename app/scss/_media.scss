@@ -731,8 +731,10 @@
     &__wrap {
       width: calc(100% - 30px);
       max-height: 500px;
-      flex-direction: column;
       padding: 15px 10px 15px 20px;
+      #mCSB_1_container {
+        flex-direction: column;
+      }
     }
     &__column {
       padding: 20px 0;
