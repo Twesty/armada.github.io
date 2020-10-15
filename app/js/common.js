@@ -262,7 +262,7 @@ $( document ).ready(function () {
         let content = $('.seo-text__content, .catalog__categories-list, .custom-scrollbar');
 
         $.each(content, function () {
-            $( this ).customScrollbar();
+            $( this ).mCustomScrollbar();
         })
     }
 
@@ -341,9 +341,12 @@ $( document ).ready(function () {
                 let productContent = $( this ).find('.product-card__content');
 
                 $( this ).on('mouseenter', function () {
-
                     title.text(titleText);
                     vendor.text(vendorText);
+
+                    productContent.css({
+                        'margin-top' : '-' + ((titleHeight * limitRatio) + (vendorHeight * limitRatio) - 50) + 'px',
+                    });
 
                     $.each([title, vendor], function () {
                         let length = $(this).text().length;
@@ -351,10 +354,6 @@ $( document ).ready(function () {
                         if (length > expandedLimit) {
                             $(this).text($(this).text().substr(0, expandedLimit) + '...');
                         }
-                    });
-
-                    productContent.css({
-                        'margin-top' : '-' + ((titleHeight * limitRatio) + (vendorHeight * limitRatio) - 50) + 'px',
                     });
 
                 });

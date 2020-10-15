@@ -118,819 +118,2464 @@ this.isMultiLine=o||!a&&this._isContentEditable(this.element),this.valueMethod=t
 },disable:t.noop,enable:t.noop,close:function(e){var i=this;this._isOpen&&this._trigger("beforeClose",e)!==!1&&(this._isOpen=!1,this._focusedElement=null,this._destroyOverlay(),this._untrackInstance(),this.opener.filter(":focusable").trigger("focus").length||t.ui.safeBlur(t.ui.safeActiveElement(this.document[0])),this._hide(this.uiDialog,this.options.hide,function(){i._trigger("close",e)}))},isOpen:function(){return this._isOpen},moveToTop:function(){this._moveToTop()},_moveToTop:function(e,i){var s=!1,n=this.uiDialog.siblings(".ui-front:visible").map(function(){return+t(this).css("z-index")}).get(),o=Math.max.apply(null,n);return o>=+this.uiDialog.css("z-index")&&(this.uiDialog.css("z-index",o+1),s=!0),s&&!i&&this._trigger("focus",e),s},open:function(){var e=this;return this._isOpen?(this._moveToTop()&&this._focusTabbable(),void 0):(this._isOpen=!0,this.opener=t(t.ui.safeActiveElement(this.document[0])),this._size(),this._position(),this._createOverlay(),this._moveToTop(null,!0),this.overlay&&this.overlay.css("z-index",this.uiDialog.css("z-index")-1),this._show(this.uiDialog,this.options.show,function(){e._focusTabbable(),e._trigger("focus")}),this._makeFocusTarget(),this._trigger("open"),void 0)},_focusTabbable:function(){var t=this._focusedElement;t||(t=this.element.find("[autofocus]")),t.length||(t=this.element.find(":tabbable")),t.length||(t=this.uiDialogButtonPane.find(":tabbable")),t.length||(t=this.uiDialogTitlebarClose.filter(":tabbable")),t.length||(t=this.uiDialog),t.eq(0).trigger("focus")},_keepFocus:function(e){function i(){var e=t.ui.safeActiveElement(this.document[0]),i=this.uiDialog[0]===e||t.contains(this.uiDialog[0],e);i||this._focusTabbable()}e.preventDefault(),i.call(this),this._delay(i)},_createWrapper:function(){this.uiDialog=t("<div>").hide().attr({tabIndex:-1,role:"dialog"}).appendTo(this._appendTo()),this._addClass(this.uiDialog,"ui-dialog","ui-widget ui-widget-content ui-front"),this._on(this.uiDialog,{keydown:function(e){if(this.options.closeOnEscape&&!e.isDefaultPrevented()&&e.keyCode&&e.keyCode===t.ui.keyCode.ESCAPE)return e.preventDefault(),this.close(e),void 0;if(e.keyCode===t.ui.keyCode.TAB&&!e.isDefaultPrevented()){var i=this.uiDialog.find(":tabbable"),s=i.filter(":first"),n=i.filter(":last");e.target!==n[0]&&e.target!==this.uiDialog[0]||e.shiftKey?e.target!==s[0]&&e.target!==this.uiDialog[0]||!e.shiftKey||(this._delay(function(){n.trigger("focus")}),e.preventDefault()):(this._delay(function(){s.trigger("focus")}),e.preventDefault())}},mousedown:function(t){this._moveToTop(t)&&this._focusTabbable()}}),this.element.find("[aria-describedby]").length||this.uiDialog.attr({"aria-describedby":this.element.uniqueId().attr("id")})},_createTitlebar:function(){var e;this.uiDialogTitlebar=t("<div>"),this._addClass(this.uiDialogTitlebar,"ui-dialog-titlebar","ui-widget-header ui-helper-clearfix"),this._on(this.uiDialogTitlebar,{mousedown:function(e){t(e.target).closest(".ui-dialog-titlebar-close")||this.uiDialog.trigger("focus")}}),this.uiDialogTitlebarClose=t("<button type='button'></button>").button({label:t("<a>").text(this.options.closeText).html(),icon:"ui-icon-closethick",showLabel:!1}).appendTo(this.uiDialogTitlebar),this._addClass(this.uiDialogTitlebarClose,"ui-dialog-titlebar-close"),this._on(this.uiDialogTitlebarClose,{click:function(t){t.preventDefault(),this.close(t)}}),e=t("<span>").uniqueId().prependTo(this.uiDialogTitlebar),this._addClass(e,"ui-dialog-title"),this._title(e),this.uiDialogTitlebar.prependTo(this.uiDialog),this.uiDialog.attr({"aria-labelledby":e.attr("id")})},_title:function(t){this.options.title?t.text(this.options.title):t.html("&#160;")},_createButtonPane:function(){this.uiDialogButtonPane=t("<div>"),this._addClass(this.uiDialogButtonPane,"ui-dialog-buttonpane","ui-widget-content ui-helper-clearfix"),this.uiButtonSet=t("<div>").appendTo(this.uiDialogButtonPane),this._addClass(this.uiButtonSet,"ui-dialog-buttonset"),this._createButtons()},_createButtons:function(){var e=this,i=this.options.buttons;return this.uiDialogButtonPane.remove(),this.uiButtonSet.empty(),t.isEmptyObject(i)||t.isArray(i)&&!i.length?(this._removeClass(this.uiDialog,"ui-dialog-buttons"),void 0):(t.each(i,function(i,s){var n,o;s=t.isFunction(s)?{click:s,text:i}:s,s=t.extend({type:"button"},s),n=s.click,o={icon:s.icon,iconPosition:s.iconPosition,showLabel:s.showLabel,icons:s.icons,text:s.text},delete s.click,delete s.icon,delete s.iconPosition,delete s.showLabel,delete s.icons,"boolean"==typeof s.text&&delete s.text,t("<button></button>",s).button(o).appendTo(e.uiButtonSet).on("click",function(){n.apply(e.element[0],arguments)})}),this._addClass(this.uiDialog,"ui-dialog-buttons"),this.uiDialogButtonPane.appendTo(this.uiDialog),void 0)},_makeDraggable:function(){function e(t){return{position:t.position,offset:t.offset}}var i=this,s=this.options;this.uiDialog.draggable({cancel:".ui-dialog-content, .ui-dialog-titlebar-close",handle:".ui-dialog-titlebar",containment:"document",start:function(s,n){i._addClass(t(this),"ui-dialog-dragging"),i._blockFrames(),i._trigger("dragStart",s,e(n))},drag:function(t,s){i._trigger("drag",t,e(s))},stop:function(n,o){var a=o.offset.left-i.document.scrollLeft(),r=o.offset.top-i.document.scrollTop();s.position={my:"left top",at:"left"+(a>=0?"+":"")+a+" "+"top"+(r>=0?"+":"")+r,of:i.window},i._removeClass(t(this),"ui-dialog-dragging"),i._unblockFrames(),i._trigger("dragStop",n,e(o))}})},_makeResizable:function(){function e(t){return{originalPosition:t.originalPosition,originalSize:t.originalSize,position:t.position,size:t.size}}var i=this,s=this.options,n=s.resizable,o=this.uiDialog.css("position"),a="string"==typeof n?n:"n,e,s,w,se,sw,ne,nw";this.uiDialog.resizable({cancel:".ui-dialog-content",containment:"document",alsoResize:this.element,maxWidth:s.maxWidth,maxHeight:s.maxHeight,minWidth:s.minWidth,minHeight:this._minHeight(),handles:a,start:function(s,n){i._addClass(t(this),"ui-dialog-resizing"),i._blockFrames(),i._trigger("resizeStart",s,e(n))},resize:function(t,s){i._trigger("resize",t,e(s))},stop:function(n,o){var a=i.uiDialog.offset(),r=a.left-i.document.scrollLeft(),h=a.top-i.document.scrollTop();s.height=i.uiDialog.height(),s.width=i.uiDialog.width(),s.position={my:"left top",at:"left"+(r>=0?"+":"")+r+" "+"top"+(h>=0?"+":"")+h,of:i.window},i._removeClass(t(this),"ui-dialog-resizing"),i._unblockFrames(),i._trigger("resizeStop",n,e(o))}}).css("position",o)},_trackFocus:function(){this._on(this.widget(),{focusin:function(e){this._makeFocusTarget(),this._focusedElement=t(e.target)}})},_makeFocusTarget:function(){this._untrackInstance(),this._trackingInstances().unshift(this)},_untrackInstance:function(){var e=this._trackingInstances(),i=t.inArray(this,e);-1!==i&&e.splice(i,1)},_trackingInstances:function(){var t=this.document.data("ui-dialog-instances");return t||(t=[],this.document.data("ui-dialog-instances",t)),t},_minHeight:function(){var t=this.options;return"auto"===t.height?t.minHeight:Math.min(t.minHeight,t.height)},_position:function(){var t=this.uiDialog.is(":visible");t||this.uiDialog.show(),this.uiDialog.position(this.options.position),t||this.uiDialog.hide()},_setOptions:function(e){var i=this,s=!1,n={};t.each(e,function(t,e){i._setOption(t,e),t in i.sizeRelatedOptions&&(s=!0),t in i.resizableRelatedOptions&&(n[t]=e)}),s&&(this._size(),this._position()),this.uiDialog.is(":data(ui-resizable)")&&this.uiDialog.resizable("option",n)},_setOption:function(e,i){var s,n,o=this.uiDialog;"disabled"!==e&&(this._super(e,i),"appendTo"===e&&this.uiDialog.appendTo(this._appendTo()),"buttons"===e&&this._createButtons(),"closeText"===e&&this.uiDialogTitlebarClose.button({label:t("<a>").text(""+this.options.closeText).html()}),"draggable"===e&&(s=o.is(":data(ui-draggable)"),s&&!i&&o.draggable("destroy"),!s&&i&&this._makeDraggable()),"position"===e&&this._position(),"resizable"===e&&(n=o.is(":data(ui-resizable)"),n&&!i&&o.resizable("destroy"),n&&"string"==typeof i&&o.resizable("option","handles",i),n||i===!1||this._makeResizable()),"title"===e&&this._title(this.uiDialogTitlebar.find(".ui-dialog-title")))},_size:function(){var t,e,i,s=this.options;this.element.show().css({width:"auto",minHeight:0,maxHeight:"none",height:0}),s.minWidth>s.width&&(s.width=s.minWidth),t=this.uiDialog.css({height:"auto",width:s.width}).outerHeight(),e=Math.max(0,s.minHeight-t),i="number"==typeof s.maxHeight?Math.max(0,s.maxHeight-t):"none","auto"===s.height?this.element.css({minHeight:e,maxHeight:i,height:"auto"}):this.element.height(Math.max(0,s.height-t)),this.uiDialog.is(":data(ui-resizable)")&&this.uiDialog.resizable("option","minHeight",this._minHeight())},_blockFrames:function(){this.iframeBlocks=this.document.find("iframe").map(function(){var e=t(this);return t("<div>").css({position:"absolute",width:e.outerWidth(),height:e.outerHeight()}).appendTo(e.parent()).offset(e.offset())[0]})},_unblockFrames:function(){this.iframeBlocks&&(this.iframeBlocks.remove(),delete this.iframeBlocks)},_allowInteraction:function(e){return t(e.target).closest(".ui-dialog").length?!0:!!t(e.target).closest(".ui-datepicker").length},_createOverlay:function(){if(this.options.modal){var e=!0;this._delay(function(){e=!1}),this.document.data("ui-dialog-overlays")||this._on(this.document,{focusin:function(t){e||this._allowInteraction(t)||(t.preventDefault(),this._trackingInstances()[0]._focusTabbable())}}),this.overlay=t("<div>").appendTo(this._appendTo()),this._addClass(this.overlay,null,"ui-widget-overlay ui-front"),this._on(this.overlay,{mousedown:"_keepFocus"}),this.document.data("ui-dialog-overlays",(this.document.data("ui-dialog-overlays")||0)+1)}},_destroyOverlay:function(){if(this.options.modal&&this.overlay){var t=this.document.data("ui-dialog-overlays")-1;t?this.document.data("ui-dialog-overlays",t):(this._off(this.document,"focusin"),this.document.removeData("ui-dialog-overlays")),this.overlay.remove(),this.overlay=null}}}),t.uiBackCompat!==!1&&t.widget("ui.dialog",t.ui.dialog,{options:{dialogClass:""},_createWrapper:function(){this._super(),this.uiDialog.addClass(this.options.dialogClass)},_setOption:function(t,e){"dialogClass"===t&&this.uiDialog.removeClass(this.options.dialogClass).addClass(e),this._superApply(arguments)}}),t.ui.dialog,t.widget("ui.droppable",{version:"1.12.1",widgetEventPrefix:"drop",options:{accept:"*",addClasses:!0,greedy:!1,scope:"default",tolerance:"intersect",activate:null,deactivate:null,drop:null,out:null,over:null},_create:function(){var e,i=this.options,s=i.accept;this.isover=!1,this.isout=!0,this.accept=t.isFunction(s)?s:function(t){return t.is(s)},this.proportions=function(){return arguments.length?(e=arguments[0],void 0):e?e:e={width:this.element[0].offsetWidth,height:this.element[0].offsetHeight}},this._addToManager(i.scope),i.addClasses&&this._addClass("ui-droppable")},_addToManager:function(e){t.ui.ddmanager.droppables[e]=t.ui.ddmanager.droppables[e]||[],t.ui.ddmanager.droppables[e].push(this)},_splice:function(t){for(var e=0;t.length>e;e++)t[e]===this&&t.splice(e,1)},_destroy:function(){var e=t.ui.ddmanager.droppables[this.options.scope];this._splice(e)},_setOption:function(e,i){if("accept"===e)this.accept=t.isFunction(i)?i:function(t){return t.is(i)};else if("scope"===e){var s=t.ui.ddmanager.droppables[this.options.scope];this._splice(s),this._addToManager(i)}this._super(e,i)},_activate:function(e){var i=t.ui.ddmanager.current;this._addActiveClass(),i&&this._trigger("activate",e,this.ui(i))},_deactivate:function(e){var i=t.ui.ddmanager.current;this._removeActiveClass(),i&&this._trigger("deactivate",e,this.ui(i))},_over:function(e){var i=t.ui.ddmanager.current;i&&(i.currentItem||i.element)[0]!==this.element[0]&&this.accept.call(this.element[0],i.currentItem||i.element)&&(this._addHoverClass(),this._trigger("over",e,this.ui(i)))},_out:function(e){var i=t.ui.ddmanager.current;i&&(i.currentItem||i.element)[0]!==this.element[0]&&this.accept.call(this.element[0],i.currentItem||i.element)&&(this._removeHoverClass(),this._trigger("out",e,this.ui(i)))},_drop:function(e,i){var s=i||t.ui.ddmanager.current,n=!1;return s&&(s.currentItem||s.element)[0]!==this.element[0]?(this.element.find(":data(ui-droppable)").not(".ui-draggable-dragging").each(function(){var i=t(this).droppable("instance");return i.options.greedy&&!i.options.disabled&&i.options.scope===s.options.scope&&i.accept.call(i.element[0],s.currentItem||s.element)&&v(s,t.extend(i,{offset:i.element.offset()}),i.options.tolerance,e)?(n=!0,!1):void 0}),n?!1:this.accept.call(this.element[0],s.currentItem||s.element)?(this._removeActiveClass(),this._removeHoverClass(),this._trigger("drop",e,this.ui(s)),this.element):!1):!1},ui:function(t){return{draggable:t.currentItem||t.element,helper:t.helper,position:t.position,offset:t.positionAbs}},_addHoverClass:function(){this._addClass("ui-droppable-hover")},_removeHoverClass:function(){this._removeClass("ui-droppable-hover")},_addActiveClass:function(){this._addClass("ui-droppable-active")},_removeActiveClass:function(){this._removeClass("ui-droppable-active")}});var v=t.ui.intersect=function(){function t(t,e,i){return t>=e&&e+i>t}return function(e,i,s,n){if(!i.offset)return!1;var o=(e.positionAbs||e.position.absolute).left+e.margins.left,a=(e.positionAbs||e.position.absolute).top+e.margins.top,r=o+e.helperProportions.width,h=a+e.helperProportions.height,l=i.offset.left,c=i.offset.top,u=l+i.proportions().width,d=c+i.proportions().height;switch(s){case"fit":return o>=l&&u>=r&&a>=c&&d>=h;case"intersect":return o+e.helperProportions.width/2>l&&u>r-e.helperProportions.width/2&&a+e.helperProportions.height/2>c&&d>h-e.helperProportions.height/2;case"pointer":return t(n.pageY,c,i.proportions().height)&&t(n.pageX,l,i.proportions().width);case"touch":return(a>=c&&d>=a||h>=c&&d>=h||c>a&&h>d)&&(o>=l&&u>=o||r>=l&&u>=r||l>o&&r>u);default:return!1}}}();t.ui.ddmanager={current:null,droppables:{"default":[]},prepareOffsets:function(e,i){var s,n,o=t.ui.ddmanager.droppables[e.options.scope]||[],a=i?i.type:null,r=(e.currentItem||e.element).find(":data(ui-droppable)").addBack();t:for(s=0;o.length>s;s++)if(!(o[s].options.disabled||e&&!o[s].accept.call(o[s].element[0],e.currentItem||e.element))){for(n=0;r.length>n;n++)if(r[n]===o[s].element[0]){o[s].proportions().height=0;continue t}o[s].visible="none"!==o[s].element.css("display"),o[s].visible&&("mousedown"===a&&o[s]._activate.call(o[s],i),o[s].offset=o[s].element.offset(),o[s].proportions({width:o[s].element[0].offsetWidth,height:o[s].element[0].offsetHeight}))}},drop:function(e,i){var s=!1;return t.each((t.ui.ddmanager.droppables[e.options.scope]||[]).slice(),function(){this.options&&(!this.options.disabled&&this.visible&&v(e,this,this.options.tolerance,i)&&(s=this._drop.call(this,i)||s),!this.options.disabled&&this.visible&&this.accept.call(this.element[0],e.currentItem||e.element)&&(this.isout=!0,this.isover=!1,this._deactivate.call(this,i)))}),s},dragStart:function(e,i){e.element.parentsUntil("body").on("scroll.droppable",function(){e.options.refreshPositions||t.ui.ddmanager.prepareOffsets(e,i)})},drag:function(e,i){e.options.refreshPositions&&t.ui.ddmanager.prepareOffsets(e,i),t.each(t.ui.ddmanager.droppables[e.options.scope]||[],function(){if(!this.options.disabled&&!this.greedyChild&&this.visible){var s,n,o,a=v(e,this,this.options.tolerance,i),r=!a&&this.isover?"isout":a&&!this.isover?"isover":null;r&&(this.options.greedy&&(n=this.options.scope,o=this.element.parents(":data(ui-droppable)").filter(function(){return t(this).droppable("instance").options.scope===n}),o.length&&(s=t(o[0]).droppable("instance"),s.greedyChild="isover"===r)),s&&"isover"===r&&(s.isover=!1,s.isout=!0,s._out.call(s,i)),this[r]=!0,this["isout"===r?"isover":"isout"]=!1,this["isover"===r?"_over":"_out"].call(this,i),s&&"isout"===r&&(s.isout=!1,s.isover=!0,s._over.call(s,i)))}})},dragStop:function(e,i){e.element.parentsUntil("body").off("scroll.droppable"),e.options.refreshPositions||t.ui.ddmanager.prepareOffsets(e,i)}},t.uiBackCompat!==!1&&t.widget("ui.droppable",t.ui.droppable,{options:{hoverClass:!1,activeClass:!1},_addActiveClass:function(){this._super(),this.options.activeClass&&this.element.addClass(this.options.activeClass)},_removeActiveClass:function(){this._super(),this.options.activeClass&&this.element.removeClass(this.options.activeClass)},_addHoverClass:function(){this._super(),this.options.hoverClass&&this.element.addClass(this.options.hoverClass)},_removeHoverClass:function(){this._super(),this.options.hoverClass&&this.element.removeClass(this.options.hoverClass)}}),t.ui.droppable,t.widget("ui.progressbar",{version:"1.12.1",options:{classes:{"ui-progressbar":"ui-corner-all","ui-progressbar-value":"ui-corner-left","ui-progressbar-complete":"ui-corner-right"},max:100,value:0,change:null,complete:null},min:0,_create:function(){this.oldValue=this.options.value=this._constrainedValue(),this.element.attr({role:"progressbar","aria-valuemin":this.min}),this._addClass("ui-progressbar","ui-widget ui-widget-content"),this.valueDiv=t("<div>").appendTo(this.element),this._addClass(this.valueDiv,"ui-progressbar-value","ui-widget-header"),this._refreshValue()},_destroy:function(){this.element.removeAttr("role aria-valuemin aria-valuemax aria-valuenow"),this.valueDiv.remove()},value:function(t){return void 0===t?this.options.value:(this.options.value=this._constrainedValue(t),this._refreshValue(),void 0)},_constrainedValue:function(t){return void 0===t&&(t=this.options.value),this.indeterminate=t===!1,"number"!=typeof t&&(t=0),this.indeterminate?!1:Math.min(this.options.max,Math.max(this.min,t))},_setOptions:function(t){var e=t.value;delete t.value,this._super(t),this.options.value=this._constrainedValue(e),this._refreshValue()},_setOption:function(t,e){"max"===t&&(e=Math.max(this.min,e)),this._super(t,e)},_setOptionDisabled:function(t){this._super(t),this.element.attr("aria-disabled",t),this._toggleClass(null,"ui-state-disabled",!!t)},_percentage:function(){return this.indeterminate?100:100*(this.options.value-this.min)/(this.options.max-this.min)},_refreshValue:function(){var e=this.options.value,i=this._percentage();this.valueDiv.toggle(this.indeterminate||e>this.min).width(i.toFixed(0)+"%"),this._toggleClass(this.valueDiv,"ui-progressbar-complete",null,e===this.options.max)._toggleClass("ui-progressbar-indeterminate",null,this.indeterminate),this.indeterminate?(this.element.removeAttr("aria-valuenow"),this.overlayDiv||(this.overlayDiv=t("<div>").appendTo(this.valueDiv),this._addClass(this.overlayDiv,"ui-progressbar-overlay"))):(this.element.attr({"aria-valuemax":this.options.max,"aria-valuenow":e}),this.overlayDiv&&(this.overlayDiv.remove(),this.overlayDiv=null)),this.oldValue!==e&&(this.oldValue=e,this._trigger("change")),e===this.options.max&&this._trigger("complete")}}),t.widget("ui.selectable",t.ui.mouse,{version:"1.12.1",options:{appendTo:"body",autoRefresh:!0,distance:0,filter:"*",tolerance:"touch",selected:null,selecting:null,start:null,stop:null,unselected:null,unselecting:null},_create:function(){var e=this;this._addClass("ui-selectable"),this.dragged=!1,this.refresh=function(){e.elementPos=t(e.element[0]).offset(),e.selectees=t(e.options.filter,e.element[0]),e._addClass(e.selectees,"ui-selectee"),e.selectees.each(function(){var i=t(this),s=i.offset(),n={left:s.left-e.elementPos.left,top:s.top-e.elementPos.top};t.data(this,"selectable-item",{element:this,$element:i,left:n.left,top:n.top,right:n.left+i.outerWidth(),bottom:n.top+i.outerHeight(),startselected:!1,selected:i.hasClass("ui-selected"),selecting:i.hasClass("ui-selecting"),unselecting:i.hasClass("ui-unselecting")})})},this.refresh(),this._mouseInit(),this.helper=t("<div>"),this._addClass(this.helper,"ui-selectable-helper")},_destroy:function(){this.selectees.removeData("selectable-item"),this._mouseDestroy()},_mouseStart:function(e){var i=this,s=this.options;this.opos=[e.pageX,e.pageY],this.elementPos=t(this.element[0]).offset(),this.options.disabled||(this.selectees=t(s.filter,this.element[0]),this._trigger("start",e),t(s.appendTo).append(this.helper),this.helper.css({left:e.pageX,top:e.pageY,width:0,height:0}),s.autoRefresh&&this.refresh(),this.selectees.filter(".ui-selected").each(function(){var s=t.data(this,"selectable-item");s.startselected=!0,e.metaKey||e.ctrlKey||(i._removeClass(s.$element,"ui-selected"),s.selected=!1,i._addClass(s.$element,"ui-unselecting"),s.unselecting=!0,i._trigger("unselecting",e,{unselecting:s.element}))}),t(e.target).parents().addBack().each(function(){var s,n=t.data(this,"selectable-item");return n?(s=!e.metaKey&&!e.ctrlKey||!n.$element.hasClass("ui-selected"),i._removeClass(n.$element,s?"ui-unselecting":"ui-selected")._addClass(n.$element,s?"ui-selecting":"ui-unselecting"),n.unselecting=!s,n.selecting=s,n.selected=s,s?i._trigger("selecting",e,{selecting:n.element}):i._trigger("unselecting",e,{unselecting:n.element}),!1):void 0}))},_mouseDrag:function(e){if(this.dragged=!0,!this.options.disabled){var i,s=this,n=this.options,o=this.opos[0],a=this.opos[1],r=e.pageX,h=e.pageY;return o>r&&(i=r,r=o,o=i),a>h&&(i=h,h=a,a=i),this.helper.css({left:o,top:a,width:r-o,height:h-a}),this.selectees.each(function(){var i=t.data(this,"selectable-item"),l=!1,c={};i&&i.element!==s.element[0]&&(c.left=i.left+s.elementPos.left,c.right=i.right+s.elementPos.left,c.top=i.top+s.elementPos.top,c.bottom=i.bottom+s.elementPos.top,"touch"===n.tolerance?l=!(c.left>r||o>c.right||c.top>h||a>c.bottom):"fit"===n.tolerance&&(l=c.left>o&&r>c.right&&c.top>a&&h>c.bottom),l?(i.selected&&(s._removeClass(i.$element,"ui-selected"),i.selected=!1),i.unselecting&&(s._removeClass(i.$element,"ui-unselecting"),i.unselecting=!1),i.selecting||(s._addClass(i.$element,"ui-selecting"),i.selecting=!0,s._trigger("selecting",e,{selecting:i.element}))):(i.selecting&&((e.metaKey||e.ctrlKey)&&i.startselected?(s._removeClass(i.$element,"ui-selecting"),i.selecting=!1,s._addClass(i.$element,"ui-selected"),i.selected=!0):(s._removeClass(i.$element,"ui-selecting"),i.selecting=!1,i.startselected&&(s._addClass(i.$element,"ui-unselecting"),i.unselecting=!0),s._trigger("unselecting",e,{unselecting:i.element}))),i.selected&&(e.metaKey||e.ctrlKey||i.startselected||(s._removeClass(i.$element,"ui-selected"),i.selected=!1,s._addClass(i.$element,"ui-unselecting"),i.unselecting=!0,s._trigger("unselecting",e,{unselecting:i.element})))))}),!1}},_mouseStop:function(e){var i=this;return this.dragged=!1,t(".ui-unselecting",this.element[0]).each(function(){var s=t.data(this,"selectable-item");i._removeClass(s.$element,"ui-unselecting"),s.unselecting=!1,s.startselected=!1,i._trigger("unselected",e,{unselected:s.element})}),t(".ui-selecting",this.element[0]).each(function(){var s=t.data(this,"selectable-item");i._removeClass(s.$element,"ui-selecting")._addClass(s.$element,"ui-selected"),s.selecting=!1,s.selected=!0,s.startselected=!0,i._trigger("selected",e,{selected:s.element})}),this._trigger("stop",e),this.helper.remove(),!1}}),t.widget("ui.selectmenu",[t.ui.formResetMixin,{version:"1.12.1",defaultElement:"<select>",options:{appendTo:null,classes:{"ui-selectmenu-button-open":"ui-corner-top","ui-selectmenu-button-closed":"ui-corner-all"},disabled:null,icons:{button:"ui-icon-triangle-1-s"},position:{my:"left top",at:"left bottom",collision:"none"},width:!1,change:null,close:null,focus:null,open:null,select:null},_create:function(){var e=this.element.uniqueId().attr("id");this.ids={element:e,button:e+"-button",menu:e+"-menu"},this._drawButton(),this._drawMenu(),this._bindFormResetHandler(),this._rendered=!1,this.menuItems=t()},_drawButton:function(){var e,i=this,s=this._parseOption(this.element.find("option:selected"),this.element[0].selectedIndex);this.labels=this.element.labels().attr("for",this.ids.button),this._on(this.labels,{click:function(t){this.button.focus(),t.preventDefault()}}),this.element.hide(),this.button=t("<span>",{tabindex:this.options.disabled?-1:0,id:this.ids.button,role:"combobox","aria-expanded":"false","aria-autocomplete":"list","aria-owns":this.ids.menu,"aria-haspopup":"true",title:this.element.attr("title")}).insertAfter(this.element),this._addClass(this.button,"ui-selectmenu-button ui-selectmenu-button-closed","ui-button ui-widget"),e=t("<span>").appendTo(this.button),this._addClass(e,"ui-selectmenu-icon","ui-icon "+this.options.icons.button),this.buttonItem=this._renderButtonItem(s).appendTo(this.button),this.options.width!==!1&&this._resizeButton(),this._on(this.button,this._buttonEvents),this.button.one("focusin",function(){i._rendered||i._refreshMenu()})},_drawMenu:function(){var e=this;this.menu=t("<ul>",{"aria-hidden":"true","aria-labelledby":this.ids.button,id:this.ids.menu}),this.menuWrap=t("<div>").append(this.menu),this._addClass(this.menuWrap,"ui-selectmenu-menu","ui-front"),this.menuWrap.appendTo(this._appendTo()),this.menuInstance=this.menu.menu({classes:{"ui-menu":"ui-corner-bottom"},role:"listbox",select:function(t,i){t.preventDefault(),e._setSelection(),e._select(i.item.data("ui-selectmenu-item"),t)},focus:function(t,i){var s=i.item.data("ui-selectmenu-item");null!=e.focusIndex&&s.index!==e.focusIndex&&(e._trigger("focus",t,{item:s}),e.isOpen||e._select(s,t)),e.focusIndex=s.index,e.button.attr("aria-activedescendant",e.menuItems.eq(s.index).attr("id"))}}).menu("instance"),this.menuInstance._off(this.menu,"mouseleave"),this.menuInstance._closeOnDocumentClick=function(){return!1},this.menuInstance._isDivider=function(){return!1}},refresh:function(){this._refreshMenu(),this.buttonItem.replaceWith(this.buttonItem=this._renderButtonItem(this._getSelectedItem().data("ui-selectmenu-item")||{})),null===this.options.width&&this._resizeButton()},_refreshMenu:function(){var t,e=this.element.find("option");this.menu.empty(),this._parseOptions(e),this._renderMenu(this.menu,this.items),this.menuInstance.refresh(),this.menuItems=this.menu.find("li").not(".ui-selectmenu-optgroup").find(".ui-menu-item-wrapper"),this._rendered=!0,e.length&&(t=this._getSelectedItem(),this.menuInstance.focus(null,t),this._setAria(t.data("ui-selectmenu-item")),this._setOption("disabled",this.element.prop("disabled")))},open:function(t){this.options.disabled||(this._rendered?(this._removeClass(this.menu.find(".ui-state-active"),null,"ui-state-active"),this.menuInstance.focus(null,this._getSelectedItem())):this._refreshMenu(),this.menuItems.length&&(this.isOpen=!0,this._toggleAttr(),this._resizeMenu(),this._position(),this._on(this.document,this._documentClick),this._trigger("open",t)))},_position:function(){this.menuWrap.position(t.extend({of:this.button},this.options.position))},close:function(t){this.isOpen&&(this.isOpen=!1,this._toggleAttr(),this.range=null,this._off(this.document),this._trigger("close",t))},widget:function(){return this.button},menuWidget:function(){return this.menu},_renderButtonItem:function(e){var i=t("<span>");return this._setText(i,e.label),this._addClass(i,"ui-selectmenu-text"),i},_renderMenu:function(e,i){var s=this,n="";t.each(i,function(i,o){var a;o.optgroup!==n&&(a=t("<li>",{text:o.optgroup}),s._addClass(a,"ui-selectmenu-optgroup","ui-menu-divider"+(o.element.parent("optgroup").prop("disabled")?" ui-state-disabled":"")),a.appendTo(e),n=o.optgroup),s._renderItemData(e,o)})},_renderItemData:function(t,e){return this._renderItem(t,e).data("ui-selectmenu-item",e)},_renderItem:function(e,i){var s=t("<li>"),n=t("<div>",{title:i.element.attr("title")});return i.disabled&&this._addClass(s,null,"ui-state-disabled"),this._setText(n,i.label),s.append(n).appendTo(e)},_setText:function(t,e){e?t.text(e):t.html("&#160;")},_move:function(t,e){var i,s,n=".ui-menu-item";this.isOpen?i=this.menuItems.eq(this.focusIndex).parent("li"):(i=this.menuItems.eq(this.element[0].selectedIndex).parent("li"),n+=":not(.ui-state-disabled)"),s="first"===t||"last"===t?i["first"===t?"prevAll":"nextAll"](n).eq(-1):i[t+"All"](n).eq(0),s.length&&this.menuInstance.focus(e,s)},_getSelectedItem:function(){return this.menuItems.eq(this.element[0].selectedIndex).parent("li")},_toggle:function(t){this[this.isOpen?"close":"open"](t)},_setSelection:function(){var t;this.range&&(window.getSelection?(t=window.getSelection(),t.removeAllRanges(),t.addRange(this.range)):this.range.select(),this.button.focus())},_documentClick:{mousedown:function(e){this.isOpen&&(t(e.target).closest(".ui-selectmenu-menu, #"+t.ui.escapeSelector(this.ids.button)).length||this.close(e))}},_buttonEvents:{mousedown:function(){var t;window.getSelection?(t=window.getSelection(),t.rangeCount&&(this.range=t.getRangeAt(0))):this.range=document.selection.createRange()},click:function(t){this._setSelection(),this._toggle(t)},keydown:function(e){var i=!0;switch(e.keyCode){case t.ui.keyCode.TAB:case t.ui.keyCode.ESCAPE:this.close(e),i=!1;break;case t.ui.keyCode.ENTER:this.isOpen&&this._selectFocusedItem(e);break;case t.ui.keyCode.UP:e.altKey?this._toggle(e):this._move("prev",e);break;case t.ui.keyCode.DOWN:e.altKey?this._toggle(e):this._move("next",e);break;case t.ui.keyCode.SPACE:this.isOpen?this._selectFocusedItem(e):this._toggle(e);break;case t.ui.keyCode.LEFT:this._move("prev",e);break;case t.ui.keyCode.RIGHT:this._move("next",e);break;case t.ui.keyCode.HOME:case t.ui.keyCode.PAGE_UP:this._move("first",e);break;case t.ui.keyCode.END:case t.ui.keyCode.PAGE_DOWN:this._move("last",e);break;default:this.menu.trigger(e),i=!1}i&&e.preventDefault()}},_selectFocusedItem:function(t){var e=this.menuItems.eq(this.focusIndex).parent("li");e.hasClass("ui-state-disabled")||this._select(e.data("ui-selectmenu-item"),t)},_select:function(t,e){var i=this.element[0].selectedIndex;this.element[0].selectedIndex=t.index,this.buttonItem.replaceWith(this.buttonItem=this._renderButtonItem(t)),this._setAria(t),this._trigger("select",e,{item:t}),t.index!==i&&this._trigger("change",e,{item:t}),this.close(e)},_setAria:function(t){var e=this.menuItems.eq(t.index).attr("id");this.button.attr({"aria-labelledby":e,"aria-activedescendant":e}),this.menu.attr("aria-activedescendant",e)},_setOption:function(t,e){if("icons"===t){var i=this.button.find("span.ui-icon");this._removeClass(i,null,this.options.icons.button)._addClass(i,null,e.button)}this._super(t,e),"appendTo"===t&&this.menuWrap.appendTo(this._appendTo()),"width"===t&&this._resizeButton()},_setOptionDisabled:function(t){this._super(t),this.menuInstance.option("disabled",t),this.button.attr("aria-disabled",t),this._toggleClass(this.button,null,"ui-state-disabled",t),this.element.prop("disabled",t),t?(this.button.attr("tabindex",-1),this.close()):this.button.attr("tabindex",0)},_appendTo:function(){var e=this.options.appendTo;return e&&(e=e.jquery||e.nodeType?t(e):this.document.find(e).eq(0)),e&&e[0]||(e=this.element.closest(".ui-front, dialog")),e.length||(e=this.document[0].body),e},_toggleAttr:function(){this.button.attr("aria-expanded",this.isOpen),this._removeClass(this.button,"ui-selectmenu-button-"+(this.isOpen?"closed":"open"))._addClass(this.button,"ui-selectmenu-button-"+(this.isOpen?"open":"closed"))._toggleClass(this.menuWrap,"ui-selectmenu-open",null,this.isOpen),this.menu.attr("aria-hidden",!this.isOpen)},_resizeButton:function(){var t=this.options.width;return t===!1?(this.button.css("width",""),void 0):(null===t&&(t=this.element.show().outerWidth(),this.element.hide()),this.button.outerWidth(t),void 0)},_resizeMenu:function(){this.menu.outerWidth(Math.max(this.button.outerWidth(),this.menu.width("").outerWidth()+1))},_getCreateOptions:function(){var t=this._super();return t.disabled=this.element.prop("disabled"),t},_parseOptions:function(e){var i=this,s=[];e.each(function(e,n){s.push(i._parseOption(t(n),e))}),this.items=s},_parseOption:function(t,e){var i=t.parent("optgroup");return{element:t,index:e,value:t.val(),label:t.text(),optgroup:i.attr("label")||"",disabled:i.prop("disabled")||t.prop("disabled")}},_destroy:function(){this._unbindFormResetHandler(),this.menuWrap.remove(),this.button.remove(),this.element.show(),this.element.removeUniqueId(),this.labels.attr("for",this.ids.element)}}]),t.widget("ui.slider",t.ui.mouse,{version:"1.12.1",widgetEventPrefix:"slide",options:{animate:!1,classes:{"ui-slider":"ui-corner-all","ui-slider-handle":"ui-corner-all","ui-slider-range":"ui-corner-all ui-widget-header"},distance:0,max:100,min:0,orientation:"horizontal",range:!1,step:1,value:0,values:null,change:null,slide:null,start:null,stop:null},numPages:5,_create:function(){this._keySliding=!1,this._mouseSliding=!1,this._animateOff=!0,this._handleIndex=null,this._detectOrientation(),this._mouseInit(),this._calculateNewMax(),this._addClass("ui-slider ui-slider-"+this.orientation,"ui-widget ui-widget-content"),this._refresh(),this._animateOff=!1
 },_refresh:function(){this._createRange(),this._createHandles(),this._setupEvents(),this._refreshValue()},_createHandles:function(){var e,i,s=this.options,n=this.element.find(".ui-slider-handle"),o="<span tabindex='0'></span>",a=[];for(i=s.values&&s.values.length||1,n.length>i&&(n.slice(i).remove(),n=n.slice(0,i)),e=n.length;i>e;e++)a.push(o);this.handles=n.add(t(a.join("")).appendTo(this.element)),this._addClass(this.handles,"ui-slider-handle","ui-state-default"),this.handle=this.handles.eq(0),this.handles.each(function(e){t(this).data("ui-slider-handle-index",e).attr("tabIndex",0)})},_createRange:function(){var e=this.options;e.range?(e.range===!0&&(e.values?e.values.length&&2!==e.values.length?e.values=[e.values[0],e.values[0]]:t.isArray(e.values)&&(e.values=e.values.slice(0)):e.values=[this._valueMin(),this._valueMin()]),this.range&&this.range.length?(this._removeClass(this.range,"ui-slider-range-min ui-slider-range-max"),this.range.css({left:"",bottom:""})):(this.range=t("<div>").appendTo(this.element),this._addClass(this.range,"ui-slider-range")),("min"===e.range||"max"===e.range)&&this._addClass(this.range,"ui-slider-range-"+e.range)):(this.range&&this.range.remove(),this.range=null)},_setupEvents:function(){this._off(this.handles),this._on(this.handles,this._handleEvents),this._hoverable(this.handles),this._focusable(this.handles)},_destroy:function(){this.handles.remove(),this.range&&this.range.remove(),this._mouseDestroy()},_mouseCapture:function(e){var i,s,n,o,a,r,h,l,c=this,u=this.options;return u.disabled?!1:(this.elementSize={width:this.element.outerWidth(),height:this.element.outerHeight()},this.elementOffset=this.element.offset(),i={x:e.pageX,y:e.pageY},s=this._normValueFromMouse(i),n=this._valueMax()-this._valueMin()+1,this.handles.each(function(e){var i=Math.abs(s-c.values(e));(n>i||n===i&&(e===c._lastChangedValue||c.values(e)===u.min))&&(n=i,o=t(this),a=e)}),r=this._start(e,a),r===!1?!1:(this._mouseSliding=!0,this._handleIndex=a,this._addClass(o,null,"ui-state-active"),o.trigger("focus"),h=o.offset(),l=!t(e.target).parents().addBack().is(".ui-slider-handle"),this._clickOffset=l?{left:0,top:0}:{left:e.pageX-h.left-o.width()/2,top:e.pageY-h.top-o.height()/2-(parseInt(o.css("borderTopWidth"),10)||0)-(parseInt(o.css("borderBottomWidth"),10)||0)+(parseInt(o.css("marginTop"),10)||0)},this.handles.hasClass("ui-state-hover")||this._slide(e,a,s),this._animateOff=!0,!0))},_mouseStart:function(){return!0},_mouseDrag:function(t){var e={x:t.pageX,y:t.pageY},i=this._normValueFromMouse(e);return this._slide(t,this._handleIndex,i),!1},_mouseStop:function(t){return this._removeClass(this.handles,null,"ui-state-active"),this._mouseSliding=!1,this._stop(t,this._handleIndex),this._change(t,this._handleIndex),this._handleIndex=null,this._clickOffset=null,this._animateOff=!1,!1},_detectOrientation:function(){this.orientation="vertical"===this.options.orientation?"vertical":"horizontal"},_normValueFromMouse:function(t){var e,i,s,n,o;return"horizontal"===this.orientation?(e=this.elementSize.width,i=t.x-this.elementOffset.left-(this._clickOffset?this._clickOffset.left:0)):(e=this.elementSize.height,i=t.y-this.elementOffset.top-(this._clickOffset?this._clickOffset.top:0)),s=i/e,s>1&&(s=1),0>s&&(s=0),"vertical"===this.orientation&&(s=1-s),n=this._valueMax()-this._valueMin(),o=this._valueMin()+s*n,this._trimAlignValue(o)},_uiHash:function(t,e,i){var s={handle:this.handles[t],handleIndex:t,value:void 0!==e?e:this.value()};return this._hasMultipleValues()&&(s.value=void 0!==e?e:this.values(t),s.values=i||this.values()),s},_hasMultipleValues:function(){return this.options.values&&this.options.values.length},_start:function(t,e){return this._trigger("start",t,this._uiHash(e))},_slide:function(t,e,i){var s,n,o=this.value(),a=this.values();this._hasMultipleValues()&&(n=this.values(e?0:1),o=this.values(e),2===this.options.values.length&&this.options.range===!0&&(i=0===e?Math.min(n,i):Math.max(n,i)),a[e]=i),i!==o&&(s=this._trigger("slide",t,this._uiHash(e,i,a)),s!==!1&&(this._hasMultipleValues()?this.values(e,i):this.value(i)))},_stop:function(t,e){this._trigger("stop",t,this._uiHash(e))},_change:function(t,e){this._keySliding||this._mouseSliding||(this._lastChangedValue=e,this._trigger("change",t,this._uiHash(e)))},value:function(t){return arguments.length?(this.options.value=this._trimAlignValue(t),this._refreshValue(),this._change(null,0),void 0):this._value()},values:function(e,i){var s,n,o;if(arguments.length>1)return this.options.values[e]=this._trimAlignValue(i),this._refreshValue(),this._change(null,e),void 0;if(!arguments.length)return this._values();if(!t.isArray(arguments[0]))return this._hasMultipleValues()?this._values(e):this.value();for(s=this.options.values,n=arguments[0],o=0;s.length>o;o+=1)s[o]=this._trimAlignValue(n[o]),this._change(null,o);this._refreshValue()},_setOption:function(e,i){var s,n=0;switch("range"===e&&this.options.range===!0&&("min"===i?(this.options.value=this._values(0),this.options.values=null):"max"===i&&(this.options.value=this._values(this.options.values.length-1),this.options.values=null)),t.isArray(this.options.values)&&(n=this.options.values.length),this._super(e,i),e){case"orientation":this._detectOrientation(),this._removeClass("ui-slider-horizontal ui-slider-vertical")._addClass("ui-slider-"+this.orientation),this._refreshValue(),this.options.range&&this._refreshRange(i),this.handles.css("horizontal"===i?"bottom":"left","");break;case"value":this._animateOff=!0,this._refreshValue(),this._change(null,0),this._animateOff=!1;break;case"values":for(this._animateOff=!0,this._refreshValue(),s=n-1;s>=0;s--)this._change(null,s);this._animateOff=!1;break;case"step":case"min":case"max":this._animateOff=!0,this._calculateNewMax(),this._refreshValue(),this._animateOff=!1;break;case"range":this._animateOff=!0,this._refresh(),this._animateOff=!1}},_setOptionDisabled:function(t){this._super(t),this._toggleClass(null,"ui-state-disabled",!!t)},_value:function(){var t=this.options.value;return t=this._trimAlignValue(t)},_values:function(t){var e,i,s;if(arguments.length)return e=this.options.values[t],e=this._trimAlignValue(e);if(this._hasMultipleValues()){for(i=this.options.values.slice(),s=0;i.length>s;s+=1)i[s]=this._trimAlignValue(i[s]);return i}return[]},_trimAlignValue:function(t){if(this._valueMin()>=t)return this._valueMin();if(t>=this._valueMax())return this._valueMax();var e=this.options.step>0?this.options.step:1,i=(t-this._valueMin())%e,s=t-i;return 2*Math.abs(i)>=e&&(s+=i>0?e:-e),parseFloat(s.toFixed(5))},_calculateNewMax:function(){var t=this.options.max,e=this._valueMin(),i=this.options.step,s=Math.round((t-e)/i)*i;t=s+e,t>this.options.max&&(t-=i),this.max=parseFloat(t.toFixed(this._precision()))},_precision:function(){var t=this._precisionOf(this.options.step);return null!==this.options.min&&(t=Math.max(t,this._precisionOf(this.options.min))),t},_precisionOf:function(t){var e=""+t,i=e.indexOf(".");return-1===i?0:e.length-i-1},_valueMin:function(){return this.options.min},_valueMax:function(){return this.max},_refreshRange:function(t){"vertical"===t&&this.range.css({width:"",left:""}),"horizontal"===t&&this.range.css({height:"",bottom:""})},_refreshValue:function(){var e,i,s,n,o,a=this.options.range,r=this.options,h=this,l=this._animateOff?!1:r.animate,c={};this._hasMultipleValues()?this.handles.each(function(s){i=100*((h.values(s)-h._valueMin())/(h._valueMax()-h._valueMin())),c["horizontal"===h.orientation?"left":"bottom"]=i+"%",t(this).stop(1,1)[l?"animate":"css"](c,r.animate),h.options.range===!0&&("horizontal"===h.orientation?(0===s&&h.range.stop(1,1)[l?"animate":"css"]({left:i+"%"},r.animate),1===s&&h.range[l?"animate":"css"]({width:i-e+"%"},{queue:!1,duration:r.animate})):(0===s&&h.range.stop(1,1)[l?"animate":"css"]({bottom:i+"%"},r.animate),1===s&&h.range[l?"animate":"css"]({height:i-e+"%"},{queue:!1,duration:r.animate}))),e=i}):(s=this.value(),n=this._valueMin(),o=this._valueMax(),i=o!==n?100*((s-n)/(o-n)):0,c["horizontal"===this.orientation?"left":"bottom"]=i+"%",this.handle.stop(1,1)[l?"animate":"css"](c,r.animate),"min"===a&&"horizontal"===this.orientation&&this.range.stop(1,1)[l?"animate":"css"]({width:i+"%"},r.animate),"max"===a&&"horizontal"===this.orientation&&this.range.stop(1,1)[l?"animate":"css"]({width:100-i+"%"},r.animate),"min"===a&&"vertical"===this.orientation&&this.range.stop(1,1)[l?"animate":"css"]({height:i+"%"},r.animate),"max"===a&&"vertical"===this.orientation&&this.range.stop(1,1)[l?"animate":"css"]({height:100-i+"%"},r.animate))},_handleEvents:{keydown:function(e){var i,s,n,o,a=t(e.target).data("ui-slider-handle-index");switch(e.keyCode){case t.ui.keyCode.HOME:case t.ui.keyCode.END:case t.ui.keyCode.PAGE_UP:case t.ui.keyCode.PAGE_DOWN:case t.ui.keyCode.UP:case t.ui.keyCode.RIGHT:case t.ui.keyCode.DOWN:case t.ui.keyCode.LEFT:if(e.preventDefault(),!this._keySliding&&(this._keySliding=!0,this._addClass(t(e.target),null,"ui-state-active"),i=this._start(e,a),i===!1))return}switch(o=this.options.step,s=n=this._hasMultipleValues()?this.values(a):this.value(),e.keyCode){case t.ui.keyCode.HOME:n=this._valueMin();break;case t.ui.keyCode.END:n=this._valueMax();break;case t.ui.keyCode.PAGE_UP:n=this._trimAlignValue(s+(this._valueMax()-this._valueMin())/this.numPages);break;case t.ui.keyCode.PAGE_DOWN:n=this._trimAlignValue(s-(this._valueMax()-this._valueMin())/this.numPages);break;case t.ui.keyCode.UP:case t.ui.keyCode.RIGHT:if(s===this._valueMax())return;n=this._trimAlignValue(s+o);break;case t.ui.keyCode.DOWN:case t.ui.keyCode.LEFT:if(s===this._valueMin())return;n=this._trimAlignValue(s-o)}this._slide(e,a,n)},keyup:function(e){var i=t(e.target).data("ui-slider-handle-index");this._keySliding&&(this._keySliding=!1,this._stop(e,i),this._change(e,i),this._removeClass(t(e.target),null,"ui-state-active"))}}}),t.widget("ui.sortable",t.ui.mouse,{version:"1.12.1",widgetEventPrefix:"sort",ready:!1,options:{appendTo:"parent",axis:!1,connectWith:!1,containment:!1,cursor:"auto",cursorAt:!1,dropOnEmpty:!0,forcePlaceholderSize:!1,forceHelperSize:!1,grid:!1,handle:!1,helper:"original",items:"> *",opacity:!1,placeholder:!1,revert:!1,scroll:!0,scrollSensitivity:20,scrollSpeed:20,scope:"default",tolerance:"intersect",zIndex:1e3,activate:null,beforeStop:null,change:null,deactivate:null,out:null,over:null,receive:null,remove:null,sort:null,start:null,stop:null,update:null},_isOverAxis:function(t,e,i){return t>=e&&e+i>t},_isFloating:function(t){return/left|right/.test(t.css("float"))||/inline|table-cell/.test(t.css("display"))},_create:function(){this.containerCache={},this._addClass("ui-sortable"),this.refresh(),this.offset=this.element.offset(),this._mouseInit(),this._setHandleClassName(),this.ready=!0},_setOption:function(t,e){this._super(t,e),"handle"===t&&this._setHandleClassName()},_setHandleClassName:function(){var e=this;this._removeClass(this.element.find(".ui-sortable-handle"),"ui-sortable-handle"),t.each(this.items,function(){e._addClass(this.instance.options.handle?this.item.find(this.instance.options.handle):this.item,"ui-sortable-handle")})},_destroy:function(){this._mouseDestroy();for(var t=this.items.length-1;t>=0;t--)this.items[t].item.removeData(this.widgetName+"-item");return this},_mouseCapture:function(e,i){var s=null,n=!1,o=this;return this.reverting?!1:this.options.disabled||"static"===this.options.type?!1:(this._refreshItems(e),t(e.target).parents().each(function(){return t.data(this,o.widgetName+"-item")===o?(s=t(this),!1):void 0}),t.data(e.target,o.widgetName+"-item")===o&&(s=t(e.target)),s?!this.options.handle||i||(t(this.options.handle,s).find("*").addBack().each(function(){this===e.target&&(n=!0)}),n)?(this.currentItem=s,this._removeCurrentsFromItems(),!0):!1:!1)},_mouseStart:function(e,i,s){var n,o,a=this.options;if(this.currentContainer=this,this.refreshPositions(),this.helper=this._createHelper(e),this._cacheHelperProportions(),this._cacheMargins(),this.scrollParent=this.helper.scrollParent(),this.offset=this.currentItem.offset(),this.offset={top:this.offset.top-this.margins.top,left:this.offset.left-this.margins.left},t.extend(this.offset,{click:{left:e.pageX-this.offset.left,top:e.pageY-this.offset.top},parent:this._getParentOffset(),relative:this._getRelativeOffset()}),this.helper.css("position","absolute"),this.cssPosition=this.helper.css("position"),this.originalPosition=this._generatePosition(e),this.originalPageX=e.pageX,this.originalPageY=e.pageY,a.cursorAt&&this._adjustOffsetFromHelper(a.cursorAt),this.domPosition={prev:this.currentItem.prev()[0],parent:this.currentItem.parent()[0]},this.helper[0]!==this.currentItem[0]&&this.currentItem.hide(),this._createPlaceholder(),a.containment&&this._setContainment(),a.cursor&&"auto"!==a.cursor&&(o=this.document.find("body"),this.storedCursor=o.css("cursor"),o.css("cursor",a.cursor),this.storedStylesheet=t("<style>*{ cursor: "+a.cursor+" !important; }</style>").appendTo(o)),a.opacity&&(this.helper.css("opacity")&&(this._storedOpacity=this.helper.css("opacity")),this.helper.css("opacity",a.opacity)),a.zIndex&&(this.helper.css("zIndex")&&(this._storedZIndex=this.helper.css("zIndex")),this.helper.css("zIndex",a.zIndex)),this.scrollParent[0]!==this.document[0]&&"HTML"!==this.scrollParent[0].tagName&&(this.overflowOffset=this.scrollParent.offset()),this._trigger("start",e,this._uiHash()),this._preserveHelperProportions||this._cacheHelperProportions(),!s)for(n=this.containers.length-1;n>=0;n--)this.containers[n]._trigger("activate",e,this._uiHash(this));return t.ui.ddmanager&&(t.ui.ddmanager.current=this),t.ui.ddmanager&&!a.dropBehaviour&&t.ui.ddmanager.prepareOffsets(this,e),this.dragging=!0,this._addClass(this.helper,"ui-sortable-helper"),this._mouseDrag(e),!0},_mouseDrag:function(e){var i,s,n,o,a=this.options,r=!1;for(this.position=this._generatePosition(e),this.positionAbs=this._convertPositionTo("absolute"),this.lastPositionAbs||(this.lastPositionAbs=this.positionAbs),this.options.scroll&&(this.scrollParent[0]!==this.document[0]&&"HTML"!==this.scrollParent[0].tagName?(this.overflowOffset.top+this.scrollParent[0].offsetHeight-e.pageY<a.scrollSensitivity?this.scrollParent[0].scrollTop=r=this.scrollParent[0].scrollTop+a.scrollSpeed:e.pageY-this.overflowOffset.top<a.scrollSensitivity&&(this.scrollParent[0].scrollTop=r=this.scrollParent[0].scrollTop-a.scrollSpeed),this.overflowOffset.left+this.scrollParent[0].offsetWidth-e.pageX<a.scrollSensitivity?this.scrollParent[0].scrollLeft=r=this.scrollParent[0].scrollLeft+a.scrollSpeed:e.pageX-this.overflowOffset.left<a.scrollSensitivity&&(this.scrollParent[0].scrollLeft=r=this.scrollParent[0].scrollLeft-a.scrollSpeed)):(e.pageY-this.document.scrollTop()<a.scrollSensitivity?r=this.document.scrollTop(this.document.scrollTop()-a.scrollSpeed):this.window.height()-(e.pageY-this.document.scrollTop())<a.scrollSensitivity&&(r=this.document.scrollTop(this.document.scrollTop()+a.scrollSpeed)),e.pageX-this.document.scrollLeft()<a.scrollSensitivity?r=this.document.scrollLeft(this.document.scrollLeft()-a.scrollSpeed):this.window.width()-(e.pageX-this.document.scrollLeft())<a.scrollSensitivity&&(r=this.document.scrollLeft(this.document.scrollLeft()+a.scrollSpeed))),r!==!1&&t.ui.ddmanager&&!a.dropBehaviour&&t.ui.ddmanager.prepareOffsets(this,e)),this.positionAbs=this._convertPositionTo("absolute"),this.options.axis&&"y"===this.options.axis||(this.helper[0].style.left=this.position.left+"px"),this.options.axis&&"x"===this.options.axis||(this.helper[0].style.top=this.position.top+"px"),i=this.items.length-1;i>=0;i--)if(s=this.items[i],n=s.item[0],o=this._intersectsWithPointer(s),o&&s.instance===this.currentContainer&&n!==this.currentItem[0]&&this.placeholder[1===o?"next":"prev"]()[0]!==n&&!t.contains(this.placeholder[0],n)&&("semi-dynamic"===this.options.type?!t.contains(this.element[0],n):!0)){if(this.direction=1===o?"down":"up","pointer"!==this.options.tolerance&&!this._intersectsWithSides(s))break;this._rearrange(e,s),this._trigger("change",e,this._uiHash());break}return this._contactContainers(e),t.ui.ddmanager&&t.ui.ddmanager.drag(this,e),this._trigger("sort",e,this._uiHash()),this.lastPositionAbs=this.positionAbs,!1},_mouseStop:function(e,i){if(e){if(t.ui.ddmanager&&!this.options.dropBehaviour&&t.ui.ddmanager.drop(this,e),this.options.revert){var s=this,n=this.placeholder.offset(),o=this.options.axis,a={};o&&"x"!==o||(a.left=n.left-this.offset.parent.left-this.margins.left+(this.offsetParent[0]===this.document[0].body?0:this.offsetParent[0].scrollLeft)),o&&"y"!==o||(a.top=n.top-this.offset.parent.top-this.margins.top+(this.offsetParent[0]===this.document[0].body?0:this.offsetParent[0].scrollTop)),this.reverting=!0,t(this.helper).animate(a,parseInt(this.options.revert,10)||500,function(){s._clear(e)})}else this._clear(e,i);return!1}},cancel:function(){if(this.dragging){this._mouseUp(new t.Event("mouseup",{target:null})),"original"===this.options.helper?(this.currentItem.css(this._storedCSS),this._removeClass(this.currentItem,"ui-sortable-helper")):this.currentItem.show();for(var e=this.containers.length-1;e>=0;e--)this.containers[e]._trigger("deactivate",null,this._uiHash(this)),this.containers[e].containerCache.over&&(this.containers[e]._trigger("out",null,this._uiHash(this)),this.containers[e].containerCache.over=0)}return this.placeholder&&(this.placeholder[0].parentNode&&this.placeholder[0].parentNode.removeChild(this.placeholder[0]),"original"!==this.options.helper&&this.helper&&this.helper[0].parentNode&&this.helper.remove(),t.extend(this,{helper:null,dragging:!1,reverting:!1,_noFinalSort:null}),this.domPosition.prev?t(this.domPosition.prev).after(this.currentItem):t(this.domPosition.parent).prepend(this.currentItem)),this},serialize:function(e){var i=this._getItemsAsjQuery(e&&e.connected),s=[];return e=e||{},t(i).each(function(){var i=(t(e.item||this).attr(e.attribute||"id")||"").match(e.expression||/(.+)[\-=_](.+)/);i&&s.push((e.key||i[1]+"[]")+"="+(e.key&&e.expression?i[1]:i[2]))}),!s.length&&e.key&&s.push(e.key+"="),s.join("&")},toArray:function(e){var i=this._getItemsAsjQuery(e&&e.connected),s=[];return e=e||{},i.each(function(){s.push(t(e.item||this).attr(e.attribute||"id")||"")}),s},_intersectsWith:function(t){var e=this.positionAbs.left,i=e+this.helperProportions.width,s=this.positionAbs.top,n=s+this.helperProportions.height,o=t.left,a=o+t.width,r=t.top,h=r+t.height,l=this.offset.click.top,c=this.offset.click.left,u="x"===this.options.axis||s+l>r&&h>s+l,d="y"===this.options.axis||e+c>o&&a>e+c,p=u&&d;return"pointer"===this.options.tolerance||this.options.forcePointerForContainers||"pointer"!==this.options.tolerance&&this.helperProportions[this.floating?"width":"height"]>t[this.floating?"width":"height"]?p:e+this.helperProportions.width/2>o&&a>i-this.helperProportions.width/2&&s+this.helperProportions.height/2>r&&h>n-this.helperProportions.height/2},_intersectsWithPointer:function(t){var e,i,s="x"===this.options.axis||this._isOverAxis(this.positionAbs.top+this.offset.click.top,t.top,t.height),n="y"===this.options.axis||this._isOverAxis(this.positionAbs.left+this.offset.click.left,t.left,t.width),o=s&&n;return o?(e=this._getDragVerticalDirection(),i=this._getDragHorizontalDirection(),this.floating?"right"===i||"down"===e?2:1:e&&("down"===e?2:1)):!1},_intersectsWithSides:function(t){var e=this._isOverAxis(this.positionAbs.top+this.offset.click.top,t.top+t.height/2,t.height),i=this._isOverAxis(this.positionAbs.left+this.offset.click.left,t.left+t.width/2,t.width),s=this._getDragVerticalDirection(),n=this._getDragHorizontalDirection();return this.floating&&n?"right"===n&&i||"left"===n&&!i:s&&("down"===s&&e||"up"===s&&!e)},_getDragVerticalDirection:function(){var t=this.positionAbs.top-this.lastPositionAbs.top;return 0!==t&&(t>0?"down":"up")},_getDragHorizontalDirection:function(){var t=this.positionAbs.left-this.lastPositionAbs.left;return 0!==t&&(t>0?"right":"left")},refresh:function(t){return this._refreshItems(t),this._setHandleClassName(),this.refreshPositions(),this},_connectWith:function(){var t=this.options;return t.connectWith.constructor===String?[t.connectWith]:t.connectWith},_getItemsAsjQuery:function(e){function i(){r.push(this)}var s,n,o,a,r=[],h=[],l=this._connectWith();if(l&&e)for(s=l.length-1;s>=0;s--)for(o=t(l[s],this.document[0]),n=o.length-1;n>=0;n--)a=t.data(o[n],this.widgetFullName),a&&a!==this&&!a.options.disabled&&h.push([t.isFunction(a.options.items)?a.options.items.call(a.element):t(a.options.items,a.element).not(".ui-sortable-helper").not(".ui-sortable-placeholder"),a]);for(h.push([t.isFunction(this.options.items)?this.options.items.call(this.element,null,{options:this.options,item:this.currentItem}):t(this.options.items,this.element).not(".ui-sortable-helper").not(".ui-sortable-placeholder"),this]),s=h.length-1;s>=0;s--)h[s][0].each(i);return t(r)},_removeCurrentsFromItems:function(){var e=this.currentItem.find(":data("+this.widgetName+"-item)");this.items=t.grep(this.items,function(t){for(var i=0;e.length>i;i++)if(e[i]===t.item[0])return!1;return!0})},_refreshItems:function(e){this.items=[],this.containers=[this];var i,s,n,o,a,r,h,l,c=this.items,u=[[t.isFunction(this.options.items)?this.options.items.call(this.element[0],e,{item:this.currentItem}):t(this.options.items,this.element),this]],d=this._connectWith();if(d&&this.ready)for(i=d.length-1;i>=0;i--)for(n=t(d[i],this.document[0]),s=n.length-1;s>=0;s--)o=t.data(n[s],this.widgetFullName),o&&o!==this&&!o.options.disabled&&(u.push([t.isFunction(o.options.items)?o.options.items.call(o.element[0],e,{item:this.currentItem}):t(o.options.items,o.element),o]),this.containers.push(o));for(i=u.length-1;i>=0;i--)for(a=u[i][1],r=u[i][0],s=0,l=r.length;l>s;s++)h=t(r[s]),h.data(this.widgetName+"-item",a),c.push({item:h,instance:a,width:0,height:0,left:0,top:0})},refreshPositions:function(e){this.floating=this.items.length?"x"===this.options.axis||this._isFloating(this.items[0].item):!1,this.offsetParent&&this.helper&&(this.offset.parent=this._getParentOffset());var i,s,n,o;for(i=this.items.length-1;i>=0;i--)s=this.items[i],s.instance!==this.currentContainer&&this.currentContainer&&s.item[0]!==this.currentItem[0]||(n=this.options.toleranceElement?t(this.options.toleranceElement,s.item):s.item,e||(s.width=n.outerWidth(),s.height=n.outerHeight()),o=n.offset(),s.left=o.left,s.top=o.top);if(this.options.custom&&this.options.custom.refreshContainers)this.options.custom.refreshContainers.call(this);else for(i=this.containers.length-1;i>=0;i--)o=this.containers[i].element.offset(),this.containers[i].containerCache.left=o.left,this.containers[i].containerCache.top=o.top,this.containers[i].containerCache.width=this.containers[i].element.outerWidth(),this.containers[i].containerCache.height=this.containers[i].element.outerHeight();return this},_createPlaceholder:function(e){e=e||this;var i,s=e.options;s.placeholder&&s.placeholder.constructor!==String||(i=s.placeholder,s.placeholder={element:function(){var s=e.currentItem[0].nodeName.toLowerCase(),n=t("<"+s+">",e.document[0]);return e._addClass(n,"ui-sortable-placeholder",i||e.currentItem[0].className)._removeClass(n,"ui-sortable-helper"),"tbody"===s?e._createTrPlaceholder(e.currentItem.find("tr").eq(0),t("<tr>",e.document[0]).appendTo(n)):"tr"===s?e._createTrPlaceholder(e.currentItem,n):"img"===s&&n.attr("src",e.currentItem.attr("src")),i||n.css("visibility","hidden"),n},update:function(t,n){(!i||s.forcePlaceholderSize)&&(n.height()||n.height(e.currentItem.innerHeight()-parseInt(e.currentItem.css("paddingTop")||0,10)-parseInt(e.currentItem.css("paddingBottom")||0,10)),n.width()||n.width(e.currentItem.innerWidth()-parseInt(e.currentItem.css("paddingLeft")||0,10)-parseInt(e.currentItem.css("paddingRight")||0,10)))}}),e.placeholder=t(s.placeholder.element.call(e.element,e.currentItem)),e.currentItem.after(e.placeholder),s.placeholder.update(e,e.placeholder)},_createTrPlaceholder:function(e,i){var s=this;e.children().each(function(){t("<td>&#160;</td>",s.document[0]).attr("colspan",t(this).attr("colspan")||1).appendTo(i)})},_contactContainers:function(e){var i,s,n,o,a,r,h,l,c,u,d=null,p=null;for(i=this.containers.length-1;i>=0;i--)if(!t.contains(this.currentItem[0],this.containers[i].element[0]))if(this._intersectsWith(this.containers[i].containerCache)){if(d&&t.contains(this.containers[i].element[0],d.element[0]))continue;d=this.containers[i],p=i}else this.containers[i].containerCache.over&&(this.containers[i]._trigger("out",e,this._uiHash(this)),this.containers[i].containerCache.over=0);if(d)if(1===this.containers.length)this.containers[p].containerCache.over||(this.containers[p]._trigger("over",e,this._uiHash(this)),this.containers[p].containerCache.over=1);else{for(n=1e4,o=null,c=d.floating||this._isFloating(this.currentItem),a=c?"left":"top",r=c?"width":"height",u=c?"pageX":"pageY",s=this.items.length-1;s>=0;s--)t.contains(this.containers[p].element[0],this.items[s].item[0])&&this.items[s].item[0]!==this.currentItem[0]&&(h=this.items[s].item.offset()[a],l=!1,e[u]-h>this.items[s][r]/2&&(l=!0),n>Math.abs(e[u]-h)&&(n=Math.abs(e[u]-h),o=this.items[s],this.direction=l?"up":"down"));if(!o&&!this.options.dropOnEmpty)return;if(this.currentContainer===this.containers[p])return this.currentContainer.containerCache.over||(this.containers[p]._trigger("over",e,this._uiHash()),this.currentContainer.containerCache.over=1),void 0;o?this._rearrange(e,o,null,!0):this._rearrange(e,null,this.containers[p].element,!0),this._trigger("change",e,this._uiHash()),this.containers[p]._trigger("change",e,this._uiHash(this)),this.currentContainer=this.containers[p],this.options.placeholder.update(this.currentContainer,this.placeholder),this.containers[p]._trigger("over",e,this._uiHash(this)),this.containers[p].containerCache.over=1}},_createHelper:function(e){var i=this.options,s=t.isFunction(i.helper)?t(i.helper.apply(this.element[0],[e,this.currentItem])):"clone"===i.helper?this.currentItem.clone():this.currentItem;return s.parents("body").length||t("parent"!==i.appendTo?i.appendTo:this.currentItem[0].parentNode)[0].appendChild(s[0]),s[0]===this.currentItem[0]&&(this._storedCSS={width:this.currentItem[0].style.width,height:this.currentItem[0].style.height,position:this.currentItem.css("position"),top:this.currentItem.css("top"),left:this.currentItem.css("left")}),(!s[0].style.width||i.forceHelperSize)&&s.width(this.currentItem.width()),(!s[0].style.height||i.forceHelperSize)&&s.height(this.currentItem.height()),s},_adjustOffsetFromHelper:function(e){"string"==typeof e&&(e=e.split(" ")),t.isArray(e)&&(e={left:+e[0],top:+e[1]||0}),"left"in e&&(this.offset.click.left=e.left+this.margins.left),"right"in e&&(this.offset.click.left=this.helperProportions.width-e.right+this.margins.left),"top"in e&&(this.offset.click.top=e.top+this.margins.top),"bottom"in e&&(this.offset.click.top=this.helperProportions.height-e.bottom+this.margins.top)},_getParentOffset:function(){this.offsetParent=this.helper.offsetParent();var e=this.offsetParent.offset();return"absolute"===this.cssPosition&&this.scrollParent[0]!==this.document[0]&&t.contains(this.scrollParent[0],this.offsetParent[0])&&(e.left+=this.scrollParent.scrollLeft(),e.top+=this.scrollParent.scrollTop()),(this.offsetParent[0]===this.document[0].body||this.offsetParent[0].tagName&&"html"===this.offsetParent[0].tagName.toLowerCase()&&t.ui.ie)&&(e={top:0,left:0}),{top:e.top+(parseInt(this.offsetParent.css("borderTopWidth"),10)||0),left:e.left+(parseInt(this.offsetParent.css("borderLeftWidth"),10)||0)}},_getRelativeOffset:function(){if("relative"===this.cssPosition){var t=this.currentItem.position();return{top:t.top-(parseInt(this.helper.css("top"),10)||0)+this.scrollParent.scrollTop(),left:t.left-(parseInt(this.helper.css("left"),10)||0)+this.scrollParent.scrollLeft()}}return{top:0,left:0}},_cacheMargins:function(){this.margins={left:parseInt(this.currentItem.css("marginLeft"),10)||0,top:parseInt(this.currentItem.css("marginTop"),10)||0}},_cacheHelperProportions:function(){this.helperProportions={width:this.helper.outerWidth(),height:this.helper.outerHeight()}},_setContainment:function(){var e,i,s,n=this.options;"parent"===n.containment&&(n.containment=this.helper[0].parentNode),("document"===n.containment||"window"===n.containment)&&(this.containment=[0-this.offset.relative.left-this.offset.parent.left,0-this.offset.relative.top-this.offset.parent.top,"document"===n.containment?this.document.width():this.window.width()-this.helperProportions.width-this.margins.left,("document"===n.containment?this.document.height()||document.body.parentNode.scrollHeight:this.window.height()||this.document[0].body.parentNode.scrollHeight)-this.helperProportions.height-this.margins.top]),/^(document|window|parent)$/.test(n.containment)||(e=t(n.containment)[0],i=t(n.containment).offset(),s="hidden"!==t(e).css("overflow"),this.containment=[i.left+(parseInt(t(e).css("borderLeftWidth"),10)||0)+(parseInt(t(e).css("paddingLeft"),10)||0)-this.margins.left,i.top+(parseInt(t(e).css("borderTopWidth"),10)||0)+(parseInt(t(e).css("paddingTop"),10)||0)-this.margins.top,i.left+(s?Math.max(e.scrollWidth,e.offsetWidth):e.offsetWidth)-(parseInt(t(e).css("borderLeftWidth"),10)||0)-(parseInt(t(e).css("paddingRight"),10)||0)-this.helperProportions.width-this.margins.left,i.top+(s?Math.max(e.scrollHeight,e.offsetHeight):e.offsetHeight)-(parseInt(t(e).css("borderTopWidth"),10)||0)-(parseInt(t(e).css("paddingBottom"),10)||0)-this.helperProportions.height-this.margins.top])},_convertPositionTo:function(e,i){i||(i=this.position);var s="absolute"===e?1:-1,n="absolute"!==this.cssPosition||this.scrollParent[0]!==this.document[0]&&t.contains(this.scrollParent[0],this.offsetParent[0])?this.scrollParent:this.offsetParent,o=/(html|body)/i.test(n[0].tagName);return{top:i.top+this.offset.relative.top*s+this.offset.parent.top*s-("fixed"===this.cssPosition?-this.scrollParent.scrollTop():o?0:n.scrollTop())*s,left:i.left+this.offset.relative.left*s+this.offset.parent.left*s-("fixed"===this.cssPosition?-this.scrollParent.scrollLeft():o?0:n.scrollLeft())*s}},_generatePosition:function(e){var i,s,n=this.options,o=e.pageX,a=e.pageY,r="absolute"!==this.cssPosition||this.scrollParent[0]!==this.document[0]&&t.contains(this.scrollParent[0],this.offsetParent[0])?this.scrollParent:this.offsetParent,h=/(html|body)/i.test(r[0].tagName);return"relative"!==this.cssPosition||this.scrollParent[0]!==this.document[0]&&this.scrollParent[0]!==this.offsetParent[0]||(this.offset.relative=this._getRelativeOffset()),this.originalPosition&&(this.containment&&(e.pageX-this.offset.click.left<this.containment[0]&&(o=this.containment[0]+this.offset.click.left),e.pageY-this.offset.click.top<this.containment[1]&&(a=this.containment[1]+this.offset.click.top),e.pageX-this.offset.click.left>this.containment[2]&&(o=this.containment[2]+this.offset.click.left),e.pageY-this.offset.click.top>this.containment[3]&&(a=this.containment[3]+this.offset.click.top)),n.grid&&(i=this.originalPageY+Math.round((a-this.originalPageY)/n.grid[1])*n.grid[1],a=this.containment?i-this.offset.click.top>=this.containment[1]&&i-this.offset.click.top<=this.containment[3]?i:i-this.offset.click.top>=this.containment[1]?i-n.grid[1]:i+n.grid[1]:i,s=this.originalPageX+Math.round((o-this.originalPageX)/n.grid[0])*n.grid[0],o=this.containment?s-this.offset.click.left>=this.containment[0]&&s-this.offset.click.left<=this.containment[2]?s:s-this.offset.click.left>=this.containment[0]?s-n.grid[0]:s+n.grid[0]:s)),{top:a-this.offset.click.top-this.offset.relative.top-this.offset.parent.top+("fixed"===this.cssPosition?-this.scrollParent.scrollTop():h?0:r.scrollTop()),left:o-this.offset.click.left-this.offset.relative.left-this.offset.parent.left+("fixed"===this.cssPosition?-this.scrollParent.scrollLeft():h?0:r.scrollLeft())}},_rearrange:function(t,e,i,s){i?i[0].appendChild(this.placeholder[0]):e.item[0].parentNode.insertBefore(this.placeholder[0],"down"===this.direction?e.item[0]:e.item[0].nextSibling),this.counter=this.counter?++this.counter:1;var n=this.counter;
 this._delay(function(){n===this.counter&&this.refreshPositions(!s)})},_clear:function(t,e){function i(t,e,i){return function(s){i._trigger(t,s,e._uiHash(e))}}this.reverting=!1;var s,n=[];if(!this._noFinalSort&&this.currentItem.parent().length&&this.placeholder.before(this.currentItem),this._noFinalSort=null,this.helper[0]===this.currentItem[0]){for(s in this._storedCSS)("auto"===this._storedCSS[s]||"static"===this._storedCSS[s])&&(this._storedCSS[s]="");this.currentItem.css(this._storedCSS),this._removeClass(this.currentItem,"ui-sortable-helper")}else this.currentItem.show();for(this.fromOutside&&!e&&n.push(function(t){this._trigger("receive",t,this._uiHash(this.fromOutside))}),!this.fromOutside&&this.domPosition.prev===this.currentItem.prev().not(".ui-sortable-helper")[0]&&this.domPosition.parent===this.currentItem.parent()[0]||e||n.push(function(t){this._trigger("update",t,this._uiHash())}),this!==this.currentContainer&&(e||(n.push(function(t){this._trigger("remove",t,this._uiHash())}),n.push(function(t){return function(e){t._trigger("receive",e,this._uiHash(this))}}.call(this,this.currentContainer)),n.push(function(t){return function(e){t._trigger("update",e,this._uiHash(this))}}.call(this,this.currentContainer)))),s=this.containers.length-1;s>=0;s--)e||n.push(i("deactivate",this,this.containers[s])),this.containers[s].containerCache.over&&(n.push(i("out",this,this.containers[s])),this.containers[s].containerCache.over=0);if(this.storedCursor&&(this.document.find("body").css("cursor",this.storedCursor),this.storedStylesheet.remove()),this._storedOpacity&&this.helper.css("opacity",this._storedOpacity),this._storedZIndex&&this.helper.css("zIndex","auto"===this._storedZIndex?"":this._storedZIndex),this.dragging=!1,e||this._trigger("beforeStop",t,this._uiHash()),this.placeholder[0].parentNode.removeChild(this.placeholder[0]),this.cancelHelperRemoval||(this.helper[0]!==this.currentItem[0]&&this.helper.remove(),this.helper=null),!e){for(s=0;n.length>s;s++)n[s].call(this,t);this._trigger("stop",t,this._uiHash())}return this.fromOutside=!1,!this.cancelHelperRemoval},_trigger:function(){t.Widget.prototype._trigger.apply(this,arguments)===!1&&this.cancel()},_uiHash:function(e){var i=e||this;return{helper:i.helper,placeholder:i.placeholder||t([]),position:i.position,originalPosition:i.originalPosition,offset:i.positionAbs,item:i.currentItem,sender:e?e.element:null}}}),t.widget("ui.spinner",{version:"1.12.1",defaultElement:"<input>",widgetEventPrefix:"spin",options:{classes:{"ui-spinner":"ui-corner-all","ui-spinner-down":"ui-corner-br","ui-spinner-up":"ui-corner-tr"},culture:null,icons:{down:"ui-icon-triangle-1-s",up:"ui-icon-triangle-1-n"},incremental:!0,max:null,min:null,numberFormat:null,page:10,step:1,change:null,spin:null,start:null,stop:null},_create:function(){this._setOption("max",this.options.max),this._setOption("min",this.options.min),this._setOption("step",this.options.step),""!==this.value()&&this._value(this.element.val(),!0),this._draw(),this._on(this._events),this._refresh(),this._on(this.window,{beforeunload:function(){this.element.removeAttr("autocomplete")}})},_getCreateOptions:function(){var e=this._super(),i=this.element;return t.each(["min","max","step"],function(t,s){var n=i.attr(s);null!=n&&n.length&&(e[s]=n)}),e},_events:{keydown:function(t){this._start(t)&&this._keydown(t)&&t.preventDefault()},keyup:"_stop",focus:function(){this.previous=this.element.val()},blur:function(t){return this.cancelBlur?(delete this.cancelBlur,void 0):(this._stop(),this._refresh(),this.previous!==this.element.val()&&this._trigger("change",t),void 0)},mousewheel:function(t,e){if(e){if(!this.spinning&&!this._start(t))return!1;this._spin((e>0?1:-1)*this.options.step,t),clearTimeout(this.mousewheelTimer),this.mousewheelTimer=this._delay(function(){this.spinning&&this._stop(t)},100),t.preventDefault()}},"mousedown .ui-spinner-button":function(e){function i(){var e=this.element[0]===t.ui.safeActiveElement(this.document[0]);e||(this.element.trigger("focus"),this.previous=s,this._delay(function(){this.previous=s}))}var s;s=this.element[0]===t.ui.safeActiveElement(this.document[0])?this.previous:this.element.val(),e.preventDefault(),i.call(this),this.cancelBlur=!0,this._delay(function(){delete this.cancelBlur,i.call(this)}),this._start(e)!==!1&&this._repeat(null,t(e.currentTarget).hasClass("ui-spinner-up")?1:-1,e)},"mouseup .ui-spinner-button":"_stop","mouseenter .ui-spinner-button":function(e){return t(e.currentTarget).hasClass("ui-state-active")?this._start(e)===!1?!1:(this._repeat(null,t(e.currentTarget).hasClass("ui-spinner-up")?1:-1,e),void 0):void 0},"mouseleave .ui-spinner-button":"_stop"},_enhance:function(){this.uiSpinner=this.element.attr("autocomplete","off").wrap("<span>").parent().append("<a></a><a></a>")},_draw:function(){this._enhance(),this._addClass(this.uiSpinner,"ui-spinner","ui-widget ui-widget-content"),this._addClass("ui-spinner-input"),this.element.attr("role","spinbutton"),this.buttons=this.uiSpinner.children("a").attr("tabIndex",-1).attr("aria-hidden",!0).button({classes:{"ui-button":""}}),this._removeClass(this.buttons,"ui-corner-all"),this._addClass(this.buttons.first(),"ui-spinner-button ui-spinner-up"),this._addClass(this.buttons.last(),"ui-spinner-button ui-spinner-down"),this.buttons.first().button({icon:this.options.icons.up,showLabel:!1}),this.buttons.last().button({icon:this.options.icons.down,showLabel:!1}),this.buttons.height()>Math.ceil(.5*this.uiSpinner.height())&&this.uiSpinner.height()>0&&this.uiSpinner.height(this.uiSpinner.height())},_keydown:function(e){var i=this.options,s=t.ui.keyCode;switch(e.keyCode){case s.UP:return this._repeat(null,1,e),!0;case s.DOWN:return this._repeat(null,-1,e),!0;case s.PAGE_UP:return this._repeat(null,i.page,e),!0;case s.PAGE_DOWN:return this._repeat(null,-i.page,e),!0}return!1},_start:function(t){return this.spinning||this._trigger("start",t)!==!1?(this.counter||(this.counter=1),this.spinning=!0,!0):!1},_repeat:function(t,e,i){t=t||500,clearTimeout(this.timer),this.timer=this._delay(function(){this._repeat(40,e,i)},t),this._spin(e*this.options.step,i)},_spin:function(t,e){var i=this.value()||0;this.counter||(this.counter=1),i=this._adjustValue(i+t*this._increment(this.counter)),this.spinning&&this._trigger("spin",e,{value:i})===!1||(this._value(i),this.counter++)},_increment:function(e){var i=this.options.incremental;return i?t.isFunction(i)?i(e):Math.floor(e*e*e/5e4-e*e/500+17*e/200+1):1},_precision:function(){var t=this._precisionOf(this.options.step);return null!==this.options.min&&(t=Math.max(t,this._precisionOf(this.options.min))),t},_precisionOf:function(t){var e=""+t,i=e.indexOf(".");return-1===i?0:e.length-i-1},_adjustValue:function(t){var e,i,s=this.options;return e=null!==s.min?s.min:0,i=t-e,i=Math.round(i/s.step)*s.step,t=e+i,t=parseFloat(t.toFixed(this._precision())),null!==s.max&&t>s.max?s.max:null!==s.min&&s.min>t?s.min:t},_stop:function(t){this.spinning&&(clearTimeout(this.timer),clearTimeout(this.mousewheelTimer),this.counter=0,this.spinning=!1,this._trigger("stop",t))},_setOption:function(t,e){var i,s,n;return"culture"===t||"numberFormat"===t?(i=this._parse(this.element.val()),this.options[t]=e,this.element.val(this._format(i)),void 0):(("max"===t||"min"===t||"step"===t)&&"string"==typeof e&&(e=this._parse(e)),"icons"===t&&(s=this.buttons.first().find(".ui-icon"),this._removeClass(s,null,this.options.icons.up),this._addClass(s,null,e.up),n=this.buttons.last().find(".ui-icon"),this._removeClass(n,null,this.options.icons.down),this._addClass(n,null,e.down)),this._super(t,e),void 0)},_setOptionDisabled:function(t){this._super(t),this._toggleClass(this.uiSpinner,null,"ui-state-disabled",!!t),this.element.prop("disabled",!!t),this.buttons.button(t?"disable":"enable")},_setOptions:r(function(t){this._super(t)}),_parse:function(t){return"string"==typeof t&&""!==t&&(t=window.Globalize&&this.options.numberFormat?Globalize.parseFloat(t,10,this.options.culture):+t),""===t||isNaN(t)?null:t},_format:function(t){return""===t?"":window.Globalize&&this.options.numberFormat?Globalize.format(t,this.options.numberFormat,this.options.culture):t},_refresh:function(){this.element.attr({"aria-valuemin":this.options.min,"aria-valuemax":this.options.max,"aria-valuenow":this._parse(this.element.val())})},isValid:function(){var t=this.value();return null===t?!1:t===this._adjustValue(t)},_value:function(t,e){var i;""!==t&&(i=this._parse(t),null!==i&&(e||(i=this._adjustValue(i)),t=this._format(i))),this.element.val(t),this._refresh()},_destroy:function(){this.element.prop("disabled",!1).removeAttr("autocomplete role aria-valuemin aria-valuemax aria-valuenow"),this.uiSpinner.replaceWith(this.element)},stepUp:r(function(t){this._stepUp(t)}),_stepUp:function(t){this._start()&&(this._spin((t||1)*this.options.step),this._stop())},stepDown:r(function(t){this._stepDown(t)}),_stepDown:function(t){this._start()&&(this._spin((t||1)*-this.options.step),this._stop())},pageUp:r(function(t){this._stepUp((t||1)*this.options.page)}),pageDown:r(function(t){this._stepDown((t||1)*this.options.page)}),value:function(t){return arguments.length?(r(this._value).call(this,t),void 0):this._parse(this.element.val())},widget:function(){return this.uiSpinner}}),t.uiBackCompat!==!1&&t.widget("ui.spinner",t.ui.spinner,{_enhance:function(){this.uiSpinner=this.element.attr("autocomplete","off").wrap(this._uiSpinnerHtml()).parent().append(this._buttonHtml())},_uiSpinnerHtml:function(){return"<span>"},_buttonHtml:function(){return"<a></a><a></a>"}}),t.ui.spinner,t.widget("ui.tabs",{version:"1.12.1",delay:300,options:{active:null,classes:{"ui-tabs":"ui-corner-all","ui-tabs-nav":"ui-corner-all","ui-tabs-panel":"ui-corner-bottom","ui-tabs-tab":"ui-corner-top"},collapsible:!1,event:"click",heightStyle:"content",hide:null,show:null,activate:null,beforeActivate:null,beforeLoad:null,load:null},_isLocal:function(){var t=/#.*$/;return function(e){var i,s;i=e.href.replace(t,""),s=location.href.replace(t,"");try{i=decodeURIComponent(i)}catch(n){}try{s=decodeURIComponent(s)}catch(n){}return e.hash.length>1&&i===s}}(),_create:function(){var e=this,i=this.options;this.running=!1,this._addClass("ui-tabs","ui-widget ui-widget-content"),this._toggleClass("ui-tabs-collapsible",null,i.collapsible),this._processTabs(),i.active=this._initialActive(),t.isArray(i.disabled)&&(i.disabled=t.unique(i.disabled.concat(t.map(this.tabs.filter(".ui-state-disabled"),function(t){return e.tabs.index(t)}))).sort()),this.active=this.options.active!==!1&&this.anchors.length?this._findActive(i.active):t(),this._refresh(),this.active.length&&this.load(i.active)},_initialActive:function(){var e=this.options.active,i=this.options.collapsible,s=location.hash.substring(1);return null===e&&(s&&this.tabs.each(function(i,n){return t(n).attr("aria-controls")===s?(e=i,!1):void 0}),null===e&&(e=this.tabs.index(this.tabs.filter(".ui-tabs-active"))),(null===e||-1===e)&&(e=this.tabs.length?0:!1)),e!==!1&&(e=this.tabs.index(this.tabs.eq(e)),-1===e&&(e=i?!1:0)),!i&&e===!1&&this.anchors.length&&(e=0),e},_getCreateEventData:function(){return{tab:this.active,panel:this.active.length?this._getPanelForTab(this.active):t()}},_tabKeydown:function(e){var i=t(t.ui.safeActiveElement(this.document[0])).closest("li"),s=this.tabs.index(i),n=!0;if(!this._handlePageNav(e)){switch(e.keyCode){case t.ui.keyCode.RIGHT:case t.ui.keyCode.DOWN:s++;break;case t.ui.keyCode.UP:case t.ui.keyCode.LEFT:n=!1,s--;break;case t.ui.keyCode.END:s=this.anchors.length-1;break;case t.ui.keyCode.HOME:s=0;break;case t.ui.keyCode.SPACE:return e.preventDefault(),clearTimeout(this.activating),this._activate(s),void 0;case t.ui.keyCode.ENTER:return e.preventDefault(),clearTimeout(this.activating),this._activate(s===this.options.active?!1:s),void 0;default:return}e.preventDefault(),clearTimeout(this.activating),s=this._focusNextTab(s,n),e.ctrlKey||e.metaKey||(i.attr("aria-selected","false"),this.tabs.eq(s).attr("aria-selected","true"),this.activating=this._delay(function(){this.option("active",s)},this.delay))}},_panelKeydown:function(e){this._handlePageNav(e)||e.ctrlKey&&e.keyCode===t.ui.keyCode.UP&&(e.preventDefault(),this.active.trigger("focus"))},_handlePageNav:function(e){return e.altKey&&e.keyCode===t.ui.keyCode.PAGE_UP?(this._activate(this._focusNextTab(this.options.active-1,!1)),!0):e.altKey&&e.keyCode===t.ui.keyCode.PAGE_DOWN?(this._activate(this._focusNextTab(this.options.active+1,!0)),!0):void 0},_findNextTab:function(e,i){function s(){return e>n&&(e=0),0>e&&(e=n),e}for(var n=this.tabs.length-1;-1!==t.inArray(s(),this.options.disabled);)e=i?e+1:e-1;return e},_focusNextTab:function(t,e){return t=this._findNextTab(t,e),this.tabs.eq(t).trigger("focus"),t},_setOption:function(t,e){return"active"===t?(this._activate(e),void 0):(this._super(t,e),"collapsible"===t&&(this._toggleClass("ui-tabs-collapsible",null,e),e||this.options.active!==!1||this._activate(0)),"event"===t&&this._setupEvents(e),"heightStyle"===t&&this._setupHeightStyle(e),void 0)},_sanitizeSelector:function(t){return t?t.replace(/[!"$%&'()*+,.\/:;<=>?@\[\]\^`{|}~]/g,"\\$&"):""},refresh:function(){var e=this.options,i=this.tablist.children(":has(a[href])");e.disabled=t.map(i.filter(".ui-state-disabled"),function(t){return i.index(t)}),this._processTabs(),e.active!==!1&&this.anchors.length?this.active.length&&!t.contains(this.tablist[0],this.active[0])?this.tabs.length===e.disabled.length?(e.active=!1,this.active=t()):this._activate(this._findNextTab(Math.max(0,e.active-1),!1)):e.active=this.tabs.index(this.active):(e.active=!1,this.active=t()),this._refresh()},_refresh:function(){this._setOptionDisabled(this.options.disabled),this._setupEvents(this.options.event),this._setupHeightStyle(this.options.heightStyle),this.tabs.not(this.active).attr({"aria-selected":"false","aria-expanded":"false",tabIndex:-1}),this.panels.not(this._getPanelForTab(this.active)).hide().attr({"aria-hidden":"true"}),this.active.length?(this.active.attr({"aria-selected":"true","aria-expanded":"true",tabIndex:0}),this._addClass(this.active,"ui-tabs-active","ui-state-active"),this._getPanelForTab(this.active).show().attr({"aria-hidden":"false"})):this.tabs.eq(0).attr("tabIndex",0)},_processTabs:function(){var e=this,i=this.tabs,s=this.anchors,n=this.panels;this.tablist=this._getList().attr("role","tablist"),this._addClass(this.tablist,"ui-tabs-nav","ui-helper-reset ui-helper-clearfix ui-widget-header"),this.tablist.on("mousedown"+this.eventNamespace,"> li",function(e){t(this).is(".ui-state-disabled")&&e.preventDefault()}).on("focus"+this.eventNamespace,".ui-tabs-anchor",function(){t(this).closest("li").is(".ui-state-disabled")&&this.blur()}),this.tabs=this.tablist.find("> li:has(a[href])").attr({role:"tab",tabIndex:-1}),this._addClass(this.tabs,"ui-tabs-tab","ui-state-default"),this.anchors=this.tabs.map(function(){return t("a",this)[0]}).attr({role:"presentation",tabIndex:-1}),this._addClass(this.anchors,"ui-tabs-anchor"),this.panels=t(),this.anchors.each(function(i,s){var n,o,a,r=t(s).uniqueId().attr("id"),h=t(s).closest("li"),l=h.attr("aria-controls");e._isLocal(s)?(n=s.hash,a=n.substring(1),o=e.element.find(e._sanitizeSelector(n))):(a=h.attr("aria-controls")||t({}).uniqueId()[0].id,n="#"+a,o=e.element.find(n),o.length||(o=e._createPanel(a),o.insertAfter(e.panels[i-1]||e.tablist)),o.attr("aria-live","polite")),o.length&&(e.panels=e.panels.add(o)),l&&h.data("ui-tabs-aria-controls",l),h.attr({"aria-controls":a,"aria-labelledby":r}),o.attr("aria-labelledby",r)}),this.panels.attr("role","tabpanel"),this._addClass(this.panels,"ui-tabs-panel","ui-widget-content"),i&&(this._off(i.not(this.tabs)),this._off(s.not(this.anchors)),this._off(n.not(this.panels)))},_getList:function(){return this.tablist||this.element.find("ol, ul").eq(0)},_createPanel:function(e){return t("<div>").attr("id",e).data("ui-tabs-destroy",!0)},_setOptionDisabled:function(e){var i,s,n;for(t.isArray(e)&&(e.length?e.length===this.anchors.length&&(e=!0):e=!1),n=0;s=this.tabs[n];n++)i=t(s),e===!0||-1!==t.inArray(n,e)?(i.attr("aria-disabled","true"),this._addClass(i,null,"ui-state-disabled")):(i.removeAttr("aria-disabled"),this._removeClass(i,null,"ui-state-disabled"));this.options.disabled=e,this._toggleClass(this.widget(),this.widgetFullName+"-disabled",null,e===!0)},_setupEvents:function(e){var i={};e&&t.each(e.split(" "),function(t,e){i[e]="_eventHandler"}),this._off(this.anchors.add(this.tabs).add(this.panels)),this._on(!0,this.anchors,{click:function(t){t.preventDefault()}}),this._on(this.anchors,i),this._on(this.tabs,{keydown:"_tabKeydown"}),this._on(this.panels,{keydown:"_panelKeydown"}),this._focusable(this.tabs),this._hoverable(this.tabs)},_setupHeightStyle:function(e){var i,s=this.element.parent();"fill"===e?(i=s.height(),i-=this.element.outerHeight()-this.element.height(),this.element.siblings(":visible").each(function(){var e=t(this),s=e.css("position");"absolute"!==s&&"fixed"!==s&&(i-=e.outerHeight(!0))}),this.element.children().not(this.panels).each(function(){i-=t(this).outerHeight(!0)}),this.panels.each(function(){t(this).height(Math.max(0,i-t(this).innerHeight()+t(this).height()))}).css("overflow","auto")):"auto"===e&&(i=0,this.panels.each(function(){i=Math.max(i,t(this).height("").height())}).height(i))},_eventHandler:function(e){var i=this.options,s=this.active,n=t(e.currentTarget),o=n.closest("li"),a=o[0]===s[0],r=a&&i.collapsible,h=r?t():this._getPanelForTab(o),l=s.length?this._getPanelForTab(s):t(),c={oldTab:s,oldPanel:l,newTab:r?t():o,newPanel:h};e.preventDefault(),o.hasClass("ui-state-disabled")||o.hasClass("ui-tabs-loading")||this.running||a&&!i.collapsible||this._trigger("beforeActivate",e,c)===!1||(i.active=r?!1:this.tabs.index(o),this.active=a?t():o,this.xhr&&this.xhr.abort(),l.length||h.length||t.error("jQuery UI Tabs: Mismatching fragment identifier."),h.length&&this.load(this.tabs.index(o),e),this._toggle(e,c))},_toggle:function(e,i){function s(){o.running=!1,o._trigger("activate",e,i)}function n(){o._addClass(i.newTab.closest("li"),"ui-tabs-active","ui-state-active"),a.length&&o.options.show?o._show(a,o.options.show,s):(a.show(),s())}var o=this,a=i.newPanel,r=i.oldPanel;this.running=!0,r.length&&this.options.hide?this._hide(r,this.options.hide,function(){o._removeClass(i.oldTab.closest("li"),"ui-tabs-active","ui-state-active"),n()}):(this._removeClass(i.oldTab.closest("li"),"ui-tabs-active","ui-state-active"),r.hide(),n()),r.attr("aria-hidden","true"),i.oldTab.attr({"aria-selected":"false","aria-expanded":"false"}),a.length&&r.length?i.oldTab.attr("tabIndex",-1):a.length&&this.tabs.filter(function(){return 0===t(this).attr("tabIndex")}).attr("tabIndex",-1),a.attr("aria-hidden","false"),i.newTab.attr({"aria-selected":"true","aria-expanded":"true",tabIndex:0})},_activate:function(e){var i,s=this._findActive(e);s[0]!==this.active[0]&&(s.length||(s=this.active),i=s.find(".ui-tabs-anchor")[0],this._eventHandler({target:i,currentTarget:i,preventDefault:t.noop}))},_findActive:function(e){return e===!1?t():this.tabs.eq(e)},_getIndex:function(e){return"string"==typeof e&&(e=this.anchors.index(this.anchors.filter("[href$='"+t.ui.escapeSelector(e)+"']"))),e},_destroy:function(){this.xhr&&this.xhr.abort(),this.tablist.removeAttr("role").off(this.eventNamespace),this.anchors.removeAttr("role tabIndex").removeUniqueId(),this.tabs.add(this.panels).each(function(){t.data(this,"ui-tabs-destroy")?t(this).remove():t(this).removeAttr("role tabIndex aria-live aria-busy aria-selected aria-labelledby aria-hidden aria-expanded")}),this.tabs.each(function(){var e=t(this),i=e.data("ui-tabs-aria-controls");i?e.attr("aria-controls",i).removeData("ui-tabs-aria-controls"):e.removeAttr("aria-controls")}),this.panels.show(),"content"!==this.options.heightStyle&&this.panels.css("height","")},enable:function(e){var i=this.options.disabled;i!==!1&&(void 0===e?i=!1:(e=this._getIndex(e),i=t.isArray(i)?t.map(i,function(t){return t!==e?t:null}):t.map(this.tabs,function(t,i){return i!==e?i:null})),this._setOptionDisabled(i))},disable:function(e){var i=this.options.disabled;if(i!==!0){if(void 0===e)i=!0;else{if(e=this._getIndex(e),-1!==t.inArray(e,i))return;i=t.isArray(i)?t.merge([e],i).sort():[e]}this._setOptionDisabled(i)}},load:function(e,i){e=this._getIndex(e);var s=this,n=this.tabs.eq(e),o=n.find(".ui-tabs-anchor"),a=this._getPanelForTab(n),r={tab:n,panel:a},h=function(t,e){"abort"===e&&s.panels.stop(!1,!0),s._removeClass(n,"ui-tabs-loading"),a.removeAttr("aria-busy"),t===s.xhr&&delete s.xhr};this._isLocal(o[0])||(this.xhr=t.ajax(this._ajaxSettings(o,i,r)),this.xhr&&"canceled"!==this.xhr.statusText&&(this._addClass(n,"ui-tabs-loading"),a.attr("aria-busy","true"),this.xhr.done(function(t,e,n){setTimeout(function(){a.html(t),s._trigger("load",i,r),h(n,e)},1)}).fail(function(t,e){setTimeout(function(){h(t,e)},1)})))},_ajaxSettings:function(e,i,s){var n=this;return{url:e.attr("href").replace(/#.*$/,""),beforeSend:function(e,o){return n._trigger("beforeLoad",i,t.extend({jqXHR:e,ajaxSettings:o},s))}}},_getPanelForTab:function(e){var i=t(e).attr("aria-controls");return this.element.find(this._sanitizeSelector("#"+i))}}),t.uiBackCompat!==!1&&t.widget("ui.tabs",t.ui.tabs,{_processTabs:function(){this._superApply(arguments),this._addClass(this.tabs,"ui-tab")}}),t.ui.tabs,t.widget("ui.tooltip",{version:"1.12.1",options:{classes:{"ui-tooltip":"ui-corner-all ui-widget-shadow"},content:function(){var e=t(this).attr("title")||"";return t("<a>").text(e).html()},hide:!0,items:"[title]:not([disabled])",position:{my:"left top+15",at:"left bottom",collision:"flipfit flip"},show:!0,track:!1,close:null,open:null},_addDescribedBy:function(e,i){var s=(e.attr("aria-describedby")||"").split(/\s+/);s.push(i),e.data("ui-tooltip-id",i).attr("aria-describedby",t.trim(s.join(" ")))},_removeDescribedBy:function(e){var i=e.data("ui-tooltip-id"),s=(e.attr("aria-describedby")||"").split(/\s+/),n=t.inArray(i,s);-1!==n&&s.splice(n,1),e.removeData("ui-tooltip-id"),s=t.trim(s.join(" ")),s?e.attr("aria-describedby",s):e.removeAttr("aria-describedby")},_create:function(){this._on({mouseover:"open",focusin:"open"}),this.tooltips={},this.parents={},this.liveRegion=t("<div>").attr({role:"log","aria-live":"assertive","aria-relevant":"additions"}).appendTo(this.document[0].body),this._addClass(this.liveRegion,null,"ui-helper-hidden-accessible"),this.disabledTitles=t([])},_setOption:function(e,i){var s=this;this._super(e,i),"content"===e&&t.each(this.tooltips,function(t,e){s._updateContent(e.element)})},_setOptionDisabled:function(t){this[t?"_disable":"_enable"]()},_disable:function(){var e=this;t.each(this.tooltips,function(i,s){var n=t.Event("blur");n.target=n.currentTarget=s.element[0],e.close(n,!0)}),this.disabledTitles=this.disabledTitles.add(this.element.find(this.options.items).addBack().filter(function(){var e=t(this);return e.is("[title]")?e.data("ui-tooltip-title",e.attr("title")).removeAttr("title"):void 0}))},_enable:function(){this.disabledTitles.each(function(){var e=t(this);e.data("ui-tooltip-title")&&e.attr("title",e.data("ui-tooltip-title"))}),this.disabledTitles=t([])},open:function(e){var i=this,s=t(e?e.target:this.element).closest(this.options.items);s.length&&!s.data("ui-tooltip-id")&&(s.attr("title")&&s.data("ui-tooltip-title",s.attr("title")),s.data("ui-tooltip-open",!0),e&&"mouseover"===e.type&&s.parents().each(function(){var e,s=t(this);s.data("ui-tooltip-open")&&(e=t.Event("blur"),e.target=e.currentTarget=this,i.close(e,!0)),s.attr("title")&&(s.uniqueId(),i.parents[this.id]={element:this,title:s.attr("title")},s.attr("title",""))}),this._registerCloseHandlers(e,s),this._updateContent(s,e))},_updateContent:function(t,e){var i,s=this.options.content,n=this,o=e?e.type:null;return"string"==typeof s||s.nodeType||s.jquery?this._open(e,t,s):(i=s.call(t[0],function(i){n._delay(function(){t.data("ui-tooltip-open")&&(e&&(e.type=o),this._open(e,t,i))})}),i&&this._open(e,t,i),void 0)},_open:function(e,i,s){function n(t){l.of=t,a.is(":hidden")||a.position(l)}var o,a,r,h,l=t.extend({},this.options.position);if(s){if(o=this._find(i))return o.tooltip.find(".ui-tooltip-content").html(s),void 0;i.is("[title]")&&(e&&"mouseover"===e.type?i.attr("title",""):i.removeAttr("title")),o=this._tooltip(i),a=o.tooltip,this._addDescribedBy(i,a.attr("id")),a.find(".ui-tooltip-content").html(s),this.liveRegion.children().hide(),h=t("<div>").html(a.find(".ui-tooltip-content").html()),h.removeAttr("name").find("[name]").removeAttr("name"),h.removeAttr("id").find("[id]").removeAttr("id"),h.appendTo(this.liveRegion),this.options.track&&e&&/^mouse/.test(e.type)?(this._on(this.document,{mousemove:n}),n(e)):a.position(t.extend({of:i},this.options.position)),a.hide(),this._show(a,this.options.show),this.options.track&&this.options.show&&this.options.show.delay&&(r=this.delayedShow=setInterval(function(){a.is(":visible")&&(n(l.of),clearInterval(r))},t.fx.interval)),this._trigger("open",e,{tooltip:a})}},_registerCloseHandlers:function(e,i){var s={keyup:function(e){if(e.keyCode===t.ui.keyCode.ESCAPE){var s=t.Event(e);s.currentTarget=i[0],this.close(s,!0)}}};i[0]!==this.element[0]&&(s.remove=function(){this._removeTooltip(this._find(i).tooltip)}),e&&"mouseover"!==e.type||(s.mouseleave="close"),e&&"focusin"!==e.type||(s.focusout="close"),this._on(!0,i,s)},close:function(e){var i,s=this,n=t(e?e.currentTarget:this.element),o=this._find(n);return o?(i=o.tooltip,o.closing||(clearInterval(this.delayedShow),n.data("ui-tooltip-title")&&!n.attr("title")&&n.attr("title",n.data("ui-tooltip-title")),this._removeDescribedBy(n),o.hiding=!0,i.stop(!0),this._hide(i,this.options.hide,function(){s._removeTooltip(t(this))}),n.removeData("ui-tooltip-open"),this._off(n,"mouseleave focusout keyup"),n[0]!==this.element[0]&&this._off(n,"remove"),this._off(this.document,"mousemove"),e&&"mouseleave"===e.type&&t.each(this.parents,function(e,i){t(i.element).attr("title",i.title),delete s.parents[e]}),o.closing=!0,this._trigger("close",e,{tooltip:i}),o.hiding||(o.closing=!1)),void 0):(n.removeData("ui-tooltip-open"),void 0)},_tooltip:function(e){var i=t("<div>").attr("role","tooltip"),s=t("<div>").appendTo(i),n=i.uniqueId().attr("id");return this._addClass(s,"ui-tooltip-content"),this._addClass(i,"ui-tooltip","ui-widget ui-widget-content"),i.appendTo(this._appendTo(e)),this.tooltips[n]={element:e,tooltip:i}},_find:function(t){var e=t.data("ui-tooltip-id");return e?this.tooltips[e]:null},_removeTooltip:function(t){t.remove(),delete this.tooltips[t.attr("id")]},_appendTo:function(t){var e=t.closest(".ui-front, dialog");return e.length||(e=this.document[0].body),e},_destroy:function(){var e=this;t.each(this.tooltips,function(i,s){var n=t.Event("blur"),o=s.element;n.target=n.currentTarget=o[0],e.close(n,!0),t("#"+i).remove(),o.data("ui-tooltip-title")&&(o.attr("title")||o.attr("title",o.data("ui-tooltip-title")),o.removeData("ui-tooltip-title"))}),this.liveRegion.remove()}}),t.uiBackCompat!==!1&&t.widget("ui.tooltip",t.ui.tooltip,{options:{tooltipClass:null},_tooltip:function(){var t=this._superApply(arguments);return this.options.tooltipClass&&t.tooltip.addClass(this.options.tooltipClass),t}}),t.ui.tooltip});
-(function ($) {
-
-  $.fn.customScrollbar = function (options, args) {
-
-    var defaultOptions = {
-      skin: undefined,
-      hScroll: true,
-      vScroll: true,
-      updateOnWindowResize: false,
-      animationSpeed: 300,
-      onCustomScroll: undefined,
-      swipeSpeed: 1,
-      wheelSpeed: 40,
-      fixedThumbWidth: undefined,
-      fixedThumbHeight: undefined,
-      preventDefaultScroll: false
-    }
-
-    var Scrollable = function (element, options) {
-      this.$element = $(element);
-      this.options = options;
-      this.addScrollableClass();
-      this.addSkinClass();
-      this.addScrollBarComponents();
-      if (this.options.vScroll)
-        this.vScrollbar = new Scrollbar(this, new VSizing());
-      if (this.options.hScroll)
-        this.hScrollbar = new Scrollbar(this, new HSizing());
-      this.$element.data("scrollable", this);
-      this.initKeyboardScrolling();
-      this.bindEvents();
-    }
-
-    Scrollable.prototype = {
-
-      addScrollableClass: function () {
-        if (!this.$element.hasClass("scrollable")) {
-          this.scrollableAdded = true;
-          this.$element.addClass("scrollable");
-        }
-      },
-
-      removeScrollableClass: function () {
-        if (this.scrollableAdded)
-          this.$element.removeClass("scrollable");
-      },
-
-      addSkinClass: function () {
-        if (typeof(this.options.skin) == "string" && !this.$element.hasClass(this.options.skin)) {
-          this.skinClassAdded = true;
-          this.$element.addClass(this.options.skin);
-        }
-      },
-
-      removeSkinClass: function () {
-        if (this.skinClassAdded)
-          this.$element.removeClass(this.options.skin);
-      },
-
-      addScrollBarComponents: function () {
-        this.assignViewPort();
-        if (this.$viewPort.length == 0) {
-          this.$element.wrapInner("<div class=\"viewport\" />");
-          this.assignViewPort();
-          this.viewPortAdded = true;
-        }
-        this.assignOverview();
-        if (this.$overview.length == 0) {
-          this.$viewPort.wrapInner("<div class=\"overview\" />");
-          this.assignOverview();
-          this.overviewAdded = true;
-        }
-        this.addScrollBar("vertical", "prepend");
-        this.addScrollBar("horizontal", "append");
-      },
-
-      removeScrollbarComponents: function () {
-        this.removeScrollbar("vertical");
-        this.removeScrollbar("horizontal");
-        if (this.overviewAdded)
-          this.$element.unwrap();
-        if (this.viewPortAdded)
-          this.$element.unwrap();
-      },
-
-      removeScrollbar: function (orientation) {
-        if (this[orientation + "ScrollbarAdded"])
-          this.$element.find(".scroll-bar." + orientation).remove();
-      },
-
-      assignViewPort: function () {
-        this.$viewPort = this.$element.find(".viewport");
-      },
-
-      assignOverview: function () {
-        this.$overview = this.$viewPort.find(".overview");
-      },
-
-      addScrollBar: function (orientation, fun) {
-        if (this.$element.find(".scroll-bar." + orientation).length == 0) {
-          this.$element[fun]("<div class='scroll-bar " + orientation + "'><div class='thumb'></div></div>")
-          this[orientation + "ScrollbarAdded"] = true;
-        }
-      },
-
-      resize: function (keepPosition) {
-        if (this.vScrollbar)
-          this.vScrollbar.resize(keepPosition);
-        if (this.hScrollbar)
-          this.hScrollbar.resize(keepPosition);
-      },
-
-      scrollTo: function (element) {
-        if (this.vScrollbar)
-          this.vScrollbar.scrollToElement(element);
-        if (this.hScrollbar)
-          this.hScrollbar.scrollToElement(element);
-      },
-
-      scrollToXY: function (x, y) {
-        this.scrollToX(x);
-        this.scrollToY(y);
-      },
-
-      scrollToX: function (x) {
-        if (this.hScrollbar)
-          this.hScrollbar.scrollOverviewTo(x, true);
-      },
-
-      scrollToY: function (y) {
-        if (this.vScrollbar)
-          this.vScrollbar.scrollOverviewTo(y, true);
-      },
-
-      scrollByX: function (x) {
-        if (this.hScrollbar)
-          this.scrollToX(this.hScrollbar.overviewPosition() + x);
-      },
-
-      scrollByY: function (y) {
-        if (this.vScrollbar)
-          this.scrollToY(this.vScrollbar.overviewPosition() + y);
-      },
-
-      remove: function () {
-        this.removeScrollableClass();
-        this.removeSkinClass();
-        this.removeScrollbarComponents();
-        this.$element.data("scrollable", null);
-        this.removeKeyboardScrolling();
-        if (this.vScrollbar)
-          this.vScrollbar.remove();
-        if (this.hScrollbar)
-          this.hScrollbar.remove();
-      },
-
-      setAnimationSpeed: function (speed) {
-        this.options.animationSpeed = speed;
-      },
-
-      isInside: function (element, wrappingElement) {
-        var $element = $(element);
-        var $wrappingElement = $(wrappingElement);
-        var elementOffset = $element.offset();
-        var wrappingElementOffset = $wrappingElement.offset();
-        return (elementOffset.top >= wrappingElementOffset.top) && (elementOffset.left >= wrappingElementOffset.left) &&
-          (elementOffset.top + $element.height() <= wrappingElementOffset.top + $wrappingElement.height()) &&
-          (elementOffset.left + $element.width() <= wrappingElementOffset.left + $wrappingElement.width())
-      },
-
-      initKeyboardScrolling: function () {
-        var _this = this;
-
-        this.elementKeydown = function (event) {
-          if (document.activeElement === _this.$element[0]) {
-            if (_this.vScrollbar)
-              _this.vScrollbar.keyScroll(event);
-            if (_this.hScrollbar)
-              _this.hScrollbar.keyScroll(event);
-          }
-        }
-
-        this.$element
-          .attr('tabindex', '-1')
-          .keydown(this.elementKeydown);
-      },
-
-      removeKeyboardScrolling: function () {
-        this.$element
-          .removeAttr('tabindex')
-          .unbind("keydown", this.elementKeydown);
-      },
-
-      bindEvents: function () {
-        if (this.options.onCustomScroll)
-          this.$element.on("customScroll", this.options.onCustomScroll);
-      }
-
-    }
-
-    var Scrollbar = function (scrollable, sizing) {
-      this.scrollable = scrollable;
-      this.sizing = sizing
-      this.$scrollBar = this.sizing.scrollBar(this.scrollable.$element);
-      this.$thumb = this.$scrollBar.find(".thumb");
-      this.setScrollPosition(0, 0);
-      this.resize();
-      this.initMouseMoveScrolling();
-      this.initMouseWheelScrolling();
-      this.initTouchScrolling();
-      this.initMouseClickScrolling();
-      this.initWindowResize();
-    }
-
-    Scrollbar.prototype = {
-
-      resize: function (keepPosition) {
-        this.overviewSize = this.sizing.size(this.scrollable.$overview);
-        this.calculateViewPortSize();
-        this.sizing.size(this.scrollable.$viewPort, this.viewPortSize);
-        this.ratio = this.viewPortSize / this.overviewSize;
-        this.sizing.size(this.$scrollBar, this.viewPortSize);
-        this.thumbSize = this.calculateThumbSize();
-        this.sizing.size(this.$thumb, this.thumbSize);
-        this.maxThumbPosition = this.calculateMaxThumbPosition();
-        this.maxOverviewPosition = this.calculateMaxOverviewPosition();
-        this.enabled = (this.overviewSize > this.viewPortSize);
-        if (this.scrollPercent === undefined)
-          this.scrollPercent = 0.0;
-        if (this.enabled)
-          this.rescroll(keepPosition);
-        else
-          this.setScrollPosition(0, 0);
-        this.$scrollBar.toggle(this.enabled);
-      },
-
-      calculateViewPortSize: function () {
-        var elementSize = this.sizing.size(this.scrollable.$element);
-        if (elementSize > 0 && !this.maxSizeUsed) {
-          this.viewPortSize = elementSize;
-          this.maxSizeUsed = false;
-        }
-        else {
-          var maxSize = this.sizing.maxSize(this.scrollable.$element);
-          this.viewPortSize = Math.min(maxSize, this.overviewSize);
-          this.maxSizeUsed = true;
-        }
-      },
-
-      calculateThumbSize: function () {
-        var fixedSize = this.sizing.fixedThumbSize(this.scrollable.options)
-        var size;
-        if (fixedSize)
-          size = fixedSize;
-        else
-          size = this.ratio * this.viewPortSize
-        return Math.max(size, this.sizing.minSize(this.$thumb));
-      },
-
-      initMouseMoveScrolling: function () {
-        var _this = this;
-        this.$thumb.mousedown(function (event) {
-          if (_this.enabled)
-            _this.startMouseMoveScrolling(event);
-        });
-        this.documentMouseup = function (event) {
-          _this.stopMouseMoveScrolling(event);
-        };
-        $(document).mouseup(this.documentMouseup);
-        this.documentMousemove = function (event) {
-          _this.mouseMoveScroll(event);
-        };
-        $(document).mousemove(this.documentMousemove);
-        this.$thumb.click(function (event) {
-          event.stopPropagation();
-        });
-      },
-
-      removeMouseMoveScrolling: function () {
-        this.$thumb.unbind();
-        $(document).unbind("mouseup", this.documentMouseup);
-        $(document).unbind("mousemove", this.documentMousemove);
-      },
-
-      initMouseWheelScrolling: function () {
-        var _this = this;
-        this.scrollable.$element.mousewheel(function (event, delta, deltaX, deltaY) {
-          if (_this.enabled) {
-            var scrolled = _this.mouseWheelScroll(deltaX, deltaY);
-            _this.stopEventConditionally(event, scrolled);
-          }
-        });
-      },
-
-      removeMouseWheelScrolling: function () {
-        this.scrollable.$element.unbind("mousewheel");
-      },
-
-      initTouchScrolling: function () {
-        if (document.addEventListener) {
-          var _this = this;
-          this.elementTouchstart = function (event) {
-            if (_this.enabled)
-              _this.startTouchScrolling(event);
-          }
-          this.scrollable.$element[0].addEventListener("touchstart", this.elementTouchstart);
-          this.documentTouchmove = function (event) {
-            _this.touchScroll(event);
-          }
-          this.scrollable.$element[0].addEventListener("touchmove", this.documentTouchmove);
-          this.elementTouchend = function (event) {
-            _this.stopTouchScrolling(event);
-          }
-          this.scrollable.$element[0].addEventListener("touchend", this.elementTouchend);
-        }
-      },
-
-      removeTouchScrolling: function () {
-        if (document.addEventListener) {
-          this.scrollable.$element[0].removeEventListener("touchstart", this.elementTouchstart);
-          document.removeEventListener("touchmove", this.documentTouchmove);
-          this.scrollable.$element[0].removeEventListener("touchend", this.elementTouchend);
-        }
-      },
-
-      initMouseClickScrolling: function () {
-        var _this = this;
-        this.scrollBarClick = function (event) {
-          _this.mouseClickScroll(event);
-        };
-        this.$scrollBar.click(this.scrollBarClick);
-      },
-
-      removeMouseClickScrolling: function () {
-        this.$scrollBar.unbind("click", this.scrollBarClick);
-      },
-
-      initWindowResize: function () {
-        if (this.scrollable.options.updateOnWindowResize) {
-          var _this = this;
-          this.windowResize = function () {
-            _this.resize();
-          };
-          $(window).resize(this.windowResize);
-        }
-      },
-
-      removeWindowResize: function () {
-        $(window).unbind("resize", this.windowResize);
-      },
-
-      isKeyScrolling: function (key) {
-        return this.keyScrollDelta(key) != null;
-      },
-
-      keyScrollDelta: function (key) {
-        for (var scrollingKey in this.sizing.scrollingKeys)
-          if (scrollingKey == key)
-            return this.sizing.scrollingKeys[key](this.viewPortSize);
-        return null;
-      },
-
-      startMouseMoveScrolling: function (event) {
-        this.mouseMoveScrolling = true;
-        $("body").addClass("not-selectable");
-        this.setUnselectable($("body"), "on");
-        this.setScrollEvent(event);
-        event.preventDefault();
-      },
-
-      stopMouseMoveScrolling: function (event) {
-        this.mouseMoveScrolling = false;
-        $("body").removeClass("not-selectable");
-        this.setUnselectable($("body"), null);
-      },
-
-      setUnselectable: function (element, value) {
-        if (element.attr("unselectable") != value) {
-          element.attr("unselectable", value);
-          element.find(':not(input)').attr('unselectable', value);
-        }
-      },
-
-      mouseMoveScroll: function (event) {
-        if (this.mouseMoveScrolling) {
-          var delta = this.sizing.mouseDelta(this.scrollEvent, event);
-          this.scrollThumbBy(delta);
-          this.setScrollEvent(event);
-        }
-      },
-
-      startTouchScrolling: function (event) {
-        if (event.touches && event.touches.length == 1) {
-          this.setScrollEvent(event.touches[0]);
-          this.touchScrolling = true;
-          event.stopPropagation();
-        }
-      },
-
-      touchScroll: function (event) {
-        if (this.touchScrolling && event.touches && event.touches.length == 1) {
-          var delta = -this.sizing.mouseDelta(this.scrollEvent, event.touches[0]) * this.scrollable.options.swipeSpeed;
-          var scrolled = this.scrollOverviewBy(delta);
-          if (scrolled)
-            this.setScrollEvent(event.touches[0]);
-          this.stopEventConditionally(event, scrolled);
-        }
-      },
-
-      stopTouchScrolling: function (event) {
-        this.touchScrolling = false;
-        event.stopPropagation();
-      },
-
-      mouseWheelScroll: function (deltaX, deltaY) {
-        var delta = -this.sizing.wheelDelta(deltaX, deltaY) * this.scrollable.options.wheelSpeed;
-        if (delta != 0)
-          return this.scrollOverviewBy(delta);
-      },
-
-      mouseClickScroll: function (event) {
-        var delta = this.viewPortSize - 20;
-        if (event["page" + this.sizing.scrollAxis()] < this.$thumb.offset()[this.sizing.offsetComponent()])
-        // mouse click over thumb
-          delta = -delta;
-        this.scrollOverviewBy(delta);
-      },
-
-      keyScroll: function (event) {
-        var keyDown = event.which;
-        if (this.enabled && this.isKeyScrolling(keyDown)) {
-          var scrolled = this.scrollOverviewBy(this.keyScrollDelta(keyDown));
-          this.stopEventConditionally(event, scrolled);
-        }
-      },
-
-      scrollThumbBy: function (delta) {
-        var thumbPosition = this.thumbPosition();
-        thumbPosition += delta;
-        thumbPosition = this.positionOrMax(thumbPosition, this.maxThumbPosition);
-        var oldScrollPercent = this.scrollPercent;
-        this.scrollPercent = thumbPosition / this.maxThumbPosition;
-        if (oldScrollPercent != this.scrollPercent) {
-          var overviewPosition = (thumbPosition * this.maxOverviewPosition) / this.maxThumbPosition;
-          this.setScrollPosition(overviewPosition, thumbPosition);
-          this.triggerCustomScroll(oldScrollPercent);
-          return true
-        }
-        else
-          return false;
-      },
-
-      thumbPosition: function () {
-        return this.$thumb.position()[this.sizing.offsetComponent()];
-      },
-
-      scrollOverviewBy: function (delta) {
-        var overviewPosition = this.overviewPosition() + delta;
-        return this.scrollOverviewTo(overviewPosition, false);
-      },
-
-      overviewPosition: function () {
-        return -this.scrollable.$overview.position()[this.sizing.offsetComponent()];
-      },
-
-      scrollOverviewTo: function (overviewPosition, animate) {
-        overviewPosition = this.positionOrMax(overviewPosition, this.maxOverviewPosition);
-        var oldScrollPercent = this.scrollPercent;
-        this.scrollPercent = overviewPosition / this.maxOverviewPosition;
-        if (oldScrollPercent != this.scrollPercent) {
-          var thumbPosition = this.scrollPercent * this.maxThumbPosition;
-          if (animate)
-            this.setScrollPositionWithAnimation(overviewPosition, thumbPosition);
-          else
-            this.setScrollPosition(overviewPosition, thumbPosition);
-          this.triggerCustomScroll(oldScrollPercent);
-          return true;
-        }
-        else
-          return false;
-      },
-
-      positionOrMax: function (p, max) {
-        if (p < 0)
-          return 0;
-        else if (p > max)
-          return max;
-        else
-          return p;
-      },
-
-      triggerCustomScroll: function (oldScrollPercent) {
-        this.scrollable.$element.trigger("customScroll", {
-            scrollAxis: this.sizing.scrollAxis(),
-            direction: this.sizing.scrollDirection(oldScrollPercent, this.scrollPercent),
-            scrollPercent: this.scrollPercent * 100
-          }
-        );
-      },
-
-      rescroll: function (keepPosition) {
-        if (keepPosition) {
-          var overviewPosition = this.positionOrMax(this.overviewPosition(), this.maxOverviewPosition);
-          this.scrollPercent = overviewPosition / this.maxOverviewPosition;
-          var thumbPosition = this.scrollPercent * this.maxThumbPosition;
-          this.setScrollPosition(overviewPosition, thumbPosition);
-        }
-        else {
-          var thumbPosition = this.scrollPercent * this.maxThumbPosition;
-          var overviewPosition = this.scrollPercent * this.maxOverviewPosition;
-          this.setScrollPosition(overviewPosition, thumbPosition);
-        }
-      },
-
-      setScrollPosition: function (overviewPosition, thumbPosition) {
-        this.$thumb.css(this.sizing.offsetComponent(), thumbPosition + "px");
-        this.scrollable.$overview.css(this.sizing.offsetComponent(), -overviewPosition + "px");
-      },
-
-      setScrollPositionWithAnimation: function (overviewPosition, thumbPosition) {
-        var thumbAnimationOpts = {};
-        var overviewAnimationOpts = {};
-        thumbAnimationOpts[this.sizing.offsetComponent()] = thumbPosition + "px";
-        this.$thumb.animate(thumbAnimationOpts, this.scrollable.options.animationSpeed);
-        overviewAnimationOpts[this.sizing.offsetComponent()] = -overviewPosition + "px";
-        this.scrollable.$overview.animate(overviewAnimationOpts, this.scrollable.options.animationSpeed);
-      },
-
-      calculateMaxThumbPosition: function () {
-        return Math.max(0, this.sizing.size(this.$scrollBar) - this.thumbSize);
-      },
-
-      calculateMaxOverviewPosition: function () {
-        return Math.max(0, this.sizing.size(this.scrollable.$overview) - this.sizing.size(this.scrollable.$viewPort));
-      },
-
-      setScrollEvent: function (event) {
-        var attr = "page" + this.sizing.scrollAxis();
-        if (!this.scrollEvent || this.scrollEvent[attr] != event[attr])
-          this.scrollEvent = {pageX: event.pageX, pageY: event.pageY};
-      },
-
-      scrollToElement: function (element) {
-        var $element = $(element);
-        if (this.sizing.isInside($element, this.scrollable.$overview) && !this.sizing.isInside($element, this.scrollable.$viewPort)) {
-          var elementOffset = $element.offset();
-          var overviewOffset = this.scrollable.$overview.offset();
-          var viewPortOffset = this.scrollable.$viewPort.offset();
-          this.scrollOverviewTo(elementOffset[this.sizing.offsetComponent()] - overviewOffset[this.sizing.offsetComponent()], true);
-        }
-      },
-
-      remove: function () {
-        this.removeMouseMoveScrolling();
-        this.removeMouseWheelScrolling();
-        this.removeTouchScrolling();
-        this.removeMouseClickScrolling();
-        this.removeWindowResize();
-      },
-
-      stopEventConditionally: function (event, condition) {
-        if (condition || this.scrollable.options.preventDefaultScroll) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-      }
-
-    }
-
-    var HSizing = function () {
-    }
-
-    HSizing.prototype = {
-      size: function ($el, arg) {
-        if (arg)
-          return $el.width(arg);
-        else
-          return $el.width();
-      },
-
-      minSize: function ($el) {
-        return parseInt($el.css("min-width")) || 0;
-      },
-
-      maxSize: function ($el) {
-        return parseInt($el.css("max-width")) || 0;
-      },
-
-      fixedThumbSize: function (options) {
-        return options.fixedThumbWidth;
-      },
-
-      scrollBar: function ($el) {
-        return $el.find(".scroll-bar.horizontal");
-      },
-
-      mouseDelta: function (event1, event2) {
-        return event2.pageX - event1.pageX;
-      },
-
-      offsetComponent: function () {
-        return "left";
-      },
-
-      wheelDelta: function (deltaX, deltaY) {
-        return deltaX;
-      },
-
-      scrollAxis: function () {
-        return "X";
-      },
-
-      scrollDirection: function (oldPercent, newPercent) {
-        return oldPercent < newPercent ? "right" : "left";
-      },
-
-      scrollingKeys: {
-        37: function (viewPortSize) {
-          return -10; //arrow left
-        },
-        39: function (viewPortSize) {
-          return 10; //arrow right
-        }
-      },
-
-      isInside: function (element, wrappingElement) {
-        var $element = $(element);
-        var $wrappingElement = $(wrappingElement);
-        var elementOffset = $element.offset();
-        var wrappingElementOffset = $wrappingElement.offset();
-        return (elementOffset.left >= wrappingElementOffset.left) &&
-          (elementOffset.left + $element.width() <= wrappingElementOffset.left + $wrappingElement.width());
-      }
-
-    }
-
-    var VSizing = function () {
-    }
-
-    VSizing.prototype = {
-
-      size: function ($el, arg) {
-        if (arg)
-          return $el.height(arg);
-        else
-          return $el.height();
-      },
-
-      minSize: function ($el) {
-        return parseInt($el.css("min-height")) || 0;
-      },
-
-      maxSize: function ($el) {
-        return parseInt($el.css("max-height")) || 0;
-      },
-
-      fixedThumbSize: function (options) {
-        return options.fixedThumbHeight;
-      },
-
-      scrollBar: function ($el) {
-        return $el.find(".scroll-bar.vertical");
-      },
-
-      mouseDelta: function (event1, event2) {
-        return event2.pageY - event1.pageY;
-      },
-
-      offsetComponent: function () {
-        return "top";
-      },
-
-      wheelDelta: function (deltaX, deltaY) {
-        return deltaY;
-      },
-
-      scrollAxis: function () {
-        return "Y";
-      },
-
-      scrollDirection: function (oldPercent, newPercent) {
-        return oldPercent < newPercent ? "down" : "up";
-      },
-
-      scrollingKeys: {
-        38: function (viewPortSize) {
-          return -10; //arrow up
-        },
-        40: function (viewPortSize) {
-          return 10; //arrow down
-        },
-        33: function (viewPortSize) {
-          return -(viewPortSize - 20); //page up
-        },
-        34: function (viewPortSize) {
-          return viewPortSize - 20; //page down
-        }
-      },
-
-      isInside: function (element, wrappingElement) {
-        var $element = $(element);
-        var $wrappingElement = $(wrappingElement);
-        var elementOffset = $element.offset();
-        var wrappingElementOffset = $wrappingElement.offset();
-        return (elementOffset.top >= wrappingElementOffset.top) &&
-          (elementOffset.top + $element.height() <= wrappingElementOffset.top + $wrappingElement.height());
-      }
-
-    }
-
-    return this.each(function () {
-      if (options == undefined)
-        options = defaultOptions;
-      if (typeof(options) == "string") {
-        var scrollable = $(this).data("scrollable");
-        if (scrollable)
-          scrollable[options](args);
-      }
-      else if (typeof(options) == "object") {
-        options = $.extend(defaultOptions, options);
-        new Scrollable($(this), options);
-      }
-      else
-        throw "Invalid type of options";
-    });
-
-  }
-  ;
-
-})
-  (jQuery);
-
-(function ($) {
-
-  var types = ['DOMMouseScroll', 'mousewheel'];
-
-  if ($.event.fixHooks) {
-    for (var i = types.length; i;) {
-      $.event.fixHooks[ types[--i] ] = $.event.mouseHooks;
-    }
-  }
-
-  $.event.special.mousewheel = {
-    setup: function () {
-      if (this.addEventListener) {
-        for (var i = types.length; i;) {
-          this.addEventListener(types[--i], handler, false);
-        }
-      } else {
-        this.onmousewheel = handler;
-      }
-    },
-
-    teardown: function () {
-      if (this.removeEventListener) {
-        for (var i = types.length; i;) {
-          this.removeEventListener(types[--i], handler, false);
-        }
-      } else {
-        this.onmousewheel = null;
-      }
-    }
-  };
-
-  $.fn.extend({
-    mousewheel: function (fn) {
-      return fn ? this.bind("mousewheel", fn) : this.trigger("mousewheel");
-    },
-
-    unmousewheel: function (fn) {
-      return this.unbind("mousewheel", fn);
-    }
-  });
-
-
-  function handler(event) {
-    var orgEvent = event || window.event, args = [].slice.call(arguments, 1), delta = 0, returnValue = true, deltaX = 0, deltaY = 0;
-    event = $.event.fix(orgEvent);
-    event.type = "mousewheel";
-
-    // Old school scrollwheel delta
-    if (orgEvent.wheelDelta) {
-      delta = orgEvent.wheelDelta / 120;
-    }
-    if (orgEvent.detail) {
-      delta = -orgEvent.detail / 3;
-    }
-
-    // New school multidimensional scroll (touchpads) deltas
-    deltaY = delta;
-
-    // Gecko
-    if (orgEvent.axis !== undefined && orgEvent.axis === orgEvent.HORIZONTAL_AXIS) {
-      deltaY = 0;
-      deltaX = delta;
-    }
-
-    // Webkit
-    if (orgEvent.wheelDeltaY !== undefined) {
-      deltaY = orgEvent.wheelDeltaY / 120;
-    }
-    if (orgEvent.wheelDeltaX !== undefined) {
-      deltaX = orgEvent.wheelDeltaX / 120;
-    }
-
-    // Add event and delta to the front of the arguments
-    args.unshift(event, delta, deltaX, deltaY);
-
-    return ($.event.dispatch || $.event.handle).apply(this, args);
-  }
-
-})(jQuery);
-
+/*
+== malihu jquery custom scrollbar plugin == 
+Version: 3.1.5 
+Plugin URI: http://manos.malihu.gr/jquery-custom-content-scroller 
+Author: malihu
+Author URI: http://manos.malihu.gr
+License: MIT License (MIT)
+*/
+
+/*
+Copyright Manos Malihutsakis (email: manos@malihu.gr)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
+
+/*
+The code below is fairly long, fully commented and should be normally used in development. 
+For production, use either the minified jquery.mCustomScrollbar.min.js script or 
+the production-ready jquery.mCustomScrollbar.concat.min.js which contains the plugin 
+and dependencies (minified). 
+*/
+
+(function(factory){
+	if(typeof define==="function" && define.amd){
+		define(["jquery"],factory);
+	}else if(typeof module!=="undefined" && module.exports){
+		module.exports=factory;
+	}else{
+		factory(jQuery,window,document);
+	}
+}(function($){
+(function(init){
+	var _rjs=typeof define==="function" && define.amd, /* RequireJS */
+		_njs=typeof module !== "undefined" && module.exports, /* NodeJS */
+		_dlp=("https:"==document.location.protocol) ? "https:" : "http:", /* location protocol */
+		_url="cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js";
+	if(!_rjs){
+		if(_njs){
+			require("jquery-mousewheel")($);
+		}else{
+			/* load jquery-mousewheel plugin (via CDN) if it's not present or not loaded via RequireJS 
+			(works when mCustomScrollbar fn is called on window load) */
+			$.event.special.mousewheel || $("head").append(decodeURI("%3Cscript src="+_dlp+"//"+_url+"%3E%3C/script%3E"));
+		}
+	}
+	init();
+}(function(){
+	
+	/* 
+	----------------------------------------
+	PLUGIN NAMESPACE, PREFIX, DEFAULT SELECTOR(S) 
+	----------------------------------------
+	*/
+	
+	var pluginNS="mCustomScrollbar",
+		pluginPfx="mCS",
+		defaultSelector=".mCustomScrollbar",
+	
+	
+		
+	
+	
+	/* 
+	----------------------------------------
+	DEFAULT OPTIONS 
+	----------------------------------------
+	*/
+	
+		defaults={
+			/*
+			set element/content width/height programmatically 
+			values: boolean, pixels, percentage 
+				option						default
+				-------------------------------------
+				setWidth					false
+				setHeight					false
+			*/
+			/*
+			set the initial css top property of content  
+			values: string (e.g. "-100px", "10%" etc.)
+			*/
+			setTop:0,
+			/*
+			set the initial css left property of content  
+			values: string (e.g. "-100px", "10%" etc.)
+			*/
+			setLeft:0,
+			/* 
+			scrollbar axis (vertical and/or horizontal scrollbars) 
+			values (string): "y", "x", "yx"
+			*/
+			axis:"y",
+			/*
+			position of scrollbar relative to content  
+			values (string): "inside", "outside" ("outside" requires elements with position:relative)
+			*/
+			scrollbarPosition:"inside",
+			/*
+			scrolling inertia
+			values: integer (milliseconds)
+			*/
+			scrollInertia:950,
+			/* 
+			auto-adjust scrollbar dragger length
+			values: boolean
+			*/
+			autoDraggerLength:true,
+			/*
+			auto-hide scrollbar when idle 
+			values: boolean
+				option						default
+				-------------------------------------
+				autoHideScrollbar			false
+			*/
+			/*
+			auto-expands scrollbar on mouse-over and dragging
+			values: boolean
+				option						default
+				-------------------------------------
+				autoExpandScrollbar			false
+			*/
+			/*
+			always show scrollbar, even when there's nothing to scroll 
+			values: integer (0=disable, 1=always show dragger rail and buttons, 2=always show dragger rail, dragger and buttons), boolean
+			*/
+			alwaysShowScrollbar:0,
+			/*
+			scrolling always snaps to a multiple of this number in pixels
+			values: integer, array ([y,x])
+				option						default
+				-------------------------------------
+				snapAmount					null
+			*/
+			/*
+			when snapping, snap with this number in pixels as an offset 
+			values: integer
+			*/
+			snapOffset:0,
+			/* 
+			mouse-wheel scrolling
+			*/
+			mouseWheel:{
+				/* 
+				enable mouse-wheel scrolling
+				values: boolean
+				*/
+				enable:true,
+				/* 
+				scrolling amount in pixels
+				values: "auto", integer 
+				*/
+				scrollAmount:"auto",
+				/* 
+				mouse-wheel scrolling axis 
+				the default scrolling direction when both vertical and horizontal scrollbars are present 
+				values (string): "y", "x" 
+				*/
+				axis:"y",
+				/* 
+				prevent the default behaviour which automatically scrolls the parent element(s) when end of scrolling is reached 
+				values: boolean
+					option						default
+					-------------------------------------
+					preventDefault				null
+				*/
+				/*
+				the reported mouse-wheel delta value. The number of lines (translated to pixels) one wheel notch scrolls.  
+				values: "auto", integer 
+				"auto" uses the default OS/browser value 
+				*/
+				deltaFactor:"auto",
+				/*
+				normalize mouse-wheel delta to -1 or 1 (disables mouse-wheel acceleration) 
+				values: boolean
+					option						default
+					-------------------------------------
+					normalizeDelta				null
+				*/
+				/*
+				invert mouse-wheel scrolling direction 
+				values: boolean
+					option						default
+					-------------------------------------
+					invert						null
+				*/
+				/*
+				the tags that disable mouse-wheel when cursor is over them
+				*/
+				disableOver:["select","option","keygen","datalist","textarea"]
+			},
+			/* 
+			scrollbar buttons
+			*/
+			scrollButtons:{ 
+				/*
+				enable scrollbar buttons
+				values: boolean
+					option						default
+					-------------------------------------
+					enable						null
+				*/
+				/*
+				scrollbar buttons scrolling type 
+				values (string): "stepless", "stepped"
+				*/
+				scrollType:"stepless",
+				/*
+				scrolling amount in pixels
+				values: "auto", integer 
+				*/
+				scrollAmount:"auto"
+				/*
+				tabindex of the scrollbar buttons
+				values: false, integer
+					option						default
+					-------------------------------------
+					tabindex					null
+				*/
+			},
+			/* 
+			keyboard scrolling
+			*/
+			keyboard:{ 
+				/*
+				enable scrolling via keyboard
+				values: boolean
+				*/
+				enable:true,
+				/*
+				keyboard scrolling type 
+				values (string): "stepless", "stepped"
+				*/
+				scrollType:"stepless",
+				/*
+				scrolling amount in pixels
+				values: "auto", integer 
+				*/
+				scrollAmount:"auto"
+			},
+			/*
+			enable content touch-swipe scrolling 
+			values: boolean, integer, string (number)
+			integer values define the axis-specific minimum amount required for scrolling momentum
+			*/
+			contentTouchScroll:25,
+			/*
+			enable/disable document (default) touch-swipe scrolling 
+			*/
+			documentTouchScroll:true,
+			/*
+			advanced option parameters
+			*/
+			advanced:{
+				/*
+				auto-expand content horizontally (for "x" or "yx" axis) 
+				values: boolean, integer (the value 2 forces the non scrollHeight/scrollWidth method, the value 3 forces the scrollHeight/scrollWidth method)
+					option						default
+					-------------------------------------
+					autoExpandHorizontalScroll	null
+				*/
+				/*
+				auto-scroll to elements with focus
+				*/
+				autoScrollOnFocus:"input,textarea,select,button,datalist,keygen,a[tabindex],area,object,[contenteditable='true']",
+				/*
+				auto-update scrollbars on content, element or viewport resize 
+				should be true for fluid layouts/elements, adding/removing content dynamically, hiding/showing elements, content with images etc. 
+				values: boolean
+				*/
+				updateOnContentResize:true,
+				/*
+				auto-update scrollbars each time each image inside the element is fully loaded 
+				values: "auto", boolean
+				*/
+				updateOnImageLoad:"auto",
+				/*
+				auto-update scrollbars based on the amount and size changes of specific selectors 
+				useful when you need to update the scrollbar(s) automatically, each time a type of element is added, removed or changes its size 
+				values: boolean, string (e.g. "ul li" will auto-update scrollbars each time list-items inside the element are changed) 
+				a value of true (boolean) will auto-update scrollbars each time any element is changed
+					option						default
+					-------------------------------------
+					updateOnSelectorChange		null
+				*/
+				/*
+				extra selectors that'll allow scrollbar dragging upon mousemove/up, pointermove/up, touchend etc. (e.g. "selector-1, selector-2")
+					option						default
+					-------------------------------------
+					extraDraggableSelectors		null
+				*/
+				/*
+				extra selectors that'll release scrollbar dragging upon mouseup, pointerup, touchend etc. (e.g. "selector-1, selector-2")
+					option						default
+					-------------------------------------
+					releaseDraggableSelectors	null
+				*/
+				/*
+				auto-update timeout 
+				values: integer (milliseconds)
+				*/
+				autoUpdateTimeout:60
+			},
+			/* 
+			scrollbar theme 
+			values: string (see CSS/plugin URI for a list of ready-to-use themes)
+			*/
+			theme:"light",
+			/*
+			user defined callback functions
+			*/
+			callbacks:{
+				/*
+				Available callbacks: 
+					callback					default
+					-------------------------------------
+					onCreate					null
+					onInit						null
+					onScrollStart				null
+					onScroll					null
+					onTotalScroll				null
+					onTotalScrollBack			null
+					whileScrolling				null
+					onOverflowY					null
+					onOverflowX					null
+					onOverflowYNone				null
+					onOverflowXNone				null
+					onImageLoad					null
+					onSelectorChange			null
+					onBeforeUpdate				null
+					onUpdate					null
+				*/
+				onTotalScrollOffset:0,
+				onTotalScrollBackOffset:0,
+				alwaysTriggerOffsets:true
+			}
+			/*
+			add scrollbar(s) on all elements matching the current selector, now and in the future 
+			values: boolean, string 
+			string values: "on" (enable), "once" (disable after first invocation), "off" (disable)
+			liveSelector values: string (selector)
+				option						default
+				-------------------------------------
+				live						false
+				liveSelector				null
+			*/
+		},
+	
+	
+	
+	
+	
+	/* 
+	----------------------------------------
+	VARS, CONSTANTS 
+	----------------------------------------
+	*/
+	
+		totalInstances=0, /* plugin instances amount */
+		liveTimers={}, /* live option timers */
+		oldIE=(window.attachEvent && !window.addEventListener) ? 1 : 0, /* detect IE < 9 */
+		touchActive=false,touchable, /* global touch vars (for touch and pointer events) */
+		/* general plugin classes */
+		classes=[
+			"mCSB_dragger_onDrag","mCSB_scrollTools_onDrag","mCS_img_loaded","mCS_disabled","mCS_destroyed","mCS_no_scrollbar",
+			"mCS-autoHide","mCS-dir-rtl","mCS_no_scrollbar_y","mCS_no_scrollbar_x","mCS_y_hidden","mCS_x_hidden","mCSB_draggerContainer",
+			"mCSB_buttonUp","mCSB_buttonDown","mCSB_buttonLeft","mCSB_buttonRight"
+		],
+		
+	
+	
+	
+	
+	/* 
+	----------------------------------------
+	METHODS 
+	----------------------------------------
+	*/
+	
+		methods={
+			
+			/* 
+			plugin initialization method 
+			creates the scrollbar(s), plugin data object and options
+			----------------------------------------
+			*/
+			
+			init:function(options){
+				
+				var options=$.extend(true,{},defaults,options),
+					selector=_selector.call(this); /* validate selector */
+				
+				/* 
+				if live option is enabled, monitor for elements matching the current selector and 
+				apply scrollbar(s) when found (now and in the future) 
+				*/
+				if(options.live){
+					var liveSelector=options.liveSelector || this.selector || defaultSelector, /* live selector(s) */
+						$liveSelector=$(liveSelector); /* live selector(s) as jquery object */
+					if(options.live==="off"){
+						/* 
+						disable live if requested 
+						usage: $(selector).mCustomScrollbar({live:"off"}); 
+						*/
+						removeLiveTimers(liveSelector);
+						return;
+					}
+					liveTimers[liveSelector]=setTimeout(function(){
+						/* call mCustomScrollbar fn on live selector(s) every half-second */
+						$liveSelector.mCustomScrollbar(options);
+						if(options.live==="once" && $liveSelector.length){
+							/* disable live after first invocation */
+							removeLiveTimers(liveSelector);
+						}
+					},500);
+				}else{
+					removeLiveTimers(liveSelector);
+				}
+				
+				/* options backward compatibility (for versions < 3.0.0) and normalization */
+				options.setWidth=(options.set_width) ? options.set_width : options.setWidth;
+				options.setHeight=(options.set_height) ? options.set_height : options.setHeight;
+				options.axis=(options.horizontalScroll) ? "x" : _findAxis(options.axis);
+				options.scrollInertia=options.scrollInertia>0 && options.scrollInertia<17 ? 17 : options.scrollInertia;
+				if(typeof options.mouseWheel!=="object" &&  options.mouseWheel==true){ /* old school mouseWheel option (non-object) */
+					options.mouseWheel={enable:true,scrollAmount:"auto",axis:"y",preventDefault:false,deltaFactor:"auto",normalizeDelta:false,invert:false}
+				}
+				options.mouseWheel.scrollAmount=!options.mouseWheelPixels ? options.mouseWheel.scrollAmount : options.mouseWheelPixels;
+				options.mouseWheel.normalizeDelta=!options.advanced.normalizeMouseWheelDelta ? options.mouseWheel.normalizeDelta : options.advanced.normalizeMouseWheelDelta;
+				options.scrollButtons.scrollType=_findScrollButtonsType(options.scrollButtons.scrollType); 
+				
+				_theme(options); /* theme-specific options */
+				
+				/* plugin constructor */
+				return $(selector).each(function(){
+					
+					var $this=$(this);
+					
+					if(!$this.data(pluginPfx)){ /* prevent multiple instantiations */
+					
+						/* store options and create objects in jquery data */
+						$this.data(pluginPfx,{
+							idx:++totalInstances, /* instance index */
+							opt:options, /* options */
+							scrollRatio:{y:null,x:null}, /* scrollbar to content ratio */
+							overflowed:null, /* overflowed axis */
+							contentReset:{y:null,x:null}, /* object to check when content resets */
+							bindEvents:false, /* object to check if events are bound */
+							tweenRunning:false, /* object to check if tween is running */
+							sequential:{}, /* sequential scrolling object */
+							langDir:$this.css("direction"), /* detect/store direction (ltr or rtl) */
+							cbOffsets:null, /* object to check whether callback offsets always trigger */
+							/* 
+							object to check how scrolling events where last triggered 
+							"internal" (default - triggered by this script), "external" (triggered by other scripts, e.g. via scrollTo method) 
+							usage: object.data("mCS").trigger
+							*/
+							trigger:null,
+							/* 
+							object to check for changes in elements in order to call the update method automatically 
+							*/
+							poll:{size:{o:0,n:0},img:{o:0,n:0},change:{o:0,n:0}}
+						});
+						
+						var d=$this.data(pluginPfx),o=d.opt,
+							/* HTML data attributes */
+							htmlDataAxis=$this.data("mcs-axis"),htmlDataSbPos=$this.data("mcs-scrollbar-position"),htmlDataTheme=$this.data("mcs-theme");
+						 
+						if(htmlDataAxis){o.axis=htmlDataAxis;} /* usage example: data-mcs-axis="y" */
+						if(htmlDataSbPos){o.scrollbarPosition=htmlDataSbPos;} /* usage example: data-mcs-scrollbar-position="outside" */
+						if(htmlDataTheme){ /* usage example: data-mcs-theme="minimal" */
+							o.theme=htmlDataTheme;
+							_theme(o); /* theme-specific options */
+						}
+						
+						_pluginMarkup.call(this); /* add plugin markup */
+						
+						if(d && o.callbacks.onCreate && typeof o.callbacks.onCreate==="function"){o.callbacks.onCreate.call(this);} /* callbacks: onCreate */
+						
+						$("#mCSB_"+d.idx+"_container img:not(."+classes[2]+")").addClass(classes[2]); /* flag loaded images */
+						
+						methods.update.call(null,$this); /* call the update method */
+					
+					}
+					
+				});
+				
+			},
+			/* ---------------------------------------- */
+			
+			
+			
+			/* 
+			plugin update method 
+			updates content and scrollbar(s) values, events and status 
+			----------------------------------------
+			usage: $(selector).mCustomScrollbar("update");
+			*/
+			
+			update:function(el,cb){
+				
+				var selector=el || _selector.call(this); /* validate selector */
+				
+				return $(selector).each(function(){
+					
+					var $this=$(this);
+					
+					if($this.data(pluginPfx)){ /* check if plugin has initialized */
+						
+						var d=$this.data(pluginPfx),o=d.opt,
+							mCSB_container=$("#mCSB_"+d.idx+"_container"),
+							mCustomScrollBox=$("#mCSB_"+d.idx),
+							mCSB_dragger=[$("#mCSB_"+d.idx+"_dragger_vertical"),$("#mCSB_"+d.idx+"_dragger_horizontal")];
+						
+						if(!mCSB_container.length){return;}
+						
+						if(d.tweenRunning){_stop($this);} /* stop any running tweens while updating */
+						
+						if(cb && d && o.callbacks.onBeforeUpdate && typeof o.callbacks.onBeforeUpdate==="function"){o.callbacks.onBeforeUpdate.call(this);} /* callbacks: onBeforeUpdate */
+						
+						/* if element was disabled or destroyed, remove class(es) */
+						if($this.hasClass(classes[3])){$this.removeClass(classes[3]);}
+						if($this.hasClass(classes[4])){$this.removeClass(classes[4]);}
+						
+						/* css flexbox fix, detect/set max-height */
+						mCustomScrollBox.css("max-height","none");
+						if(mCustomScrollBox.height()!==$this.height()){mCustomScrollBox.css("max-height",$this.height());}
+						
+						_expandContentHorizontally.call(this); /* expand content horizontally */
+						
+						if(o.axis!=="y" && !o.advanced.autoExpandHorizontalScroll){
+							mCSB_container.css("width",_contentWidth(mCSB_container));
+						}
+						
+						d.overflowed=_overflowed.call(this); /* determine if scrolling is required */
+						
+						_scrollbarVisibility.call(this); /* show/hide scrollbar(s) */
+						
+						/* auto-adjust scrollbar dragger length analogous to content */
+						if(o.autoDraggerLength){_setDraggerLength.call(this);}
+						
+						_scrollRatio.call(this); /* calculate and store scrollbar to content ratio */
+						
+						_bindEvents.call(this); /* bind scrollbar events */
+						
+						/* reset scrolling position and/or events */
+						var to=[Math.abs(mCSB_container[0].offsetTop),Math.abs(mCSB_container[0].offsetLeft)];
+						if(o.axis!=="x"){ /* y/yx axis */
+							if(!d.overflowed[0]){ /* y scrolling is not required */
+								_resetContentPosition.call(this); /* reset content position */
+								if(o.axis==="y"){
+									_unbindEvents.call(this);
+								}else if(o.axis==="yx" && d.overflowed[1]){
+									_scrollTo($this,to[1].toString(),{dir:"x",dur:0,overwrite:"none"});
+								}
+							}else if(mCSB_dragger[0].height()>mCSB_dragger[0].parent().height()){
+								_resetContentPosition.call(this); /* reset content position */
+							}else{ /* y scrolling is required */
+								_scrollTo($this,to[0].toString(),{dir:"y",dur:0,overwrite:"none"});
+								d.contentReset.y=null;
+							}
+						}
+						if(o.axis!=="y"){ /* x/yx axis */
+							if(!d.overflowed[1]){ /* x scrolling is not required */
+								_resetContentPosition.call(this); /* reset content position */
+								if(o.axis==="x"){
+									_unbindEvents.call(this);
+								}else if(o.axis==="yx" && d.overflowed[0]){
+									_scrollTo($this,to[0].toString(),{dir:"y",dur:0,overwrite:"none"});
+								}
+							}else if(mCSB_dragger[1].width()>mCSB_dragger[1].parent().width()){
+								_resetContentPosition.call(this); /* reset content position */
+							}else{ /* x scrolling is required */
+								_scrollTo($this,to[1].toString(),{dir:"x",dur:0,overwrite:"none"});
+								d.contentReset.x=null;
+							}
+						}
+						
+						/* callbacks: onImageLoad, onSelectorChange, onUpdate */
+						if(cb && d){
+							if(cb===2 && o.callbacks.onImageLoad && typeof o.callbacks.onImageLoad==="function"){
+								o.callbacks.onImageLoad.call(this);
+							}else if(cb===3 && o.callbacks.onSelectorChange && typeof o.callbacks.onSelectorChange==="function"){
+								o.callbacks.onSelectorChange.call(this);
+							}else if(o.callbacks.onUpdate && typeof o.callbacks.onUpdate==="function"){
+								o.callbacks.onUpdate.call(this);
+							}
+						}
+						
+						_autoUpdate.call(this); /* initialize automatic updating (for dynamic content, fluid layouts etc.) */
+						
+					}
+					
+				});
+				
+			},
+			/* ---------------------------------------- */
+			
+			
+			
+			/* 
+			plugin scrollTo method 
+			triggers a scrolling event to a specific value
+			----------------------------------------
+			usage: $(selector).mCustomScrollbar("scrollTo",value,options);
+			*/
+		
+			scrollTo:function(val,options){
+				
+				/* prevent silly things like $(selector).mCustomScrollbar("scrollTo",undefined); */
+				if(typeof val=="undefined" || val==null){return;}
+				
+				var selector=_selector.call(this); /* validate selector */
+				
+				return $(selector).each(function(){
+					
+					var $this=$(this);
+					
+					if($this.data(pluginPfx)){ /* check if plugin has initialized */
+					
+						var d=$this.data(pluginPfx),o=d.opt,
+							/* method default options */
+							methodDefaults={
+								trigger:"external", /* method is by default triggered externally (e.g. from other scripts) */
+								scrollInertia:o.scrollInertia, /* scrolling inertia (animation duration) */
+								scrollEasing:"mcsEaseInOut", /* animation easing */
+								moveDragger:false, /* move dragger instead of content */
+								timeout:60, /* scroll-to delay */
+								callbacks:true, /* enable/disable callbacks */
+								onStart:true,
+								onUpdate:true,
+								onComplete:true
+							},
+							methodOptions=$.extend(true,{},methodDefaults,options),
+							to=_arr.call(this,val),dur=methodOptions.scrollInertia>0 && methodOptions.scrollInertia<17 ? 17 : methodOptions.scrollInertia;
+						
+						/* translate yx values to actual scroll-to positions */
+						to[0]=_to.call(this,to[0],"y");
+						to[1]=_to.call(this,to[1],"x");
+						
+						/* 
+						check if scroll-to value moves the dragger instead of content. 
+						Only pixel values apply on dragger (e.g. 100, "100px", "-=100" etc.) 
+						*/
+						if(methodOptions.moveDragger){
+							to[0]*=d.scrollRatio.y;
+							to[1]*=d.scrollRatio.x;
+						}
+						
+						methodOptions.dur=_isTabHidden() ? 0 : dur; //skip animations if browser tab is hidden
+						
+						setTimeout(function(){ 
+							/* do the scrolling */
+							if(to[0]!==null && typeof to[0]!=="undefined" && o.axis!=="x" && d.overflowed[0]){ /* scroll y */
+								methodOptions.dir="y";
+								methodOptions.overwrite="all";
+								_scrollTo($this,to[0].toString(),methodOptions);
+							}
+							if(to[1]!==null && typeof to[1]!=="undefined" && o.axis!=="y" && d.overflowed[1]){ /* scroll x */
+								methodOptions.dir="x";
+								methodOptions.overwrite="none";
+								_scrollTo($this,to[1].toString(),methodOptions);
+							}
+						},methodOptions.timeout);
+						
+					}
+					
+				});
+				
+			},
+			/* ---------------------------------------- */
+			
+			
+			
+			/*
+			plugin stop method 
+			stops scrolling animation
+			----------------------------------------
+			usage: $(selector).mCustomScrollbar("stop");
+			*/
+			stop:function(){
+				
+				var selector=_selector.call(this); /* validate selector */
+				
+				return $(selector).each(function(){
+					
+					var $this=$(this);
+					
+					if($this.data(pluginPfx)){ /* check if plugin has initialized */
+										
+						_stop($this);
+					
+					}
+					
+				});
+				
+			},
+			/* ---------------------------------------- */
+			
+			
+			
+			/*
+			plugin disable method 
+			temporarily disables the scrollbar(s) 
+			----------------------------------------
+			usage: $(selector).mCustomScrollbar("disable",reset); 
+			reset (boolean): resets content position to 0 
+			*/
+			disable:function(r){
+				
+				var selector=_selector.call(this); /* validate selector */
+				
+				return $(selector).each(function(){
+					
+					var $this=$(this);
+					
+					if($this.data(pluginPfx)){ /* check if plugin has initialized */
+						
+						var d=$this.data(pluginPfx);
+						
+						_autoUpdate.call(this,"remove"); /* remove automatic updating */
+						
+						_unbindEvents.call(this); /* unbind events */
+						
+						if(r){_resetContentPosition.call(this);} /* reset content position */
+						
+						_scrollbarVisibility.call(this,true); /* show/hide scrollbar(s) */
+						
+						$this.addClass(classes[3]); /* add disable class */
+					
+					}
+					
+				});
+				
+			},
+			/* ---------------------------------------- */
+			
+			
+			
+			/*
+			plugin destroy method 
+			completely removes the scrollbar(s) and returns the element to its original state
+			----------------------------------------
+			usage: $(selector).mCustomScrollbar("destroy"); 
+			*/
+			destroy:function(){
+				
+				var selector=_selector.call(this); /* validate selector */
+				
+				return $(selector).each(function(){
+					
+					var $this=$(this);
+					
+					if($this.data(pluginPfx)){ /* check if plugin has initialized */
+					
+						var d=$this.data(pluginPfx),o=d.opt,
+							mCustomScrollBox=$("#mCSB_"+d.idx),
+							mCSB_container=$("#mCSB_"+d.idx+"_container"),
+							scrollbar=$(".mCSB_"+d.idx+"_scrollbar");
+					
+						if(o.live){removeLiveTimers(o.liveSelector || $(selector).selector);} /* remove live timers */
+						
+						_autoUpdate.call(this,"remove"); /* remove automatic updating */
+						
+						_unbindEvents.call(this); /* unbind events */
+						
+						_resetContentPosition.call(this); /* reset content position */
+						
+						$this.removeData(pluginPfx); /* remove plugin data object */
+						
+						_delete(this,"mcs"); /* delete callbacks object */
+						
+						/* remove plugin markup */
+						scrollbar.remove(); /* remove scrollbar(s) first (those can be either inside or outside plugin's inner wrapper) */
+						mCSB_container.find("img."+classes[2]).removeClass(classes[2]); /* remove loaded images flag */
+						mCustomScrollBox.replaceWith(mCSB_container.contents()); /* replace plugin's inner wrapper with the original content */
+						/* remove plugin classes from the element and add destroy class */
+						$this.removeClass(pluginNS+" _"+pluginPfx+"_"+d.idx+" "+classes[6]+" "+classes[7]+" "+classes[5]+" "+classes[3]).addClass(classes[4]);
+					
+					}
+					
+				});
+				
+			}
+			/* ---------------------------------------- */
+			
+		},
+	
+	
+	
+	
+		
+	/* 
+	----------------------------------------
+	FUNCTIONS
+	----------------------------------------
+	*/
+	
+		/* validates selector (if selector is invalid or undefined uses the default one) */
+		_selector=function(){
+			return (typeof $(this)!=="object" || $(this).length<1) ? defaultSelector : this;
+		},
+		/* -------------------- */
+		
+		
+		/* changes options according to theme */
+		_theme=function(obj){
+			var fixedSizeScrollbarThemes=["rounded","rounded-dark","rounded-dots","rounded-dots-dark"],
+				nonExpandedScrollbarThemes=["rounded-dots","rounded-dots-dark","3d","3d-dark","3d-thick","3d-thick-dark","inset","inset-dark","inset-2","inset-2-dark","inset-3","inset-3-dark"],
+				disabledScrollButtonsThemes=["minimal","minimal-dark"],
+				enabledAutoHideScrollbarThemes=["minimal","minimal-dark"],
+				scrollbarPositionOutsideThemes=["minimal","minimal-dark"];
+			obj.autoDraggerLength=$.inArray(obj.theme,fixedSizeScrollbarThemes) > -1 ? false : obj.autoDraggerLength;
+			obj.autoExpandScrollbar=$.inArray(obj.theme,nonExpandedScrollbarThemes) > -1 ? false : obj.autoExpandScrollbar;
+			obj.scrollButtons.enable=$.inArray(obj.theme,disabledScrollButtonsThemes) > -1 ? false : obj.scrollButtons.enable;
+			obj.autoHideScrollbar=$.inArray(obj.theme,enabledAutoHideScrollbarThemes) > -1 ? true : obj.autoHideScrollbar;
+			obj.scrollbarPosition=$.inArray(obj.theme,scrollbarPositionOutsideThemes) > -1 ? "outside" : obj.scrollbarPosition;
+		},
+		/* -------------------- */
+		
+		
+		/* live option timers removal */
+		removeLiveTimers=function(selector){
+			if(liveTimers[selector]){
+				clearTimeout(liveTimers[selector]);
+				_delete(liveTimers,selector);
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* normalizes axis option to valid values: "y", "x", "yx" */
+		_findAxis=function(val){
+			return (val==="yx" || val==="xy" || val==="auto") ? "yx" : (val==="x" || val==="horizontal") ? "x" : "y";
+		},
+		/* -------------------- */
+		
+		
+		/* normalizes scrollButtons.scrollType option to valid values: "stepless", "stepped" */
+		_findScrollButtonsType=function(val){
+			return (val==="stepped" || val==="pixels" || val==="step" || val==="click") ? "stepped" : "stepless";
+		},
+		/* -------------------- */
+		
+		
+		/* generates plugin markup */
+		_pluginMarkup=function(){
+			var $this=$(this),d=$this.data(pluginPfx),o=d.opt,
+				expandClass=o.autoExpandScrollbar ? " "+classes[1]+"_expand" : "",
+				scrollbar=["<div id='mCSB_"+d.idx+"_scrollbar_vertical' class='mCSB_scrollTools mCSB_"+d.idx+"_scrollbar mCS-"+o.theme+" mCSB_scrollTools_vertical"+expandClass+"'><div class='"+classes[12]+"'><div id='mCSB_"+d.idx+"_dragger_vertical' class='mCSB_dragger' style='position:absolute;'><div class='mCSB_dragger_bar' /></div><div class='mCSB_draggerRail' /></div></div>","<div id='mCSB_"+d.idx+"_scrollbar_horizontal' class='mCSB_scrollTools mCSB_"+d.idx+"_scrollbar mCS-"+o.theme+" mCSB_scrollTools_horizontal"+expandClass+"'><div class='"+classes[12]+"'><div id='mCSB_"+d.idx+"_dragger_horizontal' class='mCSB_dragger' style='position:absolute;'><div class='mCSB_dragger_bar' /></div><div class='mCSB_draggerRail' /></div></div>"],
+				wrapperClass=o.axis==="yx" ? "mCSB_vertical_horizontal" : o.axis==="x" ? "mCSB_horizontal" : "mCSB_vertical",
+				scrollbars=o.axis==="yx" ? scrollbar[0]+scrollbar[1] : o.axis==="x" ? scrollbar[1] : scrollbar[0],
+				contentWrapper=o.axis==="yx" ? "<div id='mCSB_"+d.idx+"_container_wrapper' class='mCSB_container_wrapper' />" : "",
+				autoHideClass=o.autoHideScrollbar ? " "+classes[6] : "",
+				scrollbarDirClass=(o.axis!=="x" && d.langDir==="rtl") ? " "+classes[7] : "";
+			if(o.setWidth){$this.css("width",o.setWidth);} /* set element width */
+			if(o.setHeight){$this.css("height",o.setHeight);} /* set element height */
+			o.setLeft=(o.axis!=="y" && d.langDir==="rtl") ? "989999px" : o.setLeft; /* adjust left position for rtl direction */
+			$this.addClass(pluginNS+" _"+pluginPfx+"_"+d.idx+autoHideClass+scrollbarDirClass).wrapInner("<div id='mCSB_"+d.idx+"' class='mCustomScrollBox mCS-"+o.theme+" "+wrapperClass+"'><div id='mCSB_"+d.idx+"_container' class='mCSB_container' style='position:relative; top:"+o.setTop+"; left:"+o.setLeft+";' dir='"+d.langDir+"' /></div>");
+			var mCustomScrollBox=$("#mCSB_"+d.idx),
+				mCSB_container=$("#mCSB_"+d.idx+"_container");
+			if(o.axis!=="y" && !o.advanced.autoExpandHorizontalScroll){
+				mCSB_container.css("width",_contentWidth(mCSB_container));
+			}
+			if(o.scrollbarPosition==="outside"){
+				if($this.css("position")==="static"){ /* requires elements with non-static position */
+					$this.css("position","relative");
+				}
+				$this.css("overflow","visible");
+				mCustomScrollBox.addClass("mCSB_outside").after(scrollbars);
+			}else{
+				mCustomScrollBox.addClass("mCSB_inside").append(scrollbars);
+				mCSB_container.wrap(contentWrapper);
+			}
+			_scrollButtons.call(this); /* add scrollbar buttons */
+			/* minimum dragger length */
+			var mCSB_dragger=[$("#mCSB_"+d.idx+"_dragger_vertical"),$("#mCSB_"+d.idx+"_dragger_horizontal")];
+			mCSB_dragger[0].css("min-height",mCSB_dragger[0].height());
+			mCSB_dragger[1].css("min-width",mCSB_dragger[1].width());
+		},
+		/* -------------------- */
+		
+		
+		/* calculates content width */
+		_contentWidth=function(el){
+			var val=[el[0].scrollWidth,Math.max.apply(Math,el.children().map(function(){return $(this).outerWidth(true);}).get())],w=el.parent().width();
+			return val[0]>w ? val[0] : val[1]>w ? val[1] : "100%";
+		},
+		/* -------------------- */
+		
+		
+		/* expands content horizontally */
+		_expandContentHorizontally=function(){
+			var $this=$(this),d=$this.data(pluginPfx),o=d.opt,
+				mCSB_container=$("#mCSB_"+d.idx+"_container");
+			if(o.advanced.autoExpandHorizontalScroll && o.axis!=="y"){
+				/* calculate scrollWidth */
+				mCSB_container.css({"width":"auto","min-width":0,"overflow-x":"scroll"});
+				var w=Math.ceil(mCSB_container[0].scrollWidth);
+				if(o.advanced.autoExpandHorizontalScroll===3 || (o.advanced.autoExpandHorizontalScroll!==2 && w>mCSB_container.parent().width())){
+					mCSB_container.css({"width":w,"min-width":"100%","overflow-x":"inherit"});
+				}else{
+					/* 
+					wrap content with an infinite width div and set its position to absolute and width to auto. 
+					Setting width to auto before calculating the actual width is important! 
+					We must let the browser set the width as browser zoom values are impossible to calculate.
+					*/
+					mCSB_container.css({"overflow-x":"inherit","position":"absolute"})
+						.wrap("<div class='mCSB_h_wrapper' style='position:relative; left:0; width:999999px;' />")
+						.css({ /* set actual width, original position and un-wrap */
+							/* 
+							get the exact width (with decimals) and then round-up. 
+							Using jquery outerWidth() will round the width value which will mess up with inner elements that have non-integer width
+							*/
+							"width":(Math.ceil(mCSB_container[0].getBoundingClientRect().right+0.4)-Math.floor(mCSB_container[0].getBoundingClientRect().left)),
+							"min-width":"100%",
+							"position":"relative"
+						}).unwrap();
+				}
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* adds scrollbar buttons */
+		_scrollButtons=function(){
+			var $this=$(this),d=$this.data(pluginPfx),o=d.opt,
+				mCSB_scrollTools=$(".mCSB_"+d.idx+"_scrollbar:first"),
+				tabindex=!_isNumeric(o.scrollButtons.tabindex) ? "" : "tabindex='"+o.scrollButtons.tabindex+"'",
+				btnHTML=[
+					"<a href='#' class='"+classes[13]+"' "+tabindex+" />",
+					"<a href='#' class='"+classes[14]+"' "+tabindex+" />",
+					"<a href='#' class='"+classes[15]+"' "+tabindex+" />",
+					"<a href='#' class='"+classes[16]+"' "+tabindex+" />"
+				],
+				btn=[(o.axis==="x" ? btnHTML[2] : btnHTML[0]),(o.axis==="x" ? btnHTML[3] : btnHTML[1]),btnHTML[2],btnHTML[3]];
+			if(o.scrollButtons.enable){
+				mCSB_scrollTools.prepend(btn[0]).append(btn[1]).next(".mCSB_scrollTools").prepend(btn[2]).append(btn[3]);
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* auto-adjusts scrollbar dragger length */
+		_setDraggerLength=function(){
+			var $this=$(this),d=$this.data(pluginPfx),
+				mCustomScrollBox=$("#mCSB_"+d.idx),
+				mCSB_container=$("#mCSB_"+d.idx+"_container"),
+				mCSB_dragger=[$("#mCSB_"+d.idx+"_dragger_vertical"),$("#mCSB_"+d.idx+"_dragger_horizontal")],
+				ratio=[mCustomScrollBox.height()/mCSB_container.outerHeight(false),mCustomScrollBox.width()/mCSB_container.outerWidth(false)],
+				l=[
+					parseInt(mCSB_dragger[0].css("min-height")),Math.round(ratio[0]*mCSB_dragger[0].parent().height()),
+					parseInt(mCSB_dragger[1].css("min-width")),Math.round(ratio[1]*mCSB_dragger[1].parent().width())
+				],
+				h=oldIE && (l[1]<l[0]) ? l[0] : l[1],w=oldIE && (l[3]<l[2]) ? l[2] : l[3];
+			mCSB_dragger[0].css({
+				"height":h,"max-height":(mCSB_dragger[0].parent().height()-10)
+			}).find(".mCSB_dragger_bar").css({"line-height":l[0]+"px"});
+			mCSB_dragger[1].css({
+				"width":w,"max-width":(mCSB_dragger[1].parent().width()-10)
+			});
+		},
+		/* -------------------- */
+		
+		
+		/* calculates scrollbar to content ratio */
+		_scrollRatio=function(){
+			var $this=$(this),d=$this.data(pluginPfx),
+				mCustomScrollBox=$("#mCSB_"+d.idx),
+				mCSB_container=$("#mCSB_"+d.idx+"_container"),
+				mCSB_dragger=[$("#mCSB_"+d.idx+"_dragger_vertical"),$("#mCSB_"+d.idx+"_dragger_horizontal")],
+				scrollAmount=[mCSB_container.outerHeight(false)-mCustomScrollBox.height(),mCSB_container.outerWidth(false)-mCustomScrollBox.width()],
+				ratio=[
+					scrollAmount[0]/(mCSB_dragger[0].parent().height()-mCSB_dragger[0].height()),
+					scrollAmount[1]/(mCSB_dragger[1].parent().width()-mCSB_dragger[1].width())
+				];
+			d.scrollRatio={y:ratio[0],x:ratio[1]};
+		},
+		/* -------------------- */
+		
+		
+		/* toggles scrolling classes */
+		_onDragClasses=function(el,action,xpnd){
+			var expandClass=xpnd ? classes[0]+"_expanded" : "",
+				scrollbar=el.closest(".mCSB_scrollTools");
+			if(action==="active"){
+				el.toggleClass(classes[0]+" "+expandClass); scrollbar.toggleClass(classes[1]); 
+				el[0]._draggable=el[0]._draggable ? 0 : 1;
+			}else{
+				if(!el[0]._draggable){
+					if(action==="hide"){
+						el.removeClass(classes[0]); scrollbar.removeClass(classes[1]);
+					}else{
+						el.addClass(classes[0]); scrollbar.addClass(classes[1]);
+					}
+				}
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* checks if content overflows its container to determine if scrolling is required */
+		_overflowed=function(){
+			var $this=$(this),d=$this.data(pluginPfx),
+				mCustomScrollBox=$("#mCSB_"+d.idx),
+				mCSB_container=$("#mCSB_"+d.idx+"_container"),
+				contentHeight=d.overflowed==null ? mCSB_container.height() : mCSB_container.outerHeight(false),
+				contentWidth=d.overflowed==null ? mCSB_container.width() : mCSB_container.outerWidth(false),
+				h=mCSB_container[0].scrollHeight,w=mCSB_container[0].scrollWidth;
+			if(h>contentHeight){contentHeight=h;}
+			if(w>contentWidth){contentWidth=w;}
+			return [contentHeight>mCustomScrollBox.height(),contentWidth>mCustomScrollBox.width()];
+		},
+		/* -------------------- */
+		
+		
+		/* resets content position to 0 */
+		_resetContentPosition=function(){
+			var $this=$(this),d=$this.data(pluginPfx),o=d.opt,
+				mCustomScrollBox=$("#mCSB_"+d.idx),
+				mCSB_container=$("#mCSB_"+d.idx+"_container"),
+				mCSB_dragger=[$("#mCSB_"+d.idx+"_dragger_vertical"),$("#mCSB_"+d.idx+"_dragger_horizontal")];
+			_stop($this); /* stop any current scrolling before resetting */
+			if((o.axis!=="x" && !d.overflowed[0]) || (o.axis==="y" && d.overflowed[0])){ /* reset y */
+				mCSB_dragger[0].add(mCSB_container).css("top",0);
+				_scrollTo($this,"_resetY");
+			}
+			if((o.axis!=="y" && !d.overflowed[1]) || (o.axis==="x" && d.overflowed[1])){ /* reset x */
+				var cx=dx=0;
+				if(d.langDir==="rtl"){ /* adjust left position for rtl direction */
+					cx=mCustomScrollBox.width()-mCSB_container.outerWidth(false);
+					dx=Math.abs(cx/d.scrollRatio.x);
+				}
+				mCSB_container.css("left",cx);
+				mCSB_dragger[1].css("left",dx);
+				_scrollTo($this,"_resetX");
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* binds scrollbar events */
+		_bindEvents=function(){
+			var $this=$(this),d=$this.data(pluginPfx),o=d.opt;
+			if(!d.bindEvents){ /* check if events are already bound */
+				_draggable.call(this);
+				if(o.contentTouchScroll){_contentDraggable.call(this);}
+				_selectable.call(this);
+				if(o.mouseWheel.enable){ /* bind mousewheel fn when plugin is available */
+					function _mwt(){
+						mousewheelTimeout=setTimeout(function(){
+							if(!$.event.special.mousewheel){
+								_mwt();
+							}else{
+								clearTimeout(mousewheelTimeout);
+								_mousewheel.call($this[0]);
+							}
+						},100);
+					}
+					var mousewheelTimeout;
+					_mwt();
+				}
+				_draggerRail.call(this);
+				_wrapperScroll.call(this);
+				if(o.advanced.autoScrollOnFocus){_focus.call(this);}
+				if(o.scrollButtons.enable){_buttons.call(this);}
+				if(o.keyboard.enable){_keyboard.call(this);}
+				d.bindEvents=true;
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* unbinds scrollbar events */
+		_unbindEvents=function(){
+			var $this=$(this),d=$this.data(pluginPfx),o=d.opt,
+				namespace=pluginPfx+"_"+d.idx,
+				sb=".mCSB_"+d.idx+"_scrollbar",
+				sel=$("#mCSB_"+d.idx+",#mCSB_"+d.idx+"_container,#mCSB_"+d.idx+"_container_wrapper,"+sb+" ."+classes[12]+",#mCSB_"+d.idx+"_dragger_vertical,#mCSB_"+d.idx+"_dragger_horizontal,"+sb+">a"),
+				mCSB_container=$("#mCSB_"+d.idx+"_container");
+			if(o.advanced.releaseDraggableSelectors){sel.add($(o.advanced.releaseDraggableSelectors));}
+			if(o.advanced.extraDraggableSelectors){sel.add($(o.advanced.extraDraggableSelectors));}
+			if(d.bindEvents){ /* check if events are bound */
+				/* unbind namespaced events from document/selectors */
+				$(document).add($(!_canAccessIFrame() || top.document)).unbind("."+namespace);
+				sel.each(function(){
+					$(this).unbind("."+namespace);
+				});
+				/* clear and delete timeouts/objects */
+				clearTimeout($this[0]._focusTimeout); _delete($this[0],"_focusTimeout");
+				clearTimeout(d.sequential.step); _delete(d.sequential,"step");
+				clearTimeout(mCSB_container[0].onCompleteTimeout); _delete(mCSB_container[0],"onCompleteTimeout");
+				d.bindEvents=false;
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* toggles scrollbar visibility */
+		_scrollbarVisibility=function(disabled){
+			var $this=$(this),d=$this.data(pluginPfx),o=d.opt,
+				contentWrapper=$("#mCSB_"+d.idx+"_container_wrapper"),
+				content=contentWrapper.length ? contentWrapper : $("#mCSB_"+d.idx+"_container"),
+				scrollbar=[$("#mCSB_"+d.idx+"_scrollbar_vertical"),$("#mCSB_"+d.idx+"_scrollbar_horizontal")],
+				mCSB_dragger=[scrollbar[0].find(".mCSB_dragger"),scrollbar[1].find(".mCSB_dragger")];
+			if(o.axis!=="x"){
+				if(d.overflowed[0] && !disabled){
+					scrollbar[0].add(mCSB_dragger[0]).add(scrollbar[0].children("a")).css("display","block");
+					content.removeClass(classes[8]+" "+classes[10]);
+				}else{
+					if(o.alwaysShowScrollbar){
+						if(o.alwaysShowScrollbar!==2){mCSB_dragger[0].css("display","none");}
+						content.removeClass(classes[10]);
+					}else{
+						scrollbar[0].css("display","none");
+						content.addClass(classes[10]);
+					}
+					content.addClass(classes[8]);
+				}
+			}
+			if(o.axis!=="y"){
+				if(d.overflowed[1] && !disabled){
+					scrollbar[1].add(mCSB_dragger[1]).add(scrollbar[1].children("a")).css("display","block");
+					content.removeClass(classes[9]+" "+classes[11]);
+				}else{
+					if(o.alwaysShowScrollbar){
+						if(o.alwaysShowScrollbar!==2){mCSB_dragger[1].css("display","none");}
+						content.removeClass(classes[11]);
+					}else{
+						scrollbar[1].css("display","none");
+						content.addClass(classes[11]);
+					}
+					content.addClass(classes[9]);
+				}
+			}
+			if(!d.overflowed[0] && !d.overflowed[1]){
+				$this.addClass(classes[5]);
+			}else{
+				$this.removeClass(classes[5]);
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* returns input coordinates of pointer, touch and mouse events (relative to document) */
+		_coordinates=function(e){
+			var t=e.type,o=e.target.ownerDocument!==document && frameElement!==null ? [$(frameElement).offset().top,$(frameElement).offset().left] : null,
+				io=_canAccessIFrame() && e.target.ownerDocument!==top.document && frameElement!==null ? [$(e.view.frameElement).offset().top,$(e.view.frameElement).offset().left] : [0,0];
+			switch(t){
+				case "pointerdown": case "MSPointerDown": case "pointermove": case "MSPointerMove": case "pointerup": case "MSPointerUp":
+					return o ? [e.originalEvent.pageY-o[0]+io[0],e.originalEvent.pageX-o[1]+io[1],false] : [e.originalEvent.pageY,e.originalEvent.pageX,false];
+					break;
+				case "touchstart": case "touchmove": case "touchend":
+					var touch=e.originalEvent.touches[0] || e.originalEvent.changedTouches[0],
+						touches=e.originalEvent.touches.length || e.originalEvent.changedTouches.length;
+					return e.target.ownerDocument!==document ? [touch.screenY,touch.screenX,touches>1] : [touch.pageY,touch.pageX,touches>1];
+					break;
+				default:
+					return o ? [e.pageY-o[0]+io[0],e.pageX-o[1]+io[1],false] : [e.pageY,e.pageX,false];
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* 
+		SCROLLBAR DRAG EVENTS
+		scrolls content via scrollbar dragging 
+		*/
+		_draggable=function(){
+			var $this=$(this),d=$this.data(pluginPfx),o=d.opt,
+				namespace=pluginPfx+"_"+d.idx,
+				draggerId=["mCSB_"+d.idx+"_dragger_vertical","mCSB_"+d.idx+"_dragger_horizontal"],
+				mCSB_container=$("#mCSB_"+d.idx+"_container"),
+				mCSB_dragger=$("#"+draggerId[0]+",#"+draggerId[1]),
+				draggable,dragY,dragX,
+				rds=o.advanced.releaseDraggableSelectors ? mCSB_dragger.add($(o.advanced.releaseDraggableSelectors)) : mCSB_dragger,
+				eds=o.advanced.extraDraggableSelectors ? $(!_canAccessIFrame() || top.document).add($(o.advanced.extraDraggableSelectors)) : $(!_canAccessIFrame() || top.document);
+			mCSB_dragger.bind("contextmenu."+namespace,function(e){
+				e.preventDefault(); //prevent right click
+			}).bind("mousedown."+namespace+" touchstart."+namespace+" pointerdown."+namespace+" MSPointerDown."+namespace,function(e){
+				e.stopImmediatePropagation();
+				e.preventDefault();
+				if(!_mouseBtnLeft(e)){return;} /* left mouse button only */
+				touchActive=true;
+				if(oldIE){document.onselectstart=function(){return false;}} /* disable text selection for IE < 9 */
+				_iframe.call(mCSB_container,false); /* enable scrollbar dragging over iframes by disabling their events */
+				_stop($this);
+				draggable=$(this);
+				var offset=draggable.offset(),y=_coordinates(e)[0]-offset.top,x=_coordinates(e)[1]-offset.left,
+					h=draggable.height()+offset.top,w=draggable.width()+offset.left;
+				if(y<h && y>0 && x<w && x>0){
+					dragY=y; 
+					dragX=x;
+				}
+				_onDragClasses(draggable,"active",o.autoExpandScrollbar); 
+			}).bind("touchmove."+namespace,function(e){
+				e.stopImmediatePropagation();
+				e.preventDefault();
+				var offset=draggable.offset(),y=_coordinates(e)[0]-offset.top,x=_coordinates(e)[1]-offset.left;
+				_drag(dragY,dragX,y,x);
+			});
+			$(document).add(eds).bind("mousemove."+namespace+" pointermove."+namespace+" MSPointerMove."+namespace,function(e){
+				if(draggable){
+					var offset=draggable.offset(),y=_coordinates(e)[0]-offset.top,x=_coordinates(e)[1]-offset.left;
+					if(dragY===y && dragX===x){return;} /* has it really moved? */
+					_drag(dragY,dragX,y,x);
+				}
+			}).add(rds).bind("mouseup."+namespace+" touchend."+namespace+" pointerup."+namespace+" MSPointerUp."+namespace,function(e){
+				if(draggable){
+					_onDragClasses(draggable,"active",o.autoExpandScrollbar); 
+					draggable=null;
+				}
+				touchActive=false;
+				if(oldIE){document.onselectstart=null;} /* enable text selection for IE < 9 */
+				_iframe.call(mCSB_container,true); /* enable iframes events */
+			});
+			function _drag(dragY,dragX,y,x){
+				mCSB_container[0].idleTimer=o.scrollInertia<233 ? 250 : 0;
+				if(draggable.attr("id")===draggerId[1]){
+					var dir="x",to=((draggable[0].offsetLeft-dragX)+x)*d.scrollRatio.x;
+				}else{
+					var dir="y",to=((draggable[0].offsetTop-dragY)+y)*d.scrollRatio.y;
+				}
+				_scrollTo($this,to.toString(),{dir:dir,drag:true});
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* 
+		TOUCH SWIPE EVENTS
+		scrolls content via touch swipe 
+		Emulates the native touch-swipe scrolling with momentum found in iOS, Android and WP devices 
+		*/
+		_contentDraggable=function(){
+			var $this=$(this),d=$this.data(pluginPfx),o=d.opt,
+				namespace=pluginPfx+"_"+d.idx,
+				mCustomScrollBox=$("#mCSB_"+d.idx),
+				mCSB_container=$("#mCSB_"+d.idx+"_container"),
+				mCSB_dragger=[$("#mCSB_"+d.idx+"_dragger_vertical"),$("#mCSB_"+d.idx+"_dragger_horizontal")],
+				draggable,dragY,dragX,touchStartY,touchStartX,touchMoveY=[],touchMoveX=[],startTime,runningTime,endTime,distance,speed,amount,
+				durA=0,durB,overwrite=o.axis==="yx" ? "none" : "all",touchIntent=[],touchDrag,docDrag,
+				iframe=mCSB_container.find("iframe"),
+				events=[
+					"touchstart."+namespace+" pointerdown."+namespace+" MSPointerDown."+namespace, //start
+					"touchmove."+namespace+" pointermove."+namespace+" MSPointerMove."+namespace, //move
+					"touchend."+namespace+" pointerup."+namespace+" MSPointerUp."+namespace //end
+				],
+				touchAction=document.body.style.touchAction!==undefined && document.body.style.touchAction!=="";
+			mCSB_container.bind(events[0],function(e){
+				_onTouchstart(e);
+			}).bind(events[1],function(e){
+				_onTouchmove(e);
+			});
+			mCustomScrollBox.bind(events[0],function(e){
+				_onTouchstart2(e);
+			}).bind(events[2],function(e){
+				_onTouchend(e);
+			});
+			if(iframe.length){
+				iframe.each(function(){
+					$(this).bind("load",function(){
+						/* bind events on accessible iframes */
+						if(_canAccessIFrame(this)){
+							$(this.contentDocument || this.contentWindow.document).bind(events[0],function(e){
+								_onTouchstart(e);
+								_onTouchstart2(e);
+							}).bind(events[1],function(e){
+								_onTouchmove(e);
+							}).bind(events[2],function(e){
+								_onTouchend(e);
+							});
+						}
+					});
+				});
+			}
+			function _onTouchstart(e){
+				if(!_pointerTouch(e) || touchActive || _coordinates(e)[2]){touchable=0; return;}
+				touchable=1; touchDrag=0; docDrag=0; draggable=1;
+				$this.removeClass("mCS_touch_action");
+				var offset=mCSB_container.offset();
+				dragY=_coordinates(e)[0]-offset.top;
+				dragX=_coordinates(e)[1]-offset.left;
+				touchIntent=[_coordinates(e)[0],_coordinates(e)[1]];
+			}
+			function _onTouchmove(e){
+				if(!_pointerTouch(e) || touchActive || _coordinates(e)[2]){return;}
+				if(!o.documentTouchScroll){e.preventDefault();} 
+				e.stopImmediatePropagation();
+				if(docDrag && !touchDrag){return;}
+				if(draggable){
+					runningTime=_getTime();
+					var offset=mCustomScrollBox.offset(),y=_coordinates(e)[0]-offset.top,x=_coordinates(e)[1]-offset.left,
+						easing="mcsLinearOut";
+					touchMoveY.push(y);
+					touchMoveX.push(x);
+					touchIntent[2]=Math.abs(_coordinates(e)[0]-touchIntent[0]); touchIntent[3]=Math.abs(_coordinates(e)[1]-touchIntent[1]);
+					if(d.overflowed[0]){
+						var limit=mCSB_dragger[0].parent().height()-mCSB_dragger[0].height(),
+							prevent=((dragY-y)>0 && (y-dragY)>-(limit*d.scrollRatio.y) && (touchIntent[3]*2<touchIntent[2] || o.axis==="yx"));
+					}
+					if(d.overflowed[1]){
+						var limitX=mCSB_dragger[1].parent().width()-mCSB_dragger[1].width(),
+							preventX=((dragX-x)>0 && (x-dragX)>-(limitX*d.scrollRatio.x) && (touchIntent[2]*2<touchIntent[3] || o.axis==="yx"));
+					}
+					if(prevent || preventX){ /* prevent native document scrolling */
+						if(!touchAction){e.preventDefault();} 
+						touchDrag=1;
+					}else{
+						docDrag=1;
+						$this.addClass("mCS_touch_action");
+					}
+					if(touchAction){e.preventDefault();} 
+					amount=o.axis==="yx" ? [(dragY-y),(dragX-x)] : o.axis==="x" ? [null,(dragX-x)] : [(dragY-y),null];
+					mCSB_container[0].idleTimer=250;
+					if(d.overflowed[0]){_drag(amount[0],durA,easing,"y","all",true);}
+					if(d.overflowed[1]){_drag(amount[1],durA,easing,"x",overwrite,true);}
+				}
+			}
+			function _onTouchstart2(e){
+				if(!_pointerTouch(e) || touchActive || _coordinates(e)[2]){touchable=0; return;}
+				touchable=1;
+				e.stopImmediatePropagation();
+				_stop($this);
+				startTime=_getTime();
+				var offset=mCustomScrollBox.offset();
+				touchStartY=_coordinates(e)[0]-offset.top;
+				touchStartX=_coordinates(e)[1]-offset.left;
+				touchMoveY=[]; touchMoveX=[];
+			}
+			function _onTouchend(e){
+				if(!_pointerTouch(e) || touchActive || _coordinates(e)[2]){return;}
+				draggable=0;
+				e.stopImmediatePropagation();
+				touchDrag=0; docDrag=0;
+				endTime=_getTime();
+				var offset=mCustomScrollBox.offset(),y=_coordinates(e)[0]-offset.top,x=_coordinates(e)[1]-offset.left;
+				if((endTime-runningTime)>30){return;}
+				speed=1000/(endTime-startTime);
+				var easing="mcsEaseOut",slow=speed<2.5,
+					diff=slow ? [touchMoveY[touchMoveY.length-2],touchMoveX[touchMoveX.length-2]] : [0,0];
+				distance=slow ? [(y-diff[0]),(x-diff[1])] : [y-touchStartY,x-touchStartX];
+				var absDistance=[Math.abs(distance[0]),Math.abs(distance[1])];
+				speed=slow ? [Math.abs(distance[0]/4),Math.abs(distance[1]/4)] : [speed,speed];
+				var a=[
+					Math.abs(mCSB_container[0].offsetTop)-(distance[0]*_m((absDistance[0]/speed[0]),speed[0])),
+					Math.abs(mCSB_container[0].offsetLeft)-(distance[1]*_m((absDistance[1]/speed[1]),speed[1]))
+				];
+				amount=o.axis==="yx" ? [a[0],a[1]] : o.axis==="x" ? [null,a[1]] : [a[0],null];
+				durB=[(absDistance[0]*4)+o.scrollInertia,(absDistance[1]*4)+o.scrollInertia];
+				var md=parseInt(o.contentTouchScroll) || 0; /* absolute minimum distance required */
+				amount[0]=absDistance[0]>md ? amount[0] : 0;
+				amount[1]=absDistance[1]>md ? amount[1] : 0;
+				if(d.overflowed[0]){_drag(amount[0],durB[0],easing,"y",overwrite,false);}
+				if(d.overflowed[1]){_drag(amount[1],durB[1],easing,"x",overwrite,false);}
+			}
+			function _m(ds,s){
+				var r=[s*1.5,s*2,s/1.5,s/2];
+				if(ds>90){
+					return s>4 ? r[0] : r[3];
+				}else if(ds>60){
+					return s>3 ? r[3] : r[2];
+				}else if(ds>30){
+					return s>8 ? r[1] : s>6 ? r[0] : s>4 ? s : r[2];
+				}else{
+					return s>8 ? s : r[3];
+				}
+			}
+			function _drag(amount,dur,easing,dir,overwrite,drag){
+				if(!amount){return;}
+				_scrollTo($this,amount.toString(),{dur:dur,scrollEasing:easing,dir:dir,overwrite:overwrite,drag:drag});
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* 
+		SELECT TEXT EVENTS 
+		scrolls content when text is selected 
+		*/
+		_selectable=function(){
+			var $this=$(this),d=$this.data(pluginPfx),o=d.opt,seq=d.sequential,
+				namespace=pluginPfx+"_"+d.idx,
+				mCSB_container=$("#mCSB_"+d.idx+"_container"),
+				wrapper=mCSB_container.parent(),
+				action;
+			mCSB_container.bind("mousedown."+namespace,function(e){
+				if(touchable){return;}
+				if(!action){action=1; touchActive=true;}
+			}).add(document).bind("mousemove."+namespace,function(e){
+				if(!touchable && action && _sel()){
+					var offset=mCSB_container.offset(),
+						y=_coordinates(e)[0]-offset.top+mCSB_container[0].offsetTop,x=_coordinates(e)[1]-offset.left+mCSB_container[0].offsetLeft;
+					if(y>0 && y<wrapper.height() && x>0 && x<wrapper.width()){
+						if(seq.step){_seq("off",null,"stepped");}
+					}else{
+						if(o.axis!=="x" && d.overflowed[0]){
+							if(y<0){
+								_seq("on",38);
+							}else if(y>wrapper.height()){
+								_seq("on",40);
+							}
+						}
+						if(o.axis!=="y" && d.overflowed[1]){
+							if(x<0){
+								_seq("on",37);
+							}else if(x>wrapper.width()){
+								_seq("on",39);
+							}
+						}
+					}
+				}
+			}).bind("mouseup."+namespace+" dragend."+namespace,function(e){
+				if(touchable){return;}
+				if(action){action=0; _seq("off",null);}
+				touchActive=false;
+			});
+			function _sel(){
+				return 	window.getSelection ? window.getSelection().toString() : 
+						document.selection && document.selection.type!="Control" ? document.selection.createRange().text : 0;
+			}
+			function _seq(a,c,s){
+				seq.type=s && action ? "stepped" : "stepless";
+				seq.scrollAmount=10;
+				_sequentialScroll($this,a,c,"mcsLinearOut",s ? 60 : null);
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* 
+		MOUSE WHEEL EVENT
+		scrolls content via mouse-wheel 
+		via mouse-wheel plugin (https://github.com/brandonaaron/jquery-mousewheel)
+		*/
+		_mousewheel=function(){
+			if(!$(this).data(pluginPfx)){return;} /* Check if the scrollbar is ready to use mousewheel events (issue: #185) */
+			var $this=$(this),d=$this.data(pluginPfx),o=d.opt,
+				namespace=pluginPfx+"_"+d.idx,
+				mCustomScrollBox=$("#mCSB_"+d.idx),
+				mCSB_dragger=[$("#mCSB_"+d.idx+"_dragger_vertical"),$("#mCSB_"+d.idx+"_dragger_horizontal")],
+				iframe=$("#mCSB_"+d.idx+"_container").find("iframe");
+			if(iframe.length){
+				iframe.each(function(){
+					$(this).bind("load",function(){
+						/* bind events on accessible iframes */
+						if(_canAccessIFrame(this)){
+							$(this.contentDocument || this.contentWindow.document).bind("mousewheel."+namespace,function(e,delta){
+								_onMousewheel(e,delta);
+							});
+						}
+					});
+				});
+			}
+			mCustomScrollBox.bind("mousewheel."+namespace,function(e,delta){
+				_onMousewheel(e,delta);
+			});
+			function _onMousewheel(e,delta){
+				_stop($this);
+				if(_disableMousewheel($this,e.target)){return;} /* disables mouse-wheel when hovering specific elements */
+				var deltaFactor=o.mouseWheel.deltaFactor!=="auto" ? parseInt(o.mouseWheel.deltaFactor) : (oldIE && e.deltaFactor<100) ? 100 : e.deltaFactor || 100,
+					dur=o.scrollInertia;
+				if(o.axis==="x" || o.mouseWheel.axis==="x"){
+					var dir="x",
+						px=[Math.round(deltaFactor*d.scrollRatio.x),parseInt(o.mouseWheel.scrollAmount)],
+						amount=o.mouseWheel.scrollAmount!=="auto" ? px[1] : px[0]>=mCustomScrollBox.width() ? mCustomScrollBox.width()*0.9 : px[0],
+						contentPos=Math.abs($("#mCSB_"+d.idx+"_container")[0].offsetLeft),
+						draggerPos=mCSB_dragger[1][0].offsetLeft,
+						limit=mCSB_dragger[1].parent().width()-mCSB_dragger[1].width(),
+						dlt=o.mouseWheel.axis==="y" ? (e.deltaY || delta) : e.deltaX;
+				}else{
+					var dir="y",
+						px=[Math.round(deltaFactor*d.scrollRatio.y),parseInt(o.mouseWheel.scrollAmount)],
+						amount=o.mouseWheel.scrollAmount!=="auto" ? px[1] : px[0]>=mCustomScrollBox.height() ? mCustomScrollBox.height()*0.9 : px[0],
+						contentPos=Math.abs($("#mCSB_"+d.idx+"_container")[0].offsetTop),
+						draggerPos=mCSB_dragger[0][0].offsetTop,
+						limit=mCSB_dragger[0].parent().height()-mCSB_dragger[0].height(),
+						dlt=e.deltaY || delta;
+				}
+				if((dir==="y" && !d.overflowed[0]) || (dir==="x" && !d.overflowed[1])){return;}
+				if(o.mouseWheel.invert || e.webkitDirectionInvertedFromDevice){dlt=-dlt;}
+				if(o.mouseWheel.normalizeDelta){dlt=dlt<0 ? -1 : 1;}
+				if((dlt>0 && draggerPos!==0) || (dlt<0 && draggerPos!==limit) || o.mouseWheel.preventDefault){
+					e.stopImmediatePropagation();
+					e.preventDefault();
+				}
+				if(e.deltaFactor<5 && !o.mouseWheel.normalizeDelta){
+					//very low deltaFactor values mean some kind of delta acceleration (e.g. osx trackpad), so adjusting scrolling accordingly
+					amount=e.deltaFactor; dur=17;
+				}
+				_scrollTo($this,(contentPos-(dlt*amount)).toString(),{dir:dir,dur:dur});
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* checks if iframe can be accessed */
+		_canAccessIFrameCache=new Object(),
+		_canAccessIFrame=function(iframe){
+		    var result=false,cacheKey=false,html=null;
+		    if(iframe===undefined){
+				cacheKey="#empty";
+		    }else if($(iframe).attr("id")!==undefined){
+				cacheKey=$(iframe).attr("id");
+		    }
+			if(cacheKey!==false && _canAccessIFrameCache[cacheKey]!==undefined){
+				return _canAccessIFrameCache[cacheKey];
+			}
+			if(!iframe){
+				try{
+					var doc=top.document;
+					html=doc.body.innerHTML;
+				}catch(err){/* do nothing */}
+				result=(html!==null);
+			}else{
+				try{
+					var doc=iframe.contentDocument || iframe.contentWindow.document;
+					html=doc.body.innerHTML;
+				}catch(err){/* do nothing */}
+				result=(html!==null);
+			}
+			if(cacheKey!==false){_canAccessIFrameCache[cacheKey]=result;}
+			return result;
+		},
+		/* -------------------- */
+		
+		
+		/* switches iframe's pointer-events property (drag, mousewheel etc. over cross-domain iframes) */
+		_iframe=function(evt){
+			var el=this.find("iframe");
+			if(!el.length){return;} /* check if content contains iframes */
+			var val=!evt ? "none" : "auto";
+			el.css("pointer-events",val); /* for IE11, iframe's display property should not be "block" */
+		},
+		/* -------------------- */
+		
+		
+		/* disables mouse-wheel when hovering specific elements like select, datalist etc. */
+		_disableMousewheel=function(el,target){
+			var tag=target.nodeName.toLowerCase(),
+				tags=el.data(pluginPfx).opt.mouseWheel.disableOver,
+				/* elements that require focus */
+				focusTags=["select","textarea"];
+			return $.inArray(tag,tags) > -1 && !($.inArray(tag,focusTags) > -1 && !$(target).is(":focus"));
+		},
+		/* -------------------- */
+		
+		
+		/* 
+		DRAGGER RAIL CLICK EVENT
+		scrolls content via dragger rail 
+		*/
+		_draggerRail=function(){
+			var $this=$(this),d=$this.data(pluginPfx),
+				namespace=pluginPfx+"_"+d.idx,
+				mCSB_container=$("#mCSB_"+d.idx+"_container"),
+				wrapper=mCSB_container.parent(),
+				mCSB_draggerContainer=$(".mCSB_"+d.idx+"_scrollbar ."+classes[12]),
+				clickable;
+			mCSB_draggerContainer.bind("mousedown."+namespace+" touchstart."+namespace+" pointerdown."+namespace+" MSPointerDown."+namespace,function(e){
+				touchActive=true;
+				if(!$(e.target).hasClass("mCSB_dragger")){clickable=1;}
+			}).bind("touchend."+namespace+" pointerup."+namespace+" MSPointerUp."+namespace,function(e){
+				touchActive=false;
+			}).bind("click."+namespace,function(e){
+				if(!clickable){return;}
+				clickable=0;
+				if($(e.target).hasClass(classes[12]) || $(e.target).hasClass("mCSB_draggerRail")){
+					_stop($this);
+					var el=$(this),mCSB_dragger=el.find(".mCSB_dragger");
+					if(el.parent(".mCSB_scrollTools_horizontal").length>0){
+						if(!d.overflowed[1]){return;}
+						var dir="x",
+							clickDir=e.pageX>mCSB_dragger.offset().left ? -1 : 1,
+							to=Math.abs(mCSB_container[0].offsetLeft)-(clickDir*(wrapper.width()*0.9));
+					}else{
+						if(!d.overflowed[0]){return;}
+						var dir="y",
+							clickDir=e.pageY>mCSB_dragger.offset().top ? -1 : 1,
+							to=Math.abs(mCSB_container[0].offsetTop)-(clickDir*(wrapper.height()*0.9));
+					}
+					_scrollTo($this,to.toString(),{dir:dir,scrollEasing:"mcsEaseInOut"});
+				}
+			});
+		},
+		/* -------------------- */
+		
+		
+		/* 
+		FOCUS EVENT
+		scrolls content via element focus (e.g. clicking an input, pressing TAB key etc.)
+		*/
+		_focus=function(){
+			var $this=$(this),d=$this.data(pluginPfx),o=d.opt,
+				namespace=pluginPfx+"_"+d.idx,
+				mCSB_container=$("#mCSB_"+d.idx+"_container"),
+				wrapper=mCSB_container.parent();
+			mCSB_container.bind("focusin."+namespace,function(e){
+				var el=$(document.activeElement),
+					nested=mCSB_container.find(".mCustomScrollBox").length,
+					dur=0;
+				if(!el.is(o.advanced.autoScrollOnFocus)){return;}
+				_stop($this);
+				clearTimeout($this[0]._focusTimeout);
+				$this[0]._focusTimer=nested ? (dur+17)*nested : 0;
+				$this[0]._focusTimeout=setTimeout(function(){
+					var	to=[_childPos(el)[0],_childPos(el)[1]],
+						contentPos=[mCSB_container[0].offsetTop,mCSB_container[0].offsetLeft],
+						isVisible=[
+							(contentPos[0]+to[0]>=0 && contentPos[0]+to[0]<wrapper.height()-el.outerHeight(false)),
+							(contentPos[1]+to[1]>=0 && contentPos[0]+to[1]<wrapper.width()-el.outerWidth(false))
+						],
+						overwrite=(o.axis==="yx" && !isVisible[0] && !isVisible[1]) ? "none" : "all";
+					if(o.axis!=="x" && !isVisible[0]){
+						_scrollTo($this,to[0].toString(),{dir:"y",scrollEasing:"mcsEaseInOut",overwrite:overwrite,dur:dur});
+					}
+					if(o.axis!=="y" && !isVisible[1]){
+						_scrollTo($this,to[1].toString(),{dir:"x",scrollEasing:"mcsEaseInOut",overwrite:overwrite,dur:dur});
+					}
+				},$this[0]._focusTimer);
+			});
+		},
+		/* -------------------- */
+		
+		
+		/* sets content wrapper scrollTop/scrollLeft always to 0 */
+		_wrapperScroll=function(){
+			var $this=$(this),d=$this.data(pluginPfx),
+				namespace=pluginPfx+"_"+d.idx,
+				wrapper=$("#mCSB_"+d.idx+"_container").parent();
+			wrapper.bind("scroll."+namespace,function(e){
+				if(wrapper.scrollTop()!==0 || wrapper.scrollLeft()!==0){
+					$(".mCSB_"+d.idx+"_scrollbar").css("visibility","hidden"); /* hide scrollbar(s) */
+				}
+			});
+		},
+		/* -------------------- */
+		
+		
+		/* 
+		BUTTONS EVENTS
+		scrolls content via up, down, left and right buttons 
+		*/
+		_buttons=function(){
+			var $this=$(this),d=$this.data(pluginPfx),o=d.opt,seq=d.sequential,
+				namespace=pluginPfx+"_"+d.idx,
+				sel=".mCSB_"+d.idx+"_scrollbar",
+				btn=$(sel+">a");
+			btn.bind("contextmenu."+namespace,function(e){
+				e.preventDefault(); //prevent right click
+			}).bind("mousedown."+namespace+" touchstart."+namespace+" pointerdown."+namespace+" MSPointerDown."+namespace+" mouseup."+namespace+" touchend."+namespace+" pointerup."+namespace+" MSPointerUp."+namespace+" mouseout."+namespace+" pointerout."+namespace+" MSPointerOut."+namespace+" click."+namespace,function(e){
+				e.preventDefault();
+				if(!_mouseBtnLeft(e)){return;} /* left mouse button only */
+				var btnClass=$(this).attr("class");
+				seq.type=o.scrollButtons.scrollType;
+				switch(e.type){
+					case "mousedown": case "touchstart": case "pointerdown": case "MSPointerDown":
+						if(seq.type==="stepped"){return;}
+						touchActive=true;
+						d.tweenRunning=false;
+						_seq("on",btnClass);
+						break;
+					case "mouseup": case "touchend": case "pointerup": case "MSPointerUp":
+					case "mouseout": case "pointerout": case "MSPointerOut":
+						if(seq.type==="stepped"){return;}
+						touchActive=false;
+						if(seq.dir){_seq("off",btnClass);}
+						break;
+					case "click":
+						if(seq.type!=="stepped" || d.tweenRunning){return;}
+						_seq("on",btnClass);
+						break;
+				}
+				function _seq(a,c){
+					seq.scrollAmount=o.scrollButtons.scrollAmount;
+					_sequentialScroll($this,a,c);
+				}
+			});
+		},
+		/* -------------------- */
+		
+		
+		/* 
+		KEYBOARD EVENTS
+		scrolls content via keyboard 
+		Keys: up arrow, down arrow, left arrow, right arrow, PgUp, PgDn, Home, End
+		*/
+		_keyboard=function(){
+			var $this=$(this),d=$this.data(pluginPfx),o=d.opt,seq=d.sequential,
+				namespace=pluginPfx+"_"+d.idx,
+				mCustomScrollBox=$("#mCSB_"+d.idx),
+				mCSB_container=$("#mCSB_"+d.idx+"_container"),
+				wrapper=mCSB_container.parent(),
+				editables="input,textarea,select,datalist,keygen,[contenteditable='true']",
+				iframe=mCSB_container.find("iframe"),
+				events=["blur."+namespace+" keydown."+namespace+" keyup."+namespace];
+			if(iframe.length){
+				iframe.each(function(){
+					$(this).bind("load",function(){
+						/* bind events on accessible iframes */
+						if(_canAccessIFrame(this)){
+							$(this.contentDocument || this.contentWindow.document).bind(events[0],function(e){
+								_onKeyboard(e);
+							});
+						}
+					});
+				});
+			}
+			mCustomScrollBox.attr("tabindex","0").bind(events[0],function(e){
+				_onKeyboard(e);
+			});
+			function _onKeyboard(e){
+				switch(e.type){
+					case "blur":
+						if(d.tweenRunning && seq.dir){_seq("off",null);}
+						break;
+					case "keydown": case "keyup":
+						var code=e.keyCode ? e.keyCode : e.which,action="on";
+						if((o.axis!=="x" && (code===38 || code===40)) || (o.axis!=="y" && (code===37 || code===39))){
+							/* up (38), down (40), left (37), right (39) arrows */
+							if(((code===38 || code===40) && !d.overflowed[0]) || ((code===37 || code===39) && !d.overflowed[1])){return;}
+							if(e.type==="keyup"){action="off";}
+							if(!$(document.activeElement).is(editables)){
+								e.preventDefault();
+								e.stopImmediatePropagation();
+								_seq(action,code);
+							}
+						}else if(code===33 || code===34){
+							/* PgUp (33), PgDn (34) */
+							if(d.overflowed[0] || d.overflowed[1]){
+								e.preventDefault();
+								e.stopImmediatePropagation();
+							}
+							if(e.type==="keyup"){
+								_stop($this);
+								var keyboardDir=code===34 ? -1 : 1;
+								if(o.axis==="x" || (o.axis==="yx" && d.overflowed[1] && !d.overflowed[0])){
+									var dir="x",to=Math.abs(mCSB_container[0].offsetLeft)-(keyboardDir*(wrapper.width()*0.9));
+								}else{
+									var dir="y",to=Math.abs(mCSB_container[0].offsetTop)-(keyboardDir*(wrapper.height()*0.9));
+								}
+								_scrollTo($this,to.toString(),{dir:dir,scrollEasing:"mcsEaseInOut"});
+							}
+						}else if(code===35 || code===36){
+							/* End (35), Home (36) */
+							if(!$(document.activeElement).is(editables)){
+								if(d.overflowed[0] || d.overflowed[1]){
+									e.preventDefault();
+									e.stopImmediatePropagation();
+								}
+								if(e.type==="keyup"){
+									if(o.axis==="x" || (o.axis==="yx" && d.overflowed[1] && !d.overflowed[0])){
+										var dir="x",to=code===35 ? Math.abs(wrapper.width()-mCSB_container.outerWidth(false)) : 0;
+									}else{
+										var dir="y",to=code===35 ? Math.abs(wrapper.height()-mCSB_container.outerHeight(false)) : 0;
+									}
+									_scrollTo($this,to.toString(),{dir:dir,scrollEasing:"mcsEaseInOut"});
+								}
+							}
+						}
+						break;
+				}
+				function _seq(a,c){
+					seq.type=o.keyboard.scrollType;
+					seq.scrollAmount=o.keyboard.scrollAmount;
+					if(seq.type==="stepped" && d.tweenRunning){return;}
+					_sequentialScroll($this,a,c);
+				}
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* scrolls content sequentially (used when scrolling via buttons, keyboard arrows etc.) */
+		_sequentialScroll=function(el,action,trigger,e,s){
+			var d=el.data(pluginPfx),o=d.opt,seq=d.sequential,
+				mCSB_container=$("#mCSB_"+d.idx+"_container"),
+				once=seq.type==="stepped" ? true : false,
+				steplessSpeed=o.scrollInertia < 26 ? 26 : o.scrollInertia, /* 26/1.5=17 */
+				steppedSpeed=o.scrollInertia < 1 ? 17 : o.scrollInertia;
+			switch(action){
+				case "on":
+					seq.dir=[
+						(trigger===classes[16] || trigger===classes[15] || trigger===39 || trigger===37 ? "x" : "y"),
+						(trigger===classes[13] || trigger===classes[15] || trigger===38 || trigger===37 ? -1 : 1)
+					];
+					_stop(el);
+					if(_isNumeric(trigger) && seq.type==="stepped"){return;}
+					_on(once);
+					break;
+				case "off":
+					_off();
+					if(once || (d.tweenRunning && seq.dir)){
+						_on(true);
+					}
+					break;
+			}
+			
+			/* starts sequence */
+			function _on(once){
+				if(o.snapAmount){seq.scrollAmount=!(o.snapAmount instanceof Array) ? o.snapAmount : seq.dir[0]==="x" ? o.snapAmount[1] : o.snapAmount[0];} /* scrolling snapping */
+				var c=seq.type!=="stepped", /* continuous scrolling */
+					t=s ? s : !once ? 1000/60 : c ? steplessSpeed/1.5 : steppedSpeed, /* timer */
+					m=!once ? 2.5 : c ? 7.5 : 40, /* multiplier */
+					contentPos=[Math.abs(mCSB_container[0].offsetTop),Math.abs(mCSB_container[0].offsetLeft)],
+					ratio=[d.scrollRatio.y>10 ? 10 : d.scrollRatio.y,d.scrollRatio.x>10 ? 10 : d.scrollRatio.x],
+					amount=seq.dir[0]==="x" ? contentPos[1]+(seq.dir[1]*(ratio[1]*m)) : contentPos[0]+(seq.dir[1]*(ratio[0]*m)),
+					px=seq.dir[0]==="x" ? contentPos[1]+(seq.dir[1]*parseInt(seq.scrollAmount)) : contentPos[0]+(seq.dir[1]*parseInt(seq.scrollAmount)),
+					to=seq.scrollAmount!=="auto" ? px : amount,
+					easing=e ? e : !once ? "mcsLinear" : c ? "mcsLinearOut" : "mcsEaseInOut",
+					onComplete=!once ? false : true;
+				if(once && t<17){
+					to=seq.dir[0]==="x" ? contentPos[1] : contentPos[0];
+				}
+				_scrollTo(el,to.toString(),{dir:seq.dir[0],scrollEasing:easing,dur:t,onComplete:onComplete});
+				if(once){
+					seq.dir=false;
+					return;
+				}
+				clearTimeout(seq.step);
+				seq.step=setTimeout(function(){
+					_on();
+				},t);
+			}
+			/* stops sequence */
+			function _off(){
+				clearTimeout(seq.step);
+				_delete(seq,"step");
+				_stop(el);
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* returns a yx array from value */
+		_arr=function(val){
+			var o=$(this).data(pluginPfx).opt,vals=[];
+			if(typeof val==="function"){val=val();} /* check if the value is a single anonymous function */
+			/* check if value is object or array, its length and create an array with yx values */
+			if(!(val instanceof Array)){ /* object value (e.g. {y:"100",x:"100"}, 100 etc.) */
+				vals[0]=val.y ? val.y : val.x || o.axis==="x" ? null : val;
+				vals[1]=val.x ? val.x : val.y || o.axis==="y" ? null : val;
+			}else{ /* array value (e.g. [100,100]) */
+				vals=val.length>1 ? [val[0],val[1]] : o.axis==="x" ? [null,val[0]] : [val[0],null];
+			}
+			/* check if array values are anonymous functions */
+			if(typeof vals[0]==="function"){vals[0]=vals[0]();}
+			if(typeof vals[1]==="function"){vals[1]=vals[1]();}
+			return vals;
+		},
+		/* -------------------- */
+		
+		
+		/* translates values (e.g. "top", 100, "100px", "#id") to actual scroll-to positions */
+		_to=function(val,dir){
+			if(val==null || typeof val=="undefined"){return;}
+			var $this=$(this),d=$this.data(pluginPfx),o=d.opt,
+				mCSB_container=$("#mCSB_"+d.idx+"_container"),
+				wrapper=mCSB_container.parent(),
+				t=typeof val;
+			if(!dir){dir=o.axis==="x" ? "x" : "y";}
+			var contentLength=dir==="x" ? mCSB_container.outerWidth(false)-wrapper.width() : mCSB_container.outerHeight(false)-wrapper.height(),
+				contentPos=dir==="x" ? mCSB_container[0].offsetLeft : mCSB_container[0].offsetTop,
+				cssProp=dir==="x" ? "left" : "top";
+			switch(t){
+				case "function": /* this currently is not used. Consider removing it */
+					return val();
+					break;
+				case "object": /* js/jquery object */
+					var obj=val.jquery ? val : $(val);
+					if(!obj.length){return;}
+					return dir==="x" ? _childPos(obj)[1] : _childPos(obj)[0];
+					break;
+				case "string": case "number":
+					if(_isNumeric(val)){ /* numeric value */
+						return Math.abs(val);
+					}else if(val.indexOf("%")!==-1){ /* percentage value */
+						return Math.abs(contentLength*parseInt(val)/100);
+					}else if(val.indexOf("-=")!==-1){ /* decrease value */
+						return Math.abs(contentPos-parseInt(val.split("-=")[1]));
+					}else if(val.indexOf("+=")!==-1){ /* inrease value */
+						var p=(contentPos+parseInt(val.split("+=")[1]));
+						return p>=0 ? 0 : Math.abs(p);
+					}else if(val.indexOf("px")!==-1 && _isNumeric(val.split("px")[0])){ /* pixels string value (e.g. "100px") */
+						return Math.abs(val.split("px")[0]);
+					}else{
+						if(val==="top" || val==="left"){ /* special strings */
+							return 0;
+						}else if(val==="bottom"){
+							return Math.abs(wrapper.height()-mCSB_container.outerHeight(false));
+						}else if(val==="right"){
+							return Math.abs(wrapper.width()-mCSB_container.outerWidth(false));
+						}else if(val==="first" || val==="last"){
+							var obj=mCSB_container.find(":"+val);
+							return dir==="x" ? _childPos(obj)[1] : _childPos(obj)[0];
+						}else{
+							if($(val).length){ /* jquery selector */
+								return dir==="x" ? _childPos($(val))[1] : _childPos($(val))[0];
+							}else{ /* other values (e.g. "100em") */
+								mCSB_container.css(cssProp,val);
+								methods.update.call(null,$this[0]);
+								return;
+							}
+						}
+					}
+					break;
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* calls the update method automatically */
+		_autoUpdate=function(rem){
+			var $this=$(this),d=$this.data(pluginPfx),o=d.opt,
+				mCSB_container=$("#mCSB_"+d.idx+"_container");
+			if(rem){
+				/* 
+				removes autoUpdate timer 
+				usage: _autoUpdate.call(this,"remove");
+				*/
+				clearTimeout(mCSB_container[0].autoUpdate);
+				_delete(mCSB_container[0],"autoUpdate");
+				return;
+			}
+			upd();
+			function upd(){
+				clearTimeout(mCSB_container[0].autoUpdate);
+				if($this.parents("html").length===0){
+					/* check element in dom tree */
+					$this=null;
+					return;
+				}
+				mCSB_container[0].autoUpdate=setTimeout(function(){
+					/* update on specific selector(s) length and size change */
+					if(o.advanced.updateOnSelectorChange){
+						d.poll.change.n=sizesSum();
+						if(d.poll.change.n!==d.poll.change.o){
+							d.poll.change.o=d.poll.change.n;
+							doUpd(3);
+							return;
+						}
+					}
+					/* update on main element and scrollbar size changes */
+					if(o.advanced.updateOnContentResize){
+						d.poll.size.n=$this[0].scrollHeight+$this[0].scrollWidth+mCSB_container[0].offsetHeight+$this[0].offsetHeight+$this[0].offsetWidth;
+						if(d.poll.size.n!==d.poll.size.o){
+							d.poll.size.o=d.poll.size.n;
+							doUpd(1);
+							return;
+						}
+					}
+					/* update on image load */
+					if(o.advanced.updateOnImageLoad){
+						if(!(o.advanced.updateOnImageLoad==="auto" && o.axis==="y")){ //by default, it doesn't run on vertical content
+							d.poll.img.n=mCSB_container.find("img").length;
+							if(d.poll.img.n!==d.poll.img.o){
+								d.poll.img.o=d.poll.img.n;
+								mCSB_container.find("img").each(function(){
+									imgLoader(this);
+								});
+								return;
+							}
+						}
+					}
+					if(o.advanced.updateOnSelectorChange || o.advanced.updateOnContentResize || o.advanced.updateOnImageLoad){upd();}
+				},o.advanced.autoUpdateTimeout);
+			}
+			/* a tiny image loader */
+			function imgLoader(el){
+				if($(el).hasClass(classes[2])){doUpd(); return;}
+				var img=new Image();
+				function createDelegate(contextObject,delegateMethod){
+					return function(){return delegateMethod.apply(contextObject,arguments);}
+				}
+				function imgOnLoad(){
+					this.onload=null;
+					$(el).addClass(classes[2]);
+					doUpd(2);
+				}
+				img.onload=createDelegate(img,imgOnLoad);
+				img.src=el.src;
+			}
+			/* returns the total height and width sum of all elements matching the selector */
+			function sizesSum(){
+				if(o.advanced.updateOnSelectorChange===true){o.advanced.updateOnSelectorChange="*";}
+				var total=0,sel=mCSB_container.find(o.advanced.updateOnSelectorChange);
+				if(o.advanced.updateOnSelectorChange && sel.length>0){sel.each(function(){total+=this.offsetHeight+this.offsetWidth;});}
+				return total;
+			}
+			/* calls the update method */
+			function doUpd(cb){
+				clearTimeout(mCSB_container[0].autoUpdate);
+				methods.update.call(null,$this[0],cb);
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* snaps scrolling to a multiple of a pixels number */
+		_snapAmount=function(to,amount,offset){
+			return (Math.round(to/amount)*amount-offset); 
+		},
+		/* -------------------- */
+		
+		
+		/* stops content and scrollbar animations */
+		_stop=function(el){
+			var d=el.data(pluginPfx),
+				sel=$("#mCSB_"+d.idx+"_container,#mCSB_"+d.idx+"_container_wrapper,#mCSB_"+d.idx+"_dragger_vertical,#mCSB_"+d.idx+"_dragger_horizontal");
+			sel.each(function(){
+				_stopTween.call(this);
+			});
+		},
+		/* -------------------- */
+		
+		
+		/* 
+		ANIMATES CONTENT 
+		This is where the actual scrolling happens
+		*/
+		_scrollTo=function(el,to,options){
+			var d=el.data(pluginPfx),o=d.opt,
+				defaults={
+					trigger:"internal",
+					dir:"y",
+					scrollEasing:"mcsEaseOut",
+					drag:false,
+					dur:o.scrollInertia,
+					overwrite:"all",
+					callbacks:true,
+					onStart:true,
+					onUpdate:true,
+					onComplete:true
+				},
+				options=$.extend(defaults,options),
+				dur=[options.dur,(options.drag ? 0 : options.dur)],
+				mCustomScrollBox=$("#mCSB_"+d.idx),
+				mCSB_container=$("#mCSB_"+d.idx+"_container"),
+				wrapper=mCSB_container.parent(),
+				totalScrollOffsets=o.callbacks.onTotalScrollOffset ? _arr.call(el,o.callbacks.onTotalScrollOffset) : [0,0],
+				totalScrollBackOffsets=o.callbacks.onTotalScrollBackOffset ? _arr.call(el,o.callbacks.onTotalScrollBackOffset) : [0,0];
+			d.trigger=options.trigger;
+			if(wrapper.scrollTop()!==0 || wrapper.scrollLeft()!==0){ /* always reset scrollTop/Left */
+				$(".mCSB_"+d.idx+"_scrollbar").css("visibility","visible");
+				wrapper.scrollTop(0).scrollLeft(0);
+			}
+			if(to==="_resetY" && !d.contentReset.y){
+				/* callbacks: onOverflowYNone */
+				if(_cb("onOverflowYNone")){o.callbacks.onOverflowYNone.call(el[0]);}
+				d.contentReset.y=1;
+			}
+			if(to==="_resetX" && !d.contentReset.x){
+				/* callbacks: onOverflowXNone */
+				if(_cb("onOverflowXNone")){o.callbacks.onOverflowXNone.call(el[0]);}
+				d.contentReset.x=1;
+			}
+			if(to==="_resetY" || to==="_resetX"){return;}
+			if((d.contentReset.y || !el[0].mcs) && d.overflowed[0]){
+				/* callbacks: onOverflowY */
+				if(_cb("onOverflowY")){o.callbacks.onOverflowY.call(el[0]);}
+				d.contentReset.x=null;
+			}
+			if((d.contentReset.x || !el[0].mcs) && d.overflowed[1]){
+				/* callbacks: onOverflowX */
+				if(_cb("onOverflowX")){o.callbacks.onOverflowX.call(el[0]);}
+				d.contentReset.x=null;
+			}
+			if(o.snapAmount){ /* scrolling snapping */
+				var snapAmount=!(o.snapAmount instanceof Array) ? o.snapAmount : options.dir==="x" ? o.snapAmount[1] : o.snapAmount[0];
+				to=_snapAmount(to,snapAmount,o.snapOffset);
+			}
+			switch(options.dir){
+				case "x":
+					var mCSB_dragger=$("#mCSB_"+d.idx+"_dragger_horizontal"),
+						property="left",
+						contentPos=mCSB_container[0].offsetLeft,
+						limit=[
+							mCustomScrollBox.width()-mCSB_container.outerWidth(false),
+							mCSB_dragger.parent().width()-mCSB_dragger.width()
+						],
+						scrollTo=[to,to===0 ? 0 : (to/d.scrollRatio.x)],
+						tso=totalScrollOffsets[1],
+						tsbo=totalScrollBackOffsets[1],
+						totalScrollOffset=tso>0 ? tso/d.scrollRatio.x : 0,
+						totalScrollBackOffset=tsbo>0 ? tsbo/d.scrollRatio.x : 0;
+					break;
+				case "y":
+					var mCSB_dragger=$("#mCSB_"+d.idx+"_dragger_vertical"),
+						property="top",
+						contentPos=mCSB_container[0].offsetTop,
+						limit=[
+							mCustomScrollBox.height()-mCSB_container.outerHeight(false),
+							mCSB_dragger.parent().height()-mCSB_dragger.height()
+						],
+						scrollTo=[to,to===0 ? 0 : (to/d.scrollRatio.y)],
+						tso=totalScrollOffsets[0],
+						tsbo=totalScrollBackOffsets[0],
+						totalScrollOffset=tso>0 ? tso/d.scrollRatio.y : 0,
+						totalScrollBackOffset=tsbo>0 ? tsbo/d.scrollRatio.y : 0;
+					break;
+			}
+			if(scrollTo[1]<0 || (scrollTo[0]===0 && scrollTo[1]===0)){
+				scrollTo=[0,0];
+			}else if(scrollTo[1]>=limit[1]){
+				scrollTo=[limit[0],limit[1]];
+			}else{
+				scrollTo[0]=-scrollTo[0];
+			}
+			if(!el[0].mcs){
+				_mcs();  /* init mcs object (once) to make it available before callbacks */
+				if(_cb("onInit")){o.callbacks.onInit.call(el[0]);} /* callbacks: onInit */
+			}
+			clearTimeout(mCSB_container[0].onCompleteTimeout);
+			_tweenTo(mCSB_dragger[0],property,Math.round(scrollTo[1]),dur[1],options.scrollEasing);
+			if(!d.tweenRunning && ((contentPos===0 && scrollTo[0]>=0) || (contentPos===limit[0] && scrollTo[0]<=limit[0]))){return;}
+			_tweenTo(mCSB_container[0],property,Math.round(scrollTo[0]),dur[0],options.scrollEasing,options.overwrite,{
+				onStart:function(){
+					if(options.callbacks && options.onStart && !d.tweenRunning){
+						/* callbacks: onScrollStart */
+						if(_cb("onScrollStart")){_mcs(); o.callbacks.onScrollStart.call(el[0]);}
+						d.tweenRunning=true;
+						_onDragClasses(mCSB_dragger);
+						d.cbOffsets=_cbOffsets();
+					}
+				},onUpdate:function(){
+					if(options.callbacks && options.onUpdate){
+						/* callbacks: whileScrolling */
+						if(_cb("whileScrolling")){_mcs(); o.callbacks.whileScrolling.call(el[0]);}
+					}
+				},onComplete:function(){
+					if(options.callbacks && options.onComplete){
+						if(o.axis==="yx"){clearTimeout(mCSB_container[0].onCompleteTimeout);}
+						var t=mCSB_container[0].idleTimer || 0;
+						mCSB_container[0].onCompleteTimeout=setTimeout(function(){
+							/* callbacks: onScroll, onTotalScroll, onTotalScrollBack */
+							if(_cb("onScroll")){_mcs(); o.callbacks.onScroll.call(el[0]);}
+							if(_cb("onTotalScroll") && scrollTo[1]>=limit[1]-totalScrollOffset && d.cbOffsets[0]){_mcs(); o.callbacks.onTotalScroll.call(el[0]);}
+							if(_cb("onTotalScrollBack") && scrollTo[1]<=totalScrollBackOffset && d.cbOffsets[1]){_mcs(); o.callbacks.onTotalScrollBack.call(el[0]);}
+							d.tweenRunning=false;
+							mCSB_container[0].idleTimer=0;
+							_onDragClasses(mCSB_dragger,"hide");
+						},t);
+					}
+				}
+			});
+			/* checks if callback function exists */
+			function _cb(cb){
+				return d && o.callbacks[cb] && typeof o.callbacks[cb]==="function";
+			}
+			/* checks whether callback offsets always trigger */
+			function _cbOffsets(){
+				return [o.callbacks.alwaysTriggerOffsets || contentPos>=limit[0]+tso,o.callbacks.alwaysTriggerOffsets || contentPos<=-tsbo];
+			}
+			/* 
+			populates object with useful values for the user 
+			values: 
+				content: this.mcs.content
+				content top position: this.mcs.top 
+				content left position: this.mcs.left 
+				dragger top position: this.mcs.draggerTop 
+				dragger left position: this.mcs.draggerLeft 
+				scrolling y percentage: this.mcs.topPct 
+				scrolling x percentage: this.mcs.leftPct 
+				scrolling direction: this.mcs.direction
+			*/
+			function _mcs(){
+				var cp=[mCSB_container[0].offsetTop,mCSB_container[0].offsetLeft], /* content position */
+					dp=[mCSB_dragger[0].offsetTop,mCSB_dragger[0].offsetLeft], /* dragger position */
+					cl=[mCSB_container.outerHeight(false),mCSB_container.outerWidth(false)], /* content length */
+					pl=[mCustomScrollBox.height(),mCustomScrollBox.width()]; /* content parent length */
+				el[0].mcs={
+					content:mCSB_container, /* original content wrapper as jquery object */
+					top:cp[0],left:cp[1],draggerTop:dp[0],draggerLeft:dp[1],
+					topPct:Math.round((100*Math.abs(cp[0]))/(Math.abs(cl[0])-pl[0])),leftPct:Math.round((100*Math.abs(cp[1]))/(Math.abs(cl[1])-pl[1])),
+					direction:options.dir
+				};
+				/* 
+				this refers to the original element containing the scrollbar(s)
+				usage: this.mcs.top, this.mcs.leftPct etc. 
+				*/
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* 
+		CUSTOM JAVASCRIPT ANIMATION TWEEN 
+		Lighter and faster than jquery animate() and css transitions 
+		Animates top/left properties and includes easings 
+		*/
+		_tweenTo=function(el,prop,to,duration,easing,overwrite,callbacks){
+			if(!el._mTween){el._mTween={top:{},left:{}};}
+			var callbacks=callbacks || {},
+				onStart=callbacks.onStart || function(){},onUpdate=callbacks.onUpdate || function(){},onComplete=callbacks.onComplete || function(){},
+				startTime=_getTime(),_delay,progress=0,from=el.offsetTop,elStyle=el.style,_request,tobj=el._mTween[prop];
+			if(prop==="left"){from=el.offsetLeft;}
+			var diff=to-from;
+			tobj.stop=0;
+			if(overwrite!=="none"){_cancelTween();}
+			_startTween();
+			function _step(){
+				if(tobj.stop){return;}
+				if(!progress){onStart.call();}
+				progress=_getTime()-startTime;
+				_tween();
+				if(progress>=tobj.time){
+					tobj.time=(progress>tobj.time) ? progress+_delay-(progress-tobj.time) : progress+_delay-1;
+					if(tobj.time<progress+1){tobj.time=progress+1;}
+				}
+				if(tobj.time<duration){tobj.id=_request(_step);}else{onComplete.call();}
+			}
+			function _tween(){
+				if(duration>0){
+					tobj.currVal=_ease(tobj.time,from,diff,duration,easing);
+					elStyle[prop]=Math.round(tobj.currVal)+"px";
+				}else{
+					elStyle[prop]=to+"px";
+				}
+				onUpdate.call();
+			}
+			function _startTween(){
+				_delay=1000/60;
+				tobj.time=progress+_delay;
+				_request=(!window.requestAnimationFrame) ? function(f){_tween(); return setTimeout(f,0.01);} : window.requestAnimationFrame;
+				tobj.id=_request(_step);
+			}
+			function _cancelTween(){
+				if(tobj.id==null){return;}
+				if(!window.requestAnimationFrame){clearTimeout(tobj.id);
+				}else{window.cancelAnimationFrame(tobj.id);}
+				tobj.id=null;
+			}
+			function _ease(t,b,c,d,type){
+				switch(type){
+					case "linear": case "mcsLinear":
+						return c*t/d + b;
+						break;
+					case "mcsLinearOut":
+						t/=d; t--; return c * Math.sqrt(1 - t*t) + b;
+						break;
+					case "easeInOutSmooth":
+						t/=d/2;
+						if(t<1) return c/2*t*t + b;
+						t--;
+						return -c/2 * (t*(t-2) - 1) + b;
+						break;
+					case "easeInOutStrong":
+						t/=d/2;
+						if(t<1) return c/2 * Math.pow( 2, 10 * (t - 1) ) + b;
+						t--;
+						return c/2 * ( -Math.pow( 2, -10 * t) + 2 ) + b;
+						break;
+					case "easeInOut": case "mcsEaseInOut":
+						t/=d/2;
+						if(t<1) return c/2*t*t*t + b;
+						t-=2;
+						return c/2*(t*t*t + 2) + b;
+						break;
+					case "easeOutSmooth":
+						t/=d; t--;
+						return -c * (t*t*t*t - 1) + b;
+						break;
+					case "easeOutStrong":
+						return c * ( -Math.pow( 2, -10 * t/d ) + 1 ) + b;
+						break;
+					case "easeOut": case "mcsEaseOut": default:
+						var ts=(t/=d)*t,tc=ts*t;
+						return b+c*(0.499999999999997*tc*ts + -2.5*ts*ts + 5.5*tc + -6.5*ts + 4*t);
+				}
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* returns current time */
+		_getTime=function(){
+			if(window.performance && window.performance.now){
+				return window.performance.now();
+			}else{
+				if(window.performance && window.performance.webkitNow){
+					return window.performance.webkitNow();
+				}else{
+					if(Date.now){return Date.now();}else{return new Date().getTime();}
+				}
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* stops a tween */
+		_stopTween=function(){
+			var el=this;
+			if(!el._mTween){el._mTween={top:{},left:{}};}
+			var props=["top","left"];
+			for(var i=0; i<props.length; i++){
+				var prop=props[i];
+				if(el._mTween[prop].id){
+					if(!window.requestAnimationFrame){clearTimeout(el._mTween[prop].id);
+					}else{window.cancelAnimationFrame(el._mTween[prop].id);}
+					el._mTween[prop].id=null;
+					el._mTween[prop].stop=1;
+				}
+			}
+		},
+		/* -------------------- */
+		
+		
+		/* deletes a property (avoiding the exception thrown by IE) */
+		_delete=function(c,m){
+			try{delete c[m];}catch(e){c[m]=null;}
+		},
+		/* -------------------- */
+		
+		
+		/* detects left mouse button */
+		_mouseBtnLeft=function(e){
+			return !(e.which && e.which!==1);
+		},
+		/* -------------------- */
+		
+		
+		/* detects if pointer type event is touch */
+		_pointerTouch=function(e){
+			var t=e.originalEvent.pointerType;
+			return !(t && t!=="touch" && t!==2);
+		},
+		/* -------------------- */
+		
+		
+		/* checks if value is numeric */
+		_isNumeric=function(val){
+			return !isNaN(parseFloat(val)) && isFinite(val);
+		},
+		/* -------------------- */
+		
+		
+		/* returns element position according to content */
+		_childPos=function(el){
+			var p=el.parents(".mCSB_container");
+			return [el.offset().top-p.offset().top,el.offset().left-p.offset().left];
+		},
+		/* -------------------- */
+		
+		
+		/* checks if browser tab is hidden/inactive via Page Visibility API */
+		_isTabHidden=function(){
+			var prop=_getHiddenProp();
+			if(!prop) return false;
+			return document[prop];
+			function _getHiddenProp(){
+				var pfx=["webkit","moz","ms","o"];
+				if("hidden" in document) return "hidden"; //natively supported
+				for(var i=0; i<pfx.length; i++){ //prefixed
+				    if((pfx[i]+"Hidden") in document) 
+				        return pfx[i]+"Hidden";
+				}
+				return null; //not supported
+			}
+		};
+		/* -------------------- */
+		
+	
+	
+	
+	
+	/* 
+	----------------------------------------
+	PLUGIN SETUP 
+	----------------------------------------
+	*/
+	
+	/* plugin constructor functions */
+	$.fn[pluginNS]=function(method){ /* usage: $(selector).mCustomScrollbar(); */
+		if(methods[method]){
+			return methods[method].apply(this,Array.prototype.slice.call(arguments,1));
+		}else if(typeof method==="object" || !method){
+			return methods.init.apply(this,arguments);
+		}else{
+			$.error("Method "+method+" does not exist");
+		}
+	};
+	$[pluginNS]=function(method){ /* usage: $.mCustomScrollbar(); */
+		if(methods[method]){
+			return methods[method].apply(this,Array.prototype.slice.call(arguments,1));
+		}else if(typeof method==="object" || !method){
+			return methods.init.apply(this,arguments);
+		}else{
+			$.error("Method "+method+" does not exist");
+		}
+	};
+	
+	/* 
+	allow setting plugin default options. 
+	usage: $.mCustomScrollbar.defaults.scrollInertia=500; 
+	to apply any changed default options on default selectors (below), use inside document ready fn 
+	e.g.: $(document).ready(function(){ $.mCustomScrollbar.defaults.scrollInertia=500; });
+	*/
+	$[pluginNS].defaults=defaults;
+	
+	/* 
+	add window object (window.mCustomScrollbar) 
+	usage: if(window.mCustomScrollbar){console.log("custom scrollbar plugin loaded");}
+	*/
+	window[pluginNS]=true;
+	
+	$(window).bind("load",function(){
+		
+		$(defaultSelector)[pluginNS](); /* add scrollbars automatically on default selector */
+		
+		/* extend jQuery expressions */
+		$.extend($.expr[":"],{
+			/* checks if element is within scrollable viewport */
+			mcsInView:$.expr[":"].mcsInView || function(el){
+				var $el=$(el),content=$el.parents(".mCSB_container"),wrapper,cPos;
+				if(!content.length){return;}
+				wrapper=content.parent();
+				cPos=[content[0].offsetTop,content[0].offsetLeft];
+				return 	cPos[0]+_childPos($el)[0]>=0 && cPos[0]+_childPos($el)[0]<wrapper.height()-$el.outerHeight(false) && 
+						cPos[1]+_childPos($el)[1]>=0 && cPos[1]+_childPos($el)[1]<wrapper.width()-$el.outerWidth(false);
+			},
+			/* checks if element or part of element is in view of scrollable viewport */
+			mcsInSight:$.expr[":"].mcsInSight || function(el,i,m){
+				var $el=$(el),elD,content=$el.parents(".mCSB_container"),wrapperView,pos,wrapperViewPct,
+					pctVals=m[3]==="exact" ? [[1,0],[1,0]] : [[0.9,0.1],[0.6,0.4]];
+				if(!content.length){return;}
+				elD=[$el.outerHeight(false),$el.outerWidth(false)];
+				pos=[content[0].offsetTop+_childPos($el)[0],content[0].offsetLeft+_childPos($el)[1]];
+				wrapperView=[content.parent()[0].offsetHeight,content.parent()[0].offsetWidth];
+				wrapperViewPct=[elD[0]<wrapperView[0] ? pctVals[0] : pctVals[1],elD[1]<wrapperView[1] ? pctVals[0] : pctVals[1]];
+				return 	pos[0]-(wrapperView[0]*wrapperViewPct[0][0])<0 && pos[0]+elD[0]-(wrapperView[0]*wrapperViewPct[0][1])>=0 && 
+						pos[1]-(wrapperView[1]*wrapperViewPct[1][0])<0 && pos[1]+elD[1]-(wrapperView[1]*wrapperViewPct[1][1])>=0;
+			},
+			/* checks if element is overflowed having visible scrollbar(s) */
+			mcsOverflow:$.expr[":"].mcsOverflow || function(el){
+				var d=$(el).data(pluginPfx);
+				if(!d){return;}
+				return d.overflowed[0] || d.overflowed[1];
+			}
+		});
+	
+	});
+
+}))}));
 //! moment.js
 //! version : 2.18.1
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -1315,7 +2960,7 @@ $( document ).ready(function () {
         let content = $('.seo-text__content, .catalog__categories-list, .custom-scrollbar');
 
         $.each(content, function () {
-            $( this ).customScrollbar();
+            $( this ).mCustomScrollbar();
         })
     }
 
@@ -1394,9 +3039,12 @@ $( document ).ready(function () {
                 let productContent = $( this ).find('.product-card__content');
 
                 $( this ).on('mouseenter', function () {
-
                     title.text(titleText);
                     vendor.text(vendorText);
+
+                    productContent.css({
+                        'margin-top' : '-' + ((titleHeight * limitRatio) + (vendorHeight * limitRatio) - 50) + 'px',
+                    });
 
                     $.each([title, vendor], function () {
                         let length = $(this).text().length;
@@ -1404,10 +3052,6 @@ $( document ).ready(function () {
                         if (length > expandedLimit) {
                             $(this).text($(this).text().substr(0, expandedLimit) + '...');
                         }
-                    });
-
-                    productContent.css({
-                        'margin-top' : '-' + ((titleHeight * limitRatio) + (vendorHeight * limitRatio) - 50) + 'px',
                     });
 
                 });
