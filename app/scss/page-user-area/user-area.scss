@@ -142,4 +142,25 @@
     }
 }
 
+.favorites {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        margin-bottom: 20px;
+    }
+    &__actions {
+        button {
+            border: none;
+            background: none;
+        }
+    }
+    &__items {
+        margin: 0 -15px;
+        padding: 0;
+        list-style: none;
+    }
+}
+
 @import "user-area-responsive";

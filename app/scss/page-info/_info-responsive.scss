@@ -16,32 +16,10 @@
 // ≥1024px
 @include media-breakpoint-down(md) {
 
-  .page-catalog {
-    &__title {
-      margin-bottom: 20px;
-    }
-    &__subcategories {
-      margin-bottom: 20px;
-    }
-    &__pagination {
-      padding-bottom: 30px;
-    }
-  }
-
 }
 
 // ≥768px
 @include media-breakpoint-down(sm) {
-
-  .page-catalog {
-    &__viewed {
-      padding-bottom: 0;
-    }
-    &__about {
-      margin-top: 50px;
-      margin-bottom: 50px;
-    }
-  }
 
 }
 

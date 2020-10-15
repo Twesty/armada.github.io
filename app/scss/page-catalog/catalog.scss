@@ -7,6 +7,9 @@
       margin-top: 40px;
     }
   }
+  &__title {
+    margin-bottom: 40px;
+  }
   &__pagination {
     padding-top: 55px;
     padding-bottom: 80px;
@@ -14,6 +17,17 @@
   &__about {
     margin-top: 100px;
     margin-bottom: 110px;
+  }
+  &__seo-text {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  &__advantages {
+    padding-top: 70px;
+    padding-bottom: 40px;
+  }
+  &__categories {
+    margin-top: 40px;
   }
 }
 
@@ -29,6 +43,70 @@
   }
   &__checkout-group {
     margin-bottom: 25px;
+  }
+}
+
+.categories {
+  &__items {
+    position: relative;
+    margin: 0 -25px -20px -25px;
+    padding: 0;
+    list-style: none;
+    &:before {
+      position: absolute;
+      content: '';
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 1px;
+      background: #FFF;
+      z-index: 1;
+    }
+  }
+  &__item {
+    padding: 0 25px;
+    margin-bottom: 40px;
+  }
+}
+
+.category {
+  &:not(:last-child) {
+    border-right: 1px solid #c0c0c0;
+  }
+  &__wrap {
+
+  }
+  &__header {
+
+  }
+  &__content {
+    margin-top: 15px;
+  }
+  &__image {
+    position: relative;
+    height: 140px;
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      height: 80%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  &__subcategories {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  &__subcategory {
+    font-size: 14px;
   }
 }
 

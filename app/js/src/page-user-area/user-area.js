@@ -10,6 +10,20 @@ $( document ).ready(function () {
         $('.mdb-select').materialSelect();
     });
 
+    // Order - username crop
+
+    {
+        let username = $('.order-item__customer span');
+
+        $.each(username, function () {
+            let length = $(this).text().length;
+
+            if (length > 15) {
+                $(this).text($(this).text().substr(0, 15) + '...');
+            }
+        });
+    }
+
     // User edit input
 
     {

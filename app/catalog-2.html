@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<!-- <base href="/"> -->
 
-	<title>ARMADA - торговый комплекс</title>
+	<title>ARMADA - арендаторам</title>
 	<meta name="description" content="ARMADA - мебельный торговый комплекс">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +23,7 @@
 	<!-- Custom Browsers Color End -->
 
 	<link rel="stylesheet" href="css/main.min.css">
-	<link rel="stylesheet" href="css/page-home/home.min.css">
+	<link rel="stylesheet" href="css/page-catalog/catalog.min.css">
 	<link rel="preload" href="css/fonts.min.css">
 
 </head>
@@ -33,15 +33,6 @@
 	<div class="overlay"></div>
 
 	<header class="header">
-		<div class="ad">
-			<img src="img/free-delivery.png" alt="Free delivery" width="100%">
-			<div class="ad__close container">
-				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<circle cx="10" cy="10" r="10" fill="black" fill-opacity="0.25"/>
-					<path fill-rule="evenodd" clip-rule="evenodd" d="M5.80862 5.80862C5.86667 5.75041 5.93564 5.70423 6.01157 5.67273C6.08751 5.64122 6.16891 5.625 6.25112 5.625C6.33333 5.625 6.41473 5.64122 6.49066 5.67273C6.56659 5.70423 6.63556 5.75041 6.69362 5.80862L10.0011 9.11737L13.3086 5.80862C13.3667 5.75051 13.4357 5.70441 13.5116 5.67296C13.5876 5.64151 13.6689 5.62533 13.7511 5.62533C13.8333 5.62533 13.9147 5.64151 13.9906 5.67296C14.0665 5.70441 14.1355 5.75051 14.1936 5.80862C14.2517 5.86673 14.2978 5.93571 14.3293 6.01164C14.3607 6.08756 14.3769 6.16894 14.3769 6.25112C14.3769 6.3333 14.3607 6.41467 14.3293 6.4906C14.2978 6.56652 14.2517 6.63551 14.1936 6.69362L10.8849 10.0011L14.1936 13.3086C14.2517 13.3667 14.2978 13.4357 14.3293 13.5116C14.3607 13.5876 14.3769 13.6689 14.3769 13.7511C14.3769 13.8333 14.3607 13.9147 14.3293 13.9906C14.2978 14.0665 14.2517 14.1355 14.1936 14.1936C14.1355 14.2517 14.0665 14.2978 13.9906 14.3293C13.9147 14.3607 13.8333 14.3769 13.7511 14.3769C13.6689 14.3769 13.5876 14.3607 13.5116 14.3293C13.4357 14.2978 13.3667 14.2517 13.3086 14.1936L10.0011 10.8849L6.69362 14.1936C6.63551 14.2517 6.56652 14.2978 6.4906 14.3293C6.41467 14.3607 6.3333 14.3769 6.25112 14.3769C6.16894 14.3769 6.08756 14.3607 6.01164 14.3293C5.93571 14.2978 5.86673 14.2517 5.80862 14.1936C5.75051 14.1355 5.70441 14.0665 5.67296 13.9906C5.64151 13.9147 5.62533 13.8333 5.62533 13.7511C5.62533 13.6689 5.64151 13.5876 5.67296 13.5116C5.70441 13.4357 5.75051 13.3667 5.80862 13.3086L9.11737 10.0011L5.80862 6.69362C5.75041 6.63556 5.70423 6.56659 5.67273 6.49066C5.64122 6.41473 5.625 6.33333 5.625 6.25112C5.625 6.16891 5.64122 6.08751 5.67273 6.01157C5.70423 5.93564 5.75041 5.86667 5.80862 5.80862Z" fill="white"/>
-				</svg>
-			</div>
-		</div>
 		<div class="header__overlay"></div>
 		<div class="header__top">
 			<div class="container">
@@ -1395,9 +1386,24 @@
 		</div>
 	</div>
 
-	<main class="main-content page-home">
+	<main class="main-content page-catalog">
 
-		<section class="banner page-home__banner">
+		<section class="section container">
+			<div class="section__header">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="/">Главная</a></li>
+						<li class="breadcrumb-item active" aria-current="page"><a href="/">Товары для дома</a></li>
+					</ol>
+				</nav>
+			</div>
+		</section>
+
+		<div class="container">
+			<h2 class="page-title page-catalog__title">Товары для дома</h2>
+		</div>
+
+		<section class="banner banner--category page-catalog__banner container">
 			<ul class="banner__items">
 				<li class="banner-item banner__item" style="background-image: url('img/banner.jpg')">
 					<div class="banner-item__wrap">
@@ -1427,7 +1433,7 @@
 					</div>
 				</li>
 			</ul>
-			<div class="banner__controls container">
+			<div class="banner__controls">
 				<div class="banner__arrows">
 					<div class="banner__arrow banner__arrow--prev">
 						<svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1445,187 +1451,267 @@
 			</div>
 		</section>
 
-		<section class="section popular-categories page-home__popular-categories container">
-			<div class="section__header">
-				<h2 class="section__title section__title--dark">Популярные разделы</h2>
-				<div class="section__header-text section__header-text--search">
-					<span>Не можете найти нужный раздел?</span>
-					<a href="#">
-						<span>Воспользуйтесь поиском</span>
-						<svg width="29" height="8" viewBox="0 0 29 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M28.3536 4.35355C28.5488 4.15829 28.5488 3.84171 28.3536 3.64645L25.1716 0.464466C24.9763 0.269204 24.6597 0.269204 24.4645 0.464466C24.2692 0.659728 24.2692 0.976311 24.4645 1.17157L27.2929 4L24.4645 6.82843C24.2692 7.02369 24.2692 7.34027 24.4645 7.53553C24.6597 7.7308 24.9763 7.7308 25.1716 7.53553L28.3536 4.35355ZM0 4.5H28V3.5H0V4.5Z" fill="#EC6676"/>
-						</svg>
-					</a>
-				</div>
-			</div>
-			<div class="section__content">
-				<ul class="popular-categories__items row">
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/1.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Освещение</span>
-						</a>
+		<section class="categories page-catalog__categories">
+			<div class="container">
+				<ul class="categories__items row">
+					<li class="category categories__item col-6 col-md-4 col-lg-3 col-xl-2">
+						<div class="category__wrap">
+							<div class="category__header">
+								<div class="category__image">
+									<img src="img/categories/1.png" alt="Category image">
+								</div>
+							</div>
+							<div class="category__content">
+								<h4 class="category__title">Освещение</h4>
+								<ul class="category__subcategories">
+									<li class="category__subcategory"><a href="#">Люстры</a></li>
+									<li class="category__subcategory"><a href="#">Светильники</a></li>
+									<li class="category__subcategory"><a href="#">Бра</a></li>
+									<li class="category__subcategory"><a href="#">Торшеры</a></li>
+									<li class="category__subcategory"><a href="#">Настольные лампы</a></li>
+									<li class="category__subcategory"><a href="#">Гирлянды</a></li>
+								</ul>
+							</div>
+						</div>
 					</li>
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/2.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Диваны</span>
-						</a>
+					<li class="category categories__item col-6 col-md-4 col-lg-3 col-xl-2">
+						<div class="category__wrap">
+							<div class="category__header">
+								<div class="category__image">
+									<img src="img/categories/2.png" alt="Category image">
+								</div>
+							</div>
+							<div class="category__content">
+								<h4 class="category__title">Освещение</h4>
+								<ul class="category__subcategories">
+									<li class="category__subcategory"><a href="#">Люстры</a></li>
+									<li class="category__subcategory"><a href="#">Светильники</a></li>
+									<li class="category__subcategory"><a href="#">Бра</a></li>
+									<li class="category__subcategory"><a href="#">Торшеры</a></li>
+									<li class="category__subcategory"><a href="#">Настольные лампы</a></li>
+									<li class="category__subcategory"><a href="#">Гирлянды</a></li>
+								</ul>
+							</div>
+						</div>
 					</li>
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/3.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Кресла</span>
-						</a>
+					<li class="category categories__item col-6 col-md-4 col-lg-3 col-xl-2">
+						<div class="category__wrap">
+							<div class="category__header">
+								<div class="category__image">
+									<img src="img/categories/3.png" alt="Category image">
+								</div>
+							</div>
+							<div class="category__content">
+								<h4 class="category__title">Освещение</h4>
+								<ul class="category__subcategories">
+									<li class="category__subcategory"><a href="#">Люстры</a></li>
+									<li class="category__subcategory"><a href="#">Светильники</a></li>
+									<li class="category__subcategory"><a href="#">Бра</a></li>
+									<li class="category__subcategory"><a href="#">Торшеры</a></li>
+									<li class="category__subcategory"><a href="#">Настольные лампы</a></li>
+									<li class="category__subcategory"><a href="#">Гирлянды</a></li>
+								</ul>
+							</div>
+						</div>
 					</li>
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/4.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Пуфы</span>
-						</a>
+					<li class="category categories__item col-6 col-md-4 col-lg-3 col-xl-2">
+						<div class="category__wrap">
+							<div class="category__header">
+								<div class="category__image">
+									<img src="img/categories/4.png" alt="Category image">
+								</div>
+							</div>
+							<div class="category__content">
+								<h4 class="category__title">Освещение</h4>
+								<ul class="category__subcategories">
+									<li class="category__subcategory"><a href="#">Люстры</a></li>
+									<li class="category__subcategory"><a href="#">Светильники</a></li>
+									<li class="category__subcategory"><a href="#">Бра</a></li>
+									<li class="category__subcategory"><a href="#">Торшеры</a></li>
+									<li class="category__subcategory"><a href="#">Настольные лампы</a></li>
+									<li class="category__subcategory"><a href="#">Гирлянды</a></li>
+								</ul>
+							</div>
+						</div>
 					</li>
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/5.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Столы</span>
-						</a>
+					<li class="category categories__item col-6 col-md-4 col-lg-3 col-xl-2">
+						<div class="category__wrap">
+							<div class="category__header">
+								<div class="category__image">
+									<img src="img/categories/5.png" alt="Category image">
+								</div>
+							</div>
+							<div class="category__content">
+								<h4 class="category__title">Освещение</h4>
+								<ul class="category__subcategories">
+									<li class="category__subcategory"><a href="#">Люстры</a></li>
+									<li class="category__subcategory"><a href="#">Светильники</a></li>
+									<li class="category__subcategory"><a href="#">Бра</a></li>
+									<li class="category__subcategory"><a href="#">Торшеры</a></li>
+									<li class="category__subcategory"><a href="#">Настольные лампы</a></li>
+									<li class="category__subcategory"><a href="#">Гирлянды</a></li>
+								</ul>
+							</div>
+						</div>
 					</li>
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/6.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Стулья</span>
-						</a>
+					<li class="category categories__item col-6 col-md-4 col-lg-3 col-xl-2">
+						<div class="category__wrap">
+							<div class="category__header">
+								<div class="category__image">
+									<img src="img/categories/6.png" alt="Category image">
+								</div>
+							</div>
+							<div class="category__content">
+								<h4 class="category__title">Освещение</h4>
+								<ul class="category__subcategories">
+									<li class="category__subcategory"><a href="#">Люстры</a></li>
+									<li class="category__subcategory"><a href="#">Светильники</a></li>
+									<li class="category__subcategory"><a href="#">Бра</a></li>
+									<li class="category__subcategory"><a href="#">Торшеры</a></li>
+									<li class="category__subcategory"><a href="#">Настольные лампы</a></li>
+									<li class="category__subcategory"><a href="#">Гирлянды</a></li>
+								</ul>
+							</div>
+						</div>
 					</li>
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/7.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Кровати</span>
-						</a>
+					<li class="category categories__item col-6 col-md-4 col-lg-3 col-xl-2">
+						<div class="category__wrap">
+							<div class="category__header">
+								<div class="category__image">
+									<img src="img/categories/7.png" alt="Category image">
+								</div>
+							</div>
+							<div class="category__content">
+								<h4 class="category__title">Освещение</h4>
+								<ul class="category__subcategories">
+									<li class="category__subcategory"><a href="#">Люстры</a></li>
+									<li class="category__subcategory"><a href="#">Светильники</a></li>
+									<li class="category__subcategory"><a href="#">Бра</a></li>
+									<li class="category__subcategory"><a href="#">Торшеры</a></li>
+									<li class="category__subcategory"><a href="#">Настольные лампы</a></li>
+									<li class="category__subcategory"><a href="#">Гирлянды</a></li>
+								</ul>
+							</div>
+						</div>
 					</li>
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/8.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Тумбы</span>
-						</a>
+					<li class="category categories__item col-6 col-md-4 col-lg-3 col-xl-2">
+						<div class="category__wrap">
+							<div class="category__header">
+								<div class="category__image">
+									<img src="img/categories/8.png" alt="Category image">
+								</div>
+							</div>
+							<div class="category__content">
+								<h4 class="category__title">Освещение</h4>
+								<ul class="category__subcategories">
+									<li class="category__subcategory"><a href="#">Люстры</a></li>
+									<li class="category__subcategory"><a href="#">Светильники</a></li>
+									<li class="category__subcategory"><a href="#">Бра</a></li>
+									<li class="category__subcategory"><a href="#">Торшеры</a></li>
+									<li class="category__subcategory"><a href="#">Настольные лампы</a></li>
+									<li class="category__subcategory"><a href="#">Гирлянды</a></li>
+								</ul>
+							</div>
+						</div>
 					</li>
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/9.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Шкафы</span>
-						</a>
+					<li class="category categories__item col-6 col-md-4 col-lg-3 col-xl-2">
+						<div class="category__wrap">
+							<div class="category__header">
+								<div class="category__image">
+									<img src="img/categories/9.png" alt="Category image">
+								</div>
+							</div>
+							<div class="category__content">
+								<h4 class="category__title">Освещение</h4>
+								<ul class="category__subcategories">
+									<li class="category__subcategory"><a href="#">Люстры</a></li>
+									<li class="category__subcategory"><a href="#">Светильники</a></li>
+									<li class="category__subcategory"><a href="#">Бра</a></li>
+									<li class="category__subcategory"><a href="#">Торшеры</a></li>
+									<li class="category__subcategory"><a href="#">Настольные лампы</a></li>
+									<li class="category__subcategory"><a href="#">Гирлянды</a></li>
+								</ul>
+							</div>
+						</div>
 					</li>
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/10.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Комоды</span>
-						</a>
+					<li class="category categories__item col-6 col-md-4 col-lg-3 col-xl-2">
+						<div class="category__wrap">
+							<div class="category__header">
+								<div class="category__image">
+									<img src="img/categories/10.png" alt="Category image">
+								</div>
+							</div>
+							<div class="category__content">
+								<h4 class="category__title">Освещение</h4>
+								<ul class="category__subcategories">
+									<li class="category__subcategory"><a href="#">Люстры</a></li>
+									<li class="category__subcategory"><a href="#">Светильники</a></li>
+									<li class="category__subcategory"><a href="#">Бра</a></li>
+									<li class="category__subcategory"><a href="#">Торшеры</a></li>
+									<li class="category__subcategory"><a href="#">Настольные лампы</a></li>
+									<li class="category__subcategory"><a href="#">Гирлянды</a></li>
+								</ul>
+							</div>
+						</div>
 					</li>
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/11.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Консоли</span>
-						</a>
+					<li class="category categories__item col-6 col-md-4 col-lg-3 col-xl-2">
+						<div class="category__wrap">
+							<div class="category__header">
+								<div class="category__image">
+									<img src="img/categories/11.png" alt="Category image">
+								</div>
+							</div>
+							<div class="category__content">
+								<h4 class="category__title">Освещение</h4>
+								<ul class="category__subcategories">
+									<li class="category__subcategory"><a href="#">Люстры</a></li>
+									<li class="category__subcategory"><a href="#">Светильники</a></li>
+									<li class="category__subcategory"><a href="#">Бра</a></li>
+									<li class="category__subcategory"><a href="#">Торшеры</a></li>
+									<li class="category__subcategory"><a href="#">Настольные лампы</a></li>
+									<li class="category__subcategory"><a href="#">Гирлянды</a></li>
+								</ul>
+							</div>
+						</div>
 					</li>
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/12.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Стеллажи</span>
-						</a>
-					</li>
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/13.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Зеркала</span>
-						</a>
-					</li>
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/14.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Декор</span>
-						</a>
-					</li>
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/15.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Подарки</span>
-						</a>
-					</li>
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/16.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Ковры</span>
-						</a>
-					</li>
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/17.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Текстиль</span>
-						</a>
-					</li>
-					<li class="category-card popular-categories__item col-6 col-md-3 col-xl-2">
-						<a href="#" class="category-card__wrap">
-							<span class="category-card__image">
-								<img src="img/categories/18.png" alt="Category image">
-							</span>
-							<span class="category-card__title">Для дачи</span>
-						</a>
+					<li class="category categories__item col-6 col-md-4 col-lg-3 col-xl-2">
+						<div class="category__wrap">
+							<div class="category__header">
+								<div class="category__image">
+									<img src="img/categories/12.png" alt="Category image">
+								</div>
+							</div>
+							<div class="category__content">
+								<h4 class="category__title">Освещение</h4>
+								<ul class="category__subcategories">
+									<li class="category__subcategory"><a href="#">Люстры</a></li>
+									<li class="category__subcategory"><a href="#">Светильники</a></li>
+									<li class="category__subcategory"><a href="#">Бра</a></li>
+									<li class="category__subcategory"><a href="#">Торшеры</a></li>
+									<li class="category__subcategory"><a href="#">Настольные лампы</a></li>
+									<li class="category__subcategory"><a href="#">Гирлянды</a></li>
+								</ul>
+							</div>
+						</div>
 					</li>
 				</ul>
 			</div>
 		</section>
 
-		<section class="section slideshow section--slideshow viewed page-home__viewed">
-			<div class="section__background section__background--pr">
-				<img src="img/sections-bg/viewed-bg.jpg" alt="">
-				<img src="img/sections-bg/viewed-bg-2.png" alt="" class="viewed__background">
-			</div>
+		<section class="section slideshow section--slideshow viewed page-catalog__viewed">
 			<div class="container">
 				<div class="section__header">
-					<h2 class="section__title section__title--light">Просмотренные товары</h2>
+					<h2 class="section__title section__title--dark">Просмотренные товары</h2>
 					<div class="section__arrows">
 						<div class="section__arrow section__arrow--prev slideshow__arrow--prev">
 							<svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<circle cx="18.5" cy="18.5" r="18.5" fill="white"/>
+								<circle cx="18.5" cy="18.5" r="18.5" fill="#F5F5F5"/>
 								<path d="M14.2929 18.2929C13.9024 18.6834 13.9024 19.3166 14.2929 19.7071L20.6569 26.0711C21.0474 26.4616 21.6805 26.4616 22.0711 26.0711C22.4616 25.6805 22.4616 25.0474 22.0711 24.6569L16.4142 19L22.0711 13.3431C22.4616 12.9526 22.4616 12.3195 22.0711 11.9289C21.6805 11.5384 21.0474 11.5384 20.6569 11.9289L14.2929 18.2929ZM16 18L15 18L15 20L16 20L16 18Z" fill="black"/>
 							</svg>
 						</div>
 						<div class="section__arrow section__arrow--next slideshow__arrow--next">
 							<svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<circle cx="18.5" cy="18.5" r="18.5" fill="white"/>
+								<circle cx="18.5" cy="18.5" r="18.5" fill="#F5F5F5"/>
 								<path d="M14.2929 18.2929C13.9024 18.6834 13.9024 19.3166 14.2929 19.7071L20.6569 26.0711C21.0474 26.4616 21.6805 26.4616 22.0711 26.0711C22.4616 25.6805 22.4616 25.0474 22.0711 24.6569L16.4142 19L22.0711 13.3431C22.4616 12.9526 22.4616 12.3195 22.0711 11.9289C21.6805 11.5384 21.0474 11.5384 20.6569 11.9289L14.2929 18.2929ZM16 18L15 18L15 20L16 20L16 18Z" fill="black"/>
 							</svg>
 						</div>
@@ -1661,8 +1747,8 @@
 										</div>
 									</div>
 								</a>
-                                <div class="product-card__add-to-card">
-                                    <button class="btn btn-primary">
+								<div class="product-card__add-to-card">
+									<button class="btn btn-primary">
 										<span>В корзину</span>
 										<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M0.928974 0.457031H3.69167C3.97878 0.457031 4.22487 0.662109 4.27761 0.943359L5.75417 8.78027H12.1614L13.2864 4.71973H8.37331C8.04226 4.71973 7.77565 4.45312 7.77565 4.12207C7.77565 3.79102 8.04226 3.52441 8.37331 3.52441H14.0716C14.6048 3.52441 14.7278 3.99902 14.6458 4.28027L13.1897 9.53613C13.1194 9.79394 12.8821 9.97266 12.6155 9.97266H5.25905C4.97194 9.97266 4.72585 9.76758 4.67311 9.48633L3.19362 1.65234H0.926044C0.594989 1.65234 0.328388 1.38574 0.328388 1.05469C0.331318 0.723633 0.597919 0.457031 0.928974 0.457031Z" fill="white"/>
@@ -1670,7 +1756,7 @@
 											<path d="M11.2881 10.9717C12.2549 10.9717 13.04 11.7715 13.04 12.7588C13.04 13.7432 12.2549 14.5459 11.2881 14.5459C10.3213 14.5459 9.53613 13.7461 9.53613 12.7588C9.53613 11.7715 10.3213 10.9717 11.2881 10.9717ZM11.2881 13.3477C11.5957 13.3477 11.8447 13.0811 11.8447 12.7559C11.8447 12.4307 11.5957 12.1641 11.2881 12.1641C10.9805 12.1641 10.7314 12.4307 10.7314 12.7559C10.7314 13.084 10.9805 13.3477 11.2881 13.3477Z" fill="white"/>
 										</svg>
 									</button>
-                                </div>
+								</div>
 							</article>
 						</li>
 						<li class="slideshow__item product-card">
@@ -1945,757 +2031,7 @@
 			</div>
 		</section>
 
-		<section class="section slideshow section--slideshow recommended page-home__recommended">
-			<div class="container">
-				<div class="section__header">
-					<h2 class="section__title section__title--dark">Рекомендуемые товары</h2>
-					<div class="section__arrows">
-						<div class="section__arrow section__arrow--prev slideshow__arrow--prev">
-							<svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<circle cx="18.5" cy="18.5" r="18.5" fill="#F5F5F5"/>
-								<path d="M14.2929 18.2929C13.9024 18.6834 13.9024 19.3166 14.2929 19.7071L20.6569 26.0711C21.0474 26.4616 21.6805 26.4616 22.0711 26.0711C22.4616 25.6805 22.4616 25.0474 22.0711 24.6569L16.4142 19L22.0711 13.3431C22.4616 12.9526 22.4616 12.3195 22.0711 11.9289C21.6805 11.5384 21.0474 11.5384 20.6569 11.9289L14.2929 18.2929ZM16 18L15 18L15 20L16 20L16 18Z" fill="black"/>
-							</svg>
-						</div>
-						<div class="section__arrow section__arrow--next slideshow__arrow--next">
-							<svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<circle cx="18.5" cy="18.5" r="18.5" fill="#F5F5F5"/>
-								<path d="M14.2929 18.2929C13.9024 18.6834 13.9024 19.3166 14.2929 19.7071L20.6569 26.0711C21.0474 26.4616 21.6805 26.4616 22.0711 26.0711C22.4616 25.6805 22.4616 25.0474 22.0711 24.6569L16.4142 19L22.0711 13.3431C22.4616 12.9526 22.4616 12.3195 22.0711 11.9289C21.6805 11.5384 21.0474 11.5384 20.6569 11.9289L14.2929 18.2929ZM16 18L15 18L15 20L16 20L16 18Z" fill="black"/>
-							</svg>
-						</div>
-					</div>
-				</div>
-				<div class="section__content">
-					<ul class="slideshow__items recommended__items">
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<!-- [REV] - Product card revisions - START -->
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
-										<span class="product-card__sticker product-card__sticker--new">Новинка</span>
-									</span>
-									<span class="product-card__favorite active">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<!-- [REV] - Product card revisions - END -->
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-											<span class="price__special">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
-									</span>
-									<span class="product-card__favorite ">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<span class="price__current">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--new">Новинка</span>
-									</span>
-									<span class="product-card__favorite active">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-											<span class="price__special">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers"></span>
-									<span class="product-card__favorite active">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-											<span class="price__special">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
-									</span>
-									<span class="product-card__favorite ">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<span class="price__current">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--new">Новинка</span>
-									</span>
-									<span class="product-card__favorite active">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-											<span class="price__special">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers"></span>
-									<span class="product-card__favorite active">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-											<span class="price__special">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
-									</span>
-									<span class="product-card__favorite ">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<span class="price__current">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-					</ul>
-					<button class="section__show-more d-block d-md-none">Показать еще</button>
-				</div>
-			</div>
-		</section>
-
-		<section class="section stocks page-home__stocks">
-			<div class="container">
-				<div class="section__content stocks__content">
-					<ul class="stocks__items row">
-						<li class="stocks-item stocks__item col-12 col-xl-6">
-							<div class="stocks-item__wrap" style="color: #FFF; justify-content: flex-start">
-								<img src="img/stocks/1.jpg" alt="Banner bg" class="stocks-item__bg">
-								<h3 class="stocks-item__title">В нашем магазине скидка <br> 30% на все диваны!</h3>
-								<p class="stocks-item__terms">Акция действует до <br> конца сентября.</p>
-								<a href="#" class="stocks-item__button button btn-primary">В магазин</a>
-							</div>
-						</li>
-						<li class="stocks-item stocks__item col-12 col-xl-6">
-							<div class="stocks-item__wrap">
-								<img src="img/stocks/3.jpg" alt="Banner bg" class="stocks-item__bg">
-								<h3 class="stocks-item__title">Стол "Вердана" <br> со скидкой 15%</h3>
-								<p class="stocks-item__terms">Акция действует до <br> конца сентября.</p>
-								<a href="#" class="stocks-item__button button btn-primary">В магазин</a>
-							</div>
-						</li>
-						<li class="stocks-item stocks__item col-12">
-							<div class="stocks-item__wrap stocks-item__wrap--right">
-								<img src="img/stocks/2.jpg" alt="Banner bg" class="stocks-item__bg">
-								<h3 class="stocks-item__title">При покупке дивана, <span style="color: #E0001A">скидка <br>20%</span> на остальную мебель</h3>
-								<p class="stocks-item__terms">Ко дню рождения проводим <br> специальную акцию. Данное предложение <br> действует с 15.09.20 по 22.09.20</p>
-								<a href="#" class="stocks-item__button button button--border-bottom">Смотреть подробнее</a>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</section>
-
-		<section class="section slideshow section--slideshow special page-home__special">
-			<div class="container">
-				<div class="section__header">
-					<h2 class="section__title section__title--dark">Акционные предложения</h2>
-					<div class="section__arrows">
-						<div class="section__arrow section__arrow--prev slideshow__arrow--prev">
-							<svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<circle cx="18.5" cy="18.5" r="18.5" fill="#F5F5F5"/>
-								<path d="M14.2929 18.2929C13.9024 18.6834 13.9024 19.3166 14.2929 19.7071L20.6569 26.0711C21.0474 26.4616 21.6805 26.4616 22.0711 26.0711C22.4616 25.6805 22.4616 25.0474 22.0711 24.6569L16.4142 19L22.0711 13.3431C22.4616 12.9526 22.4616 12.3195 22.0711 11.9289C21.6805 11.5384 21.0474 11.5384 20.6569 11.9289L14.2929 18.2929ZM16 18L15 18L15 20L16 20L16 18Z" fill="black"/>
-							</svg>
-						</div>
-						<div class="section__arrow section__arrow--next slideshow__arrow--next">
-							<svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<circle cx="18.5" cy="18.5" r="18.5" fill="#F5F5F5"/>
-								<path d="M14.2929 18.2929C13.9024 18.6834 13.9024 19.3166 14.2929 19.7071L20.6569 26.0711C21.0474 26.4616 21.6805 26.4616 22.0711 26.0711C22.4616 25.6805 22.4616 25.0474 22.0711 24.6569L16.4142 19L22.0711 13.3431C22.4616 12.9526 22.4616 12.3195 22.0711 11.9289C21.6805 11.5384 21.0474 11.5384 20.6569 11.9289L14.2929 18.2929ZM16 18L15 18L15 20L16 20L16 18Z" fill="black"/>
-							</svg>
-						</div>
-					</div>
-				</div>
-				<div class="section__content">
-					<ul class="slideshow__items recommended__items">
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<!-- [REV] - Product card revisions - START -->
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
-										<span class="product-card__sticker product-card__sticker--new">Новинка</span>
-									</span>
-									<span class="product-card__favorite active">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<!-- [REV] - Product card revisions - END -->
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-											<span class="price__special">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
-									</span>
-									<span class="product-card__favorite ">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<span class="price__current">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--new">Новинка</span>
-									</span>
-									<span class="product-card__favorite active">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-											<span class="price__special">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers"></span>
-									<span class="product-card__favorite active">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-											<span class="price__special">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
-									</span>
-									<span class="product-card__favorite ">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<span class="price__current">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--new">Новинка</span>
-									</span>
-									<span class="product-card__favorite active">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-											<span class="price__special">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers"></span>
-									<span class="product-card__favorite active">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-											<span class="price__special">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
-									</span>
-									<span class="product-card__favorite ">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<span class="price__current">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-					</ul>
-					<button class="section__show-more d-block d-md-none">Показать еще</button>
-				</div>
-			</div>
-		</section>
-
-		<section class="section slideshow section--slideshow recent page-home__recent">
-			<div class="container">
-				<div class="section__header">
-					<h2 class="section__title section__title--dark">Новинки</h2>
-					<div class="section__arrows">
-						<div class="section__arrow section__arrow--prev slideshow__arrow--prev">
-							<svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<circle cx="18.5" cy="18.5" r="18.5" fill="#F5F5F5"/>
-								<path d="M14.2929 18.2929C13.9024 18.6834 13.9024 19.3166 14.2929 19.7071L20.6569 26.0711C21.0474 26.4616 21.6805 26.4616 22.0711 26.0711C22.4616 25.6805 22.4616 25.0474 22.0711 24.6569L16.4142 19L22.0711 13.3431C22.4616 12.9526 22.4616 12.3195 22.0711 11.9289C21.6805 11.5384 21.0474 11.5384 20.6569 11.9289L14.2929 18.2929ZM16 18L15 18L15 20L16 20L16 18Z" fill="black"/>
-							</svg>
-						</div>
-						<div class="section__arrow section__arrow--next slideshow__arrow--next">
-							<svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<circle cx="18.5" cy="18.5" r="18.5" fill="#F5F5F5"/>
-								<path d="M14.2929 18.2929C13.9024 18.6834 13.9024 19.3166 14.2929 19.7071L20.6569 26.0711C21.0474 26.4616 21.6805 26.4616 22.0711 26.0711C22.4616 25.6805 22.4616 25.0474 22.0711 24.6569L16.4142 19L22.0711 13.3431C22.4616 12.9526 22.4616 12.3195 22.0711 11.9289C21.6805 11.5384 21.0474 11.5384 20.6569 11.9289L14.2929 18.2929ZM16 18L15 18L15 20L16 20L16 18Z" fill="black"/>
-							</svg>
-						</div>
-					</div>
-				</div>
-				<div class="section__content">
-					<ul class="slideshow__items recommended__items">
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<!-- [REV] - Product card revisions - START -->
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
-										<span class="product-card__sticker product-card__sticker--new">Новинка</span>
-									</span>
-									<span class="product-card__favorite active">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<!-- [REV] - Product card revisions - END -->
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-											<span class="price__special">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
-									</span>
-									<span class="product-card__favorite ">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<span class="price__current">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--new">Новинка</span>
-									</span>
-									<span class="product-card__favorite active">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-											<span class="price__special">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers"></span>
-									<span class="product-card__favorite active">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-											<span class="price__special">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
-									</span>
-									<span class="product-card__favorite ">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<span class="price__current">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--new">Новинка</span>
-									</span>
-									<span class="product-card__favorite active">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-											<span class="price__special">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers"></span>
-									<span class="product-card__favorite active">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<strike class="price__previous">98 000 <span class="price__currency">тг</span></strike>
-											<span class="price__special">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-						<li class="slideshow__item product-card">
-							<article class="product-card__wrap">
-								<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
-									</span>
-									<span class="product-card__favorite ">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-								<a href="#" class="product-card__link">
-									<div class="product-card__image">
-										<img src="img/products/1.png" alt="Product image" />
-									</div>
-									<div class="product-card__content">
-										<h4 class="product-card__title">Стол для детей</h4>
-										<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-										<div class="price product-card__price">
-											<span class="price__current">90 400 <span class="price__currency">тг</span></span>
-										</div>
-									</div>
-								</a>
-							</article>
-						</li>
-					</ul>
-					<button class="section__show-more d-block d-md-none">Показать еще</button>
-				</div>
-			</div>
-		</section>
-
-		<section class="section advantages page-home__advantages container">
+		<section class="section advantages page-catalog__advantages container">
 			<div class="advantages__header section__header">
 				<h2 class="section__title section__title--dark">Наши преимущества</h2>
 				<div class="section__header-text section__header-text--callback">
@@ -2742,69 +2078,7 @@
 			</div>
 		</section>
 
-		<section class="youtube page-home__youtube">
-			<div class="container">
-				<div class="section__header">
-					<h2 class="section__title section__title--dark">Новые видео на нашем канале</h2>
-					<div class="section__header-text section__header-text--youtube">
-						<a href="https://www.youtube.com/channel/UCZjR1tZnuz1fgZm01PKzOSQ" target="_blank">
-							<svg width="29" height="20" viewBox="0 0 29 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M27.6736 3.30109C27.3574 2.10011 26.4257 1.15426 25.2427 0.833273C23.0984 0.25 14.5 0.25 14.5 0.25C14.5 0.25 5.9017 0.25 3.75736 0.833273C2.57435 1.15431 1.64263 2.10011 1.32639 3.30109C0.751831 5.47793 0.751831 10.0197 0.751831 10.0197C0.751831 10.0197 0.751831 14.5615 1.32639 16.7383C1.64263 17.9393 2.57435 18.8457 3.75736 19.1667C5.9017 19.75 14.5 19.75 14.5 19.75C14.5 19.75 23.0983 19.75 25.2427 19.1667C26.4257 18.8457 27.3574 17.9393 27.6736 16.7383C28.2482 14.5615 28.2482 10.0197 28.2482 10.0197C28.2482 10.0197 28.2482 5.47793 27.6736 3.30109V3.30109ZM11.6879 14.1433V5.89611L18.8744 10.0198L11.6879 14.1433V14.1433Z" fill="white"/>
-							</svg>
-							<span>Подробнее</span>
-						</a>
-					</div>
-				</div>
-				<div class="section__content youtube__content">
-					<h4 class="youtube__chanel-name">Мастерская уюта</h4>
-					<ul class="youtube__items row">
-						<li class="video youtube__item col-12 col-md-6 col-xl-3">
-							<a href="https://www.youtube.com/watch?v=ixVrAT-1CvA" class="video__preview">
-								<img src="https://img.youtube.com/vi/ixVrAT-1CvA/0.jpg" alt="Video preview">
-								<svg class="video__button" width="39" height="28" viewBox="0 0 39 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M38.1247 4.72459C37.6777 3.0617 36.3604 1.75205 34.6879 1.30761C31.6563 0.5 19.5 0.5 19.5 0.5C19.5 0.5 7.34377 0.5 4.31212 1.30761C2.63959 1.75213 1.32232 3.0617 0.87524 4.72459C0.0629272 7.73867 0.0629272 14.0273 0.0629272 14.0273C0.0629272 14.0273 0.0629272 20.3159 0.87524 23.33C1.32232 24.9929 2.63959 26.2479 4.31212 26.6924C7.34377 27.5 19.5 27.5 19.5 27.5C19.5 27.5 31.6562 27.5 34.6879 26.6924C36.3604 26.2479 37.6777 24.9929 38.1247 23.33C38.9371 20.3159 38.937 14.0273 38.937 14.0273C38.937 14.0273 38.9371 7.73867 38.1247 4.72459V4.72459ZM15.5242 19.7369V8.3177L25.6844 14.0274L15.5242 19.7369V19.7369Z" fill="#D9001B" fill-opacity="0.7"/>
-								</svg>
-							</a>
-							<a href="https://www.youtube.com/watch?v=ixVrAT-1CvA" class="video__title">Мастерская Уюта. Все о дизайне и интерьере</a>
-							<time class="video__date">12.09.2020</time>
-						</li>
-						<li class="video youtube__item col-12 col-md-6 col-xl-3">
-							<a href="https://www.youtube.com/watch?v=4MWPqFImYes" class="video__preview">
-								<img src="https://img.youtube.com/vi/4MWPqFImYes/0.jpg" alt="Video preview">
-								<svg class="video__button" width="39" height="28" viewBox="0 0 39 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M38.1247 4.72459C37.6777 3.0617 36.3604 1.75205 34.6879 1.30761C31.6563 0.5 19.5 0.5 19.5 0.5C19.5 0.5 7.34377 0.5 4.31212 1.30761C2.63959 1.75213 1.32232 3.0617 0.87524 4.72459C0.0629272 7.73867 0.0629272 14.0273 0.0629272 14.0273C0.0629272 14.0273 0.0629272 20.3159 0.87524 23.33C1.32232 24.9929 2.63959 26.2479 4.31212 26.6924C7.34377 27.5 19.5 27.5 19.5 27.5C19.5 27.5 31.6562 27.5 34.6879 26.6924C36.3604 26.2479 37.6777 24.9929 38.1247 23.33C38.9371 20.3159 38.937 14.0273 38.937 14.0273C38.937 14.0273 38.9371 7.73867 38.1247 4.72459V4.72459ZM15.5242 19.7369V8.3177L25.6844 14.0274L15.5242 19.7369V19.7369Z" fill="#D9001B" fill-opacity="0.7"/>
-								</svg>
-							</a>
-							<a href="https://www.youtube.com/watch?v=4MWPqFImYes" class="video__title">Мастерская Уюта. Все о дизайне и интерьере</a>
-							<time class="video__date">12.09.2020</time>
-						</li>
-						<li class="video youtube__item col-12 col-md-6 col-xl-3">
-							<a href="https://www.youtube.com/watch?v=AUCeYyCfAN0" class="video__preview">
-								<img src="https://img.youtube.com/vi/AUCeYyCfAN0/0.jpg" alt="Video preview">
-								<svg class="video__button" width="39" height="28" viewBox="0 0 39 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M38.1247 4.72459C37.6777 3.0617 36.3604 1.75205 34.6879 1.30761C31.6563 0.5 19.5 0.5 19.5 0.5C19.5 0.5 7.34377 0.5 4.31212 1.30761C2.63959 1.75213 1.32232 3.0617 0.87524 4.72459C0.0629272 7.73867 0.0629272 14.0273 0.0629272 14.0273C0.0629272 14.0273 0.0629272 20.3159 0.87524 23.33C1.32232 24.9929 2.63959 26.2479 4.31212 26.6924C7.34377 27.5 19.5 27.5 19.5 27.5C19.5 27.5 31.6562 27.5 34.6879 26.6924C36.3604 26.2479 37.6777 24.9929 38.1247 23.33C38.9371 20.3159 38.937 14.0273 38.937 14.0273C38.937 14.0273 38.9371 7.73867 38.1247 4.72459V4.72459ZM15.5242 19.7369V8.3177L25.6844 14.0274L15.5242 19.7369V19.7369Z" fill="#D9001B" fill-opacity="0.7"/>
-								</svg>
-							</a>
-							<a href="https://www.youtube.com/watch?v=AUCeYyCfAN0" class="video__title">Мастерская Уюта. Все о дизайне и интерьере</a>
-							<time class="video__date">12.09.2020</time>
-						</li>
-						<li class="video youtube__item col-12 col-md-6 col-xl-3">
-							<a href="https://www.youtube.com/watch?v=ZBZrMKLWTSc" class="video__preview">
-								<img src="https://img.youtube.com/vi/ZBZrMKLWTSc/0.jpg" alt="Video preview">
-								<svg class="video__button" width="39" height="28" viewBox="0 0 39 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M38.1247 4.72459C37.6777 3.0617 36.3604 1.75205 34.6879 1.30761C31.6563 0.5 19.5 0.5 19.5 0.5C19.5 0.5 7.34377 0.5 4.31212 1.30761C2.63959 1.75213 1.32232 3.0617 0.87524 4.72459C0.0629272 7.73867 0.0629272 14.0273 0.0629272 14.0273C0.0629272 14.0273 0.0629272 20.3159 0.87524 23.33C1.32232 24.9929 2.63959 26.2479 4.31212 26.6924C7.34377 27.5 19.5 27.5 19.5 27.5C19.5 27.5 31.6562 27.5 34.6879 26.6924C36.3604 26.2479 37.6777 24.9929 38.1247 23.33C38.9371 20.3159 38.937 14.0273 38.937 14.0273C38.937 14.0273 38.9371 7.73867 38.1247 4.72459V4.72459ZM15.5242 19.7369V8.3177L25.6844 14.0274L15.5242 19.7369V19.7369Z" fill="#D9001B" fill-opacity="0.7"/>
-								</svg>
-							</a>
-							<a href="https://www.youtube.com/watch?v=ZBZrMKLWTSc" class="video__title">Мастерская Уюта. Все о дизайне и интерьере</a>
-							<time class="video__date">12.09.2020</time>
-						</li>
-					</ul>
-					<button class="section__show-more section__show-more--bg-white d-block d-md-none">Показать еще</button>
-				</div>
-			</div>
-		</section>
-
-		<section class="seo-text section about page-home__about container">
+		<section class="seo-text section about page-catalog__seo-text container">
 			<div class="section__header">
 				<h2 class="section__title">О торговом комплексе</h2>
 			</div>
@@ -2818,7 +2092,7 @@
 			</div>
 		</section>
 
-		<section class="subscribe page-home__subscribe">
+		<section class="subscribe page-catalog__subscribe">
 			<div class="subscribe__bg" style="background: url('img/subscribe-bg.jpg')"></div>
 			<div class="container">
 				<div class="subscribe__wrap">
