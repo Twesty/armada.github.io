@@ -71,6 +71,20 @@
 // ≥768px
 @include media-breakpoint-down(sm) {
 
+  .site-ad {
+    font-size: 14px;
+    .nav-item {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .site-ad-item {
+    &__image {
+      padding-right: 0;
+    }
+  }
+
   .sitemap {
     column-count: 2;
     font-size: 12px;
@@ -96,6 +110,9 @@
     }
     &__payment {
       font-size: 14px;
+    }
+    &__site-ad {
+      margin-bottom: 40px;
     }
   }
 
