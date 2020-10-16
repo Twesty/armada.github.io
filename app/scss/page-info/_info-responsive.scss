@@ -11,6 +11,14 @@
 // ≥1280px
 @include media-breakpoint-down(lg) {
 
+  .sitemap {
+    column-count: 3;
+    font-size: 14px;
+    &__main-category {
+      font-size: 15px;
+    }
+  }
+
 }
 
 // ≥1024px
@@ -41,6 +49,14 @@
 // ≥768px
 @include media-breakpoint-down(sm) {
 
+  .sitemap {
+    column-count: 2;
+    font-size: 12px;
+    &__main-category {
+      font-size: 14px;
+    }
+  }
+
   .page-info {
     &__map {
       margin-bottom: 30px;
@@ -60,7 +76,21 @@
 
 }
 
+@media screen and (max-width: 576px) {
+
+  .sitemap {
+    column-count: 1;
+    font-size: 14px;
+    &__main-category {
+      font-size: 16px;
+    }
+  }
+
+}
+
 // ≥360px
 @include media-breakpoint-down(xs) {
+
+
 
 }
