@@ -14,6 +14,9 @@
     margin-top: 80px;
     margin-bottom: 60px;
   }
+  &__payment {
+    margin-bottom: 60px;
+  }
 }
 
 .delivery {
@@ -86,6 +89,21 @@
         }
       }
     }
+  }
+}
+
+.payments {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 20px 0 40px 0;
+  padding: 0;
+  list-style: none;
+  li {
+    margin-right: 15px;
+  }
+  img {
+    height: 50px;
   }
 }
 

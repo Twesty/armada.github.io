@@ -72,6 +72,22 @@
       margin-bottom: 40px;
       font-size: 14px;
     }
+    &__payment {
+      font-size: 14px;
+    }
+  }
+
+  .payments {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-right: -10px;
+    li {
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    img {
+      height: 40px;
+    }
   }
 
 }
