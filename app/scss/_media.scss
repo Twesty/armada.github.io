@@ -442,11 +442,13 @@
     padding: 6px 15px 6px 15px;
   }
 
-  .modal-lg {
+  .modal-lg,
+  .modal-md {
     max-width: calc(100% - 20px);
   }
 
   .modal {
+    font-size: 14px;
     &__together {
       padding: 20px 15px 60px 15px;
     }
@@ -922,5 +924,8 @@
 @include media-breakpoint-up(md) {
   .modal-lg {
     max-width: 992px;
+  }
+  .modal-md {
+    max-width: 650px;
   }
 }

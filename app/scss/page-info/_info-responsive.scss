@@ -6,6 +6,12 @@
 // ≥1440px
 @include media-breakpoint-down(xl) {
 
+  .rent-advantage {
+    &__name {
+      font-size: 18px;
+    }
+  }
+
 }
 
 // ≥1280px
@@ -41,10 +47,22 @@
     }
   }
 
+  .rent-advantage {
+    &__name {
+      font-size: 15px;
+    }
+  }
+
 }
 
 // ≥1024px
 @include media-breakpoint-down(md) {
+
+  .page-info {
+    &__rent {
+      font-size: 14px;
+    }
+  }
 
   h4 {
     font-size: 18px;
@@ -64,6 +82,10 @@
         }
       }
     }
+  }
+
+  .rent-advantage {
+    margin-bottom: 20px;
   }
 
 }

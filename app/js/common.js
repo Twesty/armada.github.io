@@ -2,6 +2,12 @@
 
 $( document ).ready(function () {
 
+    // Material select
+
+    {
+        $('.mdb-select').materialSelect();
+    }
+
     // Header media position fixed
 
     {

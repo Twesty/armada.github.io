@@ -2700,6 +2700,12 @@ return k({},n(this))}function Bc(){return n(this).overflow}function Cc(){return{
 
 $( document ).ready(function () {
 
+    // Material select
+
+    {
+        $('.mdb-select').materialSelect();
+    }
+
     // Header media position fixed
 
     {
