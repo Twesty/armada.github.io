@@ -2960,8 +2960,15 @@ $( document ).ready(function () {
         let content = $('.seo-text__content, .catalog__categories-list, .custom-scrollbar, .filters');
 
         $.each(content, function () {
-            $( this ).mCustomScrollbar();
-        })
+            if($( this ).attr('data-scrollbar-axis') === 'x') {
+                $( this ).mCustomScrollbar({
+                    axis: 'x'
+                });
+            } else {
+                $( this ).mCustomScrollbar();
+            }
+        });
+
     }
 
     // Image popup

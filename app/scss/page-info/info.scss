@@ -7,7 +7,46 @@
   &__contacts {
     padding-bottom: 40px;
   }
+  &__banner {
+
+  }
+  &__content {
+    margin-top: 80px;
+    margin-bottom: 60px;
+  }
 }
 
+.delivery {
+  &__advantages {
+    margin: 40px 0;
+    .advantage__description {
+      margin: auto;
+    }
+  }
+  &__content {
+    margin-bottom: 60px;
+  }
+  table {
+    font-size: 13px;
+    &.table-bordered {
+      border: 1px solid #dee2e6;
+    }
+    th,
+    td {
+      padding: 10px 15px;
+      vertical-align: middle !important;
+    }
+    th {
+      font-weight: 500;
+    }
+    td {
+      font-size: 13px;
+      font-weight: 400;
+    }
+  }
+  &__content {
+    font-size: 14px;
+  }
+}
 
 @import "info-responsive";

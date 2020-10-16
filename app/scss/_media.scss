@@ -438,6 +438,10 @@
 // ≥768px
 @include media-breakpoint-down(sm) {
 
+  .button {
+    padding: 6px 15px 6px 15px;
+  }
+
   .modal-lg {
     max-width: calc(100% - 20px);
   }
