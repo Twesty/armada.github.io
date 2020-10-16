@@ -17,6 +17,9 @@
   &__payment {
     margin-bottom: 60px;
   }
+  &__projects {
+
+  }
 }
 
 .delivery {
@@ -104,6 +107,63 @@
   }
   img {
     height: 50px;
+  }
+}
+
+.projects {
+  &__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  &__item {
+    margin-bottom: 60px;
+  }
+}
+
+.project {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0;
+  &--ltr {
+    flex-direction: row;
+  }
+  &--rtl {
+    flex-direction: row-reverse;
+    .project__content {
+      left: initial;
+      right: -50px;
+      padding: 50px 80px 60px 30px;
+    }
+  }
+  &__image {
+    min-height: 70vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  &__content-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__content {
+    position: relative;
+    left: -50px;
+    padding: 50px 30px 60px 80px;
+    background: rgba(0, 0, 0, .10);
+    font-size: 14px;
+    font-weight: 300;
+  }
+  &__title {
+    margin-top: 0;
+    font-size: 36px;
+    font-weight: 300;
+  }
+  &__button {
+
   }
 }
 

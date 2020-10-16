@@ -19,6 +19,28 @@
     }
   }
 
+  .project {
+    &--rtl {
+      .project__content {
+        left: initial;
+        right: initial;
+      }
+    }
+
+    &__content-wrap {
+      padding: 0;
+    }
+
+    &__content {
+      left: initial;
+      right: initial;
+    }
+
+    &__image {
+      min-height: 50vh;
+    }
+  }
+
 }
 
 // ≥1024px
@@ -87,6 +109,18 @@
     }
     img {
       height: 40px;
+    }
+  }
+
+  .project {
+    &__image {
+      min-height: 30vh;
+    }
+    &__title {
+      font-size: 24px;
+    }
+    &__content {
+      padding: 20px 30px 40px 30px !important;
     }
   }
 
