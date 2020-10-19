@@ -13,20 +13,7 @@
     }
   }
 
-  .youtube {
-    &__items {
-      margin-bottom: -30px;
-    }
-    &__item {
-      margin-bottom: 30px;
-    }
 
-    .video {
-      &__preview {
-        height: 250px;
-      }
-    }
-  }
 
 }
 
@@ -102,16 +89,6 @@
   .video {
     &__title {
       font-size: 14px;
-    }
-  }
-  
-  .youtube {
-    &__chanel-name {
-      display: none;
-    }
-    &__content {
-      padding: 0 10px;
-      margin-top: 30px;
     }
   }
 

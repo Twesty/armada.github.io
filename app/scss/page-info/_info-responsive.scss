@@ -68,6 +68,12 @@
     font-size: 18px;
   }
 
+  .news {
+    &__content {
+      padding-bottom: 40px;
+    }
+  }
+
   .delivery {
     .advantages {
       font-size: 14px;
