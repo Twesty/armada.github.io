@@ -1,1 +1,1 @@
-"use strict";$(document).ready(function(){});
+"use strict";$(document).ready(function(){{let c=$(".service");$.each(c,function(){let c=$(this).find(".service__contacts-wrap > span:first-child"),i=$(this).find(".service__contacts");c.on("click",function(){c.hide(),i.show()})})}});

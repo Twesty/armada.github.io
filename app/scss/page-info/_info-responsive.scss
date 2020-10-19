@@ -142,6 +142,9 @@
     &__site-ad {
       margin-bottom: 40px;
     }
+    &__why-register {
+      padding-bottom: 30px;
+    }
   }
 
   .payments {
@@ -166,6 +169,18 @@
     }
     &__content {
       padding: 20px 30px 40px 30px !important;
+    }
+  }
+
+  .service {
+    &__wrap {
+      flex-direction: column;
+    }
+    &__image {
+      width: 80px;
+      height: 80px;
+      min-width: 80px;
+      min-height: 80px;
     }
   }
 

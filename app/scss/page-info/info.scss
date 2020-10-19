@@ -37,6 +37,13 @@
   &__news {
     padding-bottom: 60px;
   }
+  &__pagination {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  &__why-register {
+    padding-bottom: 60px;
+  }
 }
 
 .delivery {
@@ -350,6 +357,108 @@
       transition: transform .2s;
       transform-origin: center;
     }
+  }
+}
+
+.services {
+  &__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  &__item {
+    margin-bottom: 35px;
+  }
+}
+
+.service {
+  &__wrap {
+    display: flex;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,.04);
+    border-radius: 5px;
+  }
+  &__content {
+    padding-top: 15px;
+    font-size: 13px;
+  }
+  &__logo {
+    min-width: 110px;
+    min-height: 110px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin-right: 25px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  &__type,
+  &__location {
+    color: #989997;
+  }
+  &__type {
+
+  }
+  &__location {
+
+  }
+  &__name {
+    font-size: 17px;
+  }
+  &__rating {
+    margin-bottom: 8px;
+    label {
+      margin-bottom: 2px;
+    }
+  }
+  &__reviews {
+
+  }
+  &__add-review {
+
+  }
+  &__images {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0 10px 0;
+    padding: 0;
+    list-style: none;
+  }
+  &__image {
+    min-width: 100px;
+    min-height: 100px;
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  &__sales {
+    span {
+      color: $accent;
+    }
+  }
+  &__contacts-wrap {
+    & > span:first-child {
+      cursor: pointer;
+      &:hover {
+        color: $accent;
+      }
+    }
+  }
+  &__contacts {
+    display: none;
   }
 }
 
