@@ -5,7 +5,7 @@ $( document ).ready(function () {
     // Products navigation
 
     {
-        $('#dt-multi-checkbox').dataTable({
+        $('#dt-multi-checkbox').DataTable({
             "aaSorting": [],
             "searching": false,
             "pagingType": "full_numbers",
@@ -38,11 +38,17 @@ $( document ).ready(function () {
                     }
                 }
             },
-            columnDefs: [{
-                orderable: false,
-                className: 'select-checkbox',
-                targets: 0
-            }],
+            columnDefs: [
+                {
+                    orderable: false,
+                    className: 'select-checkbox',
+                    targets: 0
+                },
+                {
+                    orderable: false,
+                    targets: [1,10]
+                }
+            ],
             select: {
                 style: 'multi',
                 selector: 'td:first-child'
