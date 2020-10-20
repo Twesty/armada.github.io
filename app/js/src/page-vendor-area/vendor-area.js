@@ -2,6 +2,53 @@
 
 $( document ).ready(function () {
 
+    // Products navigation
+
+    {
+        $('#dt-multi-checkbox').dataTable({
+            "searching": false,
+            "pagingType": "full_numbers",
+            "language": {
+                "processing": "Подождите...",
+                "search": "Поиск:",
+                "lengthMenu": "Показывать по _MENU_",
+                "info": "Продукты с _START_ до _END_ из _TOTAL_ продуктов",
+                "infoEmpty": "Показано с 0 до 0 из 0",
+                "infoFiltered": "(отфильтровано из _MAX_ продуктов)",
+                "infoPostFix": "",
+                "loadingRecords": "Загрузка продуктов...",
+                "zeroRecords": "Продукты отсутствуют.",
+                "emptyTable": "В таблице отсутствуют данные",
+                "paginate": {
+                    // "first": "Первая",
+                    // "previous": "Предыдущая",
+                    // "next": "Следующая",
+                    // "last": "Последняя"
+                },
+                "aria": {
+                    "sortAscending": ": активировать для сортировки столбца по возрастанию",
+                    "sortDescending": ": активировать для сортировки столбца по убыванию"
+                },
+                "select": {
+                    "rows": {
+                        "_": "Выбрано продуктов: %d",
+                        "0": "",
+                        "1": "Выбран один продукт"
+                    }
+                }
+            },
+            columnDefs: [{
+                orderable: false,
+                className: 'select-checkbox',
+                targets: 0
+            }],
+            select: {
+                style: 'multi',
+                selector: 'td:first-child'
+            }
+        });
+    }
+
     // Vendor navigation
 
     {
