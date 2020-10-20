@@ -6,6 +6,7 @@ $( document ).ready(function () {
 
     {
         $('#dt-multi-checkbox').dataTable({
+            "aaSorting": [],
             "searching": false,
             "pagingType": "full_numbers",
             "language": {
@@ -47,6 +48,8 @@ $( document ).ready(function () {
                 selector: 'td:first-child'
             }
         });
+
+        $('.dataTables_length').addClass('bs-select');
     }
 
     // Vendor navigation
