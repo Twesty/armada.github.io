@@ -31,7 +31,7 @@ $( document ).ready(function () {
     {
         $('#dt-multi-checkbox').DataTable({
             "aaSorting": [],
-            "searching": false,
+            "searching": true,
             "pagingType": "full_numbers",
             "language": {
                 "processing": "Подождите...",
