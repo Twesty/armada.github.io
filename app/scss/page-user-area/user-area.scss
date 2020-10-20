@@ -61,7 +61,21 @@
         list-style: none;
     }
     &__item {
+        padding: 5px;
         color: #202224;
+        &.active {
+            background: #fce8e6;
+            border-radius: 5px;
+            color: $accent;
+            svg {
+                path {
+                    fill: $accent;
+                }
+                circle, {
+                    fill: #fce8e6;
+                }
+            }
+        }
         a {
             display: flex;
             align-items: center;
