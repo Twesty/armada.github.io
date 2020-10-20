@@ -64,19 +64,6 @@
     }
   }
 
-  .products-table {
-    table.table th:not(.select-checkbox),
-    table.table td:not(.select-checkbox) {
-      font-size: 11.5px;
-    }
-  }
-
-  .products {
-    &__status {
-      font-size: 10px;
-    }
-  }
-
 }
 
 // ≥1280px
@@ -106,15 +93,6 @@
     }
   }
 
-  .alert {
-    position: absolute;
-    top: 15px;
-    left: 0;
-    right: 15px;
-    font-size: 14px;
-    z-index: 999;
-  }
-
 }
 
 // ≥1024px
@@ -138,25 +116,6 @@
     &__nav-item-title {
 
     }
-    &__content {
-      margin-left: 15px;
-    }
-    &__header {
-      left: 0;
-    }
-    &__bars {
-      &.active {
-        left: 245px;
-      }
-    }
-  }
-
-  .vendor-menu {
-    width: 0;
-  }
-
-  .alert {
-    left: 15px;
   }
 
 }

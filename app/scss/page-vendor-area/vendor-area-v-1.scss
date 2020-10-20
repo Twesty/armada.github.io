@@ -138,8 +138,6 @@
     }
   }
   &__content {
-    margin-left: 75px;
-    margin-top: 80px;
     padding-bottom: 85px;
     &--products {
       overflow: hidden;
@@ -173,19 +171,15 @@
     left: 75px;
     color: #777;
     z-index: 5;
-    min-height: 85px;
     background: #FFF;
-
   }
   &__bars {
     position: relative;
     left: 0;
     cursor: pointer;
     transition: left .3s;
-    background: #FFF;
-    z-index: 7;
     &.active {
-      left: 185px;
+      left: 200px;
       transition: left .3s;
     }
   }
@@ -758,7 +752,7 @@
     opacity: 0;
   }
   &__logo {
-    min-height: 86px;
+    min-height: 60px;
     background: rgba(255,255,255,.25);
     img {
       max-width: 40px;
@@ -781,4 +775,4 @@
   }
 }
 
-@import "vendor-area-responsive";
+@import "vendor-area-responsive-v-1";
