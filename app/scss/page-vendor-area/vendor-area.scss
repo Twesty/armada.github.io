@@ -140,6 +140,7 @@
   &__content {
     padding-bottom: 85px;
     &--products {
+      overflow: hidden;
       padding-bottom: 0;
     }
   }
@@ -159,6 +160,41 @@
   }
   &__analytics {
     padding-left: 30px;
+  }
+
+
+
+  &__header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 75px;
+    color: #777;
+    z-index: 5;
+    background: #FFF;
+  }
+  &__bars {
+    position: relative;
+    left: 0;
+    cursor: pointer;
+    transition: left .3s;
+    &.active {
+      left: 200px;
+      transition: left .3s;
+    }
+  }
+  &__user {
+    cursor: pointer;
+  }
+  &__user-logo {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    min-height: 26px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 
@@ -647,6 +683,95 @@
         }
       }
     }
+  }
+}
+
+.vendor-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  z-index: 6;
+  background: linear-gradient(45deg,#353d47 0,#21292e 100%);
+  transition: width .3s;
+  overflow: hidden;
+  &:hover,
+  &.active {
+    width: 260px;
+    transition: width .3s;
+    .vendor-menu__row-title {
+      opacity: 1;
+    }
+  }
+  &:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(53, 61, 71, .8);
+    z-index: -1;
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: -2;
+  }
+  &__row {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    margin-bottom: 25px;
+    &:hover {
+      path {
+        fill: $accent;
+      }
+      span {
+        color: $accent;
+      }
+    }
+  }
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+  }
+  &__row-title {
+    margin-left: 10px;
+    color: #FFF;
+    white-space: nowrap;
+    opacity: 0;
+  }
+  &__logo {
+    min-height: 60px;
+    background: rgba(255,255,255,.25);
+    img {
+      max-width: 40px;
+    }
+  }
+  &__user {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+  &__user-logo {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 

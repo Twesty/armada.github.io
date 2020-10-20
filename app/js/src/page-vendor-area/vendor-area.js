@@ -2,6 +2,38 @@
 
 $( document ).ready(function () {
 
+    // Menu slide right
+
+    {
+        let menu = $('.vendor-menu');
+        let button = $('.vendor__bars');
+
+        button.on('click', function () {
+            $( this ).toggleClass('active');
+            menu.toggleClass('active');
+        });
+
+        menu.on('mouseenter', function () {
+            button.addClass('active');
+        });
+
+        menu.on('mouseleave', function () {
+            if($( this ).hasClass('active')) {
+
+            } else {
+                button.removeClass('active');
+            }
+        });
+
+        $(document).mouseup(function(e) {
+            if (!menu.is(e.target) && menu.has(e.target).length === 0)
+            {
+                menu.removeClass('active');
+                button.removeClass('active');
+            }
+        });
+    }
+
     // Products navigation
 
     {
