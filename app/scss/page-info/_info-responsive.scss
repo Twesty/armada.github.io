@@ -99,6 +99,14 @@
 // ≥768px
 @include media-breakpoint-down(sm) {
 
+  .popup {
+    width: 200px;
+    font-size: 12px;
+    &__image {
+      height: 100px;
+    }
+  }
+
   .site-ad {
     font-size: 14px;
     .nav-item {

@@ -27,6 +27,12 @@
 // ≥768px
 @include media-breakpoint-down(sm) {
 
+  .article {
+    &__info {
+      flex-wrap: wrap;
+    }
+  }
+
 }
 
 // ≥360px
