@@ -6,9 +6,9 @@ $( document ).ready(function () {
     $('.datepicker').datepicker();
 
     // Material Select Initialization
-    $(document).ready(function() {
-        $('.mdb-select').materialSelect();
-    });
+    // $(document).ready(function() {
+    //     $('.mdb-select').materialSelect();
+    // });
 
     // Order - username crop
 

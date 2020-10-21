@@ -26,6 +26,35 @@ $( document ).ready(function () {
         });
     }
 
+    // Vendor navigation
+
+    {
+        // Dropdowns
+        let itemWithDropdown = $('.vendor__nav-item--has-children');
+
+        $.each(itemWithDropdown, function () {
+            let $this = $( this );
+            let triggers = $( this ).find('.vendor__nav-item-title');
+
+            let dropdown = $( this ).find('.vendor__nav-item-dropdown');
+            let arrow = $( this ).find('.vendor__nav-item-arrow');
+
+            triggers.on('click', function () {
+                if($this.hasClass('active')) {
+
+                } else {
+                    $('.vendor__nav-item-dropdown').slideUp(200);
+                    $('.vendor__nav-item-arrow').removeClass('active');
+                    itemWithDropdown.removeClass('active');
+
+                    $this.toggleClass('active');
+                    arrow.toggleClass('active');
+                    dropdown.slideToggle(200);
+                }
+            })
+        })
+    }
+
     // Products navigation
 
     {
@@ -80,35 +109,6 @@ $( document ).ready(function () {
         });
 
         $('.dataTables_length').addClass('bs-select');
-    }
-
-    // Vendor navigation
-
-    {
-        // Dropdowns
-        let itemWithDropdown = $('.vendor__nav-item--has-children');
-
-        $.each(itemWithDropdown, function () {
-            let $this = $( this );
-            let triggers = $( this ).find('.vendor__nav-item-title');
-
-            let dropdown = $( this ).find('.vendor__nav-item-dropdown');
-            let arrow = $( this ).find('.vendor__nav-item-arrow');
-
-            triggers.on('click', function () {
-                if($this.hasClass('active')) {
-
-                } else {
-                    $('.vendor__nav-item-dropdown').slideUp(200);
-                    $('.vendor__nav-item-arrow').removeClass('active');
-                    itemWithDropdown.removeClass('active');
-
-                    $this.toggleClass('active');
-                    arrow.toggleClass('active');
-                    dropdown.slideToggle(200);
-                }
-            })
-        })
     }
 
     // MDB Chart

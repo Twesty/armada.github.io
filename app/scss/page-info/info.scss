@@ -462,4 +462,39 @@
   }
 }
 
+.scheme {
+  &__tabs {
+    .nav-link {
+      padding-bottom: 10px;
+      border: none;
+      border-bottom: 1px solid #f3f3f3;
+      font-weight: 500;
+      &.active {
+        background: none;
+        color: $accent;
+        border-radius: 0;
+        border-bottom: 2px solid $accent;
+      }
+    }
+  }
+  &__tab {
+
+  }
+  &__panes {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  &__pane {
+    padding: 40px 0;
+  }
+  &__blocks {
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
 @import "info-responsive";
