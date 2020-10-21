@@ -35,6 +35,16 @@ $( document ).ready(function () {
         $('[data-toggle="tooltip"]').tooltip()
     });
 
+    // Reviews
+
+    {
+        let addButton = $('.reviews__add-button');
+        let form = $('.reviews__add');
+
+        addButton.on('click', function(){
+            form.slideToggle(200);
+        })
+    }
 
     // Banner slider
 
