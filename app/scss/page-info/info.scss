@@ -570,4 +570,14 @@
   }
 }
 
+.care {
+  .list-group-item {
+    font-weight: 500;
+    &.active {
+      background-color: $accent;
+      border-color: $accent;
+    }
+  }
+}
+
 @import "info-responsive";
