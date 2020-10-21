@@ -467,7 +467,6 @@
 }
 
 .scheme {
-  overflow: auto;
   &__tabs {
     .nav-link {
       padding-bottom: 10px;
@@ -486,6 +485,7 @@
 
   }
   &__panes {
+    overflow: auto;
     margin: 0;
     padding: 0;
     list-style: none;
