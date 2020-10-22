@@ -2706,6 +2706,23 @@ $( document ).ready(function () {
         $('.mdb-select').materialSelect();
     }
 
+    // Custom scrollbar
+
+    {
+        let content = $('.seo-text__content, .catalog__categories-list, .custom-scrollbar, .filters');
+
+        $.each(content, function () {
+            if($( this ).attr('data-scrollbar-axis') === 'x') {
+                $( this ).mCustomScrollbar({
+                    axis: 'x'
+                });
+            } else {
+                $( this ).mCustomScrollbar();
+            }
+        });
+
+    }
+
     // Header media position fixed
 
     {
@@ -2794,7 +2811,7 @@ $( document ).ready(function () {
 
     {
         let filters = $('.filters');
-        let open = $('.filters__open');
+        let open = $('.filters__open, .products__filter');
         let close = $('.filters__close, .overlay, .header__overlay');
         let overlay = $('.overlay, .header__overlay');
 
@@ -2968,23 +2985,6 @@ $( document ).ready(function () {
                 ]
             })
         })
-    }
-
-    // Seo text content scrollbar
-
-    {
-        let content = $('.seo-text__content, .catalog__categories-list, .custom-scrollbar, .filters');
-
-        $.each(content, function () {
-            if($( this ).attr('data-scrollbar-axis') === 'x') {
-                $( this ).mCustomScrollbar({
-                    axis: 'x'
-                });
-            } else {
-                $( this ).mCustomScrollbar();
-            }
-        });
-
     }
 
     // Image popup

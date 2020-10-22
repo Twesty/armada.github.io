@@ -1,19 +1,6 @@
 'use strict';
 
 $( document ).ready(function () {
-    
-    // TinyMCE init
-    
-    {
-        tinymce.init({
-            selector: '.tinyMCE',
-            plugin: 'a_tinymce_plugin',
-            a_plugin_option: true,
-            a_configuration_option: 400,
-            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
-            language: 'ru'
-        });
-    }
 
     // Menu slide right
 
