@@ -686,7 +686,7 @@
 						<div class="orders__header justify-content-between">
 							<h2 class="page-title orders__title">Изменить магазин</h2>
 						</div>
-						<form action="#" class="change-shop">
+						<form action="#" class="change-shop pb-4 border-bottom">
 							<form>
 								<div class="row">
 									<div class="col">
@@ -794,7 +794,7 @@
 									<div class="col">
 										<div class="md-form">
 											<label>Код перекрестка</label>
-										<input type="text" name="crossroad" class="form-control" placeholder="Код перекрестка">
+											<input type="text" name="crossroad" class="form-control" placeholder="Код перекрестка">
 										</div>
 									</div>
 									<div class="col">
@@ -804,6 +804,42 @@
 										</div>
 									</div>
 								</div>
+
+								<div class="row">
+									<div class="col">
+										<div class="form-group">
+											<label>Мета описание</label>
+											<textarea class="form-control" name="meta-description" rows="4"></textarea>
+										</div>
+									</div>
+									<div class="col">
+										<div class="md-form">
+											<select class="mdb-select md-form" name="job-days" editable="true" searchable="Поиск или добавить">
+												<option value="" disabled selected>Выберите</option>
+												<option value="1">ПН-ВС</option>
+												<option value="2">ПН-ПТ</option>
+												<option value="3">ПН-СБ</option>
+											</select>
+											<label class="mdb-main-label">Рабочие дни</label>
+										</div>
+										<div class="md-form">
+											<label>Дополнительно</label>
+											<input type="text" name="addition" class="form-control" placeholder="Дополнительно">
+										</div>
+									</div>
+									<div class="col">
+										<div class="md-form">
+											<select class="mdb-select md-form" name="job-time" editable="true" searchable="Поиск или добавить">
+												<option value="" disabled selected>Выберите</option>
+												<option value="1">Круглосуточно</option>
+												<option value="2">10:00-20:00</option>
+												<option value="3">9:00-21:00</option>
+											</select>
+											<label class="mdb-main-label">Время работы</label>
+										</div>
+									</div>
+								</div>
+
 								<div class="md-form">
 									<label>Whatsapp</label>
 									<input type="text" name="whatsapp" class="form-control" placeholder="Whatsapp">
@@ -823,6 +859,38 @@
 								<button type="submit" class="mt-5 button btn-primary">Сохранить</button>
 							</form>
 						</form>
+						<h3 class="mt-4">Товары</h3>
+						<table class="table table-striped" cellspacing="0" width="100%">
+							<thead>
+							<tr>
+								<th>№</th>
+								<th>Товар</th>
+								<th>Цена</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>1</td>
+								<td><a href="#">Вишневый сад</a></td>
+								<td>5000 тг</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td><a href="#">Вишневый сад</a></td>
+								<td>5000 тг</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td><a href="#">Вишневый сад</a></td>
+								<td>5000 тг</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td><a href="#">Вишневый сад</a></td>
+								<td>5000 тг</td>
+							</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
