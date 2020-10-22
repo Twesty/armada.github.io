@@ -54,21 +54,21 @@
 }
 
 /* make all stars orange on rating group hover */
-.rating-group:hover .rating__label .rating__icon--star {
+.rating-group:not(.rating-group--no-change):hover .rating__label .rating__icon--star {
   color: orange;
 }
 
 /* make hovered input's following siblings grey on hover */
-.rating__input:hover ~ .rating__label .rating__icon--star {
+.rating__input:not(.rating-group--no-change):hover ~ .rating__label .rating__icon--star {
   color: #ddd;
 }
 
 /* make none icon grey on rating group hover */
-.rating-group:hover .rating__input--none:not(:hover) + .rating__label .rating__icon--none {
+.rating-group:not(.rating-group--no-change):hover .rating__input--none:not(:hover) + .rating__label .rating__icon--none {
   color: #eee;
 }
 
 /* make none icon red on hover */
-.rating__input--none:hover + .rating__label .rating__icon--none {
+.rating__input--none:not(.rating-group--no-change):hover + .rating__label .rating__icon--none {
   color: red;
 }
