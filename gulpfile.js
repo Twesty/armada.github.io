@@ -55,6 +55,7 @@ gulp.task('scripts', function() {
 		'app/libs/dateRangePicker/moment.min.js', // Date range picker
 		'app/libs/dateRangePicker/daterangepicker.min.js', // Date range picker
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
+		'app/libs/mdbootstrap/js/modules/file-input.min.js', // MDB
 		'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.js'))
