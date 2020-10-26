@@ -5,27 +5,15 @@ $( document ).ready(function () {
     // Upload and crop image
 
     {
-        $(".gambar").attr("src", "https://user.gadjian.com/static/images/personnel_boy.png");
-        var $uploadCrop,
-            tempFilename,
-            rawImg,
-            imageId;
-        function readFile(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('.upload-demo').addClass('ready');
-                    $('#cropImagePop').modal('show');
-                    rawImg = e.target.result;
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-            else {
-                swal("Sorry - you're browser doesn't support the FileReader API");
-            }
-        }
+        let wrap = $('.cabinet');
+        let modal = $('#cropImagePop');
 
-        $uploadCrop = $('#upload-demo').croppie({
+        let cancelCropBtn = $('#cancelCropBtn');
+        let acceptCropBtn = $('#cropImageBtn');
+
+        let imageOutput = $('.gambar');
+
+        let $uploadCrop = $('#upload-demo').croppie({
             viewport: {
                 width: 450,
                 height: 200,
@@ -33,8 +21,40 @@ $( document ).ready(function () {
             enforceBoundary: false,
             enableExif: true
         });
+
+        let tempFilename,
+            imageId,
+            rawImg;
+
+        $.each(wrap, function (index) {
+            let input = $( this ).find('.item-img');
+
+            input.on('click', function () {
+                modal.attr('data-image-id', index);
+                imageOutput.attr('data-image-id', index);
+            });
+
+            input.on('change', function () {
+                imageId = $(this).data('id');
+                tempFilename = $(this).val();
+                cancelCropBtn.data('id', imageId);
+
+                readFile(this, index);
+            });
+        });
+
+        acceptCropBtn.on('click', function (ev) {
+            $uploadCrop.croppie('result', {
+                type: 'base64',
+                format: 'jpeg',
+                size: {width: 450, height: 200}
+            }).then(function (resp) {
+                imageOutput.eq(modal.attr('data-image-id')).attr('src', resp);
+                modal.modal('hide');
+            });
+        });
+
         $('#cropImagePop').on('shown.bs.modal', function(){
-            // alert('Shown pop');
             $uploadCrop.croppie('bind', {
                 url: rawImg
             }).then(function(){
@@ -42,18 +62,20 @@ $( document ).ready(function () {
             });
         });
 
-        $('.item-img').on('change', function () { imageId = $(this).data('id'); tempFilename = $(this).val();
-            $('#cancelCropBtn').data('id', imageId); readFile(this); });
-        $('#cropImageBtn').on('click', function (ev) {
-            $uploadCrop.croppie('result', {
-                type: 'base64',
-                format: 'jpeg',
-                size: {width: 450, height: 200}
-            }).then(function (resp) {
-                $('#item-img-output').attr('src', resp);
-                $('#cropImagePop').modal('hide');
-            });
-        });
+        function readFile(input, index) {
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+                reader.onload = function (e) {
+                    $('.upload-demo').addClass('ready');
+                    modal.modal('show');
+                    rawImg = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+            else {
+                swal("Sorry - you're browser doesn't support the FileReader API");
+            }
+        }
     }
 
     // Menu slide right
@@ -112,7 +134,10 @@ $( document ).ready(function () {
     // Products navigation
 
     {
-        $('#dt-multi-checkbox').DataTable({
+        let table = $('#dt-multi-checkbox');
+        let columnCount = table.find('thead th').length - 1;
+
+        table.DataTable({
             "aaSorting": [],
             "searching": true,
             "pagingType": "full_numbers",
@@ -153,7 +178,7 @@ $( document ).ready(function () {
                 },
                 {
                     orderable: false,
-                    targets: [1,10]
+                    targets: [1,columnCount]
                 }
             ],
             select: {
