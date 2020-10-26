@@ -54,6 +54,7 @@ gulp.task('scripts', function() {
 		'app/libs/scrollbar/jquery.mCustomScrollbar.js', // ScrolL Bar
 		'app/libs/dateRangePicker/moment.min.js', // Date range picker
 		'app/libs/dateRangePicker/daterangepicker.min.js', // Date range picker
+		'app/libs/croppie/croppie.min.js', // Croppie
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		'app/libs/mdbootstrap/js/modules/file-input.min.js', // MDB
 		'app/js/common.js', // Always at the end
