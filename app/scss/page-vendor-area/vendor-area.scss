@@ -473,7 +473,7 @@
     justify-content: space-between;
     padding: 27px 32px 0 32px;
   }
-  &__details {
+  &__de tails {
     font-size: 14px;
     color: #3751FF;
     font-weight: 500;
@@ -610,6 +610,11 @@
     padding: 0 !important;
     width: 40px !important;
     min-width: 40px !important;
+    &:before,
+    &:after {
+      top: 15px !important;
+      transform: translate(0) !important;
+    }
   }
   table.dataTable thead .sorting:after,
   table.dataTable thead .sorting:before,
