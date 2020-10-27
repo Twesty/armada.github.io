@@ -190,7 +190,7 @@
     background: #FFF;
     z-index: 7;
     &.active {
-      left: 185px;
+      left: 200px;
       transition: left .3s;
     }
   }
@@ -1027,6 +1027,53 @@ figure figcaption {
   position: relative;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.svg {
+  min-width: 800px;
+  polygon {
+    cursor: pointer;
+    &:hover {
+      stroke: red !important;
+    }
+  }
+}
+
+.scheme {
+  &__tabs {
+    .nav-link {
+      padding-bottom: 10px;
+      border: none;
+      border-bottom: 1px solid #f3f3f3;
+      font-weight: 500;
+      &.active {
+        background: none;
+        color: $accent;
+        border-radius: 0;
+        border-bottom: 2px solid $accent;
+      }
+    }
+  }
+  &__tab {
+
+  }
+  &__panes {
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  &__pane {
+    padding: 40px 0;
+  }
+  &__blocks {
+    min-width: 800px;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 }
 
 @import "vendor-area-responsive";

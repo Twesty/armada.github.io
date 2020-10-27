@@ -2,6 +2,22 @@
 
 $( document ).ready(function () {
 
+    // Map
+
+    {
+        let schemeBlocks = $('.svg polygon');
+        console.log(schemeBlocks);
+        let output = $('input[name="map-code"]');
+
+        $.each(schemeBlocks, function () {
+            let id = $( this ).attr('id');
+
+            $( this ).on('click', function () {
+                output.val(id);
+            });
+        });
+    }
+
     // Submenu dropdown
 
     {
