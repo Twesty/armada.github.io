@@ -106,7 +106,7 @@
     }
   }
 
-  .alert {
+  .alert-header {
     position: absolute;
     top: 15px;
     left: 0;
@@ -140,6 +140,11 @@
     }
     &__content {
       margin-left: 15px;
+      &--settings {
+        margin-left: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
     }
     &__header {
       left: 0;
@@ -155,7 +160,7 @@
     width: 0;
   }
 
-  .alert {
+  .alert-header {
     left: 15px;
   }
 

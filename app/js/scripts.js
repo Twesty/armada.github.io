@@ -2709,6 +2709,28 @@ $( document ).ready(function () {
         $('.mdb-select').materialSelect();
     }
 
+    // Data Picker Initialization
+    {
+        $('.datepicker').datepicker({
+            format: 'dd.mm.yyyy',
+
+            monthsFull: ['Январь', 'Февраль', 'Март', 'Апрель', 'Мая', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+            monthsShort: ['Янв', 'Февр', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Ноя', 'Дек'],
+            weekdaysFull: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
+            weekdaysShort: ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'],
+
+            labelMonthNext: 'След. месяц',
+            labelMonthPrev: 'Пред. месяц',
+            labelMonthSelect: 'Выбрать месяц',
+            labelYearSelect: 'Выбрать год',
+
+            today: 'Сегодня',
+            clear: 'Очистить',
+            close: 'Закрыть',
+
+        });
+    }
+
     // Custom scrollbar
 
     {

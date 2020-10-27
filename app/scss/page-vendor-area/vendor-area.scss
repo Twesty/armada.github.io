@@ -141,6 +141,9 @@
     margin-left: 75px;
     margin-top: 80px;
     padding-bottom: 85px;
+    &--settings {
+      margin-left: 60px;
+    }
     &--products {
       overflow: hidden;
       padding-bottom: 0;
@@ -175,7 +178,9 @@
     z-index: 5;
     min-height: 85px;
     background: #FFF;
-
+    &--settings {
+      left: 60px;
+    }
   }
   &__bars {
     position: relative;
@@ -839,6 +844,30 @@
   &__item {
     margin-bottom: 30px;
   }
+  &__tabs {
+    .nav-link {
+      padding-bottom: 10px;
+      border: none;
+      border-bottom: 1px solid #f3f3f3;
+      font-weight: 500;
+      &.active {
+        background: none;
+        color: $accent;
+        border-radius: 0;
+        border-bottom: 2px solid $accent;
+      }
+    }
+  }
+  &__setting {
+    position: relative;
+    top: -2px;
+    border-radius: 30px;
+    padding: 5px 10px;
+    font-size: 11px;
+    border: 0;
+    color: #c7254e;
+    background-color: #f9f2f4;
+  }
 }
 
 .panel-item {
@@ -941,6 +970,63 @@ figure figcaption {
   padding-left: 9px;
   padding-bottom: 5px;
   text-shadow: 0 0 10px #000;
+}
+
+.new-setting {
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+
+  hr {
+    margin-bottom: 0;
+    position: absolute;
+    top: -1px;
+    width: 96%;
+    margin-left: 2%;
+  }
+  .panel-title {
+    i {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      text-align: center;
+      top: 1px;
+      min-width: 12px;
+      width: 12px;
+      min-height: 12px;
+      height: 12px;
+      content: "+";
+      background: #9c9c9c;
+      border-radius: 50%;
+      color: #FFF;
+    }
+  }
+}
+
+.voyager-plus:before {
+  content: "+";
+}
+
+.panel-heading {
+  position: relative;
+  padding: 0;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.panel-title {
+  margin: 0 auto;
+  display: inline-block;
+  color: #999fac;
+  font-weight: lighter;
+  font-size: 13px;
+  background: #fff;
+  width: auto;
+  height: auto;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 @import "vendor-area-responsive";

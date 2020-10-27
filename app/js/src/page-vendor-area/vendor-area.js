@@ -23,9 +23,6 @@ $( document ).ready(function () {
         });
     }
 
-    // Data Picker Initialization
-    $('.datepicker').datepicker();
-
     // Upload and crop image
 
     {
@@ -294,7 +291,7 @@ $( document ).ready(function () {
             monthsParseExact : true,
         });
 
-        $('input[name="daterange"]').daterangepicker({
+        $('input.picker__input').daterangepicker({
             maxSpan: {
                 "days": 31
             },
@@ -303,7 +300,7 @@ $( document ).ready(function () {
             endDate: moment().startOf('hour').add(32, 'hour'),
             opens: 'left',
             locale: {
-                "format": 'DD MMM Y г.',
+                "format": 'DD.MM.YYYY',
                 "applyLabel" : "Применить",
                 "cancelLabel" : "Отменить",
                 "yearLabel" : "г.",
