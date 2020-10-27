@@ -2,6 +2,30 @@
 
 $( document ).ready(function () {
 
+    // Submenu dropdown
+
+    {
+        let item = $('.vendor-menu__row--has-children');
+
+        $.each(item, function () {
+            let $this = $( this );
+            let arrow = $( this ).find('.vendor-menu__row-dropdown-arrow');
+            let trigger = $( this ).find('.vendor-menu__row-dropdown-arrow');
+            let dropdown = $( this ).find('+ .vendor-menu__dropdown');
+
+            trigger.on('click', function (e) {
+                e.preventDefault();
+
+                $this.toggleClass('active');
+                arrow.toggleClass('active');
+                dropdown.slideToggle(200)
+            })
+        });
+    }
+
+    // Data Picker Initialization
+    $('.datepicker').datepicker();
+
     // Upload and crop image
 
     {
@@ -84,9 +108,14 @@ $( document ).ready(function () {
         let menu = $('.vendor-menu');
         let button = $('.vendor__bars');
 
+        menu.mCustomScrollbar();
+
         button.on('click', function () {
             $( this ).toggleClass('active');
             menu.toggleClass('active');
+
+            $('.vendor-menu__row').removeClass('active');
+            $('.vendor-menu__dropdown').slideUp(200);
         });
 
         menu.on('mouseenter', function () {
@@ -94,6 +123,9 @@ $( document ).ready(function () {
         });
 
         menu.on('mouseleave', function () {
+            $('.vendor-menu__row').removeClass('active');
+            $('.vendor-menu__dropdown').slideUp(200);
+
             if($( this ).hasClass('active')) {
 
             } else {
@@ -145,12 +177,12 @@ $( document ).ready(function () {
                 "processing": "Подождите...",
                 "search": "Поиск:",
                 "lengthMenu": "Показывать по _MENU_",
-                "info": "Продукты с _START_ до _END_ из _TOTAL_ продуктов",
+                "info": "Показано с _START_ до _END_ из _TOTAL_",
                 "infoEmpty": "Показано с 0 до 0 из 0",
-                "infoFiltered": "(отфильтровано из _MAX_ продуктов)",
+                "infoFiltered": "(отфильтровано из _MAX_ элементов)",
                 "infoPostFix": "",
-                "loadingRecords": "Загрузка продуктов...",
-                "zeroRecords": "Продукты отсутствуют.",
+                "loadingRecords": "Загрузка таблицы...",
+                "zeroRecords": "Данные отсутствуют.",
                 "emptyTable": "В таблице отсутствуют данные",
                 "paginate": {
                     // "first": "Первая",
@@ -164,9 +196,9 @@ $( document ).ready(function () {
                 },
                 "select": {
                     "rows": {
-                        "_": "Выбрано продуктов: %d",
+                        "_": "Выбрано элементов: %d",
                         "0": "",
-                        "1": "Выбран один продукт"
+                        "1": "Выбран один элемент"
                     }
                 }
             },

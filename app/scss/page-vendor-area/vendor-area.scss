@@ -706,14 +706,28 @@
   z-index: 6;
   background: linear-gradient(45deg,#353d47 0,#21292e 100%);
   transition: width .3s;
-  overflow: hidden;
   &:hover,
   &.active {
     width: 260px;
     transition: width .3s;
-    .vendor-menu__row-title {
+    .vendor-menu__row-title,
+    .vendor-menu__row-dropdown-arrow,
+    .mCSB_scrollTools {
       opacity: 1;
     }
+  }
+  .mCSB_inside>.mCSB_container {
+    margin-right: 0 !important;
+  }
+  .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    width: 3px !important;
+  }
+  .mCSB_scrollTools {
+    margin-top: 100px;
+    opacity: 0;
+  }
+  .mCSB_scrollTools .mCSB_draggerRail {
+    width: 0 !important;
   }
   &:before {
     position: absolute;
@@ -736,11 +750,42 @@
     background-size: cover;
     z-index: -2;
   }
+  &__dropdown {
+    display: none;
+    margin-left: 20px;
+    margin-top: -15px;
+    .vendor-menu__icon {
+      min-width: auto;
+    }
+  }
+  &__row-dropdown-arrow {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    padding: 15px 20px;
+    z-index: 5;
+    transform: translateY(-50%);
+    transform-origin: center;
+    transition: transform .2s;
+    opacity: 0;
+    &.active {
+      transition: transform .2s;
+      transform-origin: center;
+      transform: translateY(-50%) rotate(90deg);
+    }
+  }
   &__row {
     display: flex;
     align-items: center;
     padding: 0 10px;
     margin-bottom: 25px;
+    &--has-children {
+      position: relative;
+      padding: 0 40px 0 10px;
+    }
+    &.active {
+      margin-bottom: 10px;
+    }
     &:hover {
       path {
         fill: $accent;
@@ -759,7 +804,6 @@
   &__row-title {
     margin-left: 10px;
     color: #FFF;
-    white-space: nowrap;
     opacity: 0;
   }
   &__logo {

@@ -108,4 +108,6 @@ $( document ).ready(function () {
 
     }
 
+    var sticky = new Sticky('.product__gallery-sticky');
+
 });

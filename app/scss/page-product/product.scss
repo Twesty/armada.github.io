@@ -247,6 +247,9 @@
     right: 0;
     opacity: 1;
     transition: left .2s, right .2s, opacity .2s;
+    .photo-modal__arrow--prev {
+      padding: 0 25px 0 100px;
+    }
   }
   &__wrap {
     display: flex;
@@ -290,7 +293,6 @@
       right: 0;
     }
     &--prev {
-      padding: 0 100px 0 25px;
       left: 0;
     }
   }
