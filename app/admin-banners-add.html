@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<!-- <base href="/"> -->
 
-	<title>ARMADA - добавить подраздел</title>
+	<title>ARMADA - добавить баннер</title>
 	<meta name="description" content="ARMADA - мебельный торговый комплекс">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,6 +32,9 @@
 
 	<!-- Crippie -->
 	<link rel="stylesheet" href="libs/croppie/croppie.css">
+
+	<!-- Prism -->
+	<link rel="stylesheet" href="libs/prism/prism.css">
 
 </head>
 
@@ -948,7 +951,7 @@
 					</div>
 					<div class="orders vendor__shops pt-4 pb-3 p-xxl-3 pt-xxl-5 pr-0">
 						<div class="orders__header justify-content-between">
-							<h2 class="page-title orders__title">Добавить подраздел</h2>
+							<h2 class="page-title orders__title">Добавить баннер</h2>
 						</div>
 						<form action="#" class="pb-4 border-bottom">
 							<div class="row">
@@ -960,53 +963,118 @@
 								</div>
 								<div class="col-12 col-lg-6">
 									<div class="md-form">
-										<label>Мета название</label>
-										<input type="text" name="meta-name" class="form-control" placeholder="Мета название">
+										<label>Название рекламной кампании</label>
+										<input type="text" name="ad-company-name" class="form-control" placeholder="Название рекламной кампании">
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<select class="mdb-select md-form" name="client-armada" searchable="Поиск">
+										<option value="" disabled selected>Выберите</option>
+										<option value="1">Вариант 1</option>
+										<option value="2">Вариант 2</option>
+										<option value="3">Вариант 3</option>
+									</select>
+									<label class="mdb-main-label">Клиент (если из армады)</label>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="md-form">
+										<label>Клиент (если не из армады)</label>
+										<input type="text" name="client" class="form-control" placeholder="Клиент (если не из армады)">
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<select class="mdb-select md-form" name="place" searchable="Поиск">
+										<option value="" disabled selected>Выберите</option>
+										<option value="1">Вариант 1</option>
+										<option value="2">Вариант 2</option>
+										<option value="3">Вариант 3</option>
+									</select>
+									<label class="mdb-main-label">Место</label>
+								</div>
+								<div class="col-12 col-lg-6">
+									<select class="mdb-select md-form" name="type" searchable="Поиск">
+										<option value="" disabled selected>Выберите</option>
+										<option value="1">Вариант 1</option>
+										<option value="2">Вариант 2</option>
+										<option value="3">Вариант 3</option>
+									</select>
+									<label class="mdb-main-label">Тип</label>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="md-form">
+										<label>Период</label>
+										<input type="text" name="period" class="form-control picker__input" value="Выберите период..." />
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="md-form">
+										<label>Ссылка</label>
+										<input type="text" name="slug" class="form-control" placeholder="Ссылка">
+									</div>
+								</div>
+								<div class="col-12 col-lg-6">
+									<label>HTML</label>
+									<textarea name="html" id="" cols="30" rows="11" class="tinyMCE"></textarea>
+								</div>
+								<div class="col-12 col-lg-6">
+									<div class="form-group">
+										<label>Комментарий</label>
+										<textarea class="form-control" name="comment" rows="12"></textarea>
 									</div>
 								</div>
 							</div>
 
 							<div class="row">
 								<div class="col-12 col-lg-4">
-									<div class="form-group">
-										<label>SEO текст</label>
-										<textarea class="form-control" name="seo-text" rows="4"></textarea>
-									</div>
+									<select class="mdb-select md-form" name="category" searchable="Поиск">
+										<option value="" disabled selected>Выберите</option>
+										<option value="1">Вариант 1</option>
+										<option value="2">Вариант 2</option>
+										<option value="3">Вариант 3</option>
+									</select>
+									<label class="mdb-main-label">Категория</label>
 								</div>
 								<div class="col-12 col-lg-4">
-									<select class="mdb-select md-form" name="user" searchable="Поиск">
+									<select class="mdb-select md-form" name="section" searchable="Поиск">
 										<option value="" disabled selected>Выберите</option>
-										<option value="1">Раздел 1</option>
-										<option value="2">Раздел 2</option>
-										<option value="3">Раздел 3</option>
+										<option value="1">Вариант 1</option>
+										<option value="2">Вариант 2</option>
+										<option value="3">Вариант 3</option>
 									</select>
 									<label class="mdb-main-label">Раздел</label>
 								</div>
 								<div class="col-12 col-lg-4">
-									<div class="md-form">
-										<label>Slug</label>
-										<input type="text" name="slug" class="form-control" placeholder="Slug">
-									</div>
+									<select class="mdb-select md-form" name="subsection" searchable="Поиск">
+										<option value="" disabled selected>Выберите</option>
+										<option value="1">Вариант 1</option>
+										<option value="2">Вариант 2</option>
+										<option value="3">Вариант 3</option>
+									</select>
+									<label class="mdb-main-label">Подраздел</label>
 								</div>
 							</div>
 
 							<div class="row">
-								<div class="col-12 col-lg-4">
-									<div class="form-group">
-										<label>H1</label>
-										<textarea class="form-control" name="h1" rows="4"></textarea>
+								<div class="col-6 col-lg-3">
+									<div class="switch">
+										<label>В архив</label><br>
+										<label>
+											Нет
+											<input type="checkbox" name="archive" checked>
+											<span class="lever"></span>
+											Да
+										</label>
 									</div>
 								</div>
-								<div class="col-12 col-lg-4">
-									<div class="form-group">
-										<label>Мета описание</label>
-										<textarea class="form-control" name="meta-description" rows="4"></textarea>
-									</div>
-								</div>
-								<div class="col-12 col-lg-4">
-									<div class="form-group">
-										<label>Мета теги</label>
-										<textarea class="form-control" name="meta-tags" rows="4"></textarea>
+								<div class="col-6 col-lg-3">
+									<div class="switch">
+										<label>Приостановлен</label><br>
+										<label>
+											Нет
+											<input type="checkbox" name="pause" checked>
+											<span class="lever"></span>
+											Да
+										</label>
 									</div>
 								</div>
 							</div>
@@ -1192,9 +1260,10 @@
 		tinymce.init({
 			selector: '.tinyMCE',
 			plugin: 'a_tinymce_plugin',
+			plugins: 'codesample code',
 			a_plugin_option: true,
 			a_configuration_option: 400,
-			toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | codesample',
+			toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | codesample | code',
 			language: 'ru'
 		});
 	</script>

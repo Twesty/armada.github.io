@@ -2,6 +2,55 @@
 
 $( document ).ready(function () {
 
+    // Date range picker
+
+    {
+        moment.locale('ru', {
+            monthsShort : 'Янв._Февр._Март_Апр._Май_Июнь_Июль._Арг._Сент._Окт._Ноя._Дек.'.split('_'),
+            monthsParseExact : true,
+        });
+
+        $('input.picker__input').daterangepicker({
+            autoApply: false,
+            startDate: moment().startOf('hour'),
+            endDate: moment().startOf('hour').add(32, 'hour'),
+            opens: 'left',
+            locale: {
+                "format": 'DD.MM.YYYY',
+                "applyLabel" : "Применить",
+                "cancelLabel" : "Отменить",
+                "yearLabel" : "г.",
+                "daysOfWeek" : [
+                    "ПН",
+                    "ВТ",
+                    "СР",
+                    "ЧТ",
+                    "ПТ",
+                    "СБ",
+                    "ВС"
+                ],
+                "monthNames" : [
+                    "Январь",
+                    "Февраль",
+                    "Март",
+                    "Апрель",
+                    "Май",
+                    "Июнь",
+                    "Июль",
+                    "Август",
+                    "Сентябрь",
+                    "Октябрь",
+                    "Ноябрь",
+                    "Декабрь"
+                ]
+            },
+        });
+
+        $('input[name="daterange"]').on('apply.daterangepicker', function(ev, picker) {
+            $('.graph__date span').text(picker.startDate.format('MM.DD.YY') + ' - ' + picker.endDate.format('MM.DD.YY'))
+        });
+    }
+
     // Map
 
     {
@@ -296,58 +345,6 @@ $( document ).ready(function () {
                     enabled: false
                 }
             }
-        });
-    }
-
-    // Date range picker
-
-    {
-        moment.locale('ru', {
-            monthsShort : 'Янв._Февр._Март_Апр._Май_Июнь_Июль._Арг._Сент._Окт._Ноя._Дек.'.split('_'),
-            monthsParseExact : true,
-        });
-
-        $('input.picker__input').daterangepicker({
-            maxSpan: {
-                "days": 31
-            },
-            autoApply: false,
-            startDate: moment().startOf('hour'),
-            endDate: moment().startOf('hour').add(32, 'hour'),
-            opens: 'left',
-            locale: {
-                "format": 'DD.MM.YYYY',
-                "applyLabel" : "Применить",
-                "cancelLabel" : "Отменить",
-                "yearLabel" : "г.",
-                "daysOfWeek" : [
-                    "ПН",
-                    "ВТ",
-                    "СР",
-                    "ЧТ",
-                    "ПТ",
-                    "СБ",
-                    "ВС"
-                ],
-                "monthNames" : [
-                    "Январь",
-                    "Февраль",
-                    "Март",
-                    "Апрель",
-                    "Май",
-                    "Июнь",
-                    "Июль",
-                    "Август",
-                    "Сентябрь",
-                    "Октябрь",
-                    "Ноябрь",
-                    "Декабрь"
-                ]
-            },
-        });
-
-        $('input[name="daterange"]').on('apply.daterangepicker', function(ev, picker) {
-            $('.graph__date span').text(picker.startDate.format('MM.DD.YY') + ' - ' + picker.endDate.format('MM.DD.YY'))
         });
     }
 

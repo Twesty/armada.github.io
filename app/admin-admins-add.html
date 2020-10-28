@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<!-- <base href="/"> -->
 
-	<title>ARMADA - добавить подраздел</title>
+	<title>ARMADA - добавить пользователя</title>
 	<meta name="description" content="ARMADA - мебельный торговый комплекс">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -948,65 +948,57 @@
 					</div>
 					<div class="orders vendor__shops pt-4 pb-3 p-xxl-3 pt-xxl-5 pr-0">
 						<div class="orders__header justify-content-between">
-							<h2 class="page-title orders__title">Добавить подраздел</h2>
+							<h2 class="page-title orders__title">Добавить администратора</h2>
 						</div>
 						<form action="#" class="pb-4 border-bottom">
-							<div class="row">
-								<div class="col-12 col-lg-6">
-									<div class="md-form">
-										<label>Название</label>
-										<input type="text" name="name" class="form-control" placeholder="Название">
-									</div>
+							<div class="row align-items-center">
+								<div class="col-12 col-lg-auto">
+									<label class="cabinet center-block">
+										<figure>
+											<img src="https://user.gadjian.com/static/images/personnel_boy.png" class="gambar img-responsive img-thumbnail" id="item-img-output" />
+											<figcaption><i class="fa fa-camera"></i></figcaption>
+										</figure>
+										<input type="file" class="item-img file center-block" name="file_photo"/>
+									</label>
 								</div>
-								<div class="col-12 col-lg-6">
-									<div class="md-form">
-										<label>Мета название</label>
-										<input type="text" name="meta-name" class="form-control" placeholder="Мета название">
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-12 col-lg-4">
-									<div class="form-group">
-										<label>SEO текст</label>
-										<textarea class="form-control" name="seo-text" rows="4"></textarea>
-									</div>
-								</div>
-								<div class="col-12 col-lg-4">
-									<select class="mdb-select md-form" name="user" searchable="Поиск">
-										<option value="" disabled selected>Выберите</option>
-										<option value="1">Раздел 1</option>
-										<option value="2">Раздел 2</option>
-										<option value="3">Раздел 3</option>
-									</select>
-									<label class="mdb-main-label">Раздел</label>
-								</div>
-								<div class="col-12 col-lg-4">
-									<div class="md-form">
-										<label>Slug</label>
-										<input type="text" name="slug" class="form-control" placeholder="Slug">
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-12 col-lg-4">
-									<div class="form-group">
-										<label>H1</label>
-										<textarea class="form-control" name="h1" rows="4"></textarea>
-									</div>
-								</div>
-								<div class="col-12 col-lg-4">
-									<div class="form-group">
-										<label>Мета описание</label>
-										<textarea class="form-control" name="meta-description" rows="4"></textarea>
-									</div>
-								</div>
-								<div class="col-12 col-lg-4">
-									<div class="form-group">
-										<label>Мета теги</label>
-										<textarea class="form-control" name="meta-tags" rows="4"></textarea>
+								<div class="col-12 col-lg">
+									<div class="row">
+										<div class="col-12 col-lg-6">
+											<div class="md-form">
+												<label>Имя</label>
+												<input type="text" name="name" class="form-control" placeholder="Имя">
+											</div>
+										</div>
+										<div class="col-12 col-lg-6">
+											<div class="md-form">
+												<label>E-mail</label>
+												<input type="email" name="email" class="form-control" placeholder="E-mail">
+											</div>
+										</div>
+										<div class="col-12 col-lg-6">
+											<div class="md-form">
+												<label>Пароль</label>
+												<input type="password" name="password" class="form-control" placeholder="Пароль">
+											</div>
+										</div>
+										<div class="col-12 col-lg-6">
+											<select class="mdb-select md-form" name="" multiple searchable="Поиск">
+												<option value="" disabled selected>Выберите</option>
+												<option value="1">Вариант 1</option>
+												<option value="2">Вариант 2</option>
+												<option value="3">Вариант 3</option>
+											</select>
+											<label class="mdb-main-label">Роли</label>
+										</div>
+										<div class="col-12 col-lg-6">
+											<select class="mdb-select md-form" name="" multiple searchable="Поиск">
+												<option value="" disabled selected>Выберите</option>
+												<option value="ru">ru</option>
+												<option value="ua">ua</option>
+												<option value="kz">kz</option>
+											</select>
+											<label class="mdb-main-label">Язык</label>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -1185,16 +1177,13 @@
 	<script src="libs/mdbootstrap/js/addons/datatables2.min.js"></script>
 	<script src="libs/mdbootstrap/js/addons/datatables-select2.min.js"></script>
 
-	<!-- Prism -->
-	<script src="libs/prism/prism.js"></script>
-
 	<script>
 		tinymce.init({
 			selector: '.tinyMCE',
 			plugin: 'a_tinymce_plugin',
 			a_plugin_option: true,
 			a_configuration_option: 400,
-			toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | codesample',
+			toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
 			language: 'ru'
 		});
 	</script>

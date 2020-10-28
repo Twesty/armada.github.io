@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<!-- <base href="/"> -->
 
-	<title>ARMADA - добавить подраздел</title>
+	<title>ARMADA - добавить тариф</title>
 	<meta name="description" content="ARMADA - мебельный торговый комплекс">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,6 +32,9 @@
 
 	<!-- Crippie -->
 	<link rel="stylesheet" href="libs/croppie/croppie.css">
+
+	<!-- Prism -->
+	<link rel="stylesheet" href="libs/prism/prism.css">
 
 </head>
 
@@ -948,65 +951,26 @@
 					</div>
 					<div class="orders vendor__shops pt-4 pb-3 p-xxl-3 pt-xxl-5 pr-0">
 						<div class="orders__header justify-content-between">
-							<h2 class="page-title orders__title">Добавить подраздел</h2>
+							<h2 class="page-title orders__title">Добавить тариф</h2>
 						</div>
 						<form action="#" class="pb-4 border-bottom">
 							<div class="row">
-								<div class="col-12 col-lg-6">
+								<div class="col-12 col-lg">
 									<div class="md-form">
 										<label>Название</label>
 										<input type="text" name="name" class="form-control" placeholder="Название">
 									</div>
 								</div>
-								<div class="col-12 col-lg-6">
+								<div class="col-12 col-lg">
 									<div class="md-form">
-										<label>Мета название</label>
-										<input type="text" name="meta-name" class="form-control" placeholder="Мета название">
+										<label>Цена размещения</label>
+										<input type="text" name="price" class="form-control" placeholder="Цена размещения">
 									</div>
 								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-12 col-lg-4">
-									<div class="form-group">
-										<label>SEO текст</label>
-										<textarea class="form-control" name="seo-text" rows="4"></textarea>
-									</div>
-								</div>
-								<div class="col-12 col-lg-4">
-									<select class="mdb-select md-form" name="user" searchable="Поиск">
-										<option value="" disabled selected>Выберите</option>
-										<option value="1">Раздел 1</option>
-										<option value="2">Раздел 2</option>
-										<option value="3">Раздел 3</option>
-									</select>
-									<label class="mdb-main-label">Раздел</label>
-								</div>
-								<div class="col-12 col-lg-4">
+								<div class="col-12 col-lg">
 									<div class="md-form">
-										<label>Slug</label>
-										<input type="text" name="slug" class="form-control" placeholder="Slug">
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-12 col-lg-4">
-									<div class="form-group">
-										<label>H1</label>
-										<textarea class="form-control" name="h1" rows="4"></textarea>
-									</div>
-								</div>
-								<div class="col-12 col-lg-4">
-									<div class="form-group">
-										<label>Мета описание</label>
-										<textarea class="form-control" name="meta-description" rows="4"></textarea>
-									</div>
-								</div>
-								<div class="col-12 col-lg-4">
-									<div class="form-group">
-										<label>Мета теги</label>
-										<textarea class="form-control" name="meta-tags" rows="4"></textarea>
+										<label>Лимит товаров</label>
+										<input type="text" name="limit" class="form-control" placeholder="Лимит товаров">
 									</div>
 								</div>
 							</div>
@@ -1192,9 +1156,10 @@
 		tinymce.init({
 			selector: '.tinyMCE',
 			plugin: 'a_tinymce_plugin',
+			plugins: 'codesample code',
 			a_plugin_option: true,
 			a_configuration_option: 400,
-			toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | codesample',
+			toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | codesample | code',
 			language: 'ru'
 		});
 	</script>
