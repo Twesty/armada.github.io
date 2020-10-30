@@ -2,11 +2,21 @@
 
 $( document ).ready(function () {
 
+    // Video popup
+
+    {
+        let popupButton = $('.product__video');
+
+        $.each(popupButton, function () {
+            $( this ).YouTubePopUp();
+        });
+    }
+
     // Product gallery
 
     {
         let thumbnails = $('.gallery__thumbnails');
-        let thumbnail = $('.gallery__thumbnail');
+        let thumbnail = $('.gallery__thumbnail:not(.gallery__video)');
         let currentImage = $('.gallery__selected');
 
         let nextArrow = $('.gallery__arrow--next');

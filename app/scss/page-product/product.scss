@@ -185,7 +185,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-color: #B7B7B7 !important;
+    //border-color: #B7B7B7 !important;
     &:hover {
       border-color: darken(#B7B7B7, 15%) !important;
     }
@@ -308,6 +308,48 @@
     box-shadow: 0 2px 10px rgba(0,0,0,.15);
     cursor: pointer;
     z-index: 999;
+  }
+}
+
+.variety {
+  &__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    &--color {
+      display: flex;
+      align-items: center;
+      li {
+        padding: 5px;
+        margin: 0 5px;
+      }
+      a {
+        display: flex;
+      }
+      span {
+        display: inline-block;
+        min-width: 25px;
+        min-height: 25px;
+        border-radius: 5px;
+      }
+    }
+  }
+  &__item {
+    &--active {
+      position: relative;
+      &:before {
+        position: absolute;
+        content: '';
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        border: 1px solid #00a046;
+        background: #f4faf6;
+        z-index: -1;
+        border-radius: 5px;
+      }
+    }
   }
 }
 
