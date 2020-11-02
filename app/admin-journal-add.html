@@ -577,26 +577,6 @@
 		</div>
 	</header>
 
-	<div class="modal fade" id="cropImagePop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLongTitle">Изменить фото</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div id="upload-demo" class="center-block"></div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-					<button type="button" id="cropImageBtn" class="btn btn-primary">Обрезать</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<div class="overlay"></div>
 
 	<main class="main-content page-vendor-area pt-0">
@@ -985,17 +965,16 @@
 									</select>
 									<label class="mdb-main-label">Месяц</label>
 								</div>
-								<div class="col-12">
-									<div class="file-field">
-										<div class="button btn-primary btn-sm float-left">
-											<span>Выберите файлы</span>
-											<input type="file" name="images" multiple>
-										</div>
-										<div class="file-path-wrapper md-form">
-											<input class="file-path validate" type="text" placeholder="Загрузите файлы">
-										</div>
-									</div>
+							</div>
+
+							<div class="row">
+								<div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 imgUp">
+									<div class="imagePreview"></div>
+									<label class="button btn-primary image-load">
+										Загрузить<input type="file" class="uploadFile img" value="Загрузить фото" style="width: 0px;height: 0px;overflow: hidden;">
+									</label>
 								</div>
+								<i class="fa fa-plus imgAdd"></i>
 							</div>
 
 							<button type="submit" class="mt-5 button btn-primary">Сохранить</button>
@@ -1005,6 +984,26 @@
 				</div>
 			</div>
 		</section>
+
+		<div class="modal crop-image" id="crop-image" tabindex="-1">
+			<div class="modal-dialog modal-dialog-centered modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Обрезать изображение</h5>
+<!--						<button type="button" class="close crop-image__close" data-dismiss="modal" aria-label="Close">-->
+<!--							<span aria-hidden="true">&times;</span>-->
+<!--						</button>-->
+					</div>
+					<div class="modal-body p-0">
+						<img src="" alt="" class="image-no-crop" id="image-no-crop">
+					</div>
+					<div class="modal-footer p-3">
+<!--						<button type="button" class="button btn-secondary crop-image__close" data-dismiss="modal">Отменить</button>-->
+						<button type="button" class="button btn-primary crop-image__save" data-dismiss="modal">Сохранить</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
 	</main>
 
@@ -1160,14 +1159,112 @@
 		</div>
 	</footer>
 
-	<!-- Croppie -->
-	<script src="libs/croppie/croppie.min.js"></script>
-
 	<!-- TinyMCE -->
 	<script src="https://cdn.tiny.cloud/1/pwmufeehcf25tksks0z6zua790hhg8b3uppqwzjn6metijq5/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 	<script src="js/scripts-min.js"></script>
 	<script src="js/dest/page-vendor-area/vendor-area-min.js"></script>
+
+	<!-- Croppr -->
+	<script src="libs/cropper/cropper.min.js"></script>
+	<link rel="stylesheet" href="libs/cropper/cropper.min.css">
+
+	<!-- Upload images -->
+	<script>
+
+		let i = 1;
+		let limit = 5;
+
+		$(".imgAdd").click(function(){
+			if(i < limit) {
+				$(this).closest(".row").find('.imgAdd').before('<div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 imgUp"><div class="imagePreview"></div><label class="button btn-primary image-load">Загрузить<input type="file" class="uploadFile img" value="Upload Photo" style="width:0px;height:0px;overflow:hidden;"></label><i class="fa fa-times del"></i></div>');
+			}
+
+			if(i == limit - 1) {
+				$('.imgAdd').addClass('disabled')
+			}
+
+			i++;
+		});
+
+		$(document).on("click", "i.del" , function() {
+			$(this).parent().remove();
+			i--;
+			$('.imgAdd').removeClass('disabled')
+		});
+
+		$(document).on("change",".uploadFile", function() {
+
+			let uploadFile = $(this);
+			let files = !!this.files ? this.files : [];
+			if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+			if (/^image/.test( files[0].type)){ // only image file
+				var reader = new FileReader(); // instance of the FileReader
+				reader.readAsDataURL(files[0]); // read the local file
+
+				reader.onloadend = function(){
+					$('#image-no-crop').attr("src", ""+this.result+"");
+
+					let image = document.getElementById('image-no-crop');
+
+					let cropper = new Cropper(image, {
+						zoomable: false,
+						scrolable: false,
+					});
+
+					$('#crop-image').modal();
+
+					$('.crop-image__save').on('click', function () {
+
+						let imgurl = cropper.getCroppedCanvas().toDataURL();
+
+						uploadFile.closest(".imgUp").find('.imagePreview').css("background-image", "url("+imgurl+")");
+
+						cropper.destroy();
+						$('.cropper-container').detach();
+						cropper = null;
+						image = null;
+
+						$( this ).unbind('click');
+					});
+
+					// $('.crop-image__close').on('click', function () {
+					// 	cropper.destroy();
+					// 	$('.cropper-container').detach();
+					// 	cropper = null;
+					// 	image = null;
+					//
+					// 	$( this ).unbind('click');
+					// });
+
+					/* ---------------- SEND IMAGE TO THE SERVER-------------------------
+
+						cropper.getCroppedCanvas().toBlob(function (blob) {
+							  var formData = new FormData();
+							  formData.append('croppedImage', blob);
+							  // Use `jQuery.ajax` method
+							  $.ajax('/path/to/upload', {
+								method: "POST",
+								data: formData,
+								processData: false,
+								contentType: false,
+								success: function () {
+								  console.log('Upload success');
+								},
+								error: function () {
+								  console.log('Upload error');
+								}
+							  });
+						});
+
+					----------------------------------------------------*/
+				}
+			}
+
+		});
+
+	</script>
 
 	<!-- Data tables -->
 	<script src="libs/mdbootstrap/js/addons/datatables2.min.js"></script>

@@ -203,6 +203,9 @@
     position: absolute;
     top: 0;
     right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 18px;
     height: 18px;
     min-width: 18px;
@@ -210,8 +213,8 @@
     background: $accent;
     transform: translate(30%,-30%);
     border-radius: 50%;
-    font-size: 11px;
-    color: #FFF;
+    font-size: 10px;
+    color: #FFF !important;
     text-align: center;
     font-weight: 700;
   }
