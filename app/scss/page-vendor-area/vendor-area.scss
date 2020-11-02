@@ -197,6 +197,19 @@
   &__user {
     cursor: pointer;
   }
+  &__user-info {
+    position: relative;
+  }
+  &__user-dropdown {
+    position: absolute;
+    display: none;
+    top: calc(100% + 10px);
+    right: 0;
+    padding: 10px 20px;
+    background: #FFF;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.5);
+  }
   &__user-logo {
     width: 26px;
     height: 26px;
@@ -206,6 +219,12 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    &--lg {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      min-height: 40px;
+    }
   }
 }
 

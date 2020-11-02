@@ -55,7 +55,11 @@ $( document ).ready(function () {
             let dropdown = $('.' + $( this ).attr('data-dropdown'));
 
             $( this ).on('click', function () {
-                dropdown.slideToggle(200);
+                if(dropdown.is(":visible")) {
+                    dropdown.slideUp(200);
+                } else {
+                    dropdown.slideDown(200);
+                }
             });
 
             $( document ).mouseup(function(e)
