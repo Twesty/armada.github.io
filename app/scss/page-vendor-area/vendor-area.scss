@@ -1,5 +1,12 @@
 @import '../vars';
 
+* {
+  &::placeholder {
+    font-weight: 300;
+    color: #c2c2c2 !important;
+  }
+}
+
 .page-vendor-area {
   padding-top: 20px;
   &--analytics {
@@ -552,7 +559,7 @@
       border: 1px solid #e3e3e3;
       color: #495057;
       &::placeholder {
-        color: #495057;
+        color: #FFF;
       }
     }
     .custom-checkbox {
@@ -1156,8 +1163,7 @@ figure figcaption {
   background-color:rgba(255,255,255,0.6);
   cursor:pointer;
 }
-.imgAdd
-{
+.imgAdd {
   width:30px;
   height:30px;
   border-radius:50%;
@@ -1172,6 +1178,27 @@ figure figcaption {
   font-size:15px;
   &.disabled {
     opacity: .3;
+  }
+}
+
+.form-row {
+  position: relative;
+  margin-bottom: 10px;
+  .tox-tinymce {
+    width: 100%;
+    min-height: 100%;
+  }
+  &.hidden {
+    display: none;
+  }
+  &__delete {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    cursor: pointer;
+    &.hidden {
+      display: none;
+    }
   }
 }
 

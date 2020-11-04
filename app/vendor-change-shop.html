@@ -709,69 +709,100 @@
 						<div class="orders__header justify-content-between">
 							<h2 class="page-title orders__title">Изменить магазин</h2>
 						</div>
-						<form action="#" class="change-shop pb-4 border-bottom">
-							<form>
-								<div class="row">
-									<div class="col-12 col-lg">
-										<div class="md-form">
-											<label>Название</label>
-											<input type="text" name="name" class="form-control" placeholder="Название">
-										</div>
-									</div>
-									<div class="col-12 col-lg">
-										<div class="md-form">
-											<label>Юридическое наименование</label>
-											<input type="text" name="legal-name" class="form-control" placeholder="Юридическое наименование">
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-12 col-lg-4">
-										<label class="cabinet center-block">
-											<figure>
-												<img src="https://user.gadjian.com/static/images/personnel_boy.png" class="gambar img-responsive img-thumbnail" id="item-img-output" />
-												<figcaption><i class="fa fa-camera"></i></figcaption>
-											</figure>
-											<input type="file" class="item-img file center-block" name="file_photo"/>
+						<form action="#" class="change-shop pb-4 border-bottom was-validated">
+								<div class="row align-items-start">
+									<div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 imgUp">
+										<div class="imagePreview"></div>
+										<label class="button btn-primary image-load">
+											Загрузить<input type="file" class="uploadFile img" value="Загрузить фото" style="width: 0px;height: 0px;overflow: hidden;">
 										</label>
 									</div>
+									<div class="col-12 col-lg row">
+										<div class="col-12 col-lg-6">
+											<div class="form-row">
+												<label for="name">Название</label>
+												<input type="text" name="name" id="name" class="form-control" placeholder="Название" required>
+												<div class="invalid-feedback">
+													Пожалуйста введите Имя.
+												</div>
+											</div>
+										</div>
+										<div class="col-12 col-lg-6">
+											<div class="form-row">
+												<label for="legal-name">Юридическое наименование</label>
+												<input type="text" name="legal-name" id="legal-name" class="form-control" placeholder="Юридическое наименование" required>
+												<div class="invalid-feedback">
+													Пожалуйста введите Юридическое наименование.
+												</div>
+											</div>
+										</div>
+										<div class="col-12 col-lg-6">
+											<div class="form-row">
+												<label for="slug">Адрес</label>
+												<input type="text" name="slug" id="slug" class="form-control" placeholder="Адрес" required>
+												<div class="invalid-feedback">
+													Пожалуйста введите Адрес.
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
-								<div class="md-form">
-									<label>Адрес</label>
-									<input type="text" name="slug" class="form-control" placeholder="Адрес">
-								</div>
-								<div class="row">
-									<div class="md-form col-12 col-lg">
-										<textarea name="description" id="" cols="30" rows="10" class="tinyMCE"></textarea>
+
+								<div class="row mb-4">
+									<div class="form-row description col-12 col-lg">
+										<textarea name="description" id="description" cols="30" rows="10" class="tinyMCE"></textarea>
+										<div class="invalid-feedback">
+											Описание должно содержать минимум 20 символов
+										</div>
 									</div>
 									<div class="col-12 col-lg">
-										<div class="md-form">
-											<label>Телефоны</label>
-											<input type="tel" name="phones" class="form-control" placeholder="Телефоны">
+										<label>Телефоны</label>
+										<div class="form-row mb-2">
+											<input type="tel" name="phone-1" id="phone" class="form-control" placeholder="Телефон №1" required>
+											<div class="form-row__delete hidden">
+												<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M17.0742 2.92624C13.1724 -0.974764 6.82694 -0.974764 2.92511 2.92624C-0.975037 6.82725 -0.975037 13.1744 2.92511 17.0754C4.87603 19.0255 7.43805 20.0001 10.0001 20.0001C12.5622 20.0001 15.1233 19.0254 17.0742 17.0754C20.9753 13.1744 20.9753 6.82725 17.0742 2.92624ZM14.1262 12.9484C14.4522 13.2744 14.4522 13.8013 14.1262 14.1273C13.9636 14.2899 13.7502 14.3716 13.5367 14.3716C13.3233 14.3716 13.1098 14.2899 12.9473 14.1273L10.0001 11.1793L7.05369 14.1265C6.89029 14.289 6.67683 14.3707 6.46423 14.3707C6.25081 14.3707 6.03735 14.289 5.87478 14.1265C5.5488 13.8005 5.5488 13.2727 5.87478 12.9476L8.82116 10.0004L5.87395 7.05318C5.54798 6.7272 5.54798 6.19946 5.87395 5.87431C6.19911 5.54833 6.72685 5.54833 7.05283 5.87431L10 8.82151L12.9472 5.87431C13.2732 5.54833 13.8001 5.54833 14.1261 5.87431C14.4521 6.19946 14.4521 6.7272 14.1261 7.05318L11.1789 10.0004L14.1262 12.9484Z" fill="#E0001A"/>
+												</svg>
+											</div>
+											<div class="invalid-feedback">
+												Пожалуйста введите Телефон №1.
+											</div>
+										</div>
+										<div class="text-right">
+											<span class="mb-3 mt-2 input-duplicate d-inline-flex align-items-center button btn-success btn-sm ml-auto" data-target="#phone" data-required="false" data-limit="5">
+												<svg class="mr-2" width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.5 0C3.36425 0 0 3.36425 0 7.5C0 11.6358 3.36425 15 7.5 15C11.6358 15 15 11.6352 15 7.5C15 3.36483 11.6358 0 7.5 0ZM7.5 13.8381C4.00562 13.8381 1.16188 10.995 1.16188 7.5C1.16188 4.00503 4.00562 1.16188 7.5 1.16188C10.9944 1.16188 13.8381 4.00503 13.8381 7.5C13.8381 10.995 10.995 13.8381 7.5 13.8381Z" fill="white"/>
+													<path d="M10.4046 6.86713H8.0808V4.54336C8.0808 4.22268 7.82111 3.9624 7.49984 3.9624C7.17857 3.9624 6.91889 4.22268 6.91889 4.54336V6.86713H4.59512C4.27385 6.86713 4.01416 7.1274 4.01416 7.44809C4.01416 7.76877 4.27385 8.02904 4.59512 8.02904H6.91889V10.3528C6.91889 10.6735 7.17857 10.9338 7.49984 10.9338C7.82111 10.9338 8.0808 10.6735 8.0808 10.3528V8.02904H10.4046C10.7258 8.02904 10.9855 7.76877 10.9855 7.44809C10.9855 7.1274 10.7258 6.86713 10.4046 6.86713Z" fill="white"/>
+												</svg>
+												<span>Добавить</span>
+											</span>
 										</div>
 										<div class="row">
 											<div class="col">
-												<div class="md-form">
-													<label>Телефоны</label>
-													<input type="email" name="email" class="form-control" placeholder="Эл. адрес">
+												<div class="form-row">
+													<label>Эл. адрес</label>
+													<input type="email" name="email" class="form-control" placeholder="Эл. адрес" required>
+													<div class="invalid-feedback">
+														Пожалуйста введите Эл. адрес.
+													</div>
 												</div>
 											</div>
 											<div class="col">
-												<div class="md-form">
-													<label>Телефоны</label>
+												<div class="form-row">
+													<label>Адрес сайта</label>
 													<input type="url" name="site" class="form-control" placeholder="Адрес сайта">
 												</div>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col">
-												<div class="md-form">
+												<div class="form-row">
 													<label>Instagram</label>
 													<input type="url" name="instagram" class="form-control" placeholder="Instagram">
 												</div>
 											</div>
 											<div class="col">
-												<div class="md-form">
+												<div class="form-row">
 													<label>Facebook</label>
 													<input type="url" name="facebook" class="form-control" placeholder="Facebook">
 												</div>
@@ -779,13 +810,13 @@
 										</div>
 										<div class="row">
 											<div class="col">
-												<div class="md-form">
+												<div class="form-row">
 													<label>Youtube</label>
 													<input type="url" name="instagram" class="form-control" placeholder="Youtube">
 												</div>
 											</div>
 											<div class="col">
-												<div class="md-form">
+												<div class="form-row">
 													<label>Vkontakte</label>
 													<input type="url" name="facebook" class="form-control" placeholder="Vkontakte">
 												</div>
@@ -793,25 +824,25 @@
 										</div>
 									</div>
 								</div>
-								<div class="md-form">
+								<div class="form-row">
 									<label>Адрес продавца</label>
 									<input type="text" name="location" class="form-control" placeholder="Адрес продавца">
 								</div>
 								<div class="row">
 									<div class="col-12 col-lg">
-										<div class="md-form">
+										<div class="form-row">
 											<label>Номер блока</label>
 										<input type="text" name="block-number" class="form-control" placeholder="Номер блока">
 										</div>
 									</div>
 									<div class="col-12 col-lg">
-										<div class="md-form">
+										<div class="form-row">
 											<label>Код перекрестка</label>
 											<input type="text" name="crossroad" class="form-control" placeholder="Код перекрестка">
 										</div>
 									</div>
 									<div class="col-12 col-lg">
-										<div class="md-form">
+										<div class="form-row">
 											<label>Номер бутика</label>
 											<input type="text" name="boutique" class="form-control" placeholder="Номер бутика">
 										</div>
@@ -827,7 +858,7 @@
 									</div>
 									<div class="col-12 col-lg">
 										<div class="md-form">
-											<select class="mdb-select md-form" name="job-days" editable="true" searchable="Поиск или добавить">
+											<select class="mdb-select form-row" name="job-days" editable="true" searchable="Поиск или добавить">
 												<option value="" disabled selected>Выберите</option>
 												<option value="1">ПН-ВС</option>
 												<option value="2">ПН-ПТ</option>
@@ -835,14 +866,14 @@
 											</select>
 											<label class="mdb-main-label">Рабочие дни</label>
 										</div>
-										<div class="md-form">
+										<div class="form-row">
 											<label>Дополнительно</label>
 											<input type="text" name="addition" class="form-control" placeholder="Дополнительно">
 										</div>
 									</div>
 									<div class="col-12 col-lg">
 										<div class="md-form">
-											<select class="mdb-select md-form" name="job-time" editable="true" searchable="Поиск или добавить">
+											<select class="mdb-select form-row" name="job-time" editable="true" searchable="Поиск или добавить">
 												<option value="" disabled selected>Выберите</option>
 												<option value="1">Круглосуточно</option>
 												<option value="2">10:00-20:00</option>
@@ -853,7 +884,7 @@
 									</div>
 								</div>
 
-								<div class="md-form">
+								<div class="form-row">
 									<label>Whatsapp</label>
 									<input type="text" name="whatsapp" class="form-control" placeholder="Whatsapp">
 									<small>Пример: 77076665544 (без восьмерки и пробелов)</small>
@@ -870,7 +901,6 @@
 								</div>
 
 								<button type="submit" class="mt-5 button btn-primary">Сохранить</button>
-							</form>
 						</form>
 						<h3 class="mt-4">Товары</h3>
 						<table class="table table-striped" cellspacing="0" width="100%">
@@ -910,6 +940,26 @@
 		</section>
 
 	</main>
+
+	<div class="modal crop-image" id="crop-image" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Обрезать изображение</h5>
+					<!--						<button type="button" class="close crop-image__close" data-dismiss="modal" aria-label="Close">-->
+					<!--							<span aria-hidden="true">&times;</span>-->
+					<!--						</button>-->
+				</div>
+				<div class="modal-body p-0">
+					<img src="" alt="" class="image-no-crop" id="image-no-crop">
+				</div>
+				<div class="modal-footer p-3">
+					<!--						<button type="button" class="button btn-secondary crop-image__close" data-dismiss="modal">Отменить</button>-->
+					<button type="button" class="button btn-primary crop-image__save" data-dismiss="modal">Сохранить</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<footer class="footer d-none">
 		<div class="footer__top">
@@ -1085,6 +1135,127 @@
 			toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent',
 			language: 'ru'
 		});
+
+		// Validation
+
+		let form = $('form.was-validated');
+
+		form.on('submit', function (e) {
+			let editorContent = tinymce.get('description').getContent();
+			if (editorContent.length < 20)
+			{
+				e.preventDefault();
+
+				$('.description .invalid-feedback').css({'display':'block'})
+				$('.tox-tinymce').css({
+					'border-color' : '#dc3545'
+				});
+				$([document.documentElement, document.body]).animate({
+					scrollTop: $(".description").offset().top - 100
+				}, 1000);
+			}
+		})
+	</script>
+
+	<!-- Croppr -->
+	<script src="libs/cropper/cropper.min.js"></script>
+	<link rel="stylesheet" href="libs/cropper/cropper.min.css">
+
+	<!-- Upload images -->
+	<script>
+
+		let i = 1;
+		let limit = 5;
+
+		$(".imgAdd").click(function(){
+			if(i < limit) {
+				$(this).closest(".row").find('.imgAdd').before('<div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 imgUp"><div class="imagePreview"></div><label class="button btn-primary image-load">Загрузить<input type="file" class="uploadFile img" value="Upload Photo" style="width:0px;height:0px;overflow:hidden;"></label><i class="fa fa-times del"></i></div>');
+			}
+
+			if(i == limit - 1) {
+				$('.imgAdd').addClass('disabled')
+			}
+
+			i++;
+		});
+
+		$(document).on("click", "i.del" , function() {
+			$(this).parent().remove();
+			i--;
+			$('.imgAdd').removeClass('disabled')
+		});
+
+		$(document).on("change",".uploadFile", function() {
+
+			let uploadFile = $(this);
+			let files = !!this.files ? this.files : [];
+			if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+			if (/^image/.test( files[0].type)){ // only image file
+				var reader = new FileReader(); // instance of the FileReader
+				reader.readAsDataURL(files[0]); // read the local file
+
+				reader.onloadend = function(){
+					$('#image-no-crop').attr("src", ""+this.result+"");
+
+					let image = document.getElementById('image-no-crop');
+
+					let cropper = new Cropper(image, {
+						zoomable: false,
+						scrolable: false,
+					});
+
+					$('#crop-image').modal();
+
+					$('.crop-image__save').on('click', function () {
+
+						let imgurl = cropper.getCroppedCanvas().toDataURL();
+
+						uploadFile.closest(".imgUp").find('.imagePreview').css("background-image", "url("+imgurl+")");
+
+						cropper.destroy();
+						$('.cropper-container').detach();
+						cropper = null;
+						image = null;
+
+						$( this ).unbind('click');
+					});
+
+					// $('.crop-image__close').on('click', function () {
+					// 	cropper.destroy();
+					// 	$('.cropper-container').detach();
+					// 	cropper = null;
+					// 	image = null;
+					//
+					// 	$( this ).unbind('click');
+					// });
+
+					/* ---------------- SEND IMAGE TO THE SERVER-------------------------
+
+						cropper.getCroppedCanvas().toBlob(function (blob) {
+							  var formData = new FormData();
+							  formData.append('croppedImage', blob);
+							  // Use `jQuery.ajax` method
+							  $.ajax('/path/to/upload', {
+								method: "POST",
+								data: formData,
+								processData: false,
+								contentType: false,
+								success: function () {
+								  console.log('Upload success');
+								},
+								error: function () {
+								  console.log('Upload error');
+								}
+							  });
+						});
+
+					----------------------------------------------------*/
+				}
+			}
+
+		});
+
 	</script>
 
 </body>

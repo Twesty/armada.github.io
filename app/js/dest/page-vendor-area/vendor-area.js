@@ -2,6 +2,53 @@
 
 $( document ).ready(function () {
 
+    // Duplicate input
+
+    {
+        let button = $('.input-duplicate');
+        let i = 2;
+
+        $.each(button, function () {
+            $( this ).on('click', function () {
+                let duplicateLimit = $( this ).attr('data-limit');
+                parseInt(duplicateLimit);
+
+                if(i <= duplicateLimit) {
+                    let targetClass = $( this ).attr('data-target');
+                    let requiredInherit = $( this ).attr('data-required');
+                    let target = $(targetClass);
+
+                    let targetWrap = target.parents('.form-row');
+
+                    let targetClone = targetWrap.clone();
+
+                    if(requiredInherit) {
+                        targetClone.find('input').removeAttr('required');
+                        targetClone.find('.invalid-feedback').detach();
+                    }
+
+                    let cloneInputName = targetClone.find('input').attr('name');
+                    let cloneInputPlaceholder = targetClone.find('input').attr('placeholder');
+                    let cloneDeleteButton = targetClone.find('.form-row__delete');
+
+                    // cloneDeleteButton.removeClass('hidden');
+                    //
+                    // cloneDeleteButton.on('click', function () {
+                    //     let cloneIndex = $( this ).parents('.form-row').find('input').attr('name').slice(-1);
+                    //     $( this ).parents('.form-row').detach();
+                    // });
+
+                    targetClone.find('input').removeAttr('id').attr('name', cloneInputName.slice(0, -1) + i);
+                    targetClone.find('input').attr('placeholder', cloneInputPlaceholder.slice(0, -1) + i);
+
+                    targetClone.insertBefore($( this ));
+
+                    i++;
+                }
+            });
+        })
+    }
+
     // Date range picker
 
     {
