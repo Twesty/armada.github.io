@@ -186,12 +186,14 @@
 
 .login {
     max-width: 460px;
-    height: 600px;
     margin: 0 auto 60px auto;
     padding: 40px 55px;
     background-color: #FFF;
     border-radius: 5px;
     font-size: 15px;
+    &--register {
+        max-width: 580px;
+    }
     &__title {
         margin-bottom: 25px;
         font-size: 28px;
