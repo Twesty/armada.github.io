@@ -1101,17 +1101,17 @@
 
 	<div class="modal crop-image" id="crop-image" tabindex="-1">
 		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
+			<div class="modal-content px-4">
+				<div class="modal-header px-0">
 					<h5 class="modal-title">Обрезать изображение</h5>
-					<!--						<button type="button" class="close crop-image__close" data-dismiss="modal" aria-label="Close">-->
-					<!--							<span aria-hidden="true">&times;</span>-->
-					<!--						</button>-->
+					<button type="button" class="close crop-image__close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
 				</div>
 				<div class="modal-body p-0">
 					<img src="" alt="" class="image-no-crop" id="image-no-crop">
 				</div>
-				<div class="modal-footer p-3">
+				<div class="modal-footer py-3 px-0">
 					<!--						<button type="button" class="button btn-secondary crop-image__close" data-dismiss="modal">Отменить</button>-->
 					<button type="button" class="button btn-primary crop-image__save" data-dismiss="modal">Сохранить</button>
 				</div>
@@ -1343,6 +1343,8 @@
 			$('.imgAdd').removeClass('disabled')
 		});
 
+
+
 		$(document).on("change",".uploadFile", function() {
 
 			let uploadFile = $(this);
@@ -1354,19 +1356,26 @@
 				reader.readAsDataURL(files[0]); // read the local file
 
 				reader.onloadend = function(){
+
+					$('.crop-image__save').unbind('click');
+					$('#crop-image').unbind('click');
+					$('.crop-image__close').unbind('click');
+
 					$('#image-no-crop').attr("src", ""+this.result+"");
 
 					let image = document.getElementById('image-no-crop');
 
 					let cropper = new Cropper(image, {
+						aspectRatio: 4/3,
 						zoomable: false,
 						scrolable: false,
-						autoCropArea: 0
+						autoCropArea: 0,
 					});
 
 					$('#crop-image').modal();
 
-					$('.crop-image__save').on('click', function () {
+					$('.crop-image__save').on('click', () => {
+
 						let imgurl = cropper.getCroppedCanvas().toDataURL();
 
 						uploadFile.closest(".imgUp").find('.imagePreview').css("background-image", "url("+imgurl+")");
@@ -1374,20 +1383,17 @@
 
 						cropper.destroy();
 						$('.cropper-container').detach();
-						cropper = null;
-						image = null;
-
-						$( this ).unbind('click');
 					});
 
-					// $('.crop-image__close').on('click', function () {
-					// 	cropper.destroy();
-					// 	$('.cropper-container').detach();
-					// 	cropper = null;
-					// 	image = null;
-					//
-					// 	$( this ).unbind('click');
-					// });
+					$('#crop-image').on('hidden.bs.modal', () => {
+						cropper.destroy();
+						$('.cropper-container').detach();
+					});
+
+					$('.crop-image__close').on('click', function () {
+						cropper.destroy();
+						$('.cropper-container').detach()
+					});
 
 					/* ---------------- SEND IMAGE TO THE SERVER-------------------------
 

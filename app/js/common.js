@@ -8,6 +8,27 @@ $( document ).ready(function () {
         $('.mdb-select').materialSelect();
     }
 
+    // Input masks
+
+    {
+        // Phone input mask
+        let phoneInput = $('input[type=tel]');
+
+        $.each(phoneInput, function () {
+            $(this).mask('+38 (000) 000-00-00');
+        });
+    }
+
+    // Use search button
+
+    {
+        let button = $('.section__header-text--search');
+
+        button.on('click', function () {
+
+        });
+    }
+
     // Data Picker Initialization
     {
         $('.datepicker').datepicker({
