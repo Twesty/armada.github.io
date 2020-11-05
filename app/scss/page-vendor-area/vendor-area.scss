@@ -761,6 +761,7 @@
   }
   .mCSB_inside>.mCSB_container {
     margin-right: 0 !important;
+    height: 100%;
   }
   .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
     width: 3px !important;
@@ -1199,6 +1200,16 @@ figure figcaption {
     &.hidden {
       display: none;
     }
+  }
+}
+
+.work-time {
+  display: none;
+  &.visible {
+    display: block;
+  }
+  &__title {
+    
   }
 }
 

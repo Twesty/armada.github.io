@@ -13,30 +13,22 @@ $( document ).ready(function () {
                 let duplicateLimit = $( this ).attr('data-limit');
                 parseInt(duplicateLimit);
 
+                let targetClass = $( this ).attr('data-target');
+                let requiredInherit = $( this ).attr('data-required');
+                let cloneType = $( this ).attr('data-clone-type');
+                let target = $(targetClass);
+                let targetWrap = target.parents('.form-row, .form-group');
+                let targetClone = targetWrap.clone();
+                let cloneDeleteButton = targetClone.find('.form-row__delete');
+
+                if(requiredInherit) {
+                    targetClone.find('input').removeAttr('required');
+                    targetClone.find('.invalid-feedback').detach();
+                }
+
                 if(i <= duplicateLimit) {
-                    let targetClass = $( this ).attr('data-target');
-                    let requiredInherit = $( this ).attr('data-required');
-                    let target = $(targetClass);
-
-                    let targetWrap = target.parents('.form-row');
-
-                    let targetClone = targetWrap.clone();
-
-                    if(requiredInherit) {
-                        targetClone.find('input').removeAttr('required');
-                        targetClone.find('.invalid-feedback').detach();
-                    }
-
                     let cloneInputName = targetClone.find('input').attr('name');
                     let cloneInputPlaceholder = targetClone.find('input').attr('placeholder');
-                    let cloneDeleteButton = targetClone.find('.form-row__delete');
-
-                    // cloneDeleteButton.removeClass('hidden');
-                    //
-                    // cloneDeleteButton.on('click', function () {
-                    //     let cloneIndex = $( this ).parents('.form-row').find('input').attr('name').slice(-1);
-                    //     $( this ).parents('.form-row').detach();
-                    // });
 
                     targetClone.find('input').removeAttr('id').attr('name', cloneInputName.slice(0, -1) + i);
                     targetClone.find('input').attr('placeholder', cloneInputPlaceholder.slice(0, -1) + i);
@@ -45,7 +37,28 @@ $( document ).ready(function () {
 
                     i++;
                 }
+
+                // cloneDeleteButton.removeClass('hidden');
+                //
+                // cloneDeleteButton.on('click', function () {
+                //     let cloneIndex = $( this ).parents('.form-row').find('input').attr('name').slice(-1);
+                //     $( this ).parents('.form-row').detach();
+                // });
+
             });
+        })
+    }
+
+    // Work time
+
+    {
+        let button = $('.work-time-add');
+        let workTime = $('.work-time');
+        let i = 1;
+
+        button.on('click', function () {
+            workTime.eq(i).fadeIn(200);
+            i++;
         })
     }
 

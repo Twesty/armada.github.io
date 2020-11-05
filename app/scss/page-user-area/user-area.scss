@@ -177,4 +177,59 @@
     }
 }
 
+.page-login {
+    padding-top: 60px;
+    &__login {
+
+    }
+}
+
+.login {
+    max-width: 460px;
+    height: 600px;
+    margin: 0 auto 60px auto;
+    padding: 40px 55px;
+    background-color: #FFF;
+    border-radius: 5px;
+    font-size: 15px;
+    &__title {
+        margin-bottom: 25px;
+        font-size: 28px;
+        font-weight: 700;
+        color: #4A4A4A;
+    }
+    &__as-seller {
+        font-size: 16px;
+        &:hover {
+            span {
+                color: $accent;
+            }
+            path {
+                fill: $accent;
+            }
+        }
+    }
+    button[type="submit"] {
+        height: 50px;
+    }
+    .custom-control-label::before {
+        top: .15rem;
+    }
+
+    .custom-control-label::after {
+        top: .30rem;
+    }
+
+    label {
+        margin-bottom: 0;
+    }
+
+    input {
+        min-height: 56px;
+    }
+    .md-form.md-outline label {
+        top: 5px;
+    }
+}
+
 @import "user-area-responsive";
