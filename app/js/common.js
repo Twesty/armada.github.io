@@ -19,6 +19,26 @@ $( document ).ready(function () {
         });
     }
 
+    // Product card zoom
+
+    {
+        let productCard = $('.product-card');
+        let zoomImageModal = $('#product-image') ;
+
+        $.each(productCard, function () {
+            let button = $( this ).find('.product-card__zoom');
+            let productImage = $( this ).find('.product-card__image img').attr('src');
+
+            button.on('click', function () {
+                zoomImageModal.show();
+                zoomImageModal.on('show.bs.modal', function(){
+                    zoomImageModal.find('img').attr('src', productImage);
+                });
+            });
+        });
+
+    }
+
     // Use search button
 
     {
