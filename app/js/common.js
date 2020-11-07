@@ -20,21 +20,25 @@ $( document ).ready(function () {
     }
 
     // Product card zoom
-
     {
-        let productCard = $('.product-card');
-        let zoomImageModal = $('#product-image') ;
+        let loopButton = $('.product-card__zoom'),
+            loopModal = $('.photo-modal'),
+            loopClose = $('.photo-modal__close'),
+            loopModalImage = $('.photo-modal__current img');
 
-        $.each(productCard, function () {
-            let button = $( this ).find('.product-card__zoom');
-            let productImage = $( this ).find('.product-card__image img').attr('src');
+        loopButton.on('click', function () {
+            let loopProductImage = $( this ).parents('.product-card__wrap').find('.product-card__image img');
+            loopModalImage.attr('src', loopProductImage.attr('src'));
 
-            button.on('click', function () {
-                zoomImageModal.show();
-                zoomImageModal.on('show.bs.modal', function(){
-                    zoomImageModal.find('img').attr('src', productImage);
-                });
+            $('.photo-modal__zoom').zoom({
+                url: loopProductImage.attr('data-zoom-image')
             });
+
+            loopModal.addClass('active');
+        });
+
+        loopClose.on('click', function () {
+            loopModal.removeClass('active');
         });
 
     }

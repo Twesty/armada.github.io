@@ -182,6 +182,7 @@
     background: #FFF;
     &--settings {
       left: 60px;
+      padding-left: 15px;
     }
   }
   &__bars {
@@ -818,6 +819,7 @@
     align-items: center;
     padding: 0 10px;
     margin-bottom: 25px;
+    width: 260px;
     &--has-children {
       position: relative;
       padding: 0 40px 0 10px;

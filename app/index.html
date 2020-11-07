@@ -1433,18 +1433,15 @@
 		</div>
 	</div>
 
-	<div class="modal fade" id="product-image" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Диван с двумя креслами "Жаклин...</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
+	<div class="photo-modal">
+		<div class="photo-modal__wrap">
+			<div class="photo-modal__current container">
+				<div class="photo-modal__zoom">
+					<img src="img/product/1.jpg" alt="Product image">
 				</div>
-				<div class="modal-body py-3 px-4">
-					<img src="img/categories/2.png" class="img-responsive" alt="Product image" />
-				</div>
+			</div>
+			<div class="photo-modal__actions">
+				<div class="photo-modal__close">Закрыть</div>
 			</div>
 		</div>
 	</div>
@@ -1702,7 +1699,7 @@
 								</span>
 								<a href="#" class="product-card__link">
 									<div class="product-card__image">
-										<img src="img/categories/3.png" alt="Product image" />
+										<img src="img/product/1-preview.jpg" data-zoom-image="img/product/1-zoom.jpg" alt="Product image" />
 									</div>
 									<div class="product-card__content">
 										<span>
@@ -1760,8 +1757,8 @@
 										</div>
 									</div>
 								</a>
-								<div class="product-card__add-to-card">
-									<button class="btn btn-primary">
+								<div class="product-card__add-to-card d-flex align-items-center justify-content-between">
+                                    <button class="btn btn-primary">
 										<span>В корзину</span>
 										<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M0.928974 0.457031H3.69167C3.97878 0.457031 4.22487 0.662109 4.27761 0.943359L5.75417 8.78027H12.1614L13.2864 4.71973H8.37331C8.04226 4.71973 7.77565 4.45312 7.77565 4.12207C7.77565 3.79102 8.04226 3.52441 8.37331 3.52441H14.0716C14.6048 3.52441 14.7278 3.99902 14.6458 4.28027L13.1897 9.53613C13.1194 9.79394 12.8821 9.97266 12.6155 9.97266H5.25905C4.97194 9.97266 4.72585 9.76758 4.67311 9.48633L3.19362 1.65234H0.926044C0.594989 1.65234 0.328388 1.38574 0.328388 1.05469C0.331318 0.723633 0.597919 0.457031 0.928974 0.457031Z" fill="white"/>
@@ -1769,7 +1766,7 @@
 											<path d="M11.2881 10.9717C12.2549 10.9717 13.04 11.7715 13.04 12.7588C13.04 13.7432 12.2549 14.5459 11.2881 14.5459C10.3213 14.5459 9.53613 13.7461 9.53613 12.7588C9.53613 11.7715 10.3213 10.9717 11.2881 10.9717ZM11.2881 13.3477C11.5957 13.3477 11.8447 13.0811 11.8447 12.7559C11.8447 12.4307 11.5957 12.1641 11.2881 12.1641C10.9805 12.1641 10.7314 12.4307 10.7314 12.7559C10.7314 13.084 10.9805 13.3477 11.2881 13.3477Z" fill="white"/>
 										</svg>
 									</button>
-								</div>
+                                </div>
 							</article>
 						</li>
 						<li class="slideshow__item product-card">
@@ -1799,8 +1796,8 @@
 										</div>
 									</div>
 								</a>
-								<div class="product-card__add-to-card">
-									<button class="btn btn-primary">
+								<div class="product-card__add-to-card d-flex align-items-center justify-content-between">
+                                    <button class="btn btn-primary">
 										<span>В корзину</span>
 										<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M0.928974 0.457031H3.69167C3.97878 0.457031 4.22487 0.662109 4.27761 0.943359L5.75417 8.78027H12.1614L13.2864 4.71973H8.37331C8.04226 4.71973 7.77565 4.45312 7.77565 4.12207C7.77565 3.79102 8.04226 3.52441 8.37331 3.52441H14.0716C14.6048 3.52441 14.7278 3.99902 14.6458 4.28027L13.1897 9.53613C13.1194 9.79394 12.8821 9.97266 12.6155 9.97266H5.25905C4.97194 9.97266 4.72585 9.76758 4.67311 9.48633L3.19362 1.65234H0.926044C0.594989 1.65234 0.328388 1.38574 0.328388 1.05469C0.331318 0.723633 0.597919 0.457031 0.928974 0.457031Z" fill="white"/>
@@ -1808,7 +1805,7 @@
 											<path d="M11.2881 10.9717C12.2549 10.9717 13.04 11.7715 13.04 12.7588C13.04 13.7432 12.2549 14.5459 11.2881 14.5459C10.3213 14.5459 9.53613 13.7461 9.53613 12.7588C9.53613 11.7715 10.3213 10.9717 11.2881 10.9717ZM11.2881 13.3477C11.5957 13.3477 11.8447 13.0811 11.8447 12.7559C11.8447 12.4307 11.5957 12.1641 11.2881 12.1641C10.9805 12.1641 10.7314 12.4307 10.7314 12.7559C10.7314 13.084 10.9805 13.3477 11.2881 13.3477Z" fill="white"/>
 										</svg>
 									</button>
-								</div>
+                                </div>
 							</article>
 						</li>
 						<li class="slideshow__item product-card">
@@ -1836,8 +1833,8 @@
 										</div>
 									</div>
 								</a>
-								<div class="product-card__add-to-card">
-									<button class="btn btn-primary">
+								<div class="product-card__add-to-card d-flex align-items-center justify-content-between">
+                                    <button class="btn btn-primary">
 										<span>В корзину</span>
 										<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M0.928974 0.457031H3.69167C3.97878 0.457031 4.22487 0.662109 4.27761 0.943359L5.75417 8.78027H12.1614L13.2864 4.71973H8.37331C8.04226 4.71973 7.77565 4.45312 7.77565 4.12207C7.77565 3.79102 8.04226 3.52441 8.37331 3.52441H14.0716C14.6048 3.52441 14.7278 3.99902 14.6458 4.28027L13.1897 9.53613C13.1194 9.79394 12.8821 9.97266 12.6155 9.97266H5.25905C4.97194 9.97266 4.72585 9.76758 4.67311 9.48633L3.19362 1.65234H0.926044C0.594989 1.65234 0.328388 1.38574 0.328388 1.05469C0.331318 0.723633 0.597919 0.457031 0.928974 0.457031Z" fill="white"/>
@@ -1845,7 +1842,14 @@
 											<path d="M11.2881 10.9717C12.2549 10.9717 13.04 11.7715 13.04 12.7588C13.04 13.7432 12.2549 14.5459 11.2881 14.5459C10.3213 14.5459 9.53613 13.7461 9.53613 12.7588C9.53613 11.7715 10.3213 10.9717 11.2881 10.9717ZM11.2881 13.3477C11.5957 13.3477 11.8447 13.0811 11.8447 12.7559C11.8447 12.4307 11.5957 12.1641 11.2881 12.1641C10.9805 12.1641 10.7314 12.4307 10.7314 12.7559C10.7314 13.084 10.9805 13.3477 11.2881 13.3477Z" fill="white"/>
 										</svg>
 									</button>
-								</div>
+									<button class="product-card__zoom" data-toggle="modal" data-target="#product-image">
+										<svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<circle cx="18" cy="18" r="18" fill="white"/>
+											<path d="M28.2683 27.1494L22.5551 21.4362C25.1581 18.2692 24.981 13.5678 22.0231 10.61C18.8765 7.46335 13.7566 7.46335 10.61 10.61C7.46335 13.7566 7.46335 18.8765 10.61 22.0231C13.567 24.9801 18.2678 25.1592 21.4362 22.5551L27.1494 28.2683C27.4584 28.5772 27.9593 28.5772 28.2682 28.2683C28.5772 27.9593 28.5772 27.4584 28.2683 27.1494ZM20.9042 20.9042C18.3746 23.4339 14.2585 23.4338 11.7289 20.9042C9.19919 18.3745 9.19919 14.2585 11.7289 11.7288C14.2584 9.19927 18.3745 9.19907 20.9042 11.7288C23.4339 14.2585 23.4339 18.3745 20.9042 20.9042Z" fill="black"/>
+											<path d="M20.191 15.5259H17.1085V12.4433C17.1085 12.0063 16.7542 11.6521 16.3173 11.6521C15.8803 11.6521 15.5261 12.0063 15.5261 12.4433V15.5259H12.4435C12.0066 15.5259 11.6523 15.8801 11.6523 16.317C11.6523 16.754 12.0066 17.1082 12.4435 17.1082H15.5261V20.1908C15.5261 20.6278 15.8803 20.982 16.3173 20.982C16.7542 20.982 17.1085 20.6278 17.1085 20.1908V17.1082H20.191C20.628 17.1082 20.9822 16.754 20.9822 16.317C20.9822 15.8801 20.628 15.5259 20.191 15.5259Z" fill="black"/>
+										</svg>
+									</button>
+                                </div>
 							</article>
 						</li>
 						<li class="slideshow__item product-card">
