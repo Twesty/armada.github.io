@@ -20,7 +20,7 @@ $( document ).ready(function () {
             })
         });
 
-        // Miltiple
+        // Multiple
         let deleteMultipleItemsButton = $('.products__remove');
 
         deleteMultipleItemsButton.on('click', function () {
