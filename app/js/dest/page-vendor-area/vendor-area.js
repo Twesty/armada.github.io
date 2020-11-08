@@ -2,6 +2,45 @@
 
 $( document ).ready(function () {
 
+    // Delete product
+
+    {
+        let modalDeleteSubmitButton = $('.confirm-delete-modal__accept');
+
+        // Singe
+        let deleteSingleItemButton = $('.products-table__delete');
+
+        $.each(deleteSingleItemButton, function () {
+            $( this ).on('click', function () {
+                let itemId = $( this ).attr('data-item-id');
+
+                console.log(itemId)
+
+                modalDeleteSubmitButton.attr('data-items-ids', itemId)
+            })
+        });
+
+        // Miltiple
+        let deleteMultipleItemsButton = $('.products__remove');
+
+        deleteMultipleItemsButton.on('click', function () {
+            let selectedItems = $('table .selected');
+            let itemsIds = '';
+
+            $.each(selectedItems, function (index) {
+                let itemId = $( this ).find('.products-table__delete').attr('data-item-id');
+
+                if(index >= selectedItems.length - 1) {
+                    itemsIds += itemId;
+                } else {
+                    itemsIds += itemId + ',';
+                }
+
+                modalDeleteSubmitButton.attr('data-items-ids', itemsIds)
+            });
+        });
+    }
+
     // Duplicate input
 
     {
