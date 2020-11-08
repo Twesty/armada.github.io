@@ -193,6 +193,10 @@
     font-size: 15px;
     &--register {
         max-width: 580px;
+        .input-prefix {
+            top: 1.15rem;
+            transform: none;
+        }
     }
     &__title {
         margin-bottom: 25px;
