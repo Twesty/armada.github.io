@@ -2742,7 +2742,7 @@ $( document ).ready(function () {
         let phoneInput = $('input[type=tel]');
 
         $.each(phoneInput, function () {
-            $(this).mask('+00 (000) 000-00-00');
+            $(this).mask('+0 (000) 000-00-00');
         });
     }
 
