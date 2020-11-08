@@ -2729,6 +2729,27 @@ k("input"),watchDataMask:!1,byPassKeys:[9,16,17,18,36,37,38,39,40,91],translatio
 
 $( document ).ready(function () {
 
+    // Header media position fixed
+
+    {
+        let mainContent = $('.main-content');
+        let header = $('.header');
+        let headerHeight = header.outerHeight();
+
+        $( window ).resize(function(){
+            let headerHeight = header.outerHeight();
+            if(($(window).width() + 17) < 1280) {
+                mainContent.css({'margin-top': headerHeight + 'px'});
+            } else {
+                mainContent.css({'margin-top': '0'});
+            }
+        });
+
+        if(($(window).width() + 17) < 1280) {
+            mainContent.css({'margin-top': headerHeight + 'px'});
+        }
+    }
+
     // Material select
 
     {
@@ -2843,27 +2864,6 @@ $( document ).ready(function () {
                 }
             });
         });
-    }
-
-    // Header media position fixed
-
-    {
-        let mainContent = $('.main-content');
-        let header = $('.header');
-        let headerHeight = header.outerHeight();
-
-        $( window ).resize(function(){
-            let headerHeight = header.outerHeight();
-            if(($(window).width() + 17) < 1280) {
-                mainContent.css({'margin-top': headerHeight + 'px'});
-            } else {
-                mainContent.css({'margin-top': '0'});
-            }
-        });
-
-        if(($(window).width() + 17) < 1280) {
-            mainContent.css({'margin-top': headerHeight + 'px'});
-        }
     }
 
     // Tooltips
