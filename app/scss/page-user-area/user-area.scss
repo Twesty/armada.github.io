@@ -177,11 +177,20 @@
     }
 }
 
-.page-login {
-    padding-top: 60px;
+.page-vendor-register {
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
     &__login {
-
+        box-shadow: 0 2px 15px rgba(0,0,0,.10);
     }
+}
+
+.page-login {
+  padding-top: 60px;
+  &__login {
+
+  }
 }
 
 .md-form.md-outline>input[type]:-webkit-autofill:not(.browser-default):not([type=search])+label.active {
