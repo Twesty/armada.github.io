@@ -319,12 +319,12 @@
     &--color {
       display: flex;
       align-items: center;
-      li {
-        padding: 5px;
-        margin: 0 5px;
+      label {
+        margin: 0 7.5px;
+        cursor:pointer;
       }
-      a {
-        display: flex;
+      li {
+
       }
       span {
         display: inline-block;
@@ -332,22 +332,25 @@
         min-height: 25px;
         border-radius: 5px;
       }
-    }
-  }
-  &__item {
-    &--active {
-      position: relative;
-      &:before {
-        position: absolute;
-        content: '';
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        border: 1px solid #00a046;
-        background: #f4faf6;
-        z-index: -1;
-        border-radius: 5px;
+      input[type="radio"] {
+        display: none;
+        &:checked {
+          & ~ span {
+            position: relative;
+            &:before {
+              position: absolute;
+              content: '';
+              top: -5px;
+              bottom: -5px;
+              right: -5px;
+              left: -5px;
+              border: 1px solid #00a046;
+              background: #f4faf6;
+              z-index: -1;
+              border-radius: 5px;
+            }
+          }
+        }
       }
     }
   }
