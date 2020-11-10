@@ -2,6 +2,26 @@
 
 $( document ).ready(function () {
 
+    // Forgot password
+
+    {
+        let remindButton = $('.login__forgot-button');
+        let remindForm = $('.login__remind');
+        let loginForm = $('.login__in');
+
+        remindButton.on('click', function () {
+            loginForm.hide();
+            remindForm.show();
+        });
+
+        let rememberedButton = $('.login__remembered-button');
+
+        rememberedButton.on('click', function () {
+            loginForm.show();
+            remindForm.hide();
+        })
+    }
+
     // Delete product
 
     {

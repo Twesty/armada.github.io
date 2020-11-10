@@ -208,6 +208,15 @@
     background-color: #FFF;
     border-radius: 5px;
     font-size: 15px;
+    &__in {
+        display: flex;
+    }
+    &__remind {
+        display: none;
+    }
+    &__remind-button {
+
+    }
     &--register {
         max-width: 580px;
         .input-prefix {

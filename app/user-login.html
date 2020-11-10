@@ -1069,7 +1069,7 @@
 
     <main class="main-content page-login" style="background: url('img/sections-bg/register-bg.jpg')">
         <section class="login page-login__login">
-            <form class="d-flex flex-column justify-content-between h-100">
+            <form class="flex-column justify-content-between h-100 login__in">
                 <div>
                     <h3 class="h4 text-center login__title">Вход</h3>
 
@@ -1100,7 +1100,7 @@
                             </div>
                         </div>
                         <div>
-                            <a href="#" class="btn-link text-underline">Напомнить пароль</a>
+                            <a href="#" class="btn-link text-underline login__forgot-button">Напомнить пароль</a>
                         </div>
                     </div>
 
@@ -1112,7 +1112,6 @@
                         </p>
                     </div>
                 </div>
-
                 <div class="text-center">
                     <p>
                         <a href="#" class="d-flex align-items-center justify-content-center font-weight-semibold login__as-seller">
@@ -1129,6 +1128,51 @@
                         <span class="flex-grow-1"><hr></span>
                     </div>
 
+                    <div class="d-flex justify-content-between mt-3">
+                        <div class="social-login social-login--facebook flex-grow-1 mr-2 align-items-center">
+                            <div class="social-login__icon">
+                                <img src="img/facebook-logo.png" alt="Facebook">
+                            </div>
+                            <div>
+                                <span class="d-block social-login__name">Facebook</span>
+                            </div>
+                        </div>
+                        <div class="social-login social-login--google flex-grow-1 ml-2 align-items-center">
+                            <div class="social-login__icon">
+                                <img src="img/google-logo.png" alt="Google">
+                            </div>
+                            <div>
+                                <span class="d-block social-login__name">Google</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form class="flex-column justify-content-between h-100 login__remind">
+                <div>
+                    <h3 class="h4 text-center login__title">Напомнить пароль</h3>
+
+                    <div class="md-form md-outline input-with-pre-icon">
+                        <svg class="input-prefix" width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.418 0.0273438H1.58203C0.710789 0.0273438 0 0.749496 0 1.63642V12.3636C0 13.2475 0.707625 13.9727 1.58203 13.9727H16.418C17.287 13.9727 18 13.2529 18 12.3636V1.63642C18 0.7525 17.2924 0.0273438 16.418 0.0273438ZM16.1995 1.10006L9.03354 8.38856L1.80559 1.10006H16.1995ZM1.05469 12.1415V1.85343L6.13403 6.97529L1.05469 12.1415ZM1.80046 12.8999L6.883 7.73052L8.66391 9.52632C8.87006 9.73421 9.20275 9.73353 9.40806 9.52467L11.1445 7.75852L16.1995 12.8999H1.80046ZM16.9453 12.1414L11.8903 7L16.9453 1.85854V12.1414Z" fill="#737373"/>
+                        </svg>
+                        <input type="email" name="forgot-login" id="forgot-login" class="form-control">
+                        <label for="forgot-login">Ваш E-mail</label>
+                    </div>
+
+                    <button class="button btn-primary btn-block my-4 text-uppercase rounded" type="submit">Запросить новый пароль</button>
+                    <div class="text-center">
+                        <p>
+                            <a href="#" class="font-weight-semibold text-underline ml-3 login__remembered-button">Я вспомнил свой пароль</a>
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex align-items-center justify-content-between" style="color: #787878;">
+                        <span class="flex-grow-1"><hr></span>
+                        <span class="col" style="white-space: nowrap">Или войти через</span>
+                        <span class="flex-grow-1"><hr></span>
+                    </div>
                     <div class="d-flex justify-content-between mt-3">
                         <div class="social-login social-login--facebook flex-grow-1 mr-2 align-items-center">
                             <div class="social-login__icon">
