@@ -249,7 +249,7 @@ a {
 
   .slick-active {
     background: $accent;
-    border-color: $accent;
+    border-color: $accent !important;
   }
 
   li {

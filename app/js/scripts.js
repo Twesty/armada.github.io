@@ -2986,11 +2986,11 @@ $( document ).ready(function () {
         })
     }
 
-    // Header categories dropdown
+    // Header categories
 
     {
         let button = $('.categories__show');
-        let dropdown = $('.all-categories__wrap');
+        let dropdown = $('.all-categories');
 
         button.on('click', function () {
             dropdown.slideToggle(200, function(){
@@ -3015,19 +3015,18 @@ $( document ).ready(function () {
 
     {
         let item = $('.all-categories__main-item--has-children');
-        let wrap = $('.all-categories__wrap');
+        let wrap = $('.all-categories');
 
         $.each(item, function(){
             let dropdown = $( this ).find('.all-categories__subcategories');
 
             $( this ).on('mouseenter', function () {
                 dropdown.show();
-                wrap.addClass('active');
-            })
+                dropdown.mCustomScrollbar();
+            });
 
             $( this ).on('mouseleave', function () {
                 dropdown.hide();
-                wrap.removeClass('active');
             })
         })
     }
@@ -3156,7 +3155,7 @@ $( document ).ready(function () {
     // Product card limitation text and hover
 
     {
-        let productCard = $('.slideshow .product-card__wrap');
+        let productCard = $('.product-card__wrap');
 
         $.each(productCard, function () {
             let title = $(this).find('.product-card__title'),
@@ -3183,39 +3182,43 @@ $( document ).ready(function () {
             if(titleText.length > standartLimit || vendorText.length > standartLimit) {
                 let productContent = $( this ).find('.product-card__content');
 
-                $( this ).on('mouseenter', function () {
-                    title.text(titleText);
-                    vendor.text(vendorText);
+                if($( this ).hasClass('limited')) {
 
-                    productContent.css({
-                        'margin-top' : '-' + ((titleHeight * limitRatio) + (vendorHeight * limitRatio) - 50) + 'px',
+                } else {
+                    $( this ).on('mouseenter', function () {
+                        title.text(titleText);
+                        vendor.text(vendorText);
+
+                        productContent.css({
+                            'margin-top' : '-' + ((titleHeight * limitRatio) + (vendorHeight * limitRatio) - 50) + 'px',
+                        });
+
+                        $.each([title, vendor], function () {
+                            let length = $(this).text().length;
+
+                            if (length > expandedLimit) {
+                                $(this).text($(this).text().substr(0, expandedLimit) + '...');
+                            }
+                        });
+
                     });
 
-                    $.each([title, vendor], function () {
-                        let length = $(this).text().length;
+                    $( this ).on('mouseleave', function () {
 
-                        if (length > expandedLimit) {
-                            $(this).text($(this).text().substr(0, expandedLimit) + '...');
-                        }
-                    });
+                        productContent.css({
+                            'margin-top' : '0'
+                        });
 
-                });
+                        $.each([title, vendor], function () {
+                            let length = $(this).text().length;
 
-                $( this ).on('mouseleave', function () {
+                            if (length > standartLimit) {
+                                $(this).text($(this).text().substr(0, standartLimit) + '...');
+                            }
+                        });
 
-                    productContent.css({
-                        'margin-top' : '0'
-                    });
-
-                    $.each([title, vendor], function () {
-                        let length = $(this).text().length;
-
-                        if (length > standartLimit) {
-                            $(this).text($(this).text().substr(0, standartLimit) + '...');
-                        }
-                    });
-
-                })
+                    })
+                }
             }
 
         })
