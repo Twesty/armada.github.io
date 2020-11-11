@@ -1210,4 +1210,70 @@ figure figcaption {
   }
 }
 
+.user-block {
+  padding: 25px 30px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  &__icon {
+    margin-right: 30px;
+    svg {
+      margin-top: 2px;
+    }
+  }
+  &__wrap {
+    flex-grow: 1;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__title {
+    font-weight: 500;
+    font-size: 18px;
+  }
+  &__edit {
+    display: flex;
+    align-items: center;
+    color: $accent;
+    cursor: pointer;
+    svg {
+      margin-right: 10px;
+    }
+  }
+  &__content {
+    margin-top: 25px;
+  }
+  &__items {
+    margin: 0 -15px -30px -15px;
+    padding: 0;
+    list-style: none;
+  }
+  &__item {
+    margin-bottom: 30px;
+    font-size: 15px;
+    .custom-control-label {
+      padding-left: 15px;
+    }
+  }
+}
+
+.user-block-info {
+  &__name {
+    display: block;
+    font-size: 13px;
+    color: #818181;
+  }
+  &__value {
+    font-size: 15px;
+    &>*:not(span) {
+      display: none;
+    }
+    .select-wrapper input.select-dropdown {
+      height: 38px;
+    }
+  }
+}
+
 @import "vendor-area-responsive";
