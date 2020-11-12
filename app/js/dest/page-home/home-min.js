@@ -1,0 +1,1 @@
+"use strict";$(document).ready(function(){{let e=$(".video__preview, .video__title");$.each(e,function(){$(this).YouTubePopUp()})}});
