@@ -11990,9 +11990,7 @@ body.scrollable {
 
 .md-form .input-prefix {
     position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+    top: 22px;
     -webkit-transition: color 0.2s;
     transition: color 0.2s;
     color: rgba(0, 0, 0, 0.87);
