@@ -48,7 +48,7 @@
 
   .product-card {
     &__image {
-      min-height: 220px;
+      height: 220px;
     }
   }
 
@@ -738,7 +738,7 @@
       height: 18px;
     }
     &__image {
-      min-height: 200px;
+      height: 200px;
     }
     &__wrap {
       background: none;
