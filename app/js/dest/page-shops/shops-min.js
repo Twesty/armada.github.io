@@ -1,1 +1,0 @@
-"use strict";$(document).ready(function(){{let o=$(".catalog__shop");$.each(o,function(){let o=$(this).find(".shop-card__footer"),t=$(this).find(".shop-card__content > div:first-child").height();console.log(t),t>=220&&o.addClass("shop-card__footer--row")})}});
