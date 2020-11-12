@@ -113,20 +113,6 @@
             align-items: flex-start;
         }
     }
-    .page-login {
-        padding-top: 30px;
-    }
-    .login {
-        font-size: 13px;
-        margin: 0 auto 50px auto;
-        padding: 40px 30px;
-        &__title {
-            font-size: 22px;
-        }
-        button[type="submit"] {
-            height: 40px;
-        }
-    }
 }
 
 // ≥360px
