@@ -33,15 +33,6 @@
 	<div class="overlay"></div>
 
 	<header class="header">
-		<div class="ad">
-			<img src="img/free-delivery.png" alt="Free delivery" width="100%">
-			<div class="ad__close container">
-				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<circle cx="10" cy="10" r="10" fill="black" fill-opacity="0.25"/>
-					<path fill-rule="evenodd" clip-rule="evenodd" d="M5.80862 5.80862C5.86667 5.75041 5.93564 5.70423 6.01157 5.67273C6.08751 5.64122 6.16891 5.625 6.25112 5.625C6.33333 5.625 6.41473 5.64122 6.49066 5.67273C6.56659 5.70423 6.63556 5.75041 6.69362 5.80862L10.0011 9.11737L13.3086 5.80862C13.3667 5.75051 13.4357 5.70441 13.5116 5.67296C13.5876 5.64151 13.6689 5.62533 13.7511 5.62533C13.8333 5.62533 13.9147 5.64151 13.9906 5.67296C14.0665 5.70441 14.1355 5.75051 14.1936 5.80862C14.2517 5.86673 14.2978 5.93571 14.3293 6.01164C14.3607 6.08756 14.3769 6.16894 14.3769 6.25112C14.3769 6.3333 14.3607 6.41467 14.3293 6.4906C14.2978 6.56652 14.2517 6.63551 14.1936 6.69362L10.8849 10.0011L14.1936 13.3086C14.2517 13.3667 14.2978 13.4357 14.3293 13.5116C14.3607 13.5876 14.3769 13.6689 14.3769 13.7511C14.3769 13.8333 14.3607 13.9147 14.3293 13.9906C14.2978 14.0665 14.2517 14.1355 14.1936 14.1936C14.1355 14.2517 14.0665 14.2978 13.9906 14.3293C13.9147 14.3607 13.8333 14.3769 13.7511 14.3769C13.6689 14.3769 13.5876 14.3607 13.5116 14.3293C13.4357 14.2978 13.3667 14.2517 13.3086 14.1936L10.0011 10.8849L6.69362 14.1936C6.63551 14.2517 6.56652 14.2978 6.4906 14.3293C6.41467 14.3607 6.3333 14.3769 6.25112 14.3769C6.16894 14.3769 6.08756 14.3607 6.01164 14.3293C5.93571 14.2978 5.86673 14.2517 5.80862 14.1936C5.75051 14.1355 5.70441 14.0665 5.67296 13.9906C5.64151 13.9147 5.62533 13.8333 5.62533 13.7511C5.62533 13.6689 5.64151 13.5876 5.67296 13.5116C5.70441 13.4357 5.75051 13.3667 5.80862 13.3086L9.11737 10.0011L5.80862 6.69362C5.75041 6.63556 5.70423 6.56659 5.67273 6.49066C5.64122 6.41473 5.625 6.33333 5.625 6.25112C5.625 6.16891 5.64122 6.08751 5.67273 6.01157C5.70423 5.93564 5.75041 5.86667 5.80862 5.80862Z" fill="white"/>
-				</svg>
-			</div>
-		</div>
 		<div class="header__overlay"></div>
 		<div class="header__top">
 			<div class="container">
@@ -99,7 +90,13 @@
 					<span class="bars__title">Меню</span>
 				</div>
 				<div class="header__logo">
-					<a href="/"><img src="img/logo.png" alt="Armada"></a>
+					<a href="/">
+						<picture>
+							<source srcset="img/logo.webp" type="image/webp">
+							<source srcset="img/logo.png" type="image/png">
+							<img src="img/logo.png" alt="Armada">
+						</picture>
+					</a>
 				</div>
 				<div class="header__search">
 					<form id="search" action="#" class="search">
@@ -1673,7 +1670,11 @@
 		<div class="photo-modal__wrap">
 			<div class="photo-modal__current container">
 				<div class="photo-modal__zoom">
-					<img src="img/product/1.jpg" alt="Product image">
+					<picture>
+						<source srcset="img/categories/1.webp" type="image/webp">
+						<source srcset="img/categories/1.png" type="image/png">
+						<img src="img/categories/1.png" alt="Category image">
+					</picture>
 				</div>
 			</div>
 			<div class="photo-modal__actions">
@@ -1969,8 +1970,16 @@
 
 		<section class="section slideshow section--slideshow viewed page-home__viewed">
 			<div class="section__background section__background--pr">
-				<img src="img/sections-bg/viewed-bg.jpg" alt="">
-				<img src="img/sections-bg/viewed-bg-2.png" alt="" class="viewed__background">
+				<picture>
+					<source srcset="img/sections-bg/viewed-bg.webp" type="image/webp">
+					<source srcset="img/sections-bg/viewed-bg.jpg" type="image/png">
+					<img src="img/sections-bg/viewed-bg.jpg" alt="">
+				</picture>
+				<picture>
+					<source srcset="img/sections-bg/viewed-bg-2.webp" type="image/webp">
+					<source srcset="img/sections-bg/viewed-bg-2.png" type="image/png">
+					<img src="img/sections-bg/viewed-bg-2.png" alt="" class="viewed__background">
+				</picture>
 			</div>
 			<div class="container">
 				<div class="section__header">
@@ -3099,28 +3108,44 @@
 				<ul class="advantages__items row">
 					<li class="advantage advantages__item col-12 col-md-6 col-lg-3">
 						<div class="advantage__image">
-							<img src="img/advantages/1.png" alt="Advantage image">
+							<picture>
+								<source srcset="img/advantages/1.webp" type="image/webp">
+								<source srcset="img/advantages/1.png" type="image/png">
+								<img src="img/advantages/1.png" alt="Advantage image">
+							</picture>
 						</div>
 						<b class="advantage__title">Более 50+ продавцев</b>
 						<p class="advantage__description">Более 50 продавцов со всех стран СНГ - России, Ураины, Белоруси.</p>
 					</li>
 					<li class="advantage advantages__item col-12 col-md-6 col-lg-3">
 						<div class="advantage__image">
-							<img src="img/advantages/2.png" alt="Advantage image">
+							<picture>
+								<source srcset="img/advantages/2.webp" type="image/webp">
+								<source srcset="img/advantages/2.png" type="image/png">
+								<img src="img/advantages/2.png" alt="Advantage image">
+							</picture>
 						</div>
 						<b class="advantage__title">Доставка за 1 день</b>
 						<p class="advantage__description">Доставка в любой регион СНГ в самые короткие сроки, благодаря партнерам.</p>
 					</li>
 					<li class="advantage advantages__item col-12 col-md-6 col-lg-3">
 						<div class="advantage__image">
-							<img src="img/advantages/3.png" alt="Advantage image">
+							<picture>
+								<source srcset="img/advantages/3.webp" type="image/webp">
+								<source srcset="img/advantages/3.png" type="image/png">
+								<img src="img/advantages/3.png" alt="Advantage image">
+							</picture>
 						</div>
 						<b class="advantage__title">Самовывоз</b>
 						<p class="advantage__description">Вы можете самостоятельно забрать свой заказ в наших пунктах самовывоза.</p>
 					</li>
 					<li class="advantage advantages__item col-12 col-md-6 col-lg-3">
 						<div class="advantage__image">
-							<img src="img/advantages/4.png" alt="Advantage image">
+							<picture>
+								<source srcset="img/advantages/4.webp" type="image/webp">
+								<source srcset="img/advantages/4.png" type="image/png">
+								<img src="img/advantages/4.png" alt="Advantage image">
+							</picture>
 						</div>
 						<b class="advantage__title">Удобные кредиты</b>
 						<p class="advantage__description">Первоначальный взнос от 0%, срок кредитования до 24 месяцев.</p>
@@ -3231,7 +3256,11 @@
 				<div class="row">
 					<div class="footer__about col-12 col-md-4 col-lg-3">
 						<a href="/" class="footer__logo">
-							<img src="img/logo.png" alt="ARMADA">
+							<picture>
+								<source srcset="img/logo.webp" type="image/webp">
+								<source srcset="img/logo.png" type="image/png">
+								<img src="img/logo.png" alt="Armada">
+							</picture>
 						</a>
 						<p class="footer__description">Самый большой выбор мебели и товаров для дома в стране</p>
 						<div class="footer__social">
