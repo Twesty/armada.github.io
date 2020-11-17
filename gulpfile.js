@@ -52,6 +52,7 @@ gulp.task('main-scripts', function() {
 		//'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		//'app/libs/mdbootstrap/js/modules/file-input.min.js', // MDB
 		'app/libs/scrollbar/jquery.mCustomScrollbar.js', // ScrolL Bar
+		'app/libs/lazy/lazyload.min.js', // Lazy Load
 		//'app/libs/dateRangePicker/moment.min.js', // Date range picker
 		//'app/libs/dateRangePicker/daterangepicker.min.js', // Date range picker
 		//'app/libs/easy-zoom/jquery.zoom.min.js', // Easy zoom
@@ -218,7 +219,7 @@ gulp.task('watch', function() {
 
 gmWatch ? gulp.task('default', gulp.parallel(
 			// 'styles',
-			// 'main-scripts',
+			'main-scripts',
 			// 'scripts-parts',
 			// 'scripts-page-home',
 			// 'scripts-page-catalog',
@@ -232,7 +233,7 @@ gmWatch ? gulp.task('default', gulp.parallel(
 			'watch'
 		)) : gulp.task('default', gulp.parallel(
 			// 'styles',
-			// 'main-scripts',
+			'main-scripts',
 			// 'scripts-parts',
 			// 'scripts-page-home',
 			// 'scripts-page-catalog',
