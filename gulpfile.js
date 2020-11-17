@@ -81,6 +81,7 @@ gulp.task('scripts-page-home', function() {
 		'app/libs/popup/YouTubePopUp.jquery.js', // Popup
 		'app/libs/popper.min.js', // Popper
 		'app/js/src/parts/product-card.js', // Product-card
+		'app/libs/easy-zoom/jquery.zoom.min.js', // Easy zoom
 		'app/js/src/parts/banner.js', // Banner
 		'app/js/src/parts/slideshow.js', // Slideshow
 		'app/js/src/parts/together.js', // Together
@@ -97,6 +98,7 @@ gulp.task('scripts-page-catalog', function() {
 		'app/libs/slick/slick.min.js', // Slick
 		'app/js/src/page-catalog/*.js', // Home
 		'app/js/src/parts/product-card.js', // Product-card
+		'app/libs/easy-zoom/jquery.zoom.min.js', // Easy zoom
 		'app/js/src/parts/banner.js', // Banner
 		'app/js/src/parts/filters.js', // Filters
 		'app/js/src/parts/slideshow.js', // Slideshow
@@ -138,6 +140,8 @@ gulp.task('scripts-page-product', function() {
 		'app/libs/popup/YouTubePopUp.jquery.js', // Popup
 		'app/libs/slick/slick.min.js', // Slick
 		'app/js/src/parts/slideshow.js', // Slideshow
+		'app/js/src/parts/product-card.js', // Product-card
+		'app/libs/easy-zoom/jquery.zoom.min.js', // Easy zoom
 		'app/js/src/parts/faq.js', // Faq
 		'app/js/src/parts/together.js', // Together
 		'app/js/src/page-product/*.js', // Home
@@ -213,31 +217,31 @@ gulp.task('watch', function() {
 });
 
 gmWatch ? gulp.task('default', gulp.parallel(
-			// 'styles',
-			// 'main-scripts',
-			// 'scripts-parts',
-			// 'scripts-page-home',
-			// 'scripts-page-catalog',
-			// 'scripts-page-login',
-			// 'scripts-page-order',
-			// 'scripts-page-product',
-			// 'scripts-page-shops',
-			// 'scripts-page-user-area',
-			// 'scripts-page-vendor-area',
+			'styles',
+			'main-scripts',
+			'scripts-parts',
+			'scripts-page-home',
+			'scripts-page-catalog',
+			'scripts-page-login',
+			'scripts-page-order',
+			'scripts-page-product',
+			'scripts-page-shops',
+			'scripts-page-user-area',
+			'scripts-page-vendor-area',
 			'browser-sync',
 			'watch'
 		)) : gulp.task('default', gulp.parallel(
-			// 'styles',
-			// 'main-scripts',
-			// 'scripts-parts',
-			// 'scripts-page-home',
-			// 'scripts-page-catalog',
-			// 'scripts-page-login',
-			// 'scripts-page-order',
-			// 'scripts-page-product',
-			// 'scripts-page-shops',
-			// 'scripts-page-user-area',
-			// 'scripts-page-vendor-area',
+			'styles',
+			'main-scripts',
+			'scripts-parts',
+			'scripts-page-home',
+			'scripts-page-catalog',
+			'scripts-page-login',
+			'scripts-page-order',
+			'scripts-page-product',
+			'scripts-page-shops',
+			'scripts-page-user-area',
+			'scripts-page-vendor-area',
 			'browser-sync',
 			'watch'
 		));
