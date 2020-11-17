@@ -47,7 +47,7 @@ gulp.task('main-scripts', function() {
 		'app/libs/jquery/dist/jquery.min.js', // Jquery
 		//'app/libs/jquery-ui/jquery-ui.min.js', // Jquery UI
 		//'app/libs/jquery.mask.min.js', // Jquery mask
-		//'app/libs/bootstrap/js/bootstrap.min.js', // Bootstrap
+		'app/libs/bootstrap/js/bootstrap.min.js', // Bootstrap
 		//'app/libs/bootstrap/js/bootstrap.bundle.min.js', // Bootstrap Bundle
 		//'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		//'app/libs/mdbootstrap/js/modules/file-input.min.js', // MDB
@@ -219,7 +219,7 @@ gulp.task('watch', function() {
 
 gmWatch ? gulp.task('default', gulp.parallel(
 			// 'styles',
-			//'main-scripts',
+			'main-scripts',
 			// 'scripts-parts',
 			// 'scripts-page-home',
 			// 'scripts-page-catalog',
@@ -233,7 +233,7 @@ gmWatch ? gulp.task('default', gulp.parallel(
 			'watch'
 		)) : gulp.task('default', gulp.parallel(
 			// 'styles',
-			//'main-scripts',
+			'main-scripts',
 			// 'scripts-parts',
 			// 'scripts-page-home',
 			// 'scripts-page-catalog',

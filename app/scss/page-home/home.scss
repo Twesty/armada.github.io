@@ -1,5 +1,23 @@
 @import "../vars";
 
+// Sections
+@import "../parts/_sections/_banner/banner";
+@import "../parts/_sections/_section/section";
+@import "../parts/_sections/_viewed/viewed";
+@import "../parts/_sections/_slideshow/slideshow";
+@import "../parts/_sections/_stocks/stocks";
+@import "../parts/_sections/_advantages/advantages";
+@import "../parts/_sections/_youtube/youtube";
+@import "../parts/_sections/_seo-text/seo-text";
+@import "../parts/_sections/_subscribe/subscribe";
+@import "../parts/_sections/_together/together";
+@import "../parts/_sections/_cart/cart";
+
+// Blocks
+@import "../parts/_blocks/_category-card/category-card";
+@import "../parts/_blocks/_product-card/product-card";
+@import "../parts/_blocks/_quantity/quantity";
+
 .page-home {
   &__banner {
 
@@ -51,10 +69,6 @@
   &__item {
     padding: 17px 12.5px;
   }
-}
-
-.about {
-
 }
 
 @import "home-responsive";

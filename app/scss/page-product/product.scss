@@ -364,4 +364,29 @@
   }
 }
 
+.availability {
+  display: inline-flex;
+  align-items: center;
+  min-width: 195px;
+  padding: 7px 20px;
+  font-size: 14px;
+  background: #F4FAF6;
+
+  svg {
+    margin-right: 15px;
+  }
+
+  &--true {
+    color: #00A046;
+  }
+
+  &--false {
+    color: $accent;
+
+    path {
+      fill: $accent;
+    }
+  }
+}
+
 @import "product-responsive";

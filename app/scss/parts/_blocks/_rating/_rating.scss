@@ -72,3 +72,5 @@
 .rating__input--none:not(.rating-group--no-change):hover + .rating__label .rating__icon--none {
   color: red;
 }
+
+@import "rating-responsive";
