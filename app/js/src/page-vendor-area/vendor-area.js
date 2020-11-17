@@ -2,6 +2,31 @@
 
 $( document ).ready(function () {
 
+    // Matherial select
+    $('.mdb-select').materialSelect();
+
+    // Data Picker Initialization
+    {
+        $('.datepicker').datepicker({
+            format: 'dd.mm.yyyy',
+
+            monthsFull: ['Январь', 'Февраль', 'Март', 'Апрель', 'Мая', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+            monthsShort: ['Янв', 'Февр', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Ноя', 'Дек'],
+            weekdaysFull: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
+            weekdaysShort: ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'],
+
+            labelMonthNext: 'След. месяц',
+            labelMonthPrev: 'Пред. месяц',
+            labelMonthSelect: 'Выбрать месяц',
+            labelYearSelect: 'Выбрать год',
+
+            today: 'Сегодня',
+            clear: 'Очистить',
+            close: 'Закрыть',
+
+        });
+    }
+
     // Menu slide right
 
     {
@@ -121,8 +146,6 @@ $( document ).ready(function () {
         $.each(deleteSingleItemButton, function () {
             $( this ).on('click', function () {
                 let itemId = $( this ).attr('data-item-id');
-
-                console.log(itemId)
 
                 modalDeleteSubmitButton.attr('data-items-ids', itemId)
             })
@@ -262,7 +285,6 @@ $( document ).ready(function () {
 
     {
         let schemeBlocks = $('.svg polygon');
-        console.log(schemeBlocks);
         let output = $('input[name="map-code"]');
 
         $.each(schemeBlocks, function () {
@@ -351,7 +373,7 @@ $( document ).ready(function () {
             $uploadCrop.croppie('bind', {
                 url: rawImg
             }).then(function(){
-                console.log('jQuery bind complete');
+
             });
         });
 

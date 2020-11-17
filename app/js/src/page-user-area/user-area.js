@@ -2,6 +2,10 @@
 
 $( document ).ready(function () {
 
+    // Matherial select
+
+    $('.mdb-select').materialSelect();
+
     // Forgot password
 
     {

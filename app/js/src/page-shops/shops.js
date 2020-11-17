@@ -10,8 +10,6 @@ $( document ).ready(function () {
             let itemFooter = $( this ).find('.shop-card__footer');
             let itemContentHeight = $( this ).find('.shop-card__content > div:first-child').height();
 
-            console.log(itemContentHeight);
-
             if(itemContentHeight >= 220) {
                 itemFooter.addClass('shop-card__footer--row')
             }

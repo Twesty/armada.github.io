@@ -1,0 +1,1 @@
+$(document).ready(function(){{let t=$(".dropdown");$.each(t,function(){let t=$("."+$(this).attr("data-dropdown"));$(this).on("click",function(){t.is(":visible")?t.slideUp(200):t.slideDown(200)}),$(document).mouseup(function(n){t.is(n.target)||0!==t.has(n.target).length||t.slideUp(200)})})}});
