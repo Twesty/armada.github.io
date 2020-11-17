@@ -120,4 +120,26 @@ $( document ).ready(function () {
 
     var sticky = new Sticky('.product__gallery-sticky');
 
+    // Product chars
+
+    {
+        let chars = $('.product-char');
+        let charsWrap = $('.product-chars');
+        let moreButton = $('.product-chars-more-button');
+
+        let limit = charsWrap.attr('data-chars-limit');
+        let i = 1;
+
+        $.each(chars, function () {
+            if( i <= limit) {
+                moreButton.hide();
+            } else {
+                moreButton.show();
+                $( this ).hide()
+            }
+
+            i++;
+        });
+    }
+
 });

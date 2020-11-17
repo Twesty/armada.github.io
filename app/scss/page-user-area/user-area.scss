@@ -154,6 +154,10 @@
         .select-wrapper input.select-dropdown {
             height: 38px;
         }
+        &--password {
+            width: auto;
+            margin: 0 5px 5px 0;
+        }
     }
 }
 

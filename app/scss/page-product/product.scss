@@ -147,6 +147,14 @@
   }
 }
 
+.product-char {
+  display: flex;
+}
+
+.product-chars-more-button {
+  display: flex;
+}
+
 .gallery {
   user-select: none;
   &__arrow {

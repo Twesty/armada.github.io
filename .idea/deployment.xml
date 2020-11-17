@@ -37,6 +37,13 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="Kupisafe (1)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="Maxaon">
         <serverdata>
           <mappings>
@@ -52,6 +59,13 @@
         </serverdata>
       </paths>
       <paths name="Maxaon v.2">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="Outved">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />

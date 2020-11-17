@@ -63,7 +63,6 @@ $( document ).ready(function () {
         $.each(userBlock, function () {
             let editButton = $( this ).find('.user-block__edit');
             let inputs = $( this ).find('.user-block-info__value > *:not(span)');
-            let currentValue = $( this ).find('.user-block-info__value > span');
 
             editButton.on('click', function (e) {
                 e.preventDefault();
@@ -74,11 +73,39 @@ $( document ).ready(function () {
                 } else {
                     $( this ).addClass('active');
                     editButton.find('span').text('Сохранить');
-                    currentValue.fadeOut(200);
 
-                    setTimeout(function () {
-                        inputs.fadeIn(200);
-                    }, 200);
+                    $.each(inputs, function () {
+                        let currentValue = $( this ).siblings('span');
+
+                        if( $( this ).hasClass('user-block-info__value--no-change') ) {
+                            return;
+                        }
+
+                        else if( $( this ).hasClass('user-block-info__value--password') ) {
+                            currentValue.fadeOut(200);
+
+                            setTimeout(() => {
+                                let cloneInput = $( this )
+                                    .clone()
+                                    .attr({
+                                        'name':'current-password',
+                                        'placeholder':'Текущий пароль'
+                                    })
+                                    .insertBefore($( this ))
+                                    .fadeIn(200);
+
+                                $( this ).fadeIn(200);
+                            }, 200)
+                        }
+
+                        else {
+                            currentValue.fadeOut(200);
+
+                            setTimeout(() => {
+                                $( this ).fadeIn(200);
+                            }, 200)
+                        }
+                    })
                 }
             })
         })

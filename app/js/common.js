@@ -294,12 +294,17 @@ $( document ).ready(function () {
             let dropdown = $( this ).find('.all-categories__subcategories');
 
             $( this ).on('mouseenter', function () {
-                dropdown.show();
-                dropdown.mCustomScrollbar();
+                dropdown.css({'display':'flex'});
+                dropdown.find('.all-categories__subcategories-main-ul').css({
+                    'height': dropdown.find('.all-categories__subcategories-items-wrap').height()
+                });
+                dropdown.find('.all-categories__subcategories-items-wrap').mCustomScrollbar({
+                    axis: 'x'
+                });
             });
 
             $( this ).on('mouseleave', function () {
-                dropdown.hide();
+                dropdown.css({'display':'none'});
             })
         })
     }
