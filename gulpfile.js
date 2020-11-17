@@ -219,7 +219,7 @@ gulp.task('watch', function() {
 
 gmWatch ? gulp.task('default', gulp.parallel(
 			// 'styles',
-			'main-scripts',
+			//'main-scripts',
 			// 'scripts-parts',
 			// 'scripts-page-home',
 			// 'scripts-page-catalog',
@@ -233,7 +233,7 @@ gmWatch ? gulp.task('default', gulp.parallel(
 			'watch'
 		)) : gulp.task('default', gulp.parallel(
 			// 'styles',
-			'main-scripts',
+			//'main-scripts',
 			// 'scripts-parts',
 			// 'scripts-page-home',
 			// 'scripts-page-catalog',
