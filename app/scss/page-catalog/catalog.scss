@@ -1,5 +1,24 @@
 @import "../vars";
 
+// Sections
+@import "../parts/_sections/_section/section";
+@import "../parts/_sections/_filters/filters";
+@import "../parts/_sections/_pagination/pagination";
+@import "../parts/_sections/_viewed/viewed";
+@import "../parts/_sections/_subscribe/subscribe";
+@import "../parts/_sections/_slideshow/slideshow";
+@import "../parts/_sections/_cart/cart";
+@import "../parts/_sections/_autoseatch/autosearch";
+@import "../parts/_sections/_together/together";
+@import "../parts/_sections/_orders/orders";
+
+// Blocks
+@import "../parts/_blocks/_category-card/category-card";
+@import "../parts/_blocks/_product-card/product-card";
+@import "../parts/_blocks/_breadcrumbs/breadcrumbs";
+@import "../parts/_blocks/_price/price";
+@import "../parts/_blocks/_quantity/quantity";
+
 .page-catalog {
   &__subcategories {
     margin-bottom: 80px;

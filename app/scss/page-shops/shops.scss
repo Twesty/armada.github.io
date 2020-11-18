@@ -1,5 +1,21 @@
 @import "../vars";
 
+// Sections
+@import "../parts/_sections/_together/together";
+@import "../parts/_sections/_cart/cart";
+@import "../parts/_sections/_subscribe/subscribe";
+@import "../parts/_sections/_section/section";
+@import "../parts/_sections/_filters/filters";
+@import "../parts/_sections/_orders/orders";
+@import "../parts/_sections/_pagination/pagination";
+
+// Blocks
+@import "../parts/_blocks/_product-card/product-card";
+@import "../parts/_blocks/_shop-card/shop-card";
+@import "../parts/_blocks/_price/price";
+@import "../parts/_blocks/_breadcrumbs/breadcrumbs";
+@import "../parts/_blocks/_quantity/quantity";
+
 .page-shops {
   &__subscribe {
 

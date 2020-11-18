@@ -2,6 +2,9 @@
 
 $( document ).ready(function () {
 
+    // Material select
+    $('.mdb-select').materialSelect();
+
     // Service show contacts
 
     {

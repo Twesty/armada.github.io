@@ -96,6 +96,7 @@ gulp.task('scripts-page-home', function() {
 
 gulp.task('scripts-page-catalog', function() {
 	return gulp.src([
+		'app/libs/jquery-ui/jquery-ui.min.js', // Jquery UI
 		'app/libs/slick/slick.min.js', // Slick
 		'app/js/src/page-catalog/*.js', // Home
 		'app/js/src/parts/product-card.js', // Product-card
@@ -113,20 +114,28 @@ gulp.task('scripts-page-catalog', function() {
 gulp.task('scripts-page-login', function() {
 	return gulp.src([
 		'app/libs/jquery.mask.min.js', // Jquery mask
-		'app/libs/bootstrap/js/bootstrap.min.js', // Bootstrap
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		'app/js/src/page-login/*.js', // Home
 	])
-	.pipe(concat('login.js'))
-	.pipe(minify())
-	.pipe(gulp.dest('app/js/dest/page-login'))
-	.pipe(browserSync.reload({ stream: true }))
+		.pipe(concat('login.js'))
+		.pipe(minify())
+		.pipe(gulp.dest('app/js/dest/page-login'))
+		.pipe(browserSync.reload({ stream: true }))
+});
+
+gulp.task('scripts-page-news', function() {
+	return gulp.src([
+		'app/js/src/page-news/*.js', // Home
+	])
+		.pipe(concat('news.js'))
+		.pipe(minify())
+		.pipe(gulp.dest('app/js/dest/page-news'))
+		.pipe(browserSync.reload({ stream: true }))
 });
 
 gulp.task('scripts-page-order', function() {
 	return gulp.src([
 		'app/libs/jquery.mask.min.js', // Jquery mask
-		'app/libs/bootstrap/js/bootstrap.min.js', // Bootstrap
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		'app/js/src/page-order/*.js', // Home
 	])
@@ -166,7 +175,6 @@ gulp.task('scripts-page-shops', function() {
 
 gulp.task('scripts-page-user-area', function() {
 	return gulp.src([
-		'app/libs/bootstrap/js/bootstrap.min.js', // Bootstrap
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		'app/js/src/page-user-area/*.js', // Home
 	])
@@ -176,13 +184,25 @@ gulp.task('scripts-page-user-area', function() {
 		.pipe(browserSync.reload({ stream: true }))
 });
 
+gulp.task('scripts-page-info', function() {
+	return gulp.src([
+		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
+		'app/js/src/parts/faq.js', // Faq
+		'app/js/src/page-info/*.js', // Home
+	])
+		.pipe(concat('info.js'))
+		.pipe(minify())
+		.pipe(gulp.dest('app/js/dest/page-info'))
+		.pipe(browserSync.reload({ stream: true }))
+});
+
 gulp.task('scripts-page-vendor-area', function() {
 	return gulp.src([
-		'app/libs/bootstrap/js/bootstrap.min.js', // Bootstrap
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		'app/libs/dateRangePicker/moment.min.js', // Date range picker
 		'app/libs/dateRangePicker/daterangepicker.min.js', // Date range picker
 		'app/libs/croppie/croppie.min.js', // Croppie
+		'app/js/src/parts/filters.js', // Together
 		'app/js/src/page-vendor-area/*.js', // Home
 	])
 		.pipe(concat('vendor-area.js'))
@@ -208,7 +228,9 @@ gulp.task('watch', function() {
 	gulp.watch(['app/js/src/page-product/*.js'], gulp.parallel('scripts-page-product'));
 	gulp.watch(['app/js/src/page-shops/*.js'], gulp.parallel('scripts-page-shops'));
 	gulp.watch(['app/js/src/page-user-area/*.js'], gulp.parallel('scripts-page-user-area'));
+	gulp.watch(['app/js/src/page-news/*.js'], gulp.parallel('scripts-page-news'));
 	gulp.watch(['app/js/src/page-vendor-area/*.js'], gulp.parallel('scripts-page-vendor-area'));
+	gulp.watch(['app/js/src/page-info/*.js'], gulp.parallel('scripts-page-info'));
 
 	// Parts
 	gulp.watch('app/js/src/parts/**/*.js', gulp.parallel('scripts-parts'));
@@ -223,12 +245,14 @@ gmWatch ? gulp.task('default', gulp.parallel(
 			// 'scripts-parts',
 			// 'scripts-page-home',
 			// 'scripts-page-catalog',
+			// 'scripts-page-news',
 			// 'scripts-page-login',
 			// 'scripts-page-order',
 			// 'scripts-page-product',
 			// 'scripts-page-shops',
 			// 'scripts-page-user-area',
 			// 'scripts-page-vendor-area',
+			'scripts-page-info',
 			'browser-sync',
 			'watch'
 		)) : gulp.task('default', gulp.parallel(
@@ -237,12 +261,14 @@ gmWatch ? gulp.task('default', gulp.parallel(
 			// 'scripts-parts',
 			// 'scripts-page-home',
 			// 'scripts-page-catalog',
+			// 'scripts-page-news',
 			// 'scripts-page-login',
 			// 'scripts-page-order',
 			// 'scripts-page-product',
 			// 'scripts-page-shops',
 			// 'scripts-page-user-area',
 			// 'scripts-page-vendor-area',
+			'scripts-page-info',
 			'browser-sync',
 			'watch'
 		));

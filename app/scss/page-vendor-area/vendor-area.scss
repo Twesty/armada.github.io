@@ -1,5 +1,14 @@
 @import '../vars';
 
+// Sections
+@import "../parts/_sections/_pagination/pagination";
+@import "../parts/_sections/_orders/orders";
+@import "../parts/_sections/_filters/filters";
+
+// Blocks
+@import "../parts/_blocks/_price/price";
+@import "../parts/_blocks/_quantity/quantity";
+
 * {
   &::placeholder {
     font-weight: 300;

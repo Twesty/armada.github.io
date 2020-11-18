@@ -1,5 +1,17 @@
 @import "../vars";
 
+// Sections
+@import "../parts/_sections/_together/together";
+@import "../parts/_sections/_cart/cart";
+@import "../parts/_sections/_subscribe/subscribe";
+@import "../parts/_sections/_pagination/pagination";
+@import "../parts/_sections/_orders/orders";
+
+// Blocks
+@import "../parts/_blocks/_product-card/product-card";
+@import "../parts/_blocks/_price/price";
+@import "../parts/_blocks/_quantity/quantity";
+
 .page-user-area {
     padding-top: 50px;
     background: #FBFBFB;

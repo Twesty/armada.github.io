@@ -1,0 +1,1 @@
+$(document).ready(function(){{let e=$(".faq__item");$.each(e,function(){let e=$(this).find(".faq__question"),i=$(this).find(".faq__response");e.on("click",function(){$(this).find(".faq__expand").toggleClass("active"),i.slideToggle(200)})}),$(".faq__question").eq(0).trigger("click")}});

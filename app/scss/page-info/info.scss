@@ -1,5 +1,24 @@
 @import "../vars";
 
+// Sections
+@import "../parts/_sections/_banner/banner";
+@import "../parts/_sections/_section/section";
+@import "../parts/_sections/_advantages/advantages";
+@import "../parts/_sections/_youtube/youtube";
+@import "../parts/_sections/_seo-text/seo-text";
+@import "../parts/_sections/_subscribe/subscribe";
+@import "../parts/_sections/_together/together";
+@import "../parts/_sections/_cart/cart";
+@import "../parts/_sections/_faq/faq";
+@import "../parts/_sections/_pagination/pagination";
+
+// Blocks
+@import "../parts/_blocks/_news/news";
+@import "../parts/_blocks/_breadcrumbs/breadcrumbs";
+@import "../parts/_blocks/_product-card/product-card";
+@import "../parts/_blocks/_quantity/quantity";
+@import "../parts/_blocks/_price/price";
+
 .page-info {
   &__map {
     margin-bottom: 90px;

@@ -11,57 +11,12 @@
 // ≥1280px
 @include media-breakpoint-down(lg) {
 
-  .news-item {
-    &--lg {
-      .news-item__title {
-        font-size: 24px;
-      }
-    }
-    &--md {
-      .news-item__title {
-        font-size: 16px;
-      }
-      .news-item__content {
-        padding: 10px 15px;
-      }
-    }
-    &--sm {
-      .news-item__title {
-        font-size: 14px;
-      }
-      .news-item__content {
-        padding: 10px;
-      }
-    }
-    &--xs {
-
-    }
-  }
-
 }
 
 // ≥1024px
 @include media-breakpoint-down(md) {
 
-  .news {
-    &__panes {
-      padding-right: 0;
-    }
-  }
 
-  .news-item {
-    &--lg {
-      .news-item__image {
-        height: 200px;
-      }
-      .news-item__title {
-        font-size: 16px;
-      }
-      .news-item__content {
-        padding: 15px;
-      }
-    }
-  }
 
 }
 
