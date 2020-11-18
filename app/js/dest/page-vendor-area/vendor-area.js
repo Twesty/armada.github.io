@@ -300,6 +300,12 @@ $( document ).ready(function () {
 
                 items.eq(itemsLength-1).after(newItemPattern);
 
+                let phoneInput = $('input[type=tel]');
+
+                $.each(phoneInput, function () {
+                    $(this).mask('+0 (000) 000-00-00', {placeholder: "+0 (123) 456 78 90"});
+                });
+
                 $('.user-block__edit').unbind('click');
                 $('.duplicate__delete').unbind('click');
                 editPersonalData();
