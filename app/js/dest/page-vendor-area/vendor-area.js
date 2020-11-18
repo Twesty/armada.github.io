@@ -180,6 +180,134 @@ $( document ).ready(function () {
     // Matherial select
     $('.mdb-select').materialSelect();
 
+    // User edit input
+
+    function editPersonalData() {
+        let userBlock = $('.user-block');
+
+        $.each(userBlock, function () {
+            let editButton = $( this ).find('.user-block__edit');
+            let inputs = $( this ).find('.user-block-info__value > *:not(span), .duplicate__delete, .duplicate__add');
+
+            editButton.on('click', function (e) {
+                e.preventDefault();
+                let form = $( this ).parents('.user-block__wrap');
+
+                if( $( this ).hasClass('active') ) {
+                    form.submit();
+                } else {
+                    $( this ).addClass('active');
+                    editButton.find('span').text('Сохранить');
+
+                    $.each(inputs, function () {
+                        let currentValue = $( this ).siblings('span');
+
+                        if( $( this ).hasClass('user-block-info__value--no-change') ) {
+                            return;
+                        }
+
+                        else if( $( this ).hasClass('user-block-info__value--password') ) {
+                            currentValue.fadeOut(200);
+
+                            setTimeout(() => {
+                                let cloneInput = $( this )
+                                    .clone()
+                                    .attr({
+                                        'name':'current-password',
+                                        'placeholder':'Текущий пароль'
+                                    })
+                                    .insertBefore($( this ))
+                                    .fadeIn(200);
+
+                                $( this ).fadeIn(200);
+                            }, 200)
+                        }
+
+                        else {
+                            currentValue.fadeOut(200);
+
+                            setTimeout(() => {
+                                $( this ).fadeIn(200);
+                            }, 200)
+                        }
+                    })
+                }
+            })
+        })
+    }
+
+    editPersonalData();
+
+    function deleteItem() {
+        let deleteButton = $('.duplicate__delete');
+
+        deleteButton.on('click', function () {
+            let item = $( this ).parents('.duplicate__item');
+            let index = parseInt($(item).attr('data-duplicate-item-id'))
+
+            if( index !== 1) {
+                $.each(item.nextAll('.duplicate__item'), function () {
+                    let index = parseInt($( this ).attr('data-duplicate-item-id'));
+
+                    index--;
+
+                    let inputs = $( this ).find('input');
+
+                    $.each(inputs, function () {
+                        $( this ).attr('name', $( this ).attr('name').slice(0, -1) + index);
+                    });
+
+                    $( this ).attr('data-duplicate-item-id', index)
+                });
+
+
+                item.detach();
+            }
+
+        });
+    }
+
+    deleteItem();
+
+    // Duplicate
+
+    {
+        let wrap = $('.duplicate');
+
+        $.each(wrap, function () {
+            let $this = $( this );
+            let addButton = $('.duplicate__add');
+
+            addButton.on('click', function () {
+                let items = $('.duplicate__item');
+
+                let itemsLength = items.length;
+
+                console.log(itemsLength);
+
+                let newItemPattern = items.eq(itemsLength - 1).clone();
+
+                let inputs = newItemPattern.find('input');
+                let newItemIndex = parseInt(newItemPattern.attr('data-duplicate-item-id')) + 1;
+
+                $.each(inputs, function () {
+                    $( this ).attr('name', $( this ).attr('name').slice(0, -1) + newItemIndex);
+                    $( this ).val('');
+                    $( this ).siblings('span').text('Не указано');
+                });
+
+                newItemPattern.attr('data-duplicate-item-id', newItemIndex);
+
+                items.eq(itemsLength-1).after(newItemPattern);
+
+                $('.user-block__edit').unbind('click');
+                $('.duplicate__delete').unbind('click');
+                editPersonalData();
+                deleteItem();
+            });
+        })
+    }
+
     // Data Picker Initialization
     {
         $('.datepicker').datepicker({
@@ -254,61 +382,6 @@ $( document ).ready(function () {
         })
     }
 
-    // User edit input
-
-    {
-        let userBlock = $('.user-block');
-
-        $.each(userBlock, function () {
-            let editButton = $( this ).find('.user-block__edit');
-            let inputs = $( this ).find('.user-block-info__value > *:not(span)');
-
-            editButton.on('click', function (e) {
-                e.preventDefault();
-                let form = $( this ).parents('.user-block__wrap');
-
-                if( $( this ).hasClass('active') ) {
-                    form.submit();
-                } else {
-                    $( this ).addClass('active');
-                    editButton.find('span').text('Сохранить');
-
-                    $.each(inputs, function () {
-                        let currentValue = $( this ).siblings('span');
-
-                        if( $( this ).hasClass('user-block-info__value--no-change') ) {
-                            return;
-                        }
-
-                        else if( $( this ).hasClass('user-block-info__value--password') ) {
-                            currentValue.fadeOut(200);
-
-                            setTimeout(() => {
-                                let cloneInput = $( this )
-                                    .clone()
-                                    .attr({
-                                        'name':'current-password',
-                                        'placeholder':'Текущий пароль'
-                                    })
-                                    .insertBefore($( this ))
-                                    .fadeIn(200);
-
-                                $( this ).fadeIn(200);
-                            }, 200)
-                        }
-
-                        else {
-                            currentValue.fadeOut(200);
-
-                            setTimeout(() => {
-                                $( this ).fadeIn(200);
-                            }, 200)
-                        }
-                    })
-                }
-            })
-        })
-    }
 
     // Delete product
 

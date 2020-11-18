@@ -46,7 +46,7 @@ gulp.task('main-scripts', function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js', // Jquery
 		//'app/libs/jquery-ui/jquery-ui.min.js', // Jquery UI
-		//'app/libs/jquery.mask.min.js', // Jquery mask
+		'app/libs/jquery.mask.min.js', // Jquery mask
 		'app/libs/bootstrap/js/bootstrap.min.js', // Bootstrap
 		//'app/libs/bootstrap/js/bootstrap.bundle.min.js', // Bootstrap Bundle
 		//'app/libs/mdbootstrap/js/mdb.min.js', // MDB
@@ -113,7 +113,6 @@ gulp.task('scripts-page-catalog', function() {
 
 gulp.task('scripts-page-login', function() {
 	return gulp.src([
-		'app/libs/jquery.mask.min.js', // Jquery mask
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		'app/js/src/page-login/*.js', // Home
 	])
@@ -135,7 +134,6 @@ gulp.task('scripts-page-news', function() {
 
 gulp.task('scripts-page-order', function() {
 	return gulp.src([
-		'app/libs/jquery.mask.min.js', // Jquery mask
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		'app/js/src/page-order/*.js', // Home
 	])

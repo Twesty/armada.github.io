@@ -1273,6 +1273,12 @@ figure figcaption {
       padding-left: 15px;
     }
   }
+  &__additional-phones {
+    ul {
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+    }
+  }
 }
 
 .user-block-info {
@@ -1293,6 +1299,17 @@ figure figcaption {
       width: auto;
       margin: 0 10px 5px 0;
     }
+  }
+}
+
+.duplicate {
+  &__delete {
+    display: none;
+    margin-left: 15px;
+    cursor: pointer;
+  }
+  &__add {
+    display: none;
   }
 }
 
