@@ -109,34 +109,51 @@ $( document ).ready(function () {
                 if( selectValueType === 'viber' ) {
                     input
                         .attr('type','tel')
+                        .unmask()
+                        .val('')
                         .mask('+0 (000) 000-00-00', {placeholder: "+0 (123) 456 78 90"});
                 } else if( selectValueType === 'telegram' ) {
                     input
                         .attr('type','tel')
+                        .unmask()
+                        .val('')
                         .mask('+0 (000) 000-00-00', {placeholder: "+0 (123) 456 78 90"});
                 } else if( selectValueType === 'whatsup' ) {
                     input
                         .attr('type','tel')
+                        .unmask()
+                        .val('')
                         .mask('+0 (000) 000-00-00', {placeholder: "+0 (123) 456 78 90"});
                 } else if( selectValueType === 'messenger' ) {
                     input
                         .attr('type','tel')
+                        .unmask()
+                        .val('')
                         .mask('+0 (000) 000-00-00', {placeholder: "+0 (123) 456 78 90"});
                 } else if( selectValueType === 'site' ) {
-                    input.attr({
-                        'type' : 'url',
-                        'placeholder' : 'Например: www.site.com.ua'
-                    });
+                    input
+                        .unmask()
+                        .val('')
+                        .attr({
+                            'type' : 'url',
+                            'placeholder' : 'Например: www.site.com.ua'
+                        })
                 } else if( selectValueType === 'skype' ) {
-                    input.attr({
-                        'type' : 'text',
-                        'placeholder' : 'Логин Skype'
-                    });
+                    input
+                        .unmask()
+                        .val('')
+                        .attr({
+                            'type' : 'text',
+                            'placeholder' : 'Логин Skype'
+                        })
                 } else if( selectValueType === 'icq' ) {
-                    input.attr({
-                        'type' : 'text',
-                        'placeholder' : 'Например: 615295455'
-                    });
+                    input
+                        .unmask()
+                        .val('')
+                        .attr({
+                            'type' : 'text',
+                            'placeholder' : 'Например: 615295455'
+                        })
                 }
             })
         })
