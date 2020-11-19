@@ -834,10 +834,11 @@
       position: relative;
       padding: 0 40px 0 10px;
     }
-    &.active {
-      margin-bottom: 10px;
-    }
-    &:hover {
+    //&.active {
+    //  margin-bottom: 10px;
+    //}
+    &:hover,
+    &--active {
       path {
         fill: $accent;
       }

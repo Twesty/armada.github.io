@@ -201,6 +201,7 @@ gulp.task('scripts-page-vendor-area', function() {
 		'app/libs/dateRangePicker/daterangepicker.min.js', // Date range picker
 		'app/libs/croppie/croppie.min.js', // Croppie
 		'app/js/src/parts/filters.js', // Together
+		'app/libs/jquery-ui/jquery-ui.min.js', // Jquery UI
 		'app/js/src/page-vendor-area/*.js', // Home
 	])
 		.pipe(concat('vendor-area.js'))
@@ -249,7 +250,7 @@ gmWatch ? gulp.task('default', gulp.parallel(
 			// 'scripts-page-product',
 			// 'scripts-page-shops',
 			// 'scripts-page-user-area',
-			// 'scripts-page-vendor-area',
+			 'scripts-page-vendor-area',
 			// 'scripts-page-info',
 			'browser-sync',
 			'watch'
@@ -265,7 +266,7 @@ gmWatch ? gulp.task('default', gulp.parallel(
 			// 'scripts-page-product',
 			// 'scripts-page-shops',
 			// 'scripts-page-user-area',
-			// 'scripts-page-vendor-area',
+			 'scripts-page-vendor-area',
 			// 'scripts-page-info',
 			'browser-sync',
 			'watch'
