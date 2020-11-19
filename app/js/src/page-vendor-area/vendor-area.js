@@ -76,7 +76,7 @@ $( document ).ready(function () {
 
                     index--;
 
-                    let inputs = $( this ).find('input');
+                    let inputs = $( this ).find('input, select');
 
                     $.each(inputs, function () {
                         $( this ).attr('name', $( this ).attr('name').slice(0, -1) + index);
@@ -94,6 +94,56 @@ $( document ).ready(function () {
 
     deleteItem();
 
+    // Select additional social value
+
+    function selectAdditional() {
+        let wrap = $('.user-block__additional-other');
+
+        $.each(wrap, function(){
+            let select = $( this ).find('select');
+            let input = $( this ).find('input');
+
+            select.on('change', function() {
+                let selectValueType = this.value;
+
+                if( selectValueType === 'viber' ) {
+                    input
+                        .attr('type','tel')
+                        .mask('+0 (000) 000-00-00', {placeholder: "+0 (123) 456 78 90"});
+                } else if( selectValueType === 'telegram' ) {
+                    input
+                        .attr('type','tel')
+                        .mask('+0 (000) 000-00-00', {placeholder: "+0 (123) 456 78 90"});
+                } else if( selectValueType === 'whatsup' ) {
+                    input
+                        .attr('type','tel')
+                        .mask('+0 (000) 000-00-00', {placeholder: "+0 (123) 456 78 90"});
+                } else if( selectValueType === 'messenger' ) {
+                    input
+                        .attr('type','tel')
+                        .mask('+0 (000) 000-00-00', {placeholder: "+0 (123) 456 78 90"});
+                } else if( selectValueType === 'site' ) {
+                    input.attr({
+                        'type' : 'url',
+                        'placeholder' : 'Например: www.site.com.ua'
+                    });
+                } else if( selectValueType === 'skype' ) {
+                    input.attr({
+                        'type' : 'text',
+                        'placeholder' : 'Логин Skype'
+                    });
+                } else if( selectValueType === 'icq' ) {
+                    input.attr({
+                        'type' : 'text',
+                        'placeholder' : 'Например: 615295455'
+                    });
+                }
+            })
+        })
+    }
+
+    selectAdditional();
+
     // Duplicate
 
     {
@@ -101,23 +151,22 @@ $( document ).ready(function () {
 
         $.each(wrap, function () {
             let $this = $( this );
-            let addButton = $('.duplicate__add');
+            let addButton = $( this ).find('.duplicate__add');
 
             addButton.on('click', function () {
-                let items = $('.duplicate__item');
+                let items = $this.find('.duplicate__item');
 
                 let itemsLength = items.length;
 
-                console.log(itemsLength);
-
                 let newItemPattern = items.eq(itemsLength - 1).clone();
 
-                let inputs = newItemPattern.find('input');
+                let inputs = newItemPattern.find('input:not(.select-dropdown), select');
                 let newItemIndex = parseInt(newItemPattern.attr('data-duplicate-item-id')) + 1;
 
                 $.each(inputs, function () {
                     $( this ).attr('name', $( this ).attr('name').slice(0, -1) + newItemIndex);
                     $( this ).val('');
+                    $( this ).attr('placeholder', '');
                     $( this ).siblings('span').text('Не указано');
                 });
 
@@ -133,6 +182,8 @@ $( document ).ready(function () {
 
                 $('.user-block__edit').unbind('click');
                 $('.duplicate__delete').unbind('click');
+                $('.user-block-info__value .custom-select').unbind('change');
+                selectAdditional();
                 editPersonalData();
                 deleteItem();
             });
