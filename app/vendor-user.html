@@ -696,7 +696,7 @@
 								</div>
 								<div>
 
-									<div class="d-flex mb-4 pb-4 border-bottom">
+									<div class="d-flex mb-4 pb-5 border-bottom">
 										<div class="user-block__icon">
 											<svg width="17" height="20" viewBox="0 0 17 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M11.9 11.875C10.8109 11.875 10.2873 12.5 8.5 12.5C6.71272 12.5 6.19286 11.875 5.1 11.875C2.28437 11.875 0 14.2266 0 17.125V18.125C0 19.1602 0.815848 20 1.82143 20H15.1786C16.1842 20 17 19.1602 17 18.125V17.125C17 14.2266 14.7156 11.875 11.9 11.875ZM15.1786 18.125H1.82143V17.125C1.82143 15.2656 3.29375 13.75 5.1 13.75C5.65402 13.75 6.55335 14.375 8.5 14.375C10.4618 14.375 11.3422 13.75 11.9 13.75C13.7063 13.75 15.1786 15.2656 15.1786 17.125V18.125ZM8.5 11.25C11.5167 11.25 13.9643 8.73047 13.9643 5.625C13.9643 2.51953 11.5167 0 8.5 0C5.48326 0 3.03571 2.51953 3.03571 5.625C3.03571 8.73047 5.48326 11.25 8.5 11.25ZM8.5 1.875C10.5074 1.875 12.1429 3.55859 12.1429 5.625C12.1429 7.69141 10.5074 9.375 8.5 9.375C6.49263 9.375 4.85714 7.69141 4.85714 5.625C4.85714 3.55859 6.49263 1.875 8.5 1.875Z" fill="black"/>
@@ -707,48 +707,61 @@
 												<div class="user-block__title">Персональные данные</div>
 											</div>
 											<div class="user-block__content">
-												<ul class="user-block__items row">
-													<li class="user-block-info user-block__item col-12 col-md-6 col-xl-4">
-														<div class="user-block-info__name">Фамилия</div>
-														<div class="user-block-info__value">
-															<input type="text" class="form-control" name="lastName" value="Афонин" required>
-															<span>Афонин</span>
+												<ul class="user-block__items row align-items-center">
+													<li class="col-12 col-md-4 col-xl-3">
+														<div class="imgUp mb-0 pl-0">
+															<div class="imagePreview" style="background-image: url({{ asset('/img/noimg.jpg') }})"></div>
+															<input type="hidden" value="img/care-images/1.jpg">
+															<label class="button btn-primary image-load">
+																Загрузить<input type="file" class="uploadFile img" value="Загрузить фото" style="width: 0px;height: 0px;overflow: hidden;">
+															</label>
 														</div>
 													</li>
-													<li class="user-block-info user-block__item col-12 col-md-6 col-xl-4">
-														<div class="user-block-info__name">Имя</div>
-														<div class="user-block-info__value">
-															<input type="text" class="form-control" name="firstName" value="Александр" required>
-															<span>Александр</span>
-														</div>
-													</li>
-													<li class="user-block-info user-block__item col-12 col-md-6 col-xl-4">
-														<div class="user-block-info__name">Отчество</div>
-														<div class="user-block-info__value">
-															<input type="text" class="form-control" name="patronymic" value="">
-															<span>Не указано</span>
-														</div>
-													</li>
-													<li class="user-block-info user-block__item col-12 col-md-6 col-xl-4">
-														<div class="user-block-info__name">Наименование компании</div>
-														<div class="user-block-info__value">
-															<input type="text" class="form-control" name="company-name" value="">
-															<span>Не указан</span>
-														</div>
-													</li>
-													<li class="user-block-info user-block__item col-12 col-md-6 col-xl-4">
-														<div class="user-block-info__name">Контактное лицо</div>
-														<div class="user-block-info__value">
-															<input type="text" class="form-control" name="company-user" value="">
-															<span>Не указан</span>
-														</div>
-													</li>
-													<li class="user-block-info user-block__item col-12 col-md-6 col-xl-4">
-														<div class="user-block-info__name">Телефон для связи</div>
-														<div class="user-block-info__value">
-															<input type="tel" class="form-control" name="company-user-phone" value="">
-															<span>Не указан</span>
-														</div>
+													<li class="col-12 col-md-8 col-xl-9">
+														<ul class="row list-style-none p-0">
+															<li class="user-block-info user-block__item col-12 col-md-6">
+																<div class="user-block-info__name">Фамилия</div>
+																<div class="user-block-info__value">
+																	<input type="text" class="form-control" name="lastName" value="Афонин" required>
+																	<span>Афонин</span>
+																</div>
+															</li>
+															<li class="user-block-info user-block__item col-12 col-md-6">
+																<div class="user-block-info__name">Имя</div>
+																<div class="user-block-info__value">
+																	<input type="text" class="form-control" name="firstName" value="Александр" required>
+																	<span>Александр</span>
+																</div>
+															</li>
+															<li class="user-block-info user-block__item col-12 col-md-6">
+																<div class="user-block-info__name">Отчество</div>
+																<div class="user-block-info__value">
+																	<input type="text" class="form-control" name="patronymic" value="">
+																	<span>Не указано</span>
+																</div>
+															</li>
+															<li class="user-block-info user-block__item col-12 col-md-6">
+																<div class="user-block-info__name">Наименование компании</div>
+																<div class="user-block-info__value">
+																	<input type="text" class="form-control" name="company-name" value="">
+																	<span>Не указан</span>
+																</div>
+															</li>
+															<li class="user-block-info user-block__item col-12 col-md-6">
+																<div class="user-block-info__name">Контактное лицо</div>
+																<div class="user-block-info__value">
+																	<input type="text" class="form-control" name="company-user" value="">
+																	<span>Не указан</span>
+																</div>
+															</li>
+															<li class="user-block-info user-block__item col-12 col-md-6">
+																<div class="user-block-info__name">Телефон для связи</div>
+																<div class="user-block-info__value">
+																	<input type="tel" class="form-control" name="company-user-phone" value="">
+																	<span>Не указан</span>
+																</div>
+															</li>
+														</ul>
 													</li>
 												</ul>
 											</div>
