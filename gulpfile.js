@@ -201,6 +201,7 @@ gulp.task('scripts-page-vendor-area', function() {
 		'app/libs/dateRangePicker/daterangepicker.min.js', // Date range picker
 		'app/libs/croppie/croppie.min.js', // Croppie
 		'app/js/src/parts/filters.js', // Together
+		'app/libs/jquery-ui/jquery-ui.min.js', // Jquery UI
 		'app/js/src/page-vendor-area/*.js', // Home
 	])
 		.pipe(concat('vendor-area.js'))
@@ -238,35 +239,35 @@ gulp.task('watch', function() {
 });
 
 gmWatch ? gulp.task('default', gulp.parallel(
-			'styles',
-			'main-scripts',
-			'scripts-parts',
-			'scripts-page-home',
-			'scripts-page-catalog',
-			'scripts-page-news',
-			'scripts-page-login',
-			'scripts-page-order',
-			'scripts-page-product',
-			'scripts-page-shops',
-			'scripts-page-user-area',
-			'scripts-page-vendor-area',
-			'scripts-page-info',
+			//'styles',
+			// 'main-scripts',
+			// 'scripts-parts',
+			// 'scripts-page-home',
+			// 'scripts-page-catalog',
+			// 'scripts-page-news',
+			// 'scripts-page-login',
+			// 'scripts-page-order',
+			// 'scripts-page-product',
+			// 'scripts-page-shops',
+			// 'scripts-page-user-area',
+			 'scripts-page-vendor-area',
+			// 'scripts-page-info',
 			'browser-sync',
 			'watch'
 		)) : gulp.task('default', gulp.parallel(
-			'styles',
-			'main-scripts',
-			'scripts-parts',
-			'scripts-page-home',
-			'scripts-page-catalog',
-			'scripts-page-news',
-			'scripts-page-login',
-			'scripts-page-order',
-			'scripts-page-product',
-			'scripts-page-shops',
-			'scripts-page-user-area',
-			'scripts-page-vendor-area',
-			'scripts-page-info',
+			// 'styles',
+			// 'main-scripts',
+			// 'scripts-parts',
+			// 'scripts-page-home',
+			// 'scripts-page-catalog',
+			// 'scripts-page-news',
+			// 'scripts-page-login',
+			// 'scripts-page-order',
+			// 'scripts-page-product',
+			// 'scripts-page-shops',
+			// 'scripts-page-user-area',
+			 'scripts-page-vendor-area',
+			// 'scripts-page-info',
 			'browser-sync',
 			'watch'
 		));

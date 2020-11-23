@@ -78,6 +78,17 @@
 
 }
 
+// ≥768px
+@include media-breakpoint-down(xsm) {
+
+  .banner {
+    &__items {
+      height: 350px;
+    }
+  }
+
+}
+
 // ≥360px
 @include media-breakpoint-down(xs) {
 

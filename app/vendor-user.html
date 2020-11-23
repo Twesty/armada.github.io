@@ -696,7 +696,7 @@
 								</div>
 								<div>
 
-									<div class="d-flex mb-4 pb-4 border-bottom">
+									<div class="d-flex mb-4 pb-5 border-bottom">
 										<div class="user-block__icon">
 											<svg width="17" height="20" viewBox="0 0 17 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M11.9 11.875C10.8109 11.875 10.2873 12.5 8.5 12.5C6.71272 12.5 6.19286 11.875 5.1 11.875C2.28437 11.875 0 14.2266 0 17.125V18.125C0 19.1602 0.815848 20 1.82143 20H15.1786C16.1842 20 17 19.1602 17 18.125V17.125C17 14.2266 14.7156 11.875 11.9 11.875ZM15.1786 18.125H1.82143V17.125C1.82143 15.2656 3.29375 13.75 5.1 13.75C5.65402 13.75 6.55335 14.375 8.5 14.375C10.4618 14.375 11.3422 13.75 11.9 13.75C13.7063 13.75 15.1786 15.2656 15.1786 17.125V18.125ZM8.5 11.25C11.5167 11.25 13.9643 8.73047 13.9643 5.625C13.9643 2.51953 11.5167 0 8.5 0C5.48326 0 3.03571 2.51953 3.03571 5.625C3.03571 8.73047 5.48326 11.25 8.5 11.25ZM8.5 1.875C10.5074 1.875 12.1429 3.55859 12.1429 5.625C12.1429 7.69141 10.5074 9.375 8.5 9.375C6.49263 9.375 4.85714 7.69141 4.85714 5.625C4.85714 3.55859 6.49263 1.875 8.5 1.875Z" fill="black"/>
@@ -707,48 +707,61 @@
 												<div class="user-block__title">Персональные данные</div>
 											</div>
 											<div class="user-block__content">
-												<ul class="user-block__items row">
-													<li class="user-block-info user-block__item col-12 col-md-6 col-xl-4">
-														<div class="user-block-info__name">Фамилия</div>
-														<div class="user-block-info__value">
-															<input type="text" class="form-control" name="lastName" value="Афонин" required>
-															<span>Афонин</span>
+												<ul class="user-block__items row align-items-center">
+													<li class="col-12 col-md-4 col-xl-3">
+														<div class="imgUp mb-0 pl-0">
+															<div class="imagePreview" style="background-image: url({{ asset('/img/noimg.jpg') }})"></div>
+															<input type="hidden" value="img/care-images/1.jpg">
+															<label class="button btn-primary image-load">
+																Загрузить<input type="file" class="uploadFile img" value="Загрузить фото" style="width: 0px;height: 0px;overflow: hidden;">
+															</label>
 														</div>
 													</li>
-													<li class="user-block-info user-block__item col-12 col-md-6 col-xl-4">
-														<div class="user-block-info__name">Имя</div>
-														<div class="user-block-info__value">
-															<input type="text" class="form-control" name="firstName" value="Александр" required>
-															<span>Александр</span>
-														</div>
-													</li>
-													<li class="user-block-info user-block__item col-12 col-md-6 col-xl-4">
-														<div class="user-block-info__name">Отчество</div>
-														<div class="user-block-info__value">
-															<input type="text" class="form-control" name="patronymic" value="">
-															<span>Не указано</span>
-														</div>
-													</li>
-													<li class="user-block-info user-block__item col-12 col-md-6 col-xl-4">
-														<div class="user-block-info__name">Наименование компании</div>
-														<div class="user-block-info__value">
-															<input type="text" class="form-control" name="company-name" value="">
-															<span>Не указан</span>
-														</div>
-													</li>
-													<li class="user-block-info user-block__item col-12 col-md-6 col-xl-4">
-														<div class="user-block-info__name">Контактное лицо</div>
-														<div class="user-block-info__value">
-															<input type="text" class="form-control" name="company-user" value="">
-															<span>Не указан</span>
-														</div>
-													</li>
-													<li class="user-block-info user-block__item col-12 col-md-6 col-xl-4">
-														<div class="user-block-info__name">Телефон для связи</div>
-														<div class="user-block-info__value">
-															<input type="tel" class="form-control" name="company-user-phone" value="">
-															<span>Не указан</span>
-														</div>
+													<li class="col-12 col-md-8 col-xl-9">
+														<ul class="row list-style-none p-0">
+															<li class="user-block-info user-block__item col-12 col-md-6 col-lg-5">
+																<div class="user-block-info__name">Фамилия</div>
+																<div class="user-block-info__value">
+																	<input type="text" class="form-control" name="lastName" value="Афонин" required>
+																	<span>Афонин</span>
+																</div>
+															</li>
+															<li class="user-block-info user-block__item col-12 col-md-6 col-lg-5">
+																<div class="user-block-info__name">Имя</div>
+																<div class="user-block-info__value">
+																	<input type="text" class="form-control" name="firstName" value="Александр" required>
+																	<span>Александр</span>
+																</div>
+															</li>
+															<li class="user-block-info user-block__item col-12 col-md-6 col-lg-5">
+																<div class="user-block-info__name">Отчество</div>
+																<div class="user-block-info__value">
+																	<input type="text" class="form-control" name="patronymic" value="">
+																	<span>Не указано</span>
+																</div>
+															</li>
+															<li class="user-block-info user-block__item col-12 col-md-6 col-lg-5">
+																<div class="user-block-info__name">Наименование компании</div>
+																<div class="user-block-info__value">
+																	<input type="text" class="form-control" name="company-name" value="">
+																	<span>Не указан</span>
+																</div>
+															</li>
+															<li class="user-block-info user-block__item col-12 col-md-6 col-lg-5">
+																<div class="user-block-info__name">Контактное лицо</div>
+																<div class="user-block-info__value">
+																	<input type="text" class="form-control" name="company-user" value="">
+																	<span>Не указан</span>
+																</div>
+															</li>
+															<li class="user-block-info user-block__item col-12 col-md-6 col-lg-5">
+																<div class="user-block-info__name">Телефон для связи</div>
+																<div class="user-block-info__value">
+																	<input type="tel" class="form-control" name="company-user-phone" value="">
+																	<span>Не указан</span>
+																</div>
+															</li>
+														</ul>
 													</li>
 												</ul>
 											</div>
@@ -874,6 +887,7 @@
 												<div class="duplicate user-block__additional-phones bg-light rounded py-3 px-4 mt-4">
 													<p class="mb-4">Другие виды связи</p>
 													<div class="duplicate__item user-block__additional-phone d-flex align-items-center" data-duplicate-item-id="1">
+<<<<<<< HEAD
 														<ul class="user-block__items flex-grow-1 row">
 															<li class="user-block-info user-block__item col-12 col-md-6 mb-0 col-xl-4">
 																<div class="user-block-info__name">Телефон</div>
@@ -930,6 +944,33 @@
 																	<span>Менеджер, Дима</span>
 																</div>
 															</li>
+=======
+														<ul class="user-block__items flex-grow-1 row user-block__additional-other">
+															<li class="user-block-info user-block__item col-12 col-md-6 mb-0 col-xl-4">
+																<div class="user-block-info__name">Тип связи</div>
+																<div class="user-block-info__value">
+																	<select class="custom-select m-0" name="additional-social-1">
+																		<option value="" selected>Выберите из списка</option>
+																		<option value="viber">Viber</option>
+																		<option value="telegram">Telegram</option>
+																		<option value="whatsup">WhatsUp</option>
+																		<option value="messenger">Messenger</option>
+																		<option value="site">Сайт компании</option>
+																		<option value="skype">Skype</option>
+																		<option value="icq">ICQ</option>
+																	</select>
+																	<span>Не указан</span>
+																</div>
+															</li>
+															<li class="user-block-info user-block__item col-12 col-md-6 mb-0 col-xl-4">
+																<div class="user-block-info__name">Значение</div>
+																<div class="user-block-info__value">
+																	<input type="text" class="form-control" name="additional-social-value-1">
+																	<span>Не указан</span>
+																</div>
+															</li>
+
+>>>>>>> 0bdbfdec815cda118f07e8cba1b8533751e8f680
 														</ul>
 														<div class="duplicate__delete">
 															<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -955,7 +996,7 @@
 										</div>
 									</div>
 
-									<div class="d-flex mb-4 pb-4 border-bottom">
+									<div class="d-flex mb-4 pb-4">
 										<div class="user-block__icon">
 											<svg width="17" height="20" viewBox="0 0 17 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path d="M11.9 11.875C10.8109 11.875 10.2873 12.5 8.5 12.5C6.71272 12.5 6.19286 11.875 5.1 11.875C2.28437 11.875 0 14.2266 0 17.125V18.125C0 19.1602 0.815848 20 1.82143 20H15.1786C16.1842 20 17 19.1602 17 18.125V17.125C17 14.2266 14.7156 11.875 11.9 11.875ZM15.1786 18.125H1.82143V17.125C1.82143 15.2656 3.29375 13.75 5.1 13.75C5.65402 13.75 6.55335 14.375 8.5 14.375C10.4618 14.375 11.3422 13.75 11.9 13.75C13.7063 13.75 15.1786 15.2656 15.1786 17.125V18.125ZM8.5 11.25C11.5167 11.25 13.9643 8.73047 13.9643 5.625C13.9643 2.51953 11.5167 0 8.5 0C5.48326 0 3.03571 2.51953 3.03571 5.625C3.03571 8.73047 5.48326 11.25 8.5 11.25ZM8.5 1.875C10.5074 1.875 12.1429 3.55859 12.1429 5.625C12.1429 7.69141 10.5074 9.375 8.5 9.375C6.49263 9.375 4.85714 7.69141 4.85714 5.625C4.85714 3.55859 6.49263 1.875 8.5 1.875Z" fill="black"/>
@@ -982,29 +1023,6 @@
 														</div>
 													</li>
 												</ul>
-											</div>
-										</div>
-									</div>
-
-									<div class="d-flex pb-4">
-										<div class="user-block__icon">
-											<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M18.6522 2.86963H3.34789C3.08401 2.86963 2.86963 3.08331 2.86963 3.34789V18.6522C2.86963 18.9168 3.08401 19.1305 3.34789 19.1305H18.6522C18.9161 19.1305 19.1305 18.9168 19.1305 18.6522V3.34789C19.1305 3.08331 18.9161 2.86963 18.6522 2.86963ZM11.0001 12.4348C12.3186 12.4348 13.3914 13.5077 13.3914 14.8262V18.174H8.60876V14.8262C8.60876 13.5077 9.68158 12.4348 11.0001 12.4348ZM8.60876 9.08702C8.60876 7.76853 9.68158 6.69572 11.0001 6.69572C12.3186 6.69572 13.3914 7.76853 13.3914 9.08702C13.3914 10.4055 12.3186 11.4783 11.0001 11.4783C9.68158 11.4783 8.60876 10.4055 8.60876 9.08702ZM18.174 18.174H14.3479V14.8262C14.3479 13.6076 13.6912 12.5425 12.7155 11.9566C13.6912 11.3707 14.3479 10.3056 14.3479 9.08702C14.3479 7.24147 12.8461 5.73919 11.0001 5.73919C9.15404 5.73919 7.65224 7.24147 7.65224 9.08702C7.65224 10.3056 8.30891 11.3707 9.28458 11.9566C8.30891 12.5425 7.65224 13.6076 7.65224 14.8262V18.174H3.82615V3.82615H18.174V18.174Z" fill="black"/>
-												<path d="M19.6087 0H2.3913C1.07282 0 0 1.07282 0 2.3913V19.6087C0 20.9272 1.07282 22 2.3913 22H19.6087C20.9272 22 22 20.9272 22 19.6087V2.3913C22 1.07282 20.9272 0 19.6087 0ZM21.0435 19.6087C21.0435 20.3996 20.3996 21.0435 19.6087 21.0435H2.3913C1.60035 21.0435 0.956522 20.3996 0.956522 19.6087V2.3913C0.956522 1.60035 1.60035 0.956522 2.3913 0.956522H19.6087C20.3996 0.956522 21.0435 1.60035 21.0435 2.3913V19.6087Z" fill="black"/>
-											</svg>
-										</div>
-										<div class="user-block__wrap">
-											<div class="user-block__header">
-												<div class="user-block__title">Аватар</div>
-											</div>
-											<div class="user-block__content flex-grow-1">
-												<div class="col-12 col-sm-6 col-md-4 col-lg-3 imgUp mb-0 pl-0">
-													<div class="imagePreview" style="background-image: url({{ asset('/img/noimg.jpg') }})"></div>
-													<input type="hidden" value="img/care-images/1.jpg">
-													<label class="button btn-primary image-load">
-														Загрузить<input type="file" class="uploadFile img" value="Загрузить фото" style="width: 0px;height: 0px;overflow: hidden;">
-													</label>
-												</div>
 											</div>
 										</div>
 									</div>

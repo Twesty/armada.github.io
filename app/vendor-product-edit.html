@@ -687,14 +687,17 @@
 							<h2 class="page-title orders__title">Изменить товар</h2>
 						</div>
 						<form action="#" class="product-edit">
-							<div class="file-field">
-								<div class="btn btn-primary btn-sm float-left">
-									<span>Выбрать файлы</span>
-									<input type="file" multiple>
+							<div class="row imgWrap">
+								<div class="col-12 col-sm-6 col-md-4 col-lg-2 imgUp">
+									<div class="imagePreview"></div>
+									<input type="hidden" name="images[]" value="{{ $image }}">
+									<label class="button btn-primary image-load">
+										Загрузить
+										<input type="file" class="uploadFile img" value="Загрузить фото" style="width: 0px;height: 0px;overflow: hidden;" accept=".png, .jpg, .jpeg">
+									</label>
+									<i class="fa fa-times del"></i>
 								</div>
-								<div class="md-form file-path-wrapper">
-									<input class="file-path validate" type="text" placeholder="Загрузите одно или несколько изображений">
-								</div>
+								<i class="fa fa-plus imgAdd"></i>
 							</div>
 							<div class="row">
 								<div class="switch col-12 col-lg-3">
@@ -1026,6 +1029,113 @@
 	<!-- Data tables -->
 	<script src="libs/mdbootstrap/js/addons/datatables2.min.js"></script>
 	<script src="libs/mdbootstrap/js/addons/datatables-select2.min.js"></script>
+
+	<!-- Upload images -->
+	<script>
+
+		let i = 1;
+		let limit = 5;
+
+
+
+		$(".imgAdd").click(function(){
+			if(i < limit) {
+				$(this).closest(".row").find('.imgAdd').before('<div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 imgUp"><div class="imagePreview"></div><label class="button btn-primary image-load">Загрузить<input type="file" class="uploadFile img" value="Upload Photo" style="width:0px;height:0px;overflow:hidden;"></label><i class="fa fa-times del"></i></div>');
+			}
+
+			if(i == limit - 1) {
+				$('.imgAdd').addClass('disabled')
+			}
+
+			i++;
+
+			$('.imgWrap').sortable();
+		});
+
+		$(document).on("click", "i.del" , function() {
+			$(this).parent().remove();
+			i--;
+			$('.imgAdd').removeClass('disabled')
+		});
+
+
+		$(document).on("change",".uploadFile", function() {
+
+			let uploadFile = $(this);
+			let files = !!this.files ? this.files : [];
+			if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+			if (/^image/.test( files[0].type)){ // only image file
+				var reader = new FileReader(); // instance of the FileReader
+				reader.readAsDataURL(files[0]); // read the local file
+
+				reader.onloadend = function(){
+
+					$('.crop-image__save').unbind('click');
+					$('#crop-image').unbind('click');
+					$('.crop-image__close').unbind('click');
+
+					$('#image-no-crop').attr("src", ""+this.result+"");
+
+					let image = document.getElementById('image-no-crop');
+
+					let cropper = new Cropper(image, {
+						aspectRatio: 4/3,
+						zoomable: false,
+						scrolable: false,
+						autoCropArea: 0,
+					});
+
+					$('#crop-image').modal();
+
+					$('.crop-image__save').on('click', () => {
+
+						let imgurl = cropper.getCroppedCanvas().toDataURL();
+
+						uploadFile.closest(".imgUp").find('.imagePreview').css("background-image", "url("+imgurl+")");
+						uploadFile.closest(".imgUp").find('input[type="hidden"]').attr("value", imgurl);
+
+						cropper.destroy();
+						$('.cropper-container').detach();
+					});
+
+					$('#crop-image').on('hidden.bs.modal', () => {
+						cropper.destroy();
+						$('.cropper-container').detach();
+					});
+
+					$('.crop-image__close').on('click', function () {
+						cropper.destroy();
+						$('.cropper-container').detach()
+					});
+
+					/* ---------------- SEND IMAGE TO THE SERVER-------------------------
+
+						cropper.getCroppedCanvas().toBlob(function (blob) {
+							  var formData = new FormData();
+							  formData.append('croppedImage', blob);
+							  // Use `jQuery.ajax` method
+							  $.ajax('/path/to/upload', {
+								method: "POST",
+								data: formData,
+								processData: false,
+								contentType: false,
+								success: function () {
+								  console.log('Upload success');
+								},
+								error: function () {
+								  console.log('Upload error');
+								}
+							  });
+						});
+
+					----------------------------------------------------*/
+				}
+			}
+
+		});
+
+	</script>
 
 	<script>
 		tinymce.init({
