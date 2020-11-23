@@ -275,15 +275,13 @@ $( document ).ready(function () {
         let wrap = $('.duplicate');
 
         $.each(wrap, function () {
-            let $this = $( this );
-            let addButton = $('.duplicate__add');
+            $this = $( this );
+            let addButton = $( this ).find('.duplicate__add');
 
             addButton.on('click', function () {
-                let items = $('.duplicate__item');
+                let items = $this.find('.duplicate__item');
 
                 let itemsLength = items.length;
-
-                console.log(itemsLength);
 
                 let newItemPattern = items.eq(itemsLength - 1).clone();
 
