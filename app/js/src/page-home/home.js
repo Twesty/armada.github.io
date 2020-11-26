@@ -3,7 +3,6 @@
 $( document ).ready(function () {
 
     // Video popup
-
     {
         let popupButton = $('.video__preview, .video__title');
 

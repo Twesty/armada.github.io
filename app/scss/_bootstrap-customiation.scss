@@ -12,6 +12,11 @@
   }
 }
 
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+  background-color: $green !important;
+  border-color: $green !important;
+}
+
 .btn-outline-dark {
   color: #787B84;
   border: 1px solid #787B84;
@@ -181,4 +186,12 @@
 .md-form input[type="search-md"]:focus:not([readonly])+label,
 .md-form textarea.md-textarea:focus:not([readonly])+label {
   color: $accent
+}
+
+.select2-container--default .select2-selection--single {
+  padding: .25rem .75rem;
+  height: auto !important;
+  .select2-selection__arrow {
+    height: 100% !important;
+  }
 }

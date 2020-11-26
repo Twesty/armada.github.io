@@ -47,6 +47,7 @@ gulp.task('main-scripts', function() {
 		'app/libs/jquery/dist/jquery.min.js', // Jquery
 		//'app/libs/jquery-ui/jquery-ui.min.js', // Jquery UI
 		'app/libs/jquery.mask.min.js', // Jquery mask
+		'app/libs/popper.js', // Popper
 		'app/libs/bootstrap/js/bootstrap.min.js', // Bootstrap
 		//'app/libs/bootstrap/js/bootstrap.bundle.min.js', // Bootstrap Bundle
 		//'app/libs/mdbootstrap/js/mdb.min.js', // MDB
@@ -196,7 +197,11 @@ gulp.task('scripts-page-info', function() {
 
 gulp.task('scripts-page-vendor-area', function() {
 	return gulp.src([
+		'app/libs/tinyMCE/tinymce.min.js', // TinyMCE
+		'app/libs/tinyMCE/ru.js', // TinyMCE
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
+		'app/libs/mdbootstrap/js/addons/datatables2.min.js', // MDB
+		'app/libs/mdbootstrap/js/addons/datatables-select2.min.js', // MDB
 		'app/libs/dateRangePicker/moment.min.js', // Date range picker
 		'app/libs/dateRangePicker/daterangepicker.min.js', // Date range picker
 		'app/libs/croppie/croppie.min.js', // Croppie
@@ -240,34 +245,34 @@ gulp.task('watch', function() {
 
 gmWatch ? gulp.task('default', gulp.parallel(
 			//'styles',
-			// 'main-scripts',
-			// 'scripts-parts',
-			// 'scripts-page-home',
-			// 'scripts-page-catalog',
-			// 'scripts-page-news',
-			// 'scripts-page-login',
-			// 'scripts-page-order',
-			// 'scripts-page-product',
-			// 'scripts-page-shops',
-			// 'scripts-page-user-area',
-			 'scripts-page-vendor-area',
-			// 'scripts-page-info',
+			//'main-scripts',
+			//'scripts-parts',
+			//'scripts-page-home',
+			//'scripts-page-catalog',
+			//'scripts-page-news',
+			//'scripts-page-login',
+			//'scripts-page-order',
+			//'scripts-page-product',
+			//'scripts-page-shops',
+			//'scripts-page-user-area',
+			//'scripts-page-vendor-area',
+			//'scripts-page-info',
 			'browser-sync',
 			'watch'
 		)) : gulp.task('default', gulp.parallel(
-			// 'styles',
-			// 'main-scripts',
-			// 'scripts-parts',
-			// 'scripts-page-home',
-			// 'scripts-page-catalog',
-			// 'scripts-page-news',
-			// 'scripts-page-login',
-			// 'scripts-page-order',
-			// 'scripts-page-product',
-			// 'scripts-page-shops',
-			// 'scripts-page-user-area',
-			 'scripts-page-vendor-area',
-			// 'scripts-page-info',
+		 	//'styles',
+			//'main-scripts',
+			//'scripts-parts',
+			//'scripts-page-home',
+			//'scripts-page-catalog',
+			//'scripts-page-news',
+			//'scripts-page-login',
+			//'scripts-page-order',
+			//'scripts-page-product',
+			//'scripts-page-shops',
+			//'scripts-page-user-area',
+			//'scripts-page-vendor-area',
+			//'scripts-page-info',
 			'browser-sync',
 			'watch'
 		));

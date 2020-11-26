@@ -1,5 +1,10 @@
 @import '../vars';
 
+// Libs
+@import "../../libs/mdbootstrap/scss/addons/datatables2";
+@import "../../libs/mdbootstrap/scss/addons/datatables-select2";
+@import "../../libs/mdbootstrap/scss/pro/tooltips";
+
 // Sections
 @import "../parts/_sections/_pagination/pagination";
 @import "../parts/_sections/_orders/orders";
@@ -184,10 +189,10 @@
     position: fixed;
     top: 0;
     right: 0;
-    left: 75px;
+    left: 60px;
     color: #777;
     z-index: 5;
-    min-height: 85px;
+    min-height: 87px;
     background: #FFF;
     &--settings {
       left: 60px;
@@ -604,6 +609,11 @@
       background: $accent;
     }
   }
+  &__remove {
+    &:disabled {
+      opacity: .5
+    }
+  }
 }
 
 .products-filters {
@@ -767,7 +777,7 @@
   }
   .mCSB_inside>.mCSB_container {
     margin-right: 0 !important;
-    height: 100%;
+    min-height: 100%;
   }
   .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
     width: 3px !important;
@@ -1311,6 +1321,47 @@ figure figcaption {
   }
   &__add {
     display: none;
+  }
+}
+
+.vendor-bars {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  &__bar {
+    opacity: 1;
+    height: 2px;
+    margin-bottom: 4px;
+    background: gray;
+    transition: width .2s, transform .2s, opacity .2s, margin-bottom .2s;
+    transform-origin: center;
+    border-radius: 2px;
+    &:nth-child(1){
+      width: 30px;
+    }
+    &:nth-child(2){
+      width: 24px;
+    }
+    &:nth-child(3){
+      width: 17px;
+    }
+  }
+  &.active {
+    .vendor-bars__bar {
+      margin-bottom: 0;
+      width: 30px !important;
+      transition: width .2s, transform .2s, opacity .2s, margin-bottom .2s;
+      &:nth-child(1){
+        transform: translateY(75%) rotate(45deg);
+      }
+      &:nth-child(2){
+        opacity: 0;
+      }
+      &:nth-child(3){
+        transform: translateY(-75%) rotate(-45deg);
+      }
+    }
   }
 }
 

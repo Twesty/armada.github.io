@@ -28,6 +28,23 @@
 @include media-breakpoint-down(sm) {
 
   .product-card {
+
+    &:not(&--vertical) {
+      .product-card__wrap {
+        box-shadow: 3px 7px 15px rgba(0, 0, 0, 0.15);
+        &:not(.product-card__wrap--no-hover) {
+          &:hover {
+            .product-card__add-to-card {
+              transform: translateY(-100%);
+            }
+            .product-card__content {
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+
     &__header {
       top: 8px;
       left: 12px;
@@ -54,7 +71,7 @@
       }
 
       .product-card__content {
-        margin-top: -40px;
+        margin-top: 0;
         margin-bottom: 40px;
       }
     }

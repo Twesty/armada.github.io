@@ -5,6 +5,77 @@ $( document ).ready(function () {
     // Matherial select
     $('.mdb-select').materialSelect();
 
+
+    // TinyMCE
+
+    {
+        tinymce.init({
+            selector: '.tinyMCE',
+            plugin: 'a_tinymce_plugin',
+            plugins: 'codesample code',
+            a_plugin_option: true,
+            a_configuration_option: 400,
+            toolbar: 'undo redo removeformat | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | codesample code',
+            language: 'ru'
+        });
+
+        // Validation
+        let form = $('form.was-validated');
+
+        form.on('submit', function (e) {
+            let editorContent = tinymce.get('description').getContent();
+            if (editorContent.length < 20)
+            {
+                e.preventDefault();
+
+                $('.description .invalid-feedback').css({'display':'block'});
+                $('.tox-tinymce').css({
+                    'border-color' : '#dc3545'
+                });
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $(".description").offset().top - 100
+                }, 1000);
+            }
+        })
+    }
+
+    // Tooltips
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip({html:true})
+    });
+
+    // Menu slide right
+
+    {
+        let menu = $('.vendor-menu');
+        let button = $('.vendor__bars');
+
+        menu.mCustomScrollbar();
+
+        button.on('click', function () {
+            $(this).toggleClass('active');
+            menu.toggleClass('active');
+
+            $('.vendor-menu__row').removeClass('active');
+            $('.vendor-menu__dropdown').slideUp(200);
+        });
+
+        menu.on('mouseenter', function () {
+            button.addClass('active');
+        });
+
+        menu.on('mouseleave', function () {
+            $('.vendor-menu__row').removeClass('active');
+            $('.vendor-menu__dropdown').slideUp(200);
+
+            if ($(this).hasClass('active')) {
+
+            } else {
+                button.removeClass('active');
+            }
+        });
+    }
+
     // User edit input
 
     function editPersonalData() {
@@ -15,12 +86,14 @@ $( document ).ready(function () {
             let inputs = $( this ).find('.user-block-info__value > *:not(span), .duplicate__delete, .duplicate__add');
 
             editButton.on('click', function (e) {
-                e.preventDefault();
-                let form = $( this ).parents('.user-block__wrap');
+                let form = $( this ).parents('form');
 
                 if( $( this ).hasClass('active') ) {
-                    form.submit();
+
                 } else {
+                    //e.preventDefault();
+
+
                     $( this ).addClass('active');
                     editButton.find('span').text('Сохранить');
 
@@ -229,156 +302,6 @@ $( document ).ready(function () {
         });
     }
 
-    // Menu slide right
-
-    {
-        let menu = $('.vendor-menu');
-        let button = $('.vendor__bars');
-
-        menu.mCustomScrollbar();
-
-        button.on('click', function () {
-            $( this ).toggleClass('active');
-            menu.toggleClass('active');
-
-            $('.vendor-menu__row').removeClass('active');
-            $('.vendor-menu__dropdown').slideUp(200);
-        });
-
-        menu.on('mouseenter', function () {
-            button.addClass('active');
-        });
-
-        menu.on('mouseleave', function () {
-            $('.vendor-menu__row').removeClass('active');
-            $('.vendor-menu__dropdown').slideUp(200);
-
-            if($( this ).hasClass('active')) {
-
-            } else {
-                button.removeClass('active');
-            }
-        });
-    }
-
-    // Forgot password
-
-    {
-        let remindButton = $('.login__forgot-button');
-        let remindForm = $('.login__remind');
-        let loginForm = $('.login__in');
-
-        remindButton.on('click', function () {
-            loginForm.hide();
-            remindForm.show();
-        });
-
-        let rememberedButton = $('.login__remembered-button');
-
-        rememberedButton.on('click', function () {
-            loginForm.show();
-            remindForm.hide();
-        })
-    }
-
-
-    // Delete product
-
-    {
-        let modalDeleteSubmitButton = $('.confirm-delete-modal__accept');
-
-        // Singe
-        let deleteSingleItemButton = $('.products-table__delete');
-
-        $.each(deleteSingleItemButton, function () {
-            $( this ).on('click', function () {
-                let itemId = $( this ).attr('data-item-id');
-
-                modalDeleteSubmitButton.attr('data-items-ids', itemId)
-            })
-        });
-
-        // Multiple
-        let deleteMultipleItemsButton = $('.products__remove');
-
-        deleteMultipleItemsButton.on('click', function () {
-            let selectedItems = $('table .selected');
-            let itemsIds = '';
-
-            $.each(selectedItems, function (index) {
-                let itemId = $( this ).find('.products-table__delete').attr('data-item-id');
-
-                if(index >= selectedItems.length - 1) {
-                    itemsIds += itemId;
-                } else {
-                    itemsIds += itemId + ',';
-                }
-
-                modalDeleteSubmitButton.attr('data-items-ids', itemsIds)
-            });
-        });
-    }
-
-    // Duplicate input
-
-    {
-        let button = $('.input-duplicate');
-        let i = 2;
-
-        $.each(button, function () {
-            $( this ).on('click', function () {
-                let duplicateLimit = $( this ).attr('data-limit');
-                parseInt(duplicateLimit);
-
-                let targetClass = $( this ).attr('data-target');
-                let requiredInherit = $( this ).attr('data-required');
-                let cloneType = $( this ).attr('data-clone-type');
-                let target = $(targetClass);
-                let targetWrap = target.parents('.form-row, .form-group');
-                let targetClone = targetWrap.clone();
-                let cloneDeleteButton = targetClone.find('.form-row__delete');
-
-                if(requiredInherit) {
-                    targetClone.find('input').removeAttr('required');
-                    targetClone.find('.invalid-feedback').detach();
-                }
-
-                if(i <= duplicateLimit) {
-                    let cloneInputName = targetClone.find('input').attr('name');
-                    let cloneInputPlaceholder = targetClone.find('input').attr('placeholder');
-
-                    targetClone.find('input').removeAttr('id').attr('name', cloneInputName.slice(0, -1) + i);
-                    targetClone.find('input').attr('placeholder', cloneInputPlaceholder.slice(0, -1) + i);
-
-                    targetClone.insertBefore($( this ));
-
-                    i++;
-                }
-
-                // cloneDeleteButton.removeClass('hidden');
-                //
-                // cloneDeleteButton.on('click', function () {
-                //     let cloneIndex = $( this ).parents('.form-row').find('input').attr('name').slice(-1);
-                //     $( this ).parents('.form-row').detach();
-                // });
-
-            });
-        })
-    }
-
-    // Work time
-
-    {
-        let button = $('.work-time-add');
-        let workTime = $('.work-time');
-        let i = 1;
-
-        button.on('click', function () {
-            workTime.eq(i).fadeIn(200);
-            i++;
-        })
-    }
-
     // Date range picker
 
     {
@@ -464,82 +387,6 @@ $( document ).ready(function () {
         });
     }
 
-    // Upload and crop image
-
-    {
-        let wrap = $('.cabinet');
-        let modal = $('#cropImagePop');
-
-        let cancelCropBtn = $('#cancelCropBtn');
-        let acceptCropBtn = $('#cropImageBtn');
-
-        let imageOutput = $('.gambar');
-
-        let $uploadCrop = $('#upload-demo').croppie({
-            viewport: {
-                width: 450,
-                height: 200,
-            },
-            enforceBoundary: false,
-            enableExif: true
-        });
-
-        let tempFilename,
-            imageId,
-            rawImg;
-
-        $.each(wrap, function (index) {
-            let input = $( this ).find('.item-img');
-
-            input.on('click', function () {
-                modal.attr('data-image-id', index);
-                imageOutput.attr('data-image-id', index);
-            });
-
-            input.on('change', function () {
-                imageId = $(this).data('id');
-                tempFilename = $(this).val();
-                cancelCropBtn.data('id', imageId);
-
-                readFile(this, index);
-            });
-        });
-
-        acceptCropBtn.on('click', function (ev) {
-            $uploadCrop.croppie('result', {
-                type: 'base64',
-                format: 'jpeg',
-                size: {width: 450, height: 200}
-            }).then(function (resp) {
-                imageOutput.eq(modal.attr('data-image-id')).attr('src', resp);
-                modal.modal('hide');
-            });
-        });
-
-        $('#cropImagePop').on('shown.bs.modal', function(){
-            $uploadCrop.croppie('bind', {
-                url: rawImg
-            }).then(function(){
-
-            });
-        });
-
-        function readFile(input, index) {
-            if (input.files && input.files[0]) {
-                let reader = new FileReader();
-                reader.onload = function (e) {
-                    $('.upload-demo').addClass('ready');
-                    modal.modal('show');
-                    rawImg = e.target.result;
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-            else {
-                swal("Sorry - you're browser doesn't support the FileReader API");
-            }
-        }
-    }
-
     // Vendor navigation
 
     {
@@ -574,8 +421,22 @@ $( document ).ready(function () {
     {
         let table = $('#dt-multi-checkbox');
         let columnCount = table.find('thead th').length - 1;
+        let deleteMultipleItemsButton = $('.products__remove');
 
-        table.DataTable({
+        table
+            .on( 'init.dt', function () {
+                $('.select-checkbox').on('click', function() {
+                    let selectedItems = $('table .selected');
+
+                    if(selectedItems.length+1 > 0) {
+                        deleteMultipleItemsButton.removeAttr('disabled');
+                    } else {
+                        deleteMultipleItemsButton.attr('disabled');
+                    }
+                });
+            } )
+
+            .DataTable({
             "aaSorting": [],
             "searching": true,
             "pagingType": "full_numbers",
@@ -608,6 +469,10 @@ $( document ).ready(function () {
                     }
                 }
             },
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ],
             columnDefs: [
                 {
                     orderable: false,
@@ -625,71 +490,9 @@ $( document ).ready(function () {
             }
         });
 
+        table.buttons().container().appendTo('.order__header');
+
         $('.dataTables_length').addClass('bs-select');
-    }
-
-    // MDB Chart
-
-    {
-        //line
-        var ctxL = document.getElementById("lineChart").getContext('2d');
-        var gradientFill = ctxL.createLinearGradient(0, 0, 360, 0);
-        gradientFill.addColorStop(0, "rgba(55, 81, 255, .1)");
-        gradientFill.addColorStop(1, "rgba(55, 81, 255, 0)");
-
-        var myLineChart = new Chart(ctxL, {
-            type: 'line',
-            data: {
-                labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"],
-                datasets: [
-                    {
-                        data: [12,20,28,30,28,30,32,40,51,35,18,25],
-                        backgroundColor: gradientFill,
-                        borderColor: [
-                            '#3751FF',
-                        ],
-                        borderWidth: 2,
-                        pointBorderColor: "transparent",
-                        pointBackgroundColor: "transparent",
-                    },
-                    {
-                        data: [31,32,28,24,24,28,32,33,31,25,20,17],
-                        backgroundColor: [
-                            'rgba(0,0,0,0)',
-                        ],
-                        borderColor: [
-                            '#DFE0EB',
-                        ],
-                        borderWidth: 2,
-                        pointBorderColor: "transparent",
-                        pointBackgroundColor: "transparent",
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                fontFamily: "Gotham Pro",
-                fontSize: "9px",
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }],
-                    xAxes: [{
-                        gridLines: {
-                            display: false
-                        }
-                    }],
-                },
-                legend: {
-                    display: false
-                },
-                tooltips: {
-                    enabled: false
-                }
-            }
-        });
     }
 
 });

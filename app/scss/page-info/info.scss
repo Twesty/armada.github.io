@@ -192,9 +192,19 @@
     align-items: center;
     justify-content: center;
   }
+  &__text {
+    max-height: 300px;
+    .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+      background-color: #FFF;
+    }
+    .mCSB_scrollTools .mCSB_draggerRail {
+      background-color: #FFF;
+    }
+  }
   &__content {
     position: relative;
     left: -50px;
+    width: 100%;
     padding: 50px 30px 60px 80px;
     background: rgba(0, 0, 0, .10);
     font-size: 14px;
