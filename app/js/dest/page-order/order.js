@@ -253,40 +253,40 @@ $( document ).ready(function () {
 
     // Order detail click
 
-    {
-        let orderDetailsItems = $('.order-item-total__details-item');
-
-        $.each(orderDetailsItems, function () {
-            $( this ).on('click', function () {
-                let orderIndex = $( this ).parents('.order-item-total').attr('data-order-index');
-                let detailType = $( this ).attr('data-seller-detail-type');
-                let orderChangeDetail = $('.order-item[data-order-index=' + orderIndex + '] .details__block[data-seller-detail-type=' + detailType + ']');
-
-                $([document.documentElement, document.body]).animate({
-                    scrollTop: orderChangeDetail.offset().top - ($(window).height() / 2)
-                }, 1000);
-
-                $('.order-item__order-detail').css({
-                    'border-color' : 'rgba(0,0,0,0)'
-                });
-                $('.order-item__order-detail-content').slideUp(100);
-
-                setTimeout(function(){
-                    orderChangeDetail.css({
-                        'border' : '1px solid',
-                        'border-color' : '#E0001A'
-                    });
-                    orderChangeDetail.find('.order-item__order-detail-title').trigger('click');
-                }, 800);
-
-                setTimeout(function () {
-                    orderChangeDetail.css({
-                        'border' : '1px solid',
-                        'border-color' : 'rgba(0,0,0,0)'
-                    });
-                }, 5000);
-            });
-        })
-    }
+    // {
+    //     let orderDetailsItems = $('.order-item-total__details-item');
+    //
+    //     $.each(orderDetailsItems, function () {
+    //         $( this ).on('click', function () {
+    //             let orderIndex = $( this ).parents('.order-item-total').attr('data-order-index');
+    //             let detailType = $( this ).attr('data-seller-detail-type');
+    //             let orderChangeDetail = $('.order-item[data-order-index=' + orderIndex + '] .details__block[data-seller-detail-type=' + detailType + ']');
+    //
+    //             $([document.documentElement, document.body]).animate({
+    //                 scrollTop: orderChangeDetail.offset().top - ($(window).height() / 2)
+    //             }, 1000);
+    //
+    //             $('.order-item__order-detail').css({
+    //                 'border-color' : 'rgba(0,0,0,0)'
+    //             });
+    //             $('.order-item__order-detail-content').slideUp(100);
+    //
+    //             setTimeout(function(){
+    //                 orderChangeDetail.css({
+    //                     'border' : '1px solid',
+    //                     'border-color' : '#E0001A'
+    //                 });
+    //                 orderChangeDetail.find('.order-item__order-detail-title').trigger('click');
+    //             }, 800);
+    //
+    //             setTimeout(function () {
+    //                 orderChangeDetail.css({
+    //                     'border' : '1px solid',
+    //                     'border-color' : 'rgba(0,0,0,0)'
+    //                 });
+    //             }, 5000);
+    //         });
+    //     })
+    // }
 
 });
