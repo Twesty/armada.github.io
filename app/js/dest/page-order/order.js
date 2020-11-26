@@ -112,23 +112,32 @@ $( document ).ready(function () {
     // Recipient
 
     {
-        let recipientRadioButtons = $('.seller__recipient');
+        let orderItem = $('.order-item');
 
-        recipientRadioButtons.on('click', function(){
-            let dropdown = $('.details__other-recipient');
+        $.each(orderItem, function () {
+            let orderIndex = $( this ).attr('data-order-index');
+            let recipientRadioButtons = $('.order-item[data-order-index=' + orderIndex + '] .seller__recipient');
 
-            if( $( this ).attr('id') === 'other' && $( this ).prop('checked')) {
-                dropdown.slideDown(200);
-            } else {
-                dropdown.slideUp(200);
-            }
-        });
+            recipientRadioButtons.on('click', function(){
+                let dropdown = $('.order-item[data-order-index=' + orderIndex + '] .details__other-recipient');
 
-        let deatilsOtherRecipient = $('.details__other-recipient');
-        let fields = deatilsOtherRecipient.find('input:not([type="checkbox"]), select, textarea');
+                if( $( this ).attr('data-id') === 'other' && $( this ).prop('checked') ) {
+                    dropdown.slideDown(200);
+                } else {
+                    dropdown.slideUp(200);
+                }
+            });
 
-        function recipient(fields) {
-            $.each(fields, function () {
+            $.each(recipientRadioButtons, function () {
+                if( $( this ).attr('checked') ) {
+                    $( this ).trigger('click');
+                }
+            });
+
+            let deatilsOtherRecipient = $('.order-item[data-order-index=' + orderIndex + '] .details__other-recipient');
+            let fields = deatilsOtherRecipient.find('input:not([type="checkbox"]), select, textarea');
+
+            fields.on('change', function () {
                 let recipientInfo = '';
 
                 $.each(fields, function(index) {
@@ -140,14 +149,8 @@ $( document ).ready(function () {
                 });
 
                 $( this ).attr('title', recipientInfo);
-            })
-        }
-
-        fields.on('change', function () {
-            recipient($( this ));
+            });
         });
-
-        recipient(fields);
     }
 
     // Additional services
@@ -162,7 +165,7 @@ $( document ).ready(function () {
             let fields = additionalServices.find('input, select, textarea');
             let detailType = additionalServices.attr('data-seller-detail-type');
 
-            function addtitionalServices(fields) {
+            fields.on('change', function () {
                 let selectedServices = '';
                 let orderItemTotalDetail = $('.order-item-total[data-order-index=' + orderIndex + '] .order-item-total__details-item[data-seller-detail-type=' + detailType + ']');
 
@@ -186,13 +189,13 @@ $( document ).ready(function () {
                 } else {
                     orderItemTotalDetail.find('b span').html(selectedServices);
                 }
-            }
-
-            fields.on('change', function () {
-                addtitionalServices($( this ));
             });
 
-            addtitionalServices(fields);
+            $.each(fields, function () {
+                //if( $( this ).attr('checked') ) {
+                    $( this ).trigger('change');
+                //}
+            })
 
         });
 
