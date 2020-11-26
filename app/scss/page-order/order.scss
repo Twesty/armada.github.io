@@ -49,7 +49,7 @@
     }
   }
   &__order-detail-content {
-    display: none;
+    //display: none;
   }
 }
 
@@ -58,10 +58,12 @@
     border-left: 1px solid #212121
   }
   &__details-item {
-    b {
-      cursor: pointer;
-    }
+
   }
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .details {

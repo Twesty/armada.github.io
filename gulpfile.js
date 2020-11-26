@@ -136,6 +136,7 @@ gulp.task('scripts-page-news', function() {
 gulp.task('scripts-page-order', function() {
 	return gulp.src([
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
+		//'app/libs/sticky.js', // Sticky
 		'app/js/src/page-order/*.js', // Home
 	])
 		.pipe(concat('order.js'))
@@ -148,6 +149,7 @@ gulp.task('scripts-page-product', function() {
 	return gulp.src([
 		'app/libs/popup/YouTubePopUp.jquery.js', // Popup
 		'app/libs/slick/slick.min.js', // Slick
+		'app/libs/sticky.js', // Sticky
 		'app/js/src/parts/slideshow.js', // Slideshow
 		'app/js/src/parts/product-card.js', // Product-card
 		'app/libs/easy-zoom/jquery.zoom.min.js', // Easy zoom
@@ -247,11 +249,11 @@ gmWatch ? gulp.task('default', gulp.parallel(
 			//'styles',
 			//'main-scripts',
 			//'scripts-parts',
-			//'scripts-page-home',
+			'scripts-page-home',
 			//'scripts-page-catalog',
 			//'scripts-page-news',
 			//'scripts-page-login',
-			//'scripts-page-order',
+			'scripts-page-order',
 			//'scripts-page-product',
 			//'scripts-page-shops',
 			//'scripts-page-user-area',
@@ -263,11 +265,11 @@ gmWatch ? gulp.task('default', gulp.parallel(
 		 	//'styles',
 			//'main-scripts',
 			//'scripts-parts',
-			//'scripts-page-home',
+			'scripts-page-home',
 			//'scripts-page-catalog',
 			//'scripts-page-news',
 			//'scripts-page-login',
-			//'scripts-page-order',
+			'scripts-page-order',
 			//'scripts-page-product',
 			//'scripts-page-shops',
 			//'scripts-page-user-area',
