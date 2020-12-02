@@ -15,6 +15,8 @@ $( document ).ready(function () {
         // Phone input mask
         let phoneInput = $('input[type=tel]');
 
+        $('[data-mask]').mask();
+
         $.each(phoneInput, function () {
             $(this).mask('+0 (000) 000-00-00', {placeholder: "+0 (123) 456 78 90"});
         });

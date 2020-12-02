@@ -12,6 +12,11 @@
   }
 }
 
+.btn-primary:not([disabled]):not(.disabled).active, .btn-primary:not([disabled]):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+  border-color: $green !important;
+  background-color: $green !important;
+}
+
 .btn-outline-dark {
   color: #787B84;
   border: 1px solid #787B84;

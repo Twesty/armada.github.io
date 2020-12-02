@@ -579,5 +579,18 @@ a {
   }
 }
 
+.bg-bottom-line {
+  position: relative;
+  &:before {
+    position: absolute;
+    content: '';
+    bottom: -3px;
+    left: -2px;
+    right: -2px;
+    top: 55%;
+    background: rgba(224, 0, 26, 0.07);
+  }
+}
+
 @import "bootstrap-customiation";
 @import "media"; // Always at the end

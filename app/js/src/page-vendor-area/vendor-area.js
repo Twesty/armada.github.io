@@ -5,6 +5,20 @@ $( document ).ready(function () {
     // Matherial select
     $('.mdb-select').materialSelect();
 
+    // TinyMCE
+
+    {
+        tinymce.init({
+            selector: '.tinyMCE',
+            plugin: 'a_tinymce_plugin',
+            plugins: 'codesample code',
+            a_plugin_option: true,
+            a_configuration_option: 400,
+            toolbar: 'undo redo removeformat | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | codesample code',
+            language: 'ru'
+        });
+    }
+
     // User edit input
 
     function editPersonalData() {
@@ -76,7 +90,7 @@ $( document ).ready(function () {
 
                     index--;
 
-                    let inputs = $( this ).find('input');
+                    let inputs = $( this ).find('input, select');
 
                     $.each(inputs, function () {
                         $( this ).attr('name', $( this ).attr('name').slice(0, -1) + index);
@@ -94,13 +108,80 @@ $( document ).ready(function () {
 
     deleteItem();
 
+    // Select additional social value
+
+    function selectAdditional() {
+        let wrap = $('.user-block__additional-other');
+
+        $.each(wrap, function(){
+            let select = $( this ).find('select');
+            let input = $( this ).find('input');
+
+            select.on('change', function() {
+                let selectValueType = this.value;
+
+                if( selectValueType === 'viber' ) {
+                    input
+                        .attr('type','tel')
+                        .unmask()
+                        .val('')
+                        .mask('+0 (000) 000-00-00', {placeholder: "+0 (123) 456 78 90"});
+                } else if( selectValueType === 'telegram' ) {
+                    input
+                        .attr('type','tel')
+                        .unmask()
+                        .val('')
+                        .mask('+0 (000) 000-00-00', {placeholder: "+0 (123) 456 78 90"});
+                } else if( selectValueType === 'whatsup' ) {
+                    input
+                        .attr('type','tel')
+                        .unmask()
+                        .val('')
+                        .mask('+0 (000) 000-00-00', {placeholder: "+0 (123) 456 78 90"});
+                } else if( selectValueType === 'messenger' ) {
+                    input
+                        .attr('type','tel')
+                        .unmask()
+                        .val('')
+                        .mask('+0 (000) 000-00-00', {placeholder: "+0 (123) 456 78 90"});
+                } else if( selectValueType === 'site' ) {
+                    input
+                        .unmask()
+                        .val('')
+                        .attr({
+                            'type' : 'url',
+                            'placeholder' : 'Например: www.site.com.ua'
+                        })
+                } else if( selectValueType === 'skype' ) {
+                    input
+                        .unmask()
+                        .val('')
+                        .attr({
+                            'type' : 'text',
+                            'placeholder' : 'Логин Skype'
+                        })
+                } else if( selectValueType === 'icq' ) {
+                    input
+                        .unmask()
+                        .val('')
+                        .attr({
+                            'type' : 'text',
+                            'placeholder' : 'Например: 615295455'
+                        })
+                }
+            })
+        })
+    }
+
+    selectAdditional();
+
     // Duplicate
 
     {
         let wrap = $('.duplicate');
 
         $.each(wrap, function () {
-            $this = $( this );
+            let $this = $( this );
             let addButton = $( this ).find('.duplicate__add');
 
             addButton.on('click', function () {
@@ -110,12 +191,13 @@ $( document ).ready(function () {
 
                 let newItemPattern = items.eq(itemsLength - 1).clone();
 
-                let inputs = newItemPattern.find('input');
+                let inputs = newItemPattern.find('input:not(.select-dropdown), select');
                 let newItemIndex = parseInt(newItemPattern.attr('data-duplicate-item-id')) + 1;
 
                 $.each(inputs, function () {
                     $( this ).attr('name', $( this ).attr('name').slice(0, -1) + newItemIndex);
                     $( this ).val('');
+                    $( this ).attr('placeholder', '');
                     $( this ).siblings('span').text('Не указано');
                 });
 
@@ -131,6 +213,8 @@ $( document ).ready(function () {
 
                 $('.user-block__edit').unbind('click');
                 $('.duplicate__delete').unbind('click');
+                $('.user-block-info__value .custom-select').unbind('change');
+                selectAdditional();
                 editPersonalData();
                 deleteItem();
             });
@@ -521,10 +605,10 @@ $( document ).ready(function () {
                 "zeroRecords": "Данные отсутствуют.",
                 "emptyTable": "В таблице отсутствуют данные",
                 "paginate": {
-                    // "first": "Первая",
-                    // "previous": "Предыдущая",
-                    // "next": "Следующая",
-                    // "last": "Последняя"
+                    "first": "Первая",
+                    "previous": "Предыдущая",
+                    "next": "Следующая",
+                    "last": "Последняя"
                 },
                 "aria": {
                     "sortAscending": ": активировать для сортировки столбца по возрастанию",
@@ -538,6 +622,53 @@ $( document ).ready(function () {
                     }
                 }
             },
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'csv',
+                    text: 'CSV',
+                    charset: 'utf-8',
+                    extension: '.csv',
+                    fieldSeparator: ';',
+                    fieldBoundary: '',
+                    bom: true,
+                    exportOptions: {
+                        columns: [ '.export' ]
+                    }
+                },
+                {
+                    extend: 'excel',
+                    text: 'Excel',
+                    charset: 'utf-8',
+                    exportOptions: {
+                        columns: [ '.export' ]
+                    }
+                },
+                {
+                    extend: 'pdf',
+                    text: 'PDF',
+                    charset: 'utf-8',
+                    exportOptions: {
+                        columns: [ '.export' ]
+                    }
+                },
+                {
+                    extend: 'print',
+                    text: 'Распечатать',
+                    charset: 'utf-8',
+                    exportOptions: {
+                        columns: [ '.export' ]
+                    }
+                },
+                {
+                    extend: 'copy',
+                    text: 'Копировать',
+                    charset: 'utf-8',
+                    exportOptions: {
+                        columns: [ '.export' ]
+                    }
+                }
+            ],
             columnDefs: [
                 {
                     orderable: false,
@@ -554,6 +685,9 @@ $( document ).ready(function () {
                 selector: 'td:first-child'
             }
         });
+
+        $('.dt-buttons').addClass('d-flex align-items-center').prepend('<span class="mr-3">Экспорт:</span>');
+        $('.dt-button').addClass('button btn-light mr-2').removeClass('dt-button');
 
         $('.dataTables_length').addClass('bs-select');
     }

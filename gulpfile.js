@@ -196,10 +196,24 @@ gulp.task('scripts-page-info', function() {
 
 gulp.task('scripts-page-vendor-area', function() {
 	return gulp.src([
+		// Data tables
+		'app/libs/dataTables/js/jquery.dataTables.min.js', // Data tables
+		'app/libs/dataTables/js/dataTables.buttons.min.js', // Data tables
+		'app/libs/dataTables/js/buttons.flash.min.js', // Data tables
+		'app/libs/dataTables/js/jszip.min.js', // Data tables
+		'app/libs/dataTables/js/pdfmake.min.js', // Data tables
+		'app/libs/dataTables/js/vfs_fonts.js', // Data tables
+		'app/libs/dataTables/js/buttons.html5.min.js', // Data tables
+		'app/libs/dataTables/js/buttons.print.min.js', // Data tables
+		'app/libs/dataTables/js/dataTables.select.min.js', // Data tables
+
+		'app/libs/tinyMCE/tinymce.min.js', // MDB
+		'app/libs/tinyMCE/ru.js', // MDB
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		'app/libs/dateRangePicker/moment.min.js', // Date range picker
 		'app/libs/dateRangePicker/daterangepicker.min.js', // Date range picker
 		'app/libs/croppie/croppie.min.js', // Croppie
+		'app/libs/cropper/cropper.min.js', // Croppie
 		'app/js/src/parts/filters.js', // Together
 		'app/libs/jquery-ui/jquery-ui.min.js', // Jquery UI
 		'app/js/src/page-vendor-area/*.js', // Home
@@ -239,35 +253,35 @@ gulp.task('watch', function() {
 });
 
 gmWatch ? gulp.task('default', gulp.parallel(
-			//'styles',
-			// 'main-scripts',
-			// 'scripts-parts',
-			// 'scripts-page-home',
-			// 'scripts-page-catalog',
-			// 'scripts-page-news',
-			// 'scripts-page-login',
-			// 'scripts-page-order',
-			// 'scripts-page-product',
-			// 'scripts-page-shops',
-			// 'scripts-page-user-area',
-			 'scripts-page-vendor-area',
-			// 'scripts-page-info',
+			'styles',
+			'main-scripts',
+			'scripts-parts',
+			'scripts-page-home',
+			'scripts-page-catalog',
+			'scripts-page-news',
+			'scripts-page-login',
+			'scripts-page-order',
+			'scripts-page-product',
+			'scripts-page-shops',
+			'scripts-page-user-area',
+			'scripts-page-vendor-area',
+			'scripts-page-info',
 			'browser-sync',
 			'watch'
 		)) : gulp.task('default', gulp.parallel(
-			// 'styles',
-			// 'main-scripts',
-			// 'scripts-parts',
-			// 'scripts-page-home',
-			// 'scripts-page-catalog',
-			// 'scripts-page-news',
-			// 'scripts-page-login',
-			// 'scripts-page-order',
-			// 'scripts-page-product',
-			// 'scripts-page-shops',
-			// 'scripts-page-user-area',
-			 'scripts-page-vendor-area',
-			// 'scripts-page-info',
+			'styles',
+			'main-scripts',
+			'scripts-parts',
+			'scripts-page-home',
+			'scripts-page-catalog',
+			'scripts-page-news',
+			'scripts-page-login',
+			'scripts-page-order',
+			'scripts-page-product',
+			'scripts-page-shops',
+			'scripts-page-user-area',
+		 	'scripts-page-vendor-area',
+			'scripts-page-info',
 			'browser-sync',
 			'watch'
 		));

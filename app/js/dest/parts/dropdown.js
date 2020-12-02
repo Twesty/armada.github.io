@@ -14,14 +14,6 @@ $( document ).ready(function(){
                     dropdown.slideDown(200);
                 }
             });
-
-            $( document ).mouseup(function(e)
-            {
-                if (!dropdown.is(e.target) && dropdown.has(e.target).length === 0)
-                {
-                    dropdown.slideUp(200);
-                }
-            });
         });
     }
 
