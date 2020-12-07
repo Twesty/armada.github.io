@@ -421,22 +421,8 @@ $( document ).ready(function () {
     {
         let table = $('#dt-multi-checkbox');
         let columnCount = table.find('thead th').length - 1;
-        let deleteMultipleItemsButton = $('.products__remove');
 
-        table
-            .on( 'init.dt', function () {
-                $('.select-checkbox').on('click', function() {
-                    let selectedItems = $('table .selected');
-
-                    if(selectedItems.length+1 > 0) {
-                        deleteMultipleItemsButton.removeAttr('disabled');
-                    } else {
-                        deleteMultipleItemsButton.attr('disabled');
-                    }
-                });
-            } )
-
-            .DataTable({
+        table.DataTable({
             "aaSorting": [],
             "searching": true,
             "pagingType": "full_numbers",
@@ -452,10 +438,10 @@ $( document ).ready(function () {
                 "zeroRecords": "Данные отсутствуют.",
                 "emptyTable": "В таблице отсутствуют данные",
                 "paginate": {
-                    // "first": "Первая",
-                    // "previous": "Предыдущая",
-                    // "next": "Следующая",
-                    // "last": "Последняя"
+                    "first": "Первая",
+                    "previous": "Предыдущая",
+                    "next": "Следующая",
+                    "last": "Последняя"
                 },
                 "aria": {
                     "sortAscending": ": активировать для сортировки столбца по возрастанию",
@@ -471,7 +457,50 @@ $( document ).ready(function () {
             },
             dom: 'Bfrtip',
             buttons: [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+                {
+                    extend: 'csv',
+                    text: 'CSV',
+                    charset: 'utf-8',
+                    extension: '.csv',
+                    fieldSeparator: ';',
+                    fieldBoundary: '',
+                    bom: true,
+                    exportOptions: {
+                        columns: [ '.export' ]
+                    }
+                },
+                {
+                    extend: 'excel',
+                    text: 'Excel',
+                    charset: 'utf-8',
+                    exportOptions: {
+                        columns: [ '.export' ]
+                    }
+                },
+                {
+                    extend: 'pdf',
+                    text: 'PDF',
+                    charset: 'utf-8',
+                    exportOptions: {
+                        columns: [ '.export' ]
+                    }
+                },
+                {
+                    extend: 'print',
+                    text: 'Распечатать',
+                    charset: 'utf-8',
+                    exportOptions: {
+                        columns: [ '.export' ]
+                    }
+                },
+                {
+                    extend: 'copy',
+                    text: 'Копировать',
+                    charset: 'utf-8',
+                    exportOptions: {
+                        columns: [ '.export' ]
+                    }
+                }
             ],
             columnDefs: [
                 {
@@ -490,7 +519,8 @@ $( document ).ready(function () {
             }
         });
 
-        table.buttons().container().appendTo('.order__header');
+        $('.dt-buttons').addClass('d-flex align-items-center').prepend('<span class="mr-3">Экспорт:</span>');
+        $('.dt-button').addClass('button btn-light mr-2').removeClass('dt-button');
 
         $('.dataTables_length').addClass('bs-select');
     }

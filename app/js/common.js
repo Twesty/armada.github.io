@@ -37,4 +37,41 @@ $( document ).ready(function () {
         })
     }
 
+    // Custom placeholder
+
+    {
+        let customPlaceholderWrap = $('.custom-placeholder');
+
+        $.each(customPlaceholderWrap, function() {
+          let placeholder = $( this ).find('.custom-placeholder__placeholder');
+          let input = $( this ).find('.custom-placeholder__input');
+
+            placeholder.on('click', function() {
+                input.focus();
+            });
+
+            if (input.val()) {
+                placeholder.hide();
+            }
+
+            input.on('blur', function() {
+                if (!input.val()) {
+                    placeholder.show();
+                }
+            });
+
+            input.on('focus', function() {
+                if (!input.val()) {
+                    placeholder.hide();
+                }
+            });
+
+            input.on('input', function() {
+                if (input.val()) {
+                    placeholder.hide();
+                }
+            });
+        })
+    }
+
 });

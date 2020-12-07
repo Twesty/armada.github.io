@@ -53,6 +53,11 @@ body {
   }
 }
 
+.main-content {
+  margin-top: 0;
+  transition: margin-top .2s;
+}
+
 .img-responsive {
   display: block;
   max-width: 100%;
@@ -576,6 +581,20 @@ a {
     box-shadow: 0 2px 10px rgba(0,0,0,.15);
     cursor: pointer;
     z-index: 999;
+  }
+}
+
+.custom-placeholder {
+  position: absolute;
+  &__placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 15px;
+    width: 100%;
+    height: 100%;
+    color: #c2c2c2;
+    font-size: 14px;
   }
 }
 

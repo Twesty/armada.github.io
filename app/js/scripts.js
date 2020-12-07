@@ -4368,20 +4368,32 @@ $( document ).ready(function(){
     {
         let mainContent = $('.main-content');
         let header = $('.header');
-        let headerHeight = header.outerHeight();
 
-        $( window ).resize(function(){
+        function mainContentMT() {
             let headerHeight = header.outerHeight();
-            if(($(window).width() + 17) < 1280) {
-                mainContent.css({'margin-top': headerHeight + 'px'});
-            } else {
-                mainContent.css({'margin-top': '0'});
-            }
-        });
 
-        if(($(window).width() + 17) < 1280) {
             mainContent.css({'margin-top': headerHeight + 'px'});
         }
+
+        $( window ).resize(function(){
+            mainContentMT();
+        });
+
+        mainContentMT();
+
+        $( window ).scroll(function() {
+            let offset = header.offset();
+
+            if ( offset.top === 0 ){
+                $('.header__top, .header__bottom').slideDown(200);
+            } else if( offset.top > 30 ) {
+                $('.header__top, .header__bottom').slideUp(200);
+            }
+
+            setTimeout(function () {
+                mainContentMT();
+            }, 200)
+        });
     }
 
     // Header responsive menu
@@ -4571,6 +4583,43 @@ $( document ).ready(function () {
             if (length > cropSize) {
                 $(this).text($(this).text().substr(0, cropSize) + '...');
             }
+        })
+    }
+
+    // Custom placeholder
+
+    {
+        let customPlaceholderWrap = $('.custom-placeholder');
+
+        $.each(customPlaceholderWrap, function() {
+          let placeholder = $( this ).find('.custom-placeholder__placeholder');
+          let input = $( this ).find('.custom-placeholder__input');
+
+            placeholder.on('click', function() {
+                input.focus();
+            });
+
+            if (input.val()) {
+                placeholder.hide();
+            }
+
+            input.on('blur', function() {
+                if (!input.val()) {
+                    placeholder.show();
+                }
+            });
+
+            input.on('focus', function() {
+                if (!input.val()) {
+                    placeholder.hide();
+                }
+            });
+
+            input.on('input', function() {
+                if (input.val()) {
+                    placeholder.hide();
+                }
+            });
         })
     }
 

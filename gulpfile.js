@@ -201,14 +201,21 @@ gulp.task('scripts-page-vendor-area', function() {
 	return gulp.src([
 		'app/libs/tinyMCE/tinymce.min.js', // TinyMCE
 		'app/libs/tinyMCE/ru.js', // TinyMCE
+		'app/libs/jquery-ui/jquery-ui.min.js', // Jquery UI
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
-		'app/libs/mdbootstrap/js/addons/datatables2.min.js', // MDB
-		'app/libs/mdbootstrap/js/addons/datatables-select2.min.js', // MDB
 		'app/libs/dateRangePicker/moment.min.js', // Date range picker
 		'app/libs/dateRangePicker/daterangepicker.min.js', // Date range picker
+		'app/libs/dataTables/js/jquery.dataTables.min.js', // Data tables
+		'app/libs/dataTables/js/dataTables.buttons.min.js', // Data tables
+		'app/libs/dataTables/js/buttons.flash.min.js', // Data tables
+		'app/libs/dataTables/js/jszip.min.js', // Data tables
+		'app/libs/dataTables/js/pdfmake.min.js', // Data tables
+		'app/libs/dataTables/js/vfs_fonts.js', // Data tables
+		'app/libs/dataTables/js/buttons.html5.min.js', // Data tables
+		'app/libs/dataTables/js/buttons.print.min.js', // Data tables
+		'app/libs/dataTables/js/buttons.colVis.min.js', // Data tables
 		'app/libs/croppie/croppie.min.js', // Croppie
-		'app/js/src/parts/filters.js', // Together
-		'app/libs/jquery-ui/jquery-ui.min.js', // Jquery UI
+		'app/js/src/parts/filters.js', // Togethe
 		'app/js/src/page-vendor-area/*.js', // Home
 	])
 		.pipe(concat('vendor-area.js'))
@@ -239,7 +246,7 @@ gulp.task('watch', function() {
 	gulp.watch(['app/js/src/page-info/*.js'], gulp.parallel('scripts-page-info'));
 
 	// Parts
-	gulp.watch('app/js/src/parts/**/*.js', gulp.parallel('scripts-parts'));
+	gulp.watch(['app/js/src/parts/**/*.js'], gulp.parallel('scripts-parts'));
 
 	gulp.watch('app/'+syntax+'/**/*.'+syntax+'', gulp.parallel('styles'));
 	gulp.watch('app/*.html', gulp.parallel('code'));
@@ -249,11 +256,11 @@ gmWatch ? gulp.task('default', gulp.parallel(
 			//'styles',
 			//'main-scripts',
 			//'scripts-parts',
-			'scripts-page-home',
+			//'scripts-page-home',
 			//'scripts-page-catalog',
 			//'scripts-page-news',
 			//'scripts-page-login',
-			'scripts-page-order',
+			//'scripts-page-order',
 			//'scripts-page-product',
 			//'scripts-page-shops',
 			//'scripts-page-user-area',
@@ -265,11 +272,11 @@ gmWatch ? gulp.task('default', gulp.parallel(
 		 	//'styles',
 			//'main-scripts',
 			//'scripts-parts',
-			'scripts-page-home',
+			//'scripts-page-home',
 			//'scripts-page-catalog',
 			//'scripts-page-news',
 			//'scripts-page-login',
-			'scripts-page-order',
+			//'scripts-page-order',
 			//'scripts-page-product',
 			//'scripts-page-shops',
 			//'scripts-page-user-area',

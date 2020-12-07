@@ -1,7 +1,10 @@
 @import "../parts/_sections/_autoseatch/autosearch";
 
 .header {
-  position: relative;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
   box-shadow: 0 6.21477px 11.6527px rgba(0, 0, 0, 0.05);
   z-index: 10;
   background: #FFF;

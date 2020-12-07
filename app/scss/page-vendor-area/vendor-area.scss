@@ -1,8 +1,10 @@
 @import '../vars';
 
+
 // Libs
-@import "../../libs/mdbootstrap/scss/addons/datatables2";
-@import "../../libs/mdbootstrap/scss/addons/datatables-select2";
+@import "../../libs/dataTables/css/buttons.dataTables.min.css";
+@import "../../libs/dataTables/css/jquery.dataTables.min.css";
+@import "../../libs/dataTables/css/select.dataTables.min.css";
 @import "../../libs/mdbootstrap/scss/pro/tooltips";
 
 // Sections
@@ -1157,7 +1159,7 @@ figure figcaption {
   width: 100%;
   height: 180px;
   background-position: center center;
-  background:url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
+  background-image:url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
   background-color:#fff;
   background-size: cover;
   background-repeat:no-repeat;
