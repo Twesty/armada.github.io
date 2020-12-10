@@ -465,7 +465,7 @@ $( document ).ready(function () {
                     }
                 }
             },
-            //responsive: true,
+            responsive: true,
             dom: 'Bfrtip',
             buttons: [
                 {
@@ -514,21 +514,21 @@ $( document ).ready(function () {
                 }
             ],
             columnDefs: [
-                // {
-                //     data: null,
-                //     defaultContent: '',
-                //     orderable: false,
-                //     className: 'control',
-                //     targets: 0
-                // },
                 {
+                    data: null,
+                    defaultContent: '',
                     orderable: false,
-                    className: 'select-checkbox',
+                    className: 'control',
                     targets: 0
                 },
                 {
                     orderable: false,
-                    targets: [1,columnCount]
+                    className: 'select-checkbox',
+                    targets: 1
+                },
+                {
+                    orderable: false,
+                    targets: [2,columnCount]
                 }
             ],
             select: {

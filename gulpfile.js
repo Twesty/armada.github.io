@@ -61,7 +61,7 @@ gulp.task('main-scripts', function() {
 		'app/js/src/parts/header.js', // Header
 		'app/js/src/parts/footer.js', // Footer
 		'app/js/src/parts/dropdown.js', // Dropdown
-		'app/js/src/parts/custom-scrollbar.js', // Dropdown
+		'app/js/src/parts/custom-scrollbar.js', // mCustomScrollbar
 		'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.js'))
@@ -102,6 +102,7 @@ gulp.task('scripts-page-catalog', function() {
 		'app/js/src/page-catalog/*.js', // Home
 		'app/js/src/parts/product-card.js', // Product-card
 		'app/libs/easy-zoom/jquery.zoom.min.js', // Easy zoom
+		'app/js/src/parts/custom-scrollbar.js', // Dropdown
 		'app/js/src/parts/banner.js', // Banner
 		'app/js/src/parts/filters.js', // Filters
 		'app/js/src/parts/slideshow.js', // Slideshow
@@ -188,6 +189,8 @@ gulp.task('scripts-page-user-area', function() {
 gulp.task('scripts-page-info', function() {
 	return gulp.src([
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
+		'app/libs/slick/slick.min.js', // Slick
+		'app/js/src/parts/custom-scrollbar.js', // Dropdown
 		'app/js/src/parts/faq.js', // Faq
 		'app/js/src/page-info/*.js', // Home
 	])
@@ -214,9 +217,10 @@ gulp.task('scripts-page-vendor-area', function() {
 		'app/libs/dataTables/js/buttons.html5.min.js', // Data tables
 		'app/libs/dataTables/js/buttons.print.min.js', // Data tables
 		'app/libs/dataTables/js/buttons.colVis.min.js', // Data tables
+		'app/libs/dataTables/js/dataTables.responsive.min.js', // Data tables
 		'app/libs/croppie/croppie.min.js', // Croppie
 		'app/js/src/parts/filters.js', // Togethe
-		'app/js/src/page-vendor-area/*.js', // Home
+		'app/js/src/page-vendor-area/vendor-area.js', // Vendor area
 	])
 		.pipe(concat('vendor-area.js'))
 		.pipe(minify())
@@ -253,7 +257,7 @@ gulp.task('watch', function() {
 });
 
 gmWatch ? gulp.task('default', gulp.parallel(
-			//'styles',
+			'styles',
 			//'main-scripts',
 			//'scripts-parts',
 			//'scripts-page-home',
@@ -264,12 +268,12 @@ gmWatch ? gulp.task('default', gulp.parallel(
 			//'scripts-page-product',
 			//'scripts-page-shops',
 			//'scripts-page-user-area',
-			//'scripts-page-vendor-area',
+			'scripts-page-vendor-area',
 			//'scripts-page-info',
 			'browser-sync',
 			'watch'
 		)) : gulp.task('default', gulp.parallel(
-		 	//'styles',
+		 	'styles',
 			//'main-scripts',
 			//'scripts-parts',
 			//'scripts-page-home',
@@ -280,7 +284,7 @@ gmWatch ? gulp.task('default', gulp.parallel(
 			//'scripts-page-product',
 			//'scripts-page-shops',
 			//'scripts-page-user-area',
-			//'scripts-page-vendor-area',
+			'scripts-page-vendor-area',
 			//'scripts-page-info',
 			'browser-sync',
 			'watch'

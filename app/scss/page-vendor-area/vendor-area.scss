@@ -1,11 +1,12 @@
 @import '../vars';
 
-
-// Libs
-@import "../../libs/dataTables/css/buttons.dataTables.min.css";
+// Data table
 @import "../../libs/dataTables/css/jquery.dataTables.min.css";
+@import "../../libs/dataTables/css/buttons.dataTables.min.css";
 @import "../../libs/dataTables/css/select.dataTables.min.css";
-@import "../../libs/mdbootstrap/scss/pro/tooltips";
+
+// Cropper
+@import "../../libs/cropper/cropper.min.css";
 
 // Sections
 @import "../parts/_sections/_pagination/pagination";
@@ -191,10 +192,10 @@
     position: fixed;
     top: 0;
     right: 0;
-    left: 60px;
+    left: 75px;
     color: #777;
     z-index: 5;
-    min-height: 87px;
+    min-height: 85px;
     background: #FFF;
     &--settings {
       left: 60px;
@@ -611,11 +612,6 @@
       background: $accent;
     }
   }
-  &__remove {
-    &:disabled {
-      opacity: .5
-    }
-  }
 }
 
 .products-filters {
@@ -644,6 +640,13 @@
   }
 }
 
+.dt-buttons {
+  .button {
+    font-size: 12px;
+    min-width: auto;
+  }
+}
+
 .products-table {
   &__image {
     min-height: 115px;
@@ -654,39 +657,7 @@
   .dataTables_wrapper {
     margin-right: 15px;
   }
-  .select-checkbox {
-    padding: 0 !important;
-    width: 40px !important;
-    min-width: 40px !important;
-    &:before,
-    &:after {
-      top: 15px !important;
-      transform: translate(0) !important;
-    }
-  }
-  table.dataTable thead .sorting:after,
-  table.dataTable thead .sorting:before,
-  table.dataTable thead .sorting_asc:after,
-  table.dataTable thead .sorting_asc:before,
-  table.dataTable thead .sorting_asc_disabled:after,
-  table.dataTable thead .sorting_asc_disabled:before,
-  table.dataTable thead .sorting_desc:after,
-  table.dataTable thead .sorting_desc:before,
-  table.dataTable thead .sorting_desc_disabled:after,
-  table.dataTable thead .sorting_desc_disabled:before {
-    bottom: .5em;
-  }
-  table.table td.select-checkbox {
-    &:before {
-      border: 2px solid #cbc8c8 !important;
-    }
-    &:after {
-      padding-top: 3px !important;
-      font-size: .6rem !important;
-      box-shadow: none !important;
-      background: $accent !important;
-    }
-  }
+
   table.table td:not(.select-checkbox),
   table.table th:not(.select-checkbox){
     padding: .8rem .5rem;
@@ -705,32 +676,38 @@
       right: 0.2rem;
     }
   }
-  button {
-    padding: 0;
-    cursor: pointer;
-    border: none;
-    background: none;
-    &.products-table__pdf {
-      display: flex;
-      align-items: center;
-      text-align: center;
-      margin: auto;
-      color: #FFF;
-      height: 30px;
-      padding: 10px;
-      background: #526069;
-      border-radius: 3px;
-      font-weight: 500;
+
+  td {
+    button {
+      padding: 0;
+      cursor: pointer;
+      border: none;
+      background: none;
+      &.products-table__pdf {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: auto;
+        color: #FFF;
+        height: 30px;
+        padding: 10px;
+        background: #526069;
+        border-radius: 3px;
+        font-weight: 500;
+      }
     }
   }
 
-  .pagination {
+  .dataTables_paginate {
     display: flex;
-    flex-direction: row;
+    & > span {
+      display: flex;
+      flex-direction: row;
+    }
     .page-item.disabled .page-link {
       background: none;
     }
-    .page-item {
+    .paginate_button {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -741,17 +718,15 @@
       border-radius: 4px;
       line-height: 1;
       font-weight: 500;
-      font-size: 18px;
+      font-size: 14px;
       color: #333;
       cursor: pointer;
-      &.active {
-        color: $accent;
-        border-color: $accent;
-        a {
-          color: $accent;
-          box-shadow: none;
-          background: none !important;
-        }
+      background: none !important;
+      &.current,
+      &:hover {
+        color: $accent !important;
+        border-color: $accent !important;
+        background: none;
       }
     }
   }
@@ -762,7 +737,7 @@
   top: 0;
   left: 0;
   bottom: 0;
-  max-height: 100vh;
+  height: 100%;
   width: 60px;
   z-index: 6;
   background: linear-gradient(45deg,#353d47 0,#21292e 100%);
@@ -1159,9 +1134,8 @@ figure figcaption {
   width: 100%;
   height: 180px;
   background-position: center center;
-  background-image:url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
   background-color:#fff;
-  background-size: cover;
+  background-size: contain;
   background-repeat:no-repeat;
   display: inline-block;
   border: 1px solid #e3e3e3;
@@ -1235,7 +1209,7 @@ figure figcaption {
     display: block;
   }
   &__title {
-    
+
   }
 }
 
@@ -1323,47 +1297,6 @@ figure figcaption {
   }
   &__add {
     display: none;
-  }
-}
-
-.vendor-bars {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  &__bar {
-    opacity: 1;
-    height: 2px;
-    margin-bottom: 4px;
-    background: gray;
-    transition: width .2s, transform .2s, opacity .2s, margin-bottom .2s;
-    transform-origin: center;
-    border-radius: 2px;
-    &:nth-child(1){
-      width: 30px;
-    }
-    &:nth-child(2){
-      width: 24px;
-    }
-    &:nth-child(3){
-      width: 17px;
-    }
-  }
-  &.active {
-    .vendor-bars__bar {
-      margin-bottom: 0;
-      width: 30px !important;
-      transition: width .2s, transform .2s, opacity .2s, margin-bottom .2s;
-      &:nth-child(1){
-        transform: translateY(75%) rotate(45deg);
-      }
-      &:nth-child(2){
-        opacity: 0;
-      }
-      &:nth-child(3){
-        transform: translateY(-75%) rotate(-45deg);
-      }
-    }
   }
 }
 
