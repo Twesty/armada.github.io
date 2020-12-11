@@ -4479,7 +4479,6 @@ $( document ).ready(function(){
     }
 
     // Header subcategories dropdown
-
     {
         let item = $('.all-categories__main-item--has-children');
         let wrap = $('.all-categories');
@@ -4493,7 +4492,7 @@ $( document ).ready(function(){
                     'height': dropdown.find('.all-categories__subcategories-items-wrap').height()
                 });
                 dropdown.find('.all-categories__subcategories-items-wrap').mCustomScrollbar({
-                    axis: 'x'
+                    axis: 'y'
                 });
             });
 
@@ -4557,6 +4556,7 @@ $( document ).ready(function () {
         elements_selector: ".lazy"
         // ... more custom settings?
     });
+
 
     // Input masks
 

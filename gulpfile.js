@@ -64,15 +64,15 @@ gulp.task('main-scripts', function() {
 		'app/js/src/parts/custom-scrollbar.js', // mCustomScrollbar
 		'app/js/common.js', // Always at the end
 		])
-	.pipe(concat('scripts.js'))
-	.pipe(minify()) // Mifify js (opt.)
+	.pipe(concat('scripts-min.js'))
+	//.pipe(minify()) // Mifify js (opt.)
 	.pipe(gulp.dest('app/js/'))
 	.pipe(browserSync.reload({ stream: true }))
 });
 
 gulp.task('scripts-parts', function() {
 	return gulp.src('app/js/src/parts/**/*.js')
-		.pipe(minify())
+		//.pipe(minify())
 		.pipe(gulp.dest('app/js/dest/parts'))
 		.pipe(browserSync.reload({ stream: true }))
 });
@@ -89,8 +89,8 @@ gulp.task('scripts-page-home', function() {
 		'app/js/src/parts/together.js', // Together
 		'app/js/src/page-home/*.js', // Home
 	])
-	.pipe(concat('home.js'))
-	.pipe(minify())
+	.pipe(concat('home-min.js'))
+	//.pipe(minify())
 	.pipe(gulp.dest('app/js/dest/page-home'))
 	.pipe(browserSync.reload({ stream: true }))
 });
@@ -108,7 +108,7 @@ gulp.task('scripts-page-catalog', function() {
 		'app/js/src/parts/slideshow.js', // Slideshow
 	])
 	.pipe(concat('catalog.js'))
-	.pipe(minify())
+	//.pipe(minify())
 	.pipe(gulp.dest('app/js/dest/page-catalog'))
 	.pipe(browserSync.reload({ stream: true }))
 });
@@ -119,7 +119,7 @@ gulp.task('scripts-page-login', function() {
 		'app/js/src/page-login/*.js', // Home
 	])
 		.pipe(concat('login.js'))
-		.pipe(minify())
+		//.pipe(minify())
 		.pipe(gulp.dest('app/js/dest/page-login'))
 		.pipe(browserSync.reload({ stream: true }))
 });
@@ -129,7 +129,7 @@ gulp.task('scripts-page-news', function() {
 		'app/js/src/page-news/*.js', // Home
 	])
 		.pipe(concat('news.js'))
-		.pipe(minify())
+		//.pipe(minify())
 		.pipe(gulp.dest('app/js/dest/page-news'))
 		.pipe(browserSync.reload({ stream: true }))
 });
@@ -141,7 +141,7 @@ gulp.task('scripts-page-order', function() {
 		'app/js/src/page-order/*.js', // Home
 	])
 		.pipe(concat('order.js'))
-		.pipe(minify())
+		//.pipe(minify())
 		.pipe(gulp.dest('app/js/dest/page-order'))
 		.pipe(browserSync.reload({ stream: true }))
 });
@@ -159,7 +159,7 @@ gulp.task('scripts-page-product', function() {
 		'app/js/src/page-product/*.js', // Home
 	])
 		.pipe(concat('product.js'))
-		.pipe(minify())
+		//.pipe(minify())
 		.pipe(gulp.dest('app/js/dest/page-product'))
 		.pipe(browserSync.reload({ stream: true }))
 });
@@ -170,7 +170,7 @@ gulp.task('scripts-page-shops', function() {
 		'app/js/src/page-shops/*.js', // Home
 	])
 		.pipe(concat('shops.js'))
-		.pipe(minify())
+		//.pipe(minify())
 		.pipe(gulp.dest('app/js/dest/page-shops'))
 		.pipe(browserSync.reload({ stream: true }))
 });
@@ -181,7 +181,7 @@ gulp.task('scripts-page-user-area', function() {
 		'app/js/src/page-user-area/*.js', // Home
 	])
 		.pipe(concat('user-area.js'))
-		.pipe(minify())
+		//.pipe(minify())
 		.pipe(gulp.dest('app/js/dest/page-user-area'))
 		.pipe(browserSync.reload({ stream: true }))
 });
@@ -195,7 +195,7 @@ gulp.task('scripts-page-info', function() {
 		'app/js/src/page-info/*.js', // Home
 	])
 		.pipe(concat('info.js'))
-		.pipe(minify())
+		//.pipe(minify())
 		.pipe(gulp.dest('app/js/dest/page-info'))
 		.pipe(browserSync.reload({ stream: true }))
 });
@@ -218,12 +218,13 @@ gulp.task('scripts-page-vendor-area', function() {
 		'app/libs/dataTables/js/buttons.print.min.js', // Data tables
 		'app/libs/dataTables/js/buttons.colVis.min.js', // Data tables
 		'app/libs/dataTables/js/dataTables.responsive.min.js', // Data tables
+		'app/libs/cropper/cropper.min.js', // Cropper
 		'app/libs/croppie/croppie.min.js', // Croppie
 		'app/js/src/parts/filters.js', // Togethe
 		'app/js/src/page-vendor-area/vendor-area.js', // Vendor area
 	])
 		.pipe(concat('vendor-area.js'))
-		.pipe(minify())
+		//.pipe(minify())
 		.pipe(gulp.dest('app/js/dest/page-vendor-area'))
 		.pipe(browserSync.reload({ stream: true }))
 });
@@ -268,7 +269,7 @@ gmWatch ? gulp.task('default', gulp.parallel(
 			//'scripts-page-product',
 			//'scripts-page-shops',
 			//'scripts-page-user-area',
-			'scripts-page-vendor-area',
+			//'scripts-page-vendor-area',
 			//'scripts-page-info',
 			'browser-sync',
 			'watch'
@@ -284,7 +285,7 @@ gmWatch ? gulp.task('default', gulp.parallel(
 			//'scripts-page-product',
 			//'scripts-page-shops',
 			//'scripts-page-user-area',
-			'scripts-page-vendor-area',
+			//'scripts-page-vendor-area',
 			//'scripts-page-info',
 			'browser-sync',
 			'watch'

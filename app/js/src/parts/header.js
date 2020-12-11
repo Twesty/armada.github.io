@@ -22,9 +22,9 @@ $( document ).ready(function(){
             let offset = header.offset();
 
             if ( offset.top === 0 ){
-                $('.header__top, .header__bottom').slideDown(200);
+                $('.header__top, .header__categories, .header__bottom-pages').slideDown(200);
             } else if( offset.top > 30 ) {
-                $('.header__top, .header__bottom').slideUp(200);
+                $('.header__top, .header__categories, .header__bottom-pages').slideUp(200);
             }
 
             setTimeout(function () {
@@ -116,7 +116,6 @@ $( document ).ready(function(){
     }
 
     // Header subcategories dropdown
-
     {
         let item = $('.all-categories__main-item--has-children');
         let wrap = $('.all-categories');
@@ -125,7 +124,7 @@ $( document ).ready(function(){
             let dropdown = $( this ).find('.all-categories__subcategories');
 
             $( this ).on('mouseenter', function () {
-                dropdown.css({'display':'flex'});
+                dropdown.css({'display':'block'});
                 dropdown.find('.all-categories__subcategories-main-ul').css({
                     'height': dropdown.find('.all-categories__subcategories-items-wrap').height()
                 });

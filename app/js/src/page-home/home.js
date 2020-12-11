@@ -11,4 +11,27 @@ $( document ).ready(function () {
         });
     }
 
+    // Seo text expand
+
+    {
+        let seoSection = $('.seo-text');
+        let seoText = seoSection.find('.seo-text__text');
+        let seoExpandButton = seoSection.find('.expand');
+        let seoExpandArrow = seoExpandButton.find('svg');
+
+        console.log(seoText.height());
+
+        if(seoText.height() >= 250) {
+            seoText.addClass('hidden');
+            seoExpandButton.addClass('active');
+
+            seoExpandButton.on('click', function () {
+                seoText.toggleClass('active');
+                seoExpandButton.toggleClass('expanded');
+                seoExpandArrow.toggleClass('active');
+            })
+        }
+
+    }
+
 });

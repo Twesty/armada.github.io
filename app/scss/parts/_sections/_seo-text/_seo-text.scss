@@ -1,9 +1,59 @@
 .seo-text {
-  &__content {
+  position: relative;
+  &__text {
     margin-top: 20px;
+    padding-bottom: 40px;
     font-size: 15px;
     line-height: 1.85;
-    max-height: 250px;
+    overflow: hidden;
+    transition: max-height .7s ease-in-out;
+    &.hidden {
+      max-height: 250px;
+    }
+    &.active {
+      max-height: 10000px;
+      transition: max-height .7s ease-in-out;
+    }
+  }
+  &__content {
+
+    .expand {
+      position: absolute;
+      content: '';
+      left: 0;
+      right: 0;
+      bottom: -20px;
+      height: 160px;
+      display: none;
+      align-items: flex-end;
+      justify-content: space-between;
+      text-align: center;
+      background: linear-gradient(360deg, #FFF 80%, transparent);
+      cursor: pointer;
+      &.expanded {
+        background: none;
+      }
+      &.active {
+        display: flex;
+      }
+      svg {
+        margin: auto auto 0 auto;
+        transition: transform .2s;
+        &.active {
+          transition: transform .2s;
+          transform: rotate(180deg);
+          transform-origin: center;
+        }
+      }
+      &:hover {
+        svg {
+          circle {
+            fill: $accent;
+          }
+        }
+      }
+
+    }
 
     p {
       margin-bottom: 30px;

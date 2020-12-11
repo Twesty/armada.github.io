@@ -3,7 +3,7 @@ $( document ).ready(function(){
     // Custom scrollbar
 
     {
-        let content = $('.seo-text__content, .catalog__categories-list, .custom-scrollbar, .filters');
+        let content = $('.catalog__categories-list, .custom-scrollbar, .filters');
 
         $.each(content, function () {
             if($( this ).attr('data-scrollbar-axis') === 'x') {

@@ -420,7 +420,25 @@ $( document ).ready(function () {
 
     {
         let table = $('#dt-multi-checkbox');
+        let columns = table.find('thead th');
         let columnCount = table.find('thead th').length - 1;
+
+        let arrayToExport = [];
+
+        $.each(columns, function (index) {
+            arrayToExport.push(index)
+        });
+
+        let i=0;
+        let excludeColumnFromExportIds = [];
+        arrayToExport.splice(0, 1);
+
+        $.each(excludeColumnFromExportIds, function () {
+            arrayToExport.splice($( this ), 1);
+            i++;
+        });
+
+        arrayToExport.splice(arrayToExport.length-1, arrayToExport.length);
 
         table.DataTable({
             "aaSorting": [],
@@ -477,7 +495,7 @@ $( document ).ready(function () {
                     fieldBoundary: '',
                     bom: true,
                     exportOptions: {
-                        columns: [ '.export' ]
+                        columns: arrayToExport
                     }
                 },
                 {
@@ -485,7 +503,7 @@ $( document ).ready(function () {
                     text: 'Excel',
                     charset: 'utf-8',
                     exportOptions: {
-                        columns: [ '.export' ]
+                        columns: arrayToExport
                     }
                 },
                 {
@@ -493,7 +511,7 @@ $( document ).ready(function () {
                     text: 'PDF',
                     charset: 'utf-8',
                     exportOptions: {
-                        columns: [ '.export' ]
+                        columns: arrayToExport
                     }
                 },
                 {
@@ -501,7 +519,7 @@ $( document ).ready(function () {
                     text: 'Распечатать',
                     charset: 'utf-8',
                     exportOptions: {
-                        columns: [ '.export' ]
+                        columns: arrayToExport
                     }
                 },
                 {
@@ -509,7 +527,7 @@ $( document ).ready(function () {
                     text: 'Копировать',
                     charset: 'utf-8',
                     exportOptions: {
-                        columns: [ '.export' ]
+                        columns: arrayToExport
                     }
                 }
             ],
