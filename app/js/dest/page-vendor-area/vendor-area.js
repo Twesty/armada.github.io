@@ -1162,13 +1162,10 @@ $( document ).ready(function () {
                 if( $( this ).hasClass('active') ) {
 
                 } else {
-                    //e.preventDefault();
-
                     $( this ).addClass('active');
+                    $( this ).find('span').text('Сохранить');
 
-                    $( this ).replaceWith('<button type="submit">' + $( this ).html() + '</button>');
-
-                    editButton.find('span').text('Сохранить');
+                    $( this ).replaceWith('<button type="submit" class="user-block__edit">' + $( this ).html() + '</button>');
 
                     $.each(inputs, function () {
                         let currentValue = $( this ).siblings('span');

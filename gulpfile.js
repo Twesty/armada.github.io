@@ -181,7 +181,7 @@ gulp.task('scripts-page-user-area', function() {
 		'app/js/src/page-user-area/*.js', // Home
 	])
 		.pipe(concat('user-area.js'))
-		//.pipe(minify())
+		.pipe(minify())
 		.pipe(gulp.dest('app/js/dest/page-user-area'))
 		.pipe(browserSync.reload({ stream: true }))
 });
@@ -224,7 +224,7 @@ gulp.task('scripts-page-vendor-area', function() {
 		'app/js/src/page-vendor-area/vendor-area.js', // Vendor area
 	])
 		.pipe(concat('vendor-area.js'))
-		//.pipe(minify())
+		.pipe(minify())
 		.pipe(gulp.dest('app/js/dest/page-vendor-area'))
 		.pipe(browserSync.reload({ stream: true }))
 });
