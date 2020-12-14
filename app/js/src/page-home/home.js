@@ -19,8 +19,6 @@ $( document ).ready(function () {
         let seoExpandButton = seoSection.find('.expand');
         let seoExpandArrow = seoExpandButton.find('svg');
 
-        console.log(seoText.height());
-
         if(seoText.height() >= 250) {
             seoText.addClass('hidden');
             seoExpandButton.addClass('active');

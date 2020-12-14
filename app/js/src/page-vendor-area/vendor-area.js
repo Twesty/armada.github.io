@@ -93,8 +93,10 @@ $( document ).ready(function () {
                 } else {
                     //e.preventDefault();
 
-
                     $( this ).addClass('active');
+
+                    $( this ).replaceWith('<button type="submit">' + $( this ).html() + '</button>');
+
                     editButton.find('span').text('Сохранить');
 
                     $.each(inputs, function () {
