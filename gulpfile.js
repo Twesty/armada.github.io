@@ -89,8 +89,9 @@ gulp.task('scripts-page-home', function() {
 		'app/js/src/parts/together.js', // Together
 		'app/js/src/page-home/*.js', // Home
 	])
-	.pipe(concat('home-min.js'))
-	//.pipe(minify())
+
+	.pipe(concat('home.js'))
+	.pipe(minify())
 	.pipe(gulp.dest('app/js/dest/page-home'))
 	.pipe(browserSync.reload({ stream: true }))
 });

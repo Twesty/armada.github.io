@@ -294,6 +294,28 @@ $( document ).ready(function(){
             let nextArrow = $( this ).find('.slideshow__arrow--next');
             let prevArrow = $( this ).find('.slideshow__arrow--prev');
 
+            let slidesToShow;
+            let slidesToShowXs;
+            let unslickXs;
+
+            if($( this ).attr('data-slides-to-show-xs')) {
+                slidesToShowXs = parseInt($( this ).attr('data-slides-to-show-xs'));
+            } else {
+                slidesToShowXs = 2;
+            }
+
+            if($( this ).attr('data-slides-to-show')) {
+                slidesToShow = parseInt($( this ).attr('data-slides-to-show'));
+            } else {
+                slidesToShow = 5;
+            }
+
+            if($( this ).attr('data-unslick-xs') === 'false') {
+                unslickXs = false;
+            } else {
+                unslickXs = true
+            }
+
             items.on('setPosition', function () {
                 $(this).find('.slick-slide').height('auto');
                 let slickTrack = $(this).find('.slick-track');
@@ -302,7 +324,7 @@ $( document ).ready(function(){
             });
 
             items.slick({
-                slidesToShow: 5,
+                slidesToShow: slidesToShow,
                 slidesToScroll: 1,
                 //autoplay: true,
                 autoplaySpeed: 3000,
@@ -313,18 +335,21 @@ $( document ).ready(function(){
                     {
                         breakpoint: 1280,
                         settings: {
-                            slidesToShow: 4
+                            slidesToShow: slidesToShow-1
                         }
                     },
                     {
                         breakpoint: 1024,
                         settings: {
-                            slidesToShow: 3
+                            slidesToShow: slidesToShow-2
                         }
                     },
                     {
                         breakpoint: 768,
-                        settings: "unslick"
+                        settings: {
+                            slidesToShow: slidesToShowXs,
+                            unslickXs
+                        }
                     }
                 ]
             })
@@ -394,10 +419,16 @@ $( document ).ready(function () {
         let seoExpandButton = seoSection.find('.expand');
         let seoExpandArrow = seoExpandButton.find('svg');
 
-        seoExpandButton.on('click', function () {
-            seoText.toggleClass('active');
-            seoExpandArrow.toggleClass('active');
-        })
+        if(seoText.height() >= 250) {
+            seoText.addClass('hidden');
+            seoExpandButton.addClass('active');
+
+            seoExpandButton.on('click', function () {
+                seoText.toggleClass('active');
+                seoExpandButton.toggleClass('expanded');
+                seoExpandArrow.toggleClass('active');
+            })
+        }
     }
 
 });

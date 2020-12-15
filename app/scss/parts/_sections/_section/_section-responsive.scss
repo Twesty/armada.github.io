@@ -53,6 +53,11 @@
     &__arrows {
       display: none;
     }
+    &.youtube {
+      .section__arrows {
+        display: block;
+      }
+    }
     &__background {
       display: none;
     }

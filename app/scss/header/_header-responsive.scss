@@ -56,7 +56,7 @@
     }
     &__bottom,
     &__top {
-      display: none;
+      display: none !important;
     }
     &__cabinet {
       span {

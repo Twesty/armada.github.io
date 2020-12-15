@@ -16,6 +16,20 @@
 // ≥1024px
 @include media-breakpoint-down(md) {
 
+  .cart-product {
+    &__quantity {
+      margin-bottom: 15px;
+    }
+    &__total {
+      display: flex;
+      justify-content: flex-end;
+    }
+    &__footer {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
 }
 
 // ≥768px

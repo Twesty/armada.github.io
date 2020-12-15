@@ -29,7 +29,6 @@ $( document ).ready(function () {
                 seoExpandArrow.toggleClass('active');
             })
         }
-
     }
 
 });

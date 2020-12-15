@@ -10,8 +10,10 @@
   }
 
   &__items {
+    display: flex;
     list-style: none;
     padding: 0;
+    overflow: hidden;
 
     .slick-track {
       padding-bottom: 15px;
@@ -30,7 +32,9 @@
   }
 
   &__item {
-
+    &.slick-slide {
+      padding: 0;
+    }
   }
 }
 
