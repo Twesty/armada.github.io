@@ -5,6 +5,7 @@ $( document ).ready(function () {
     // Matherial select
     $('.mdb-select').materialSelect();
 
+
     // TinyMCE
 
     {
@@ -16,6 +17,62 @@ $( document ).ready(function () {
             a_configuration_option: 400,
             toolbar: 'undo redo removeformat | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | codesample code',
             language: 'ru'
+        });
+
+        // Validation
+        let form = $('form.was-validated');
+
+        form.on('submit', function (e) {
+            let editorContent = tinymce.get('description').getContent();
+            if (editorContent.length < 20)
+            {
+                e.preventDefault();
+
+                $('.description .invalid-feedback').css({'display':'block'});
+                $('.tox-tinymce').css({
+                    'border-color' : '#dc3545'
+                });
+                $([document.documentElement, document.body]).animate({
+                    scrollTop: $(".description").offset().top - 100
+                }, 1000);
+            }
+        })
+    }
+
+    // Tooltips
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip({html:true})
+    });
+
+    // Menu slide right
+
+    {
+        let menu = $('.vendor-menu');
+        let button = $('.vendor__bars');
+
+        menu.mCustomScrollbar();
+
+        button.on('click', function () {
+            $(this).toggleClass('active');
+            menu.toggleClass('active');
+
+            $('.vendor-menu__row').removeClass('active');
+            $('.vendor-menu__dropdown').slideUp(200);
+        });
+
+        menu.on('mouseenter', function () {
+            button.addClass('active');
+        });
+
+        menu.on('mouseleave', function () {
+            $('.vendor-menu__row').removeClass('active');
+            $('.vendor-menu__dropdown').slideUp(200);
+
+            if ($(this).hasClass('active')) {
+
+            } else {
+                button.removeClass('active');
+            }
         });
     }
 
@@ -29,14 +86,15 @@ $( document ).ready(function () {
             let inputs = $( this ).find('.user-block-info__value > *:not(span), .duplicate__delete, .duplicate__add');
 
             editButton.on('click', function (e) {
-                e.preventDefault();
-                let form = $( this ).parents('.user-block__wrap');
+                let form = $( this ).parents('form');
 
                 if( $( this ).hasClass('active') ) {
-                    form.submit();
+
                 } else {
                     $( this ).addClass('active');
-                    editButton.find('span').text('Сохранить');
+                    $( this ).find('span').text('Сохранить');
+
+                    $( this ).replaceWith('<button type="submit" class="user-block__edit">' + $( this ).html() + '</button>');
 
                     $.each(inputs, function () {
                         let currentValue = $( this ).siblings('span');
@@ -243,156 +301,6 @@ $( document ).ready(function () {
         });
     }
 
-    // Menu slide right
-
-    {
-        let menu = $('.vendor-menu');
-        let button = $('.vendor__bars');
-
-        menu.mCustomScrollbar();
-
-        button.on('click', function () {
-            $( this ).toggleClass('active');
-            menu.toggleClass('active');
-
-            $('.vendor-menu__row').removeClass('active');
-            $('.vendor-menu__dropdown').slideUp(200);
-        });
-
-        menu.on('mouseenter', function () {
-            button.addClass('active');
-        });
-
-        menu.on('mouseleave', function () {
-            $('.vendor-menu__row').removeClass('active');
-            $('.vendor-menu__dropdown').slideUp(200);
-
-            if($( this ).hasClass('active')) {
-
-            } else {
-                button.removeClass('active');
-            }
-        });
-    }
-
-    // Forgot password
-
-    {
-        let remindButton = $('.login__forgot-button');
-        let remindForm = $('.login__remind');
-        let loginForm = $('.login__in');
-
-        remindButton.on('click', function () {
-            loginForm.hide();
-            remindForm.show();
-        });
-
-        let rememberedButton = $('.login__remembered-button');
-
-        rememberedButton.on('click', function () {
-            loginForm.show();
-            remindForm.hide();
-        })
-    }
-
-
-    // Delete product
-
-    {
-        let modalDeleteSubmitButton = $('.confirm-delete-modal__accept');
-
-        // Singe
-        let deleteSingleItemButton = $('.products-table__delete');
-
-        $.each(deleteSingleItemButton, function () {
-            $( this ).on('click', function () {
-                let itemId = $( this ).attr('data-item-id');
-
-                modalDeleteSubmitButton.attr('data-items-ids', itemId)
-            })
-        });
-
-        // Multiple
-        let deleteMultipleItemsButton = $('.products__remove');
-
-        deleteMultipleItemsButton.on('click', function () {
-            let selectedItems = $('table .selected');
-            let itemsIds = '';
-
-            $.each(selectedItems, function (index) {
-                let itemId = $( this ).find('.products-table__delete').attr('data-item-id');
-
-                if(index >= selectedItems.length - 1) {
-                    itemsIds += itemId;
-                } else {
-                    itemsIds += itemId + ',';
-                }
-
-                modalDeleteSubmitButton.attr('data-items-ids', itemsIds)
-            });
-        });
-    }
-
-    // Duplicate input
-
-    {
-        let button = $('.input-duplicate');
-        let i = 2;
-
-        $.each(button, function () {
-            $( this ).on('click', function () {
-                let duplicateLimit = $( this ).attr('data-limit');
-                parseInt(duplicateLimit);
-
-                let targetClass = $( this ).attr('data-target');
-                let requiredInherit = $( this ).attr('data-required');
-                let cloneType = $( this ).attr('data-clone-type');
-                let target = $(targetClass);
-                let targetWrap = target.parents('.form-row, .form-group');
-                let targetClone = targetWrap.clone();
-                let cloneDeleteButton = targetClone.find('.form-row__delete');
-
-                if(requiredInherit) {
-                    targetClone.find('input').removeAttr('required');
-                    targetClone.find('.invalid-feedback').detach();
-                }
-
-                if(i <= duplicateLimit) {
-                    let cloneInputName = targetClone.find('input').attr('name');
-                    let cloneInputPlaceholder = targetClone.find('input').attr('placeholder');
-
-                    targetClone.find('input').removeAttr('id').attr('name', cloneInputName.slice(0, -1) + i);
-                    targetClone.find('input').attr('placeholder', cloneInputPlaceholder.slice(0, -1) + i);
-
-                    targetClone.insertBefore($( this ));
-
-                    i++;
-                }
-
-                // cloneDeleteButton.removeClass('hidden');
-                //
-                // cloneDeleteButton.on('click', function () {
-                //     let cloneIndex = $( this ).parents('.form-row').find('input').attr('name').slice(-1);
-                //     $( this ).parents('.form-row').detach();
-                // });
-
-            });
-        })
-    }
-
-    // Work time
-
-    {
-        let button = $('.work-time-add');
-        let workTime = $('.work-time');
-        let i = 1;
-
-        button.on('click', function () {
-            workTime.eq(i).fadeIn(200);
-            i++;
-        })
-    }
-
     // Date range picker
 
     {
@@ -478,82 +386,6 @@ $( document ).ready(function () {
         });
     }
 
-    // Upload and crop image
-
-    {
-        let wrap = $('.cabinet');
-        let modal = $('#cropImagePop');
-
-        let cancelCropBtn = $('#cancelCropBtn');
-        let acceptCropBtn = $('#cropImageBtn');
-
-        let imageOutput = $('.gambar');
-
-        let $uploadCrop = $('#upload-demo').croppie({
-            viewport: {
-                width: 450,
-                height: 200,
-            },
-            enforceBoundary: false,
-            enableExif: true
-        });
-
-        let tempFilename,
-            imageId,
-            rawImg;
-
-        $.each(wrap, function (index) {
-            let input = $( this ).find('.item-img');
-
-            input.on('click', function () {
-                modal.attr('data-image-id', index);
-                imageOutput.attr('data-image-id', index);
-            });
-
-            input.on('change', function () {
-                imageId = $(this).data('id');
-                tempFilename = $(this).val();
-                cancelCropBtn.data('id', imageId);
-
-                readFile(this, index);
-            });
-        });
-
-        acceptCropBtn.on('click', function (ev) {
-            $uploadCrop.croppie('result', {
-                type: 'base64',
-                format: 'jpeg',
-                size: {width: 450, height: 200}
-            }).then(function (resp) {
-                imageOutput.eq(modal.attr('data-image-id')).attr('src', resp);
-                modal.modal('hide');
-            });
-        });
-
-        $('#cropImagePop').on('shown.bs.modal', function(){
-            $uploadCrop.croppie('bind', {
-                url: rawImg
-            }).then(function(){
-
-            });
-        });
-
-        function readFile(input, index) {
-            if (input.files && input.files[0]) {
-                let reader = new FileReader();
-                reader.onload = function (e) {
-                    $('.upload-demo').addClass('ready');
-                    modal.modal('show');
-                    rawImg = e.target.result;
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-            else {
-                swal("Sorry - you're browser doesn't support the FileReader API");
-            }
-        }
-    }
-
     // Vendor navigation
 
     {
@@ -587,7 +419,25 @@ $( document ).ready(function () {
 
     {
         let table = $('#dt-multi-checkbox');
+        let columns = table.find('thead th');
         let columnCount = table.find('thead th').length - 1;
+
+        let arrayToExport = [];
+
+        $.each(columns, function (index) {
+            arrayToExport.push(index)
+        });
+
+        let i=0;
+        let excludeColumnFromExportIds = [];
+        arrayToExport.splice(0, 1);
+
+        $.each(excludeColumnFromExportIds, function () {
+            arrayToExport.splice($( this ), 1);
+            i++;
+        });
+
+        arrayToExport.splice(arrayToExport.length-1, arrayToExport.length);
 
         table.DataTable({
             "aaSorting": [],
@@ -605,10 +455,20 @@ $( document ).ready(function () {
                 "zeroRecords": "Данные отсутствуют.",
                 "emptyTable": "В таблице отсутствуют данные",
                 "paginate": {
-                    "first": "Первая",
-                    "previous": "Предыдущая",
-                    "next": "Следующая",
-                    "last": "Последняя"
+                    "first": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n" +
+                        "<path d=\"M0.292893 7.29284C-0.097631 7.68337 -0.0976311 8.31653 0.292893 8.70706L6.65685 15.071C7.04738 15.4615 7.68054 15.4615 8.07107 15.071C8.46159 14.6804 8.46159 14.0473 8.07107 13.6568L2.41421 7.99995L8.07107 2.3431C8.46159 1.95257 8.46159 1.31941 8.07107 0.92888C7.68054 0.538355 7.04738 0.538355 6.65685 0.92888L0.292893 7.29284ZM3 6.99995H1V8.99995H3V6.99995Z\" fill=\"#282C34\"/>\n" +
+                        "<path d=\"M7.29289 7.65685C6.90237 8.04738 6.90237 8.68054 7.29289 9.07107L13.6568 15.4351C14.0474 15.8256 14.6805 15.8256 15.0711 15.4351C15.4616 15.0445 15.4616 14.4114 15.0711 14.0209L9.41421 8.36396L15.0711 2.70711C15.4616 2.31658 15.4616 1.68342 15.0711 1.29289C14.6805 0.902369 14.0474 0.902369 13.6568 1.29289L7.29289 7.65685ZM10 7.36396H8V9.36396H10V7.36396Z\" fill=\"#282C34\"/>\n" +
+                        "</svg>\n",
+                    "previous": "<svg width=\"9\" height=\"16\" viewBox=\"0 0 9 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n" +
+                        "                <path d=\"M0.292893 7.29289C-0.097631 7.68342 -0.0976311 8.31658 0.292893 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928933C7.68054 0.538408 7.04738 0.538408 6.65685 0.928933L0.292893 7.29289ZM3 7L1 7L1 9L3 9L3 7Z\" fill=\"#282C34\"></path>\n" +
+                        "            </svg>",
+                    "next": "<svg width=\"9\" height=\"16\" viewBox=\"0 0 9 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n" +
+                        "                <path d=\"M8.70711 8.70711C9.09763 8.31658 9.09763 7.68342 8.70711 7.29289L2.34315 0.928932C1.95262 0.538408 1.31946 0.538408 0.928932 0.928932C0.538408 1.31946 0.538408 1.95262 0.928932 2.34315L6.58579 8L0.928932 13.6569C0.538408 14.0474 0.538408 14.6805 0.928932 15.0711C1.31946 15.4616 1.95262 15.4616 2.34315 15.0711L8.70711 8.70711ZM6 9H8V7H6V9Z\" fill=\"#282C34\"></path>\n" +
+                        "            </svg>",
+                    "last": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n" +
+                        "<path d=\"M15.0714 9.07105C15.4619 8.68052 15.4619 8.04736 15.0714 7.65683L8.70741 1.29284C8.31688 0.902344 7.68372 0.902344 7.29319 1.29284C6.90267 1.68344 6.90267 2.31654 7.29319 2.70704L12.95 8.36394L7.29319 14.0208C6.90267 14.4113 6.90267 15.0445 7.29319 15.435C7.68372 15.8255 8.31688 15.8255 8.70741 15.435L15.0714 9.07105ZM12.3643 9.36394L14.3643 9.36394L14.3643 7.36394L12.3643 7.36394L12.3643 9.36394Z\" fill=\"#282C34\"/>\n" +
+                        "<path d=\"M8.07137 8.70704C8.46189 8.31651 8.46189 7.68335 8.07137 7.29282L1.70741 0.928831C1.31688 0.53833 0.683719 0.53833 0.293189 0.92883C-0.0973307 1.31943 -0.0973307 1.95253 0.293189 2.34303L5.95005 7.99993L0.293188 13.6568C-0.0973318 14.0473 -0.0973319 14.6805 0.293188 15.071C0.683718 15.4615 1.31688 15.4615 1.70741 15.071L8.07137 8.70704ZM5.36426 8.99993L7.36426 8.99993L7.36426 6.99993L5.36426 6.99993L5.36426 8.99993Z\" fill=\"#282C34\"/>\n" +
+                        "</svg>\n"
                 },
                 "aria": {
                     "sortAscending": ": активировать для сортировки столбца по возрастанию",
@@ -622,6 +482,7 @@ $( document ).ready(function () {
                     }
                 }
             },
+            //responsive: true,
             dom: 'Bfrtip',
             buttons: [
                 {
@@ -633,7 +494,7 @@ $( document ).ready(function () {
                     fieldBoundary: '',
                     bom: true,
                     exportOptions: {
-                        columns: [ '.export' ]
+                        columns: arrayToExport
                     }
                 },
                 {
@@ -641,7 +502,7 @@ $( document ).ready(function () {
                     text: 'Excel',
                     charset: 'utf-8',
                     exportOptions: {
-                        columns: [ '.export' ]
+                        columns: arrayToExport
                     }
                 },
                 {
@@ -649,7 +510,7 @@ $( document ).ready(function () {
                     text: 'PDF',
                     charset: 'utf-8',
                     exportOptions: {
-                        columns: [ '.export' ]
+                        columns: arrayToExport
                     }
                 },
                 {
@@ -657,7 +518,7 @@ $( document ).ready(function () {
                     text: 'Распечатать',
                     charset: 'utf-8',
                     exportOptions: {
-                        columns: [ '.export' ]
+                        columns: arrayToExport
                     }
                 },
                 {
@@ -665,11 +526,18 @@ $( document ).ready(function () {
                     text: 'Копировать',
                     charset: 'utf-8',
                     exportOptions: {
-                        columns: [ '.export' ]
+                        columns: arrayToExport
                     }
                 }
             ],
             columnDefs: [
+                // {
+                //     data: null,
+                //     defaultContent: '',
+                //     orderable: false,
+                //     className: 'control',
+                //     targets: 0
+                // },
                 {
                     orderable: false,
                     className: 'select-checkbox',
@@ -687,73 +555,9 @@ $( document ).ready(function () {
         });
 
         $('.dt-buttons').addClass('d-flex align-items-center').prepend('<span class="mr-3">Экспорт:</span>');
-        $('.dt-button').addClass('button btn-light mr-2').removeClass('dt-button');
+        $('.dt-button').addClass('button btn-sm btn-light rounded mr-2').removeClass('dt-button');
 
         $('.dataTables_length').addClass('bs-select');
-    }
-
-    // MDB Chart
-
-    {
-        //line
-        var ctxL = document.getElementById("lineChart").getContext('2d');
-        var gradientFill = ctxL.createLinearGradient(0, 0, 360, 0);
-        gradientFill.addColorStop(0, "rgba(55, 81, 255, .1)");
-        gradientFill.addColorStop(1, "rgba(55, 81, 255, 0)");
-
-        var myLineChart = new Chart(ctxL, {
-            type: 'line',
-            data: {
-                labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"],
-                datasets: [
-                    {
-                        data: [12,20,28,30,28,30,32,40,51,35,18,25],
-                        backgroundColor: gradientFill,
-                        borderColor: [
-                            '#3751FF',
-                        ],
-                        borderWidth: 2,
-                        pointBorderColor: "transparent",
-                        pointBackgroundColor: "transparent",
-                    },
-                    {
-                        data: [31,32,28,24,24,28,32,33,31,25,20,17],
-                        backgroundColor: [
-                            'rgba(0,0,0,0)',
-                        ],
-                        borderColor: [
-                            '#DFE0EB',
-                        ],
-                        borderWidth: 2,
-                        pointBorderColor: "transparent",
-                        pointBackgroundColor: "transparent",
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                fontFamily: "Gotham Pro",
-                fontSize: "9px",
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }],
-                    xAxes: [{
-                        gridLines: {
-                            display: false
-                        }
-                    }],
-                },
-                legend: {
-                    display: false
-                },
-                tooltips: {
-                    enabled: false
-                }
-            }
-        });
     }
 
 });

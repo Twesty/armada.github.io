@@ -5,20 +5,32 @@ $( document ).ready(function(){
     {
         let mainContent = $('.main-content');
         let header = $('.header');
-        let headerHeight = header.outerHeight();
 
-        $( window ).resize(function(){
+        function mainContentMT() {
             let headerHeight = header.outerHeight();
-            if(($(window).width() + 17) < 1280) {
-                mainContent.css({'margin-top': headerHeight + 'px'});
-            } else {
-                mainContent.css({'margin-top': '0'});
-            }
-        });
 
-        if(($(window).width() + 17) < 1280) {
             mainContent.css({'margin-top': headerHeight + 'px'});
         }
+
+        $( window ).resize(function(){
+            mainContentMT();
+        });
+
+        mainContentMT();
+
+        $( window ).scroll(function() {
+            let offset = header.offset();
+
+            if ( offset.top === 0 ){
+                $('.header__top, .header__categories, .header__bottom-pages').slideDown(200);
+            } else if( offset.top > 30 ) {
+                $('.header__top, .header__categories, .header__bottom-pages').slideUp(200);
+            }
+
+            setTimeout(function () {
+                mainContentMT();
+            }, 200)
+        });
     }
 
     // Header responsive menu
@@ -104,7 +116,6 @@ $( document ).ready(function(){
     }
 
     // Header subcategories dropdown
-
     {
         let item = $('.all-categories__main-item--has-children');
         let wrap = $('.all-categories');
@@ -113,7 +124,7 @@ $( document ).ready(function(){
             let dropdown = $( this ).find('.all-categories__subcategories');
 
             $( this ).on('mouseenter', function () {
-                dropdown.css({'display':'flex'});
+                dropdown.css({'display':'block'});
                 dropdown.find('.all-categories__subcategories-main-ul').css({
                     'height': dropdown.find('.all-categories__subcategories-items-wrap').height()
                 });

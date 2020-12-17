@@ -10,13 +10,12 @@ $( document ).ready(function () {
     });
 
     // Input masks
-
     {
         // Phone input mask
         let phoneInput = $('input[type=tel]');
 
-        $('[data-mask]').mask();
 
+        $('[data-mask]').mask();
         $.each(phoneInput, function () {
             $(this).mask('+0 (000) 000-00-00', {placeholder: "+0 (123) 456 78 90"});
         });
@@ -34,6 +33,43 @@ $( document ).ready(function () {
             if (length > cropSize) {
                 $(this).text($(this).text().substr(0, cropSize) + '...');
             }
+        })
+    }
+
+    // Custom placeholder
+
+    {
+        let customPlaceholderWrap = $('.custom-placeholder');
+
+        $.each(customPlaceholderWrap, function() {
+          let placeholder = $( this ).find('.custom-placeholder__placeholder');
+          let input = $( this ).find('.custom-placeholder__input');
+
+            placeholder.on('click', function() {
+                input.focus();
+            });
+
+            if (input.val()) {
+                placeholder.hide();
+            }
+
+            input.on('blur', function() {
+                if (!input.val()) {
+                    placeholder.show();
+                }
+            });
+
+            input.on('focus', function() {
+                if (!input.val()) {
+                    placeholder.hide();
+                }
+            });
+
+            input.on('input', function() {
+                if (input.val()) {
+                    placeholder.hide();
+                }
+            });
         })
     }
 

@@ -116,10 +116,11 @@ $( document ).ready(function(){
 
                 if($( this ).hasClass('limited')) {
 
-                } else {
+                } else if($(window).width() > 768) {
                     $( this ).on('mouseenter', function () {
                         title.text(titleText);
                         vendor.text(vendorText);
+
 
                         productContent.css({
                             'margin-top' : '-' + ((titleHeight * limitRatio) + (vendorHeight * limitRatio) - 50) + 'px',

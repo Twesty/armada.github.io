@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<!-- <base href="/"> -->
 
-	<title>ARMADA - торговый комплекс</title>
+	<title>ARMADA - оформление заказа</title>
 	<meta name="description" content="ARMADA - мебельный торговый комплекс">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,9 +30,9 @@
 
 <body>
 
-<div class="overlay"></div>
+	<div class="overlay"></div>
 
-<header class="header">
+	<header class="header">
 	<div class="header__overlay"></div>
 	<div class="header__top">
 		<div class="container">
@@ -1066,290 +1066,654 @@
 		</div>
 	</div>
 </header>
+
 	<main class="main-content page-order">
 
 		<h2 class="page-order__title container page-title">Оформление заказа</h2>
 
 		<section class="order page-order__order container">
-			<form action="#" class="order__form row">
-				<div class="details order__details col-12 col-lg-6">
-					<div class="details__wrap">
-						<p class="h4 mb-4">Покупатель</p>
-
-						<p>
-							<label for="fio">Введите Ф.И.О. *</label>
-							<input type="text" id="fio" class="form-control" placeholder="Ф.И.О. *" required>
-						</p>
-
-						<div class="form-row mb-4">
-							<div class="col-12 col-md">
-								<label for="phone">Введите Ваш Телефон</label>
-								<input type="tel" id="phone" class="form-control" placeholder="Телефон *" required>
+			<form action="" method="get" class="order__form row details">
+				<div class="modal fade" id="order-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+					 aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Заказ №1 (Название магазина)</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
 							</div>
-							<p class="col-12 col-md mt-4 mt-md-0">
-								<label for="phone2">Введите Ваш Телефон</label>
-								<input type="tel" id="phone2" class="form-control" placeholder="Телефон *" required>
-							</p>
-						</div>
+							<div class="modal-body bg-light p-4">
+								<div class="order-item details__block" data-order-index="1">
+									<ul class="order-item__order-details row m-0 p-0 list-style-none">
+										<li class="details__block order-item__order-detail bg-white rounded py-3 px-4 col-12 mb-3" data-seller-detail-type="delivery">
+											<h5 class="order-item__order-detail-title d-flex align-items-center justify-content-between mb-0" >
+												<span>Способ доставки</span>
+												<svg class="active" width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.03033 7.03033C7.32322 6.73744 7.32322 6.26256 7.03033 5.96967L2.25736 1.1967C1.96447 0.903806 1.48959 0.903806 1.1967 1.1967C0.903806 1.48959 0.903806 1.96447 1.1967 2.25736L5.43934 6.5L1.1967 10.7426C0.903806 11.0355 0.903806 11.5104 1.1967 11.8033C1.48959 12.0962 1.96447 12.0962 2.25736 11.8033L7.03033 7.03033ZM5.5 7.25H6.5V5.75H5.5V7.25Z" fill="#424242"/>
+												</svg>
+											</h5>
+											<div class="order-item__order-detail-content pt-4">
+												<div class="form-row mb-4 justify-content-around justify-content-md-start">
+													<div class="col-8 col-xl-4">
+														<div class="custom-control custom-radio">
+															<input type="radio" class="custom-control-input" id="delivery-method-1" name="delivery-method-1" title="Способ доставки 1" checked>
+															<label class="custom-control-label" for="delivery-method-1">Способ доставки 1</label>
+														</div>
+													</div>
+													<div class="col-4 col-md-6 col-xl-3 font-weight-semibold text-left text-xl-center">Бесплатно</div>
+													<div class="col-12 col-md-6 col-xl-5 mt-2 mt-xl-0">Будет передавно в службу доставки 23 августа</div>
+												</div>
 
-						<p class="h4 mb-4">Адрес доставки</p>
+												<div class="form-row mb-4 justify-content-around justify-content-md-start">
+													<div class="col-8 col-xl-4">
+														<div class="custom-control custom-radio">
+															<input type="radio" class="custom-control-input" id="delivery-method-1-2" title="Способ доставки 2" name="delivery-method-1">
+															<label class="custom-control-label" for="delivery-method-1-2">Способ доставки 2</label>
+														</div>
+													</div>
+													<div class="col-4 col-md-6 col-xl-3 font-weight-semibold text-left text-xl-center">Бесплатно</div>
+													<div class="col-12 col-md-6 col-xl-5 mt-2 mt-xl-0">Будет передавно в службу доставки 23 августа</div>
+												</div>
 
-						<div class="form-row mb-4">
-							<div class="col-12 col-md-6">
-								<!-- Phone number -->
-								<label>Введите страну *</label>
-								<select class="mdb-select md-form" searchable="Поиск..." id="country">
-									<option value="" disabled selected>Выберите страну</option>
-									<option value="1">USA</option>
-									<option value="2">Germany</option>
-									<option value="3">France</option>
-									<option value="3">Poland</option>
-									<option value="3">Japan</option>
-								</select>
-							</div>
-							<div class="col-12 col-md-6">
-								<!-- Phone number -->
-								<label>Введите город *</label>
-								<select class="mdb-select md-form" searchable="Поиск..." id="city">
-									<option value="" disabled selected>Выберите город</option>
-									<option value="1">USA</option>
-									<option value="2">Germany</option>
-									<option value="3">France</option>
-									<option value="4">Poland</option>
-									<option value="5">Japan</option>
-								</select>
-							</div>
-						</div>
+												<div class="form-row mb-4 justify-content-around justify-content-md-start">
+													<div class="col-8 col-xl-4">
+														<div class="custom-control custom-radio">
+															<input type="radio" class="custom-control-input" id="delivery-method-1-3" title="Способ доставки 3" name="delivery-method-1">
+															<label class="custom-control-label" for="delivery-method-1-3">Способ доставки 3</label>
+														</div>
+													</div>
+													<div class="col-4 col-md-6 col-xl-3 font-weight-semibold text-left text-xl-center">Бесплатно</div>
+													<div class="col-12 col-md-6 col-xl-5 mt-2 mt-xl-0">Будет передавно в службу доставки 23 августа</div>
+												</div>
+											</div>
+										</li>
+										<li class="details__block order-item__order-detail bg-white rounded py-3 px-4 col-12 mb-3" data-seller-detail-type="payment">
+											<h5 class="order-item__order-detail-title d-flex align-items-center justify-content-between mb-0" >
+												<span>Способ оплаты</span>
+												<svg class="active" width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.03033 7.03033C7.32322 6.73744 7.32322 6.26256 7.03033 5.96967L2.25736 1.1967C1.96447 0.903806 1.48959 0.903806 1.1967 1.1967C0.903806 1.48959 0.903806 1.96447 1.1967 2.25736L5.43934 6.5L1.1967 10.7426C0.903806 11.0355 0.903806 11.5104 1.1967 11.8033C1.48959 12.0962 1.96447 12.0962 2.25736 11.8033L7.03033 7.03033ZM5.5 7.25H6.5V5.75H5.5V7.25Z" fill="#424242"/>
+												</svg>
+											</h5>
+											<div class="order-item__order-detail-content pt-4">
+												<p class="custom-control custom-radio">
+													<input type="radio" class="custom-control-input" id="payment-method-1" title="Способ оплаты 1" name="payment-method-1" checked>
+													<label class="custom-control-label" for="payment-method-1">Способ оплаты 1</label>
+												</p>
 
-						<p>
-							<label for="address">Адрес для доставки товара</label>
-							<input type="text" id="address" class="form-control" placeholder="Адрес *" required>
-						</p>
+												<p class="custom-control custom-radio">
+													<input type="radio" class="custom-control-input" id="payment-method-1-2" title="Способ оплаты 2" name="payment-method-1">
+													<label class="custom-control-label" for="payment-method-1-2">Способ оплаты 2</label>
+												</p>
 
-						<p class="form-group">
-							<label for="comment">Ваш комментарий к заказу</label>
-							<textarea class="form-control" id="comment" rows="4" placeholder="Комментарии"></textarea>
-						</p>
+												<p class="custom-control custom-radio">
+													<input type="radio" class="custom-control-input" id="payment-method-1-3" title="Способ оплаты 3" name="payment-method-1">
+													<label class="custom-control-label" for="payment-method-1-3">Способ оплаты 3</label>
+												</p>
 
-						<br>
+												<p class="custom-control custom-radio">
+													<input type="radio" class="custom-control-input" id="payment-method-1-4" title="Способ оплаты 4" name="payment-method-1">
+													<label class="custom-control-label" for="payment-method-1-4">Способ оплаты 4</label>
+												</p>
+											</div>
+										</li>
+										<li class="details__block order-item__order-detail bg-white rounded py-3 px-4 col-12 mb-3" data-seller-detail-type="recipient">
+											<h5 class="order-item__order-detail-title d-flex align-items-center justify-content-between mb-0" >
+												<span>Получатель</span>
+												<svg class="active" width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.03033 7.03033C7.32322 6.73744 7.32322 6.26256 7.03033 5.96967L2.25736 1.1967C1.96447 0.903806 1.48959 0.903806 1.1967 1.1967C0.903806 1.48959 0.903806 1.96447 1.1967 2.25736L5.43934 6.5L1.1967 10.7426C0.903806 11.0355 0.903806 11.5104 1.1967 11.8033C1.48959 12.0962 1.96447 12.0962 2.25736 11.8033L7.03033 7.03033ZM5.5 7.25H6.5V5.75H5.5V7.25Z" fill="#424242"/>
+												</svg>
+											</h5>
+											<div class="order-item__order-detail-content pt-4">
+												<p class="custom-control custom-radio">
+													<input type="radio" class="custom-control-input seller__recipient" title="Я" id="me-1" name="recipient-1" checked>
+													<label class="custom-control-label" for="me-1">Я</label>
+												</p>
 
-						<div class="details__block">
-							<p class="h4 mb-4">Способ доставки</p>
+												<p class="custom-control custom-radio">
+													<input type="radio" class="custom-control-input seller__recipient" data-id="other" title="Другой человек" id="other-1" name="recipient-1">
+													<label class="custom-control-label" for="other-1">Другой человек</label>
+												</p>
 
-							<div class="form-row mb-4 justify-content-around justify-content-md-start">
-								<div class="col-8 col-xl-4">
-									<div class="custom-control custom-radio">
-										<input type="radio" class="custom-control-input" id="delivery-method" name="delivery-method" checked>
-										<label class="custom-control-label" for="delivery-method">Способ доставки 1</label>
-									</div>
+												<div class="details__other-recipient">
+													<label for="recipient-fio-1">Введите Ф.И.О. получателя</label>
+													<input type="text" name="recipient-fio-1" id="recipient-fio-1" class="form-control" placeholder="Ф.И.О">
+
+													<div class="form-row mb-4">
+														<div class="custom-radio col-12 col-md-6">
+															<label for="recipient-phone-1">Введите Телефон получателя</label>
+															<input type="tel" name="recipient-phone-1" id="recipient-phone-1" class="form-control" placeholder="Телефон">
+														</div>
+													</div>
+
+													<div class="custom-checkbox">
+														<input type="checkbox" class="custom-control-input" name="callback-1" id="callback-1">
+														<label class="custom-control custom-control-label" for="callback-1">Не перезванивать мне, я уверен в заказе</label>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li class="details__block order-item__order-detail bg-white rounded py-3 px-4 col-12 mb-3" data-seller-detail-type="additional-services">
+											<h5 class="order-item__order-detail-title d-flex align-items-center justify-content-between mb-0" >
+												<span>Дополнительные услуги</span>
+												<svg class="active" width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.03033 7.03033C7.32322 6.73744 7.32322 6.26256 7.03033 5.96967L2.25736 1.1967C1.96447 0.903806 1.48959 0.903806 1.1967 1.1967C0.903806 1.48959 0.903806 1.96447 1.1967 2.25736L5.43934 6.5L1.1967 10.7426C0.903806 11.0355 0.903806 11.5104 1.1967 11.8033C1.48959 12.0962 1.96447 12.0962 2.25736 11.8033L7.03033 7.03033ZM5.5 7.25H6.5V5.75H5.5V7.25Z" fill="#424242"/>
+												</svg>
+											</h5>
+											<div class="order-item__order-detail-content pt-4">
+												<ul class="additional__items">
+													<li class="additional-item additional__item">
+														<div class="d-flex justify-content-between align-items-center font-weight-semibold">
+									<span class="custom-control custom-radio">
+										<input type="checkbox" title="Услуга 1" data-service-price="Бесплатно" class="custom-control-input" name="service-1" id="service-1">
+										<label class="custom-control-label pl-2" for="service-1">Услуга 1</label>
+									</span>
+															<div class="additional-item__price">Бесплатно</div>
+														</div>
+														<p class="additional-item__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra</p>
+													</li>
+													<li class="additional-item additional__item">
+														<div class="d-flex justify-content-between align-items-center font-weight-semibold">
+									<span class="custom-control custom-radio">
+										<input type="checkbox" title="Услуга 2" data-service-price="4000" class="custom-control-input" name="service-2" id="service-2">
+										<label class="custom-control-label pl-2" for="service-2">Услуга 2</label>
+									</span>
+															<div class="additional-item__price price price__current">1000 <span class="currency">тг</span></div>
+														</div>
+														<p class="additional-item__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra</p>
+													</li>
+													<li class="additional-item additional__item">
+														<div class="d-flex justify-content-between align-items-center font-weight-semibold">
+									<span class="custom-control custom-radio">
+										<input type="checkbox" title="Услуга 3" data-service-price="1000" class="custom-control-input" name="service-3" id="service-3">
+										<label class="custom-control-label pl-2" for="service-3">Услуга 3</label>
+									</span>
+															<div class="additional-item__price price price__current">1000 <span class="currency">тг</span></div>
+														</div>
+														<p class="additional-item__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra</p>
+													</li>
+													<li class="additional-item additional__item">
+														<div class="d-flex justify-content-between align-items-center font-weight-semibold">
+									<span class="custom-control custom-radio">
+										<input type="checkbox" title="Услуга 4" data-service-price="2000" class="custom-control-input" name="service-4" id="service-4">
+										<label class="custom-control-label pl-2" for="service-4">Услуга 4</label>
+									</span>
+															<div class="additional-item__price price price__current">1000 <span class="currency">тг</span></div>
+														</div>
+														<p class="additional-item__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra</p>
+													</li>
+												</ul>
+											</div>
+										</li>
+									</ul>
 								</div>
-								<div class="col-4 col-md-6 col-xl-3 font-weight-semibold text-left text-xl-center">Бесплатно</div>
-								<div class="col-12 col-md-6 col-xl-5 mt-2 mt-xl-0">Будет передавно в службу доставки 23 августа</div>
 							</div>
-
-							<div class="form-row mb-4 justify-content-around justify-content-md-start">
-								<div class="col-8 col-xl-4">
-									<div class="custom-control custom-radio">
-										<input type="radio" class="custom-control-input" id="delivery-method-2" name="delivery-method">
-										<label class="custom-control-label" for="delivery-method-2">Способ доставки 1</label>
-									</div>
-								</div>
-								<div class="col-4 col-md-6 col-xl-3 font-weight-semibold text-left text-xl-center">Бесплатно</div>
-								<div class="col-12 col-md-6 col-xl-5 mt-2 mt-xl-0">Будет передавно в службу доставки 23 августа</div>
+							<div class="modal-footer py-3 px-4">
+								<button type="button" class="button btn-primary" data-dismiss="modal">Закрыть</button>
 							</div>
-
-							<div class="form-row mb-4 justify-content-around justify-content-md-start">
-								<div class="col-8 col-xl-4">
-									<div class="custom-control custom-radio">
-										<input type="radio" class="custom-control-input" id="delivery-method-3" name="delivery-method">
-										<label class="custom-control-label" for="delivery-method-3">Способ доставки 1</label>
-									</div>
-								</div>
-								<div class="col-4 col-md-6 col-xl-3 font-weight-semibold text-left text-xl-center">Бесплатно</div>
-								<div class="col-12 col-md-6 col-xl-5 mt-2 mt-xl-0">Будет передавно в службу доставки 23 августа</div>
-							</div>
-						</div>
-
-						<br>
-
-						<div class="details__block">
-							<p class="h4 mb-4">Способ оплаты</p>
-
-							<p class="custom-control custom-radio">
-								<input type="radio" class="custom-control-input" id="payment-method" name="payment-method" checked>
-								<label class="custom-control-label" for="payment-method">Способ доставки 1</label>
-							</p>
-
-							<p class="custom-control custom-radio">
-								<input type="radio" class="custom-control-input" id="payment-method-2" name="payment-method">
-								<label class="custom-control-label" for="payment-method-2">Способ доставки 1</label>
-							</p>
-
-							<p class="custom-control custom-radio">
-								<input type="radio" class="custom-control-input" id="payment-method-3" name="payment-method">
-								<label class="custom-control-label" for="payment-method-3">Способ доставки 1</label>
-							</p>
-
-							<p class="custom-control custom-radio">
-								<input type="radio" class="custom-control-input" id="payment-method-4" name="payment-method">
-								<label class="custom-control-label" for="payment-method-4">Способ доставки 1</label>
-							</p>
-						</div>
-
-						<br>
-
-						<div class="details__block">
-							<p class="h4 mb-4">Способ оплаты</p>
-
-							<p class="custom-control custom-radio">
-								<input type="radio" class="custom-control-input" id="me" name="recipient" checked>
-								<label class="custom-control-label" for="me">Я</label>
-							</p>
-
-							<p class="custom-control custom-radio">
-								<input type="radio" class="custom-control-input" id="other" name="recipient">
-								<label class="custom-control-label" for="other">Другой человек</label>
-							</p>
-
-							<p>
-								<label for="address">Введите Ф.И.О. получателя *</label>
-								<input type="text" id="recipient-fio" class="form-control" placeholder="Ф.И.О. *" required>
-							</p>
-
-							<div class="form-row mb-4">
-								<div class="custom-radio col-12 col-md-6">
-									<label for="recipient-phone">Введите Телефон получателя</label>
-									<input type="tel" id="recipient-phone" class="form-control" placeholder="Телефон *" required>
-								</div>
-							</div>
-
-							<p class="custom-checkbox">
-								<input type="checkbox" class="custom-control-input" id="callback">
-								<label class="custom-control custom-control-label" for="callback">Не перезванивать мне, я уверен в заказе</label>
-							</p>
 						</div>
 					</div>
 				</div>
-				<div class="order__order-total col-12 col-lg-6">
-					<div class="order-total__wrap rounded bg-light">
-						<div class="order-total__title">Итого</div>
-						<ul class="order-total__items">
-							<li class="order-total__item product-card product-card--vertical">
-								<article class="product-card__wrap">
-									<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
-									</span>
-									<span class="product-card__favorite ">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-									<a href="#" class="product-card__link">
-										<div class="product-card__image">
-											<img src="img/products/1.png" alt="Product image" />
-										</div>
-										<div class="product-card__content product-card__content--wp">
-											<h4 class="product-card__title">Стол для детей</h4>
-											<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-											<div class="price product-card__price">
-												<span class="price__current">90 400 <span class="price__currency">тг</span></span>
+				<div class="modal fade" id="order-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+					 aria-hidden="true">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Заказ №2 (Название магазина)</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body bg-light p-4">
+								<div class="order-item details__block" data-order-index="2">
+									<ul class="order-item__order-details row m-0 p-0 list-style-none">
+										<li class="details__block order-item__order-detail bg-white rounded py-3 px-4 col-12 mb-3" data-seller-detail-type="delivery">
+											<h5 class="order-item__order-detail-title d-flex align-items-center justify-content-between mb-0" >
+												<span>Способ доставки</span>
+												<svg class="active" width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.03033 7.03033C7.32322 6.73744 7.32322 6.26256 7.03033 5.96967L2.25736 1.1967C1.96447 0.903806 1.48959 0.903806 1.1967 1.1967C0.903806 1.48959 0.903806 1.96447 1.1967 2.25736L5.43934 6.5L1.1967 10.7426C0.903806 11.0355 0.903806 11.5104 1.1967 11.8033C1.48959 12.0962 1.96447 12.0962 2.25736 11.8033L7.03033 7.03033ZM5.5 7.25H6.5V5.75H5.5V7.25Z" fill="#424242"/>
+												</svg>
+											</h5>
+											<div class="order-item__order-detail-content pt-4">
+												<div class="form-row mb-4 justify-content-around justify-content-md-start">
+													<div class="col-8 col-xl-4">
+														<div class="custom-control custom-radio">
+															<input type="radio" class="custom-control-input" id="delivery-method" name="delivery-method" title="Способ доставки 1" checked>
+															<label class="custom-control-label" for="delivery-method">Способ доставки 1</label>
+														</div>
+													</div>
+													<div class="col-4 col-md-6 col-xl-3 font-weight-semibold text-left text-xl-center">Бесплатно</div>
+													<div class="col-12 col-md-6 col-xl-5 mt-2 mt-xl-0">Будет передавно в службу доставки 23 августа</div>
+												</div>
+
+												<div class="form-row mb-4 justify-content-around justify-content-md-start">
+													<div class="col-8 col-xl-4">
+														<div class="custom-control custom-radio">
+															<input type="radio" class="custom-control-input" id="delivery-method-2" title="Способ доставки 2" name="delivery-method">
+															<label class="custom-control-label" for="delivery-method-2">Способ доставки 2</label>
+														</div>
+													</div>
+													<div class="col-4 col-md-6 col-xl-3 font-weight-semibold text-left text-xl-center">Бесплатно</div>
+													<div class="col-12 col-md-6 col-xl-5 mt-2 mt-xl-0">Будет передавно в службу доставки 23 августа</div>
+												</div>
+
+												<div class="form-row mb-4 justify-content-around justify-content-md-start">
+													<div class="col-8 col-xl-4">
+														<div class="custom-control custom-radio">
+															<input type="radio" class="custom-control-input" id="delivery-method-3" title="Способ доставки 3" name="delivery-method">
+															<label class="custom-control-label" for="delivery-method-3">Способ доставки 3</label>
+														</div>
+													</div>
+													<div class="col-4 col-md-6 col-xl-3 font-weight-semibold text-left text-xl-center">Бесплатно</div>
+													<div class="col-12 col-md-6 col-xl-5 mt-2 mt-xl-0">Будет передавно в службу доставки 23 августа</div>
+												</div>
 											</div>
-											<div class="product-card__count">Кол-во: <span>1</span> шт.</div>
-										</div>
-									</a>
-								</article>
-							</li>
-							<li class="order-total__item product-card product-card--vertical">
-								<article class="product-card__wrap">
-									<span class="product-card__header">
-									<span class="product-card__stickers">
-										<span class="product-card__sticker product-card__sticker--new">Новинка</span>
-										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
-									</span>
-									<span class="product-card__favorite ">
-										<svg width="28px" height="25px" viewBox="0 0 16 16" class="bi bi-heart" fill="#FFE605" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-										</svg>
-									</span>
-								</span>
-									<a href="#" class="product-card__link">
-										<div class="product-card__image">
-											<img src="img/products/1.png" alt="Product image" />
-										</div>
-										<div class="product-card__content product-card__content--wp">
-											<h4 class="product-card__title">Стол для детей</h4>
-											<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
-											<div class="price product-card__price">
-												<span class="price__current">90 400 <span class="price__currency">тг</span></span>
+										</li>
+										<li class="details__block order-item__order-detail bg-white rounded py-3 px-4 col-12 mb-3" data-seller-detail-type="payment">
+											<h5 class="order-item__order-detail-title d-flex align-items-center justify-content-between mb-0" >
+												<span>Способ оплаты</span>
+												<svg class="active" width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.03033 7.03033C7.32322 6.73744 7.32322 6.26256 7.03033 5.96967L2.25736 1.1967C1.96447 0.903806 1.48959 0.903806 1.1967 1.1967C0.903806 1.48959 0.903806 1.96447 1.1967 2.25736L5.43934 6.5L1.1967 10.7426C0.903806 11.0355 0.903806 11.5104 1.1967 11.8033C1.48959 12.0962 1.96447 12.0962 2.25736 11.8033L7.03033 7.03033ZM5.5 7.25H6.5V5.75H5.5V7.25Z" fill="#424242"/>
+												</svg>
+											</h5>
+											<div class="order-item__order-detail-content pt-4">
+												<p class="custom-control custom-radio">
+													<input type="radio" class="custom-control-input" id="payment-method" title="Способ оплаты 1" name="payment-method" checked>
+													<label class="custom-control-label" for="payment-method">Способ оплаты 1</label>
+												</p>
+
+												<p class="custom-control custom-radio">
+													<input type="radio" class="custom-control-input" id="payment-method-2" title="Способ оплаты 2" name="payment-method">
+													<label class="custom-control-label" for="payment-method-2">Способ оплаты 2</label>
+												</p>
+
+												<p class="custom-control custom-radio">
+													<input type="radio" class="custom-control-input" id="payment-method-3" title="Способ оплаты 3" name="payment-method">
+													<label class="custom-control-label" for="payment-method-3">Способ оплаты 3</label>
+												</p>
+
+												<p class="custom-control custom-radio">
+													<input type="radio" class="custom-control-input" id="payment-method-4" title="Способ оплаты 4" name="payment-method">
+													<label class="custom-control-label" for="payment-method-4">Способ оплаты 4</label>
+												</p>
 											</div>
-											<div class="product-card__count">Кол-во: <span>1</span> шт.</div>
-										</div>
-									</a>
-								</article>
-							</li>
-						</ul>
-						<p class="font-weight-bold text-uppercase mt-4">Добавить промокод</p>
-						<p class="medium">Введите Ваш промокод ниже</p>
-						<div class="input-group mb-3 medium">
-							<input type="text" name="promocode" class="form-control px-4" data-mask="0000-0000-0000-0000" placeholder="Промокод" aria-label="Введите промокод..."
-								   aria-describedby="button-addon2">
-							<div class="input-group-append">
-								<button class="btn btn-md btn-default m-0 px-4 font-weight-semibold py-2 z-depth-0 waves-effect text-uppercase text-white bg-dark py-3" type="button" id="button-addon2">Применить</button>
+										</li>
+										<li class="details__block order-item__order-detail bg-white rounded py-3 px-4 col-12 mb-3" data-seller-detail-type="recipient">
+											<h5 class="order-item__order-detail-title d-flex align-items-center justify-content-between mb-0" >
+												<span>Получатель</span>
+												<svg class="active" width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.03033 7.03033C7.32322 6.73744 7.32322 6.26256 7.03033 5.96967L2.25736 1.1967C1.96447 0.903806 1.48959 0.903806 1.1967 1.1967C0.903806 1.48959 0.903806 1.96447 1.1967 2.25736L5.43934 6.5L1.1967 10.7426C0.903806 11.0355 0.903806 11.5104 1.1967 11.8033C1.48959 12.0962 1.96447 12.0962 2.25736 11.8033L7.03033 7.03033ZM5.5 7.25H6.5V5.75H5.5V7.25Z" fill="#424242"/>
+												</svg>
+											</h5>
+											<div class="order-item__order-detail-content pt-4">
+												<p class="custom-control custom-radio">
+													<input type="radio" class="custom-control-input seller__recipient" title="Я" id="me" name="recipient">
+													<label class="custom-control-label" for="me">Я</label>
+												</p>
+
+												<p class="custom-control custom-radio">
+													<input type="radio" class="custom-control-input seller__recipient" data-id="other" title="Другой человек" id="other" name="recipient" checked>
+													<label class="custom-control-label" for="other">Другой человек</label>
+												</p>
+
+												<div class="details__other-recipient">
+													<label for="recipient-fio">Введите Ф.И.О. получателя</label>
+													<input type="text" id="recipient-fio" class="form-control" placeholder="Ф.И.О." >
+
+													<div class="form-row mb-4">
+														<div class="custom-radio col-12 col-md-6">
+															<label for="recipient-phone">Введите Телефон получателя</label>
+															<input type="tel" id="recipient-phone" class="form-control" placeholder="Телефон">
+														</div>
+													</div>
+
+													<div class="custom-checkbox">
+														<input type="checkbox" class="custom-control-input" name="callback" id="callback">
+														<label class="custom-control custom-control-label" for="callback">Не перезванивать мне, я уверен в заказе</label>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li class="details__block order-item__order-detail bg-white rounded py-3 px-4 col-12 mb-3" data-seller-detail-type="additional-services">
+											<h5 class="order-item__order-detail-title d-flex align-items-center justify-content-between mb-0" >
+												<span>Дополнительные услуги</span>
+												<svg class="active" width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M7.03033 7.03033C7.32322 6.73744 7.32322 6.26256 7.03033 5.96967L2.25736 1.1967C1.96447 0.903806 1.48959 0.903806 1.1967 1.1967C0.903806 1.48959 0.903806 1.96447 1.1967 2.25736L5.43934 6.5L1.1967 10.7426C0.903806 11.0355 0.903806 11.5104 1.1967 11.8033C1.48959 12.0962 1.96447 12.0962 2.25736 11.8033L7.03033 7.03033ZM5.5 7.25H6.5V5.75H5.5V7.25Z" fill="#424242"/>
+												</svg>
+											</h5>
+											<div class="order-item__order-detail-content pt-4">
+												<ul class="additional__items">
+													<li class="additional-item additional__item">
+														<div class="d-flex justify-content-between align-items-center font-weight-semibold">
+									<span class="custom-control custom-radio">
+										<input type="checkbox" title="Услуга 1" data-service-price="Бесплатно" class="custom-control-input" name="service-1-1" id="service-1-1">
+										<label class="custom-control-label pl-2" for="service-1-1">Услуга 1</label>
+									</span>
+															<div class="additional-item__price">Бесплатно</div>
+														</div>
+														<p class="additional-item__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra</p>
+													</li>
+													<li class="additional-item additional__item">
+														<div class="d-flex justify-content-between align-items-center font-weight-semibold">
+									<span class="custom-control custom-radio">
+										<input type="checkbox" title="Услуга 2" data-service-price="4000" class="custom-control-input" name="service-1-2" id="service-1-2">
+										<label class="custom-control-label pl-2" for="service-1-2">Услуга 2</label>
+									</span>
+															<div class="additional-item__price price price__current">1000 <span class="currency">тг</span></div>
+														</div>
+														<p class="additional-item__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra</p>
+													</li>
+													<li class="additional-item additional__item">
+														<div class="d-flex justify-content-between align-items-center font-weight-semibold">
+									<span class="custom-control custom-radio">
+										<input type="checkbox" title="Услуга 3" data-service-price="1000" class="custom-control-input" name="service-1-3" id="service-1-3">
+										<label class="custom-control-label pl-2" for="service-1-3">Услуга 3</label>
+									</span>
+															<div class="additional-item__price price price__current">1000 <span class="currency">тг</span></div>
+														</div>
+														<p class="additional-item__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra</p>
+													</li>
+													<li class="additional-item additional__item">
+														<div class="d-flex justify-content-between align-items-center font-weight-semibold">
+									<span class="custom-control custom-radio">
+										<input type="checkbox" title="Услуга 4" data-service-price="2000" class="custom-control-input" name="service-1-4" id="service-1-4">
+										<label class="custom-control-label pl-2" for="service-1-4">Услуга 4</label>
+									</span>
+															<div class="additional-item__price price price__current">1000 <span class="currency">тг</span></div>
+														</div>
+														<p class="additional-item__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra</p>
+													</li>
+												</ul>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="modal-footer py-3 px-4">
+								<button type="button" class="button btn-primary" data-dismiss="modal">Закрыть</button>
 							</div>
 						</div>
-						<div class="order-total__total my-4 my-xl-5">
-							<span>К оплате: </span>
-							<span class="price price__current">90 400 <span class="currency">тг</span></span>
-						</div>
-						<button type="submit" class="order-total__submit button btn-primary rounded">Заказ подтверждаю</button>
-						<p class="w-75 medium mt-3 mb-0">Подтверждая заказ, я принимаю условия пользовательского соглашения.</p>
 					</div>
-					<div class="additional order__additional rounded bg-light">
-						<div class="order-total__title">Дополнительные услуги</div>
-						<ul class="additional__items">
-							<li class="additional-item additional__item">
-								<div class="d-flex justify-content-between align-items-center font-weight-semibold">
-									<span class="custom-control custom-radio">
-										<input type="checkbox" class="custom-control-input" name="service-1" id="service-1">
-										<label class="custom-control-label pl-2" for="service-1">Услуга 1</label>
+				</div>
+
+				<div class="col-12 col-md-6 col-lg-7 order__edit">
+					<p class="h4 mb-4">Покупатель</p>
+
+					<div class="row mb-4">
+						<div class="col-12 mb-3">
+							<label for="fio">Введите Ф.И.О. *</label>
+							<input type="text" id="fio" class="form-control" placeholder="Ф.И.О. *" required>
+						</div>
+						<div class="col-12 mb-3 mb-lg-0 col-md">
+							<label for="phone">Введите Ваш Телефон</label>
+							<input type="tel" id="phone" class="form-control" placeholder="Телефон *" required>
+						</div>
+						<div class="col-12 mb-3 mb-lg-0 col-md">
+							<label for="email">Введите Ваш E-mail</label>
+							<input type="email" id="email" class="form-control" placeholder="E-mail *" required>
+						</div>
+					</div>
+
+					<p class="h4 mb-4">Адрес доставки</p>
+
+					<div class="row mb-4">
+						<div class="col-12 mb-3 col-md">
+							<label>Введите страну *</label>
+							<select class="mdb-select md-form" searchable="Поиск..." id="country">
+								<option value="" disabled selected>Выберите страну</option>
+								<option value="1">USA</option>
+								<option value="2">Germany</option>
+								<option value="3">France</option>
+								<option value="3">Poland</option>
+								<option value="3">Japan</option>
+							</select>
+						</div>
+						<div class="col-12 mb-3 col-md">
+							<label>Введите город *</label>
+							<select class="mdb-select md-form" searchable="Поиск..." id="city">
+								<option value="" disabled selected>Выберите город</option>
+								<option value="1">USA</option>
+								<option value="2">Germany</option>
+								<option value="3">France</option>
+								<option value="4">Poland</option>
+								<option value="5">Japan</option>
+							</select>
+						</div>
+						<div class="col-12 mb-3">
+							<label for="address">Адрес для доставки товара</label>
+							<input type="text" id="address" class="form-control" placeholder="Адрес *" required>
+						</div>
+						<div class="col-12">
+							<label for="comment">Ваш комментарий к заказу</label>
+							<textarea class="form-control" id="comment" rows="6" placeholder="Комментарий"></textarea>
+						</div>
+					</div>
+
+					<div class="order-item-total details__block bg-light rounded p-4 mt-4" data-order-index="1">
+						<h4 class="seller__title mb-4">Заказ №1 (Название магазина)</h4>
+						<ul class="seller__products row list-style-none mb-0 p-0">
+							<li class="col-12 seller__product order-total__item product-card product-card--vertical">
+								<article class="product-card__wrap">
+									<span class="product-card__header">
+									<span class="product-card__stickers">
+										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
 									</span>
-									<div class="additional-item__price">Бесплатно</div>
-								</div>
-								<p class="additional-item__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra</p>
+								</span>
+									<a href="#" class="product-card__link">
+										<div class="product-card__image">
+											<img src="img/products/1.png" alt="Product image" />
+										</div>
+										<div class="product-card__content product-card__content--wp">
+											<h4 class="product-card__title">Стол для детей</h4>
+											<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
+											<div class="price product-card__price">
+												<span class="price__current">90 400 <span class="price__currency">тг</span></span>
+											</div>
+											<div class="product-card__count">Кол-во: <span>1</span> шт.</div>
+										</div>
+									</a>
+								</article>
 							</li>
-							<li class="additional-item additional__item">
-								<div class="d-flex justify-content-between align-items-center font-weight-semibold">
-									<span class="custom-control custom-radio">
-										<input type="checkbox" class="custom-control-input" name="service-2" id="service-2">
-										<label class="custom-control-label pl-2" for="service-2">Услуга 2</label>
+							<li class="col-12 seller__product order-total__item product-card product-card--vertical">
+								<article class="product-card__wrap">
+									<span class="product-card__header">
+									<span class="product-card__stickers">
+										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
 									</span>
-									<div class="additional-item__price price price__current">1000 <span class="currency">тг</span></div>
-								</div>
-								<p class="additional-item__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra</p>
-							</li>
-							<li class="additional-item additional__item">
-								<div class="d-flex justify-content-between align-items-center font-weight-semibold">
-									<span class="custom-control custom-radio">
-										<input type="checkbox" class="custom-control-input" name="service-3" id="service-3">
-										<label class="custom-control-label pl-2" for="service-3">Услуга 3</label>
-									</span>
-									<div class="additional-item__price price price__current">1000 <span class="currency">тг</span></div>
-								</div>
-								<p class="additional-item__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra</p>
-							</li>
-							<li class="additional-item additional__item">
-								<div class="d-flex justify-content-between align-items-center font-weight-semibold">
-									<span class="custom-control custom-radio">
-										<input type="checkbox" class="custom-control-input" name="service-4" id="service-4">
-										<label class="custom-control-label pl-2" for="service-4">Услуга 4</label>
-									</span>
-									<div class="additional-item__price price price__current">1000 <span class="currency">тг</span></div>
-								</div>
-								<p class="additional-item__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra</p>
+								</span>
+									<a href="#" class="product-card__link">
+										<div class="product-card__image">
+											<img src="img/products/1.png" alt="Product image" />
+										</div>
+										<div class="product-card__content product-card__content--wp">
+											<h4 class="product-card__title">Стол для детей</h4>
+											<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
+											<div class="price product-card__price">
+												<span class="price__current">90 400 <span class="price__currency">тг</span></span>
+											</div>
+											<div class="product-card__count">Кол-во: <span>1</span> шт.</div>
+										</div>
+									</a>
+								</article>
 							</li>
 						</ul>
+						<p class="mt-4 d-flex align-items-center">
+							<span class="font-weight-bold text-uppercase mr-4">Детали заказа</span>
+							<span class="medium font-weight-semibold color--accent d-flex align-items-center cursor-pointer" data-toggle="modal" data-target="#order-1">
+								<span>Редактировать</span>
+								<svg class="ml-2" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M9.85722 6.00032C9.62052 6.00032 9.42864 6.1922 9.42864 6.42891V10.7146C9.42864 10.9513 9.23676 11.1432 9.00005 11.1432H1.28573C1.04902 11.1432 0.857142 10.9513 0.857142 10.7146V2.14315C0.857142 1.90644 1.04902 1.71456 1.28573 1.71456H6.42863C6.66533 1.71456 6.85721 1.52268 6.85721 1.28598C6.85721 1.04928 6.66533 0.857422 6.42863 0.857422H1.28573C0.575638 0.857422 0 1.43306 0 2.14315V10.7146C0 11.4247 0.575638 12.0004 1.28573 12.0004H9.00008C9.71017 12.0004 10.2858 11.4247 10.2858 10.7146V6.42888C10.2858 6.1922 10.0939 6.00032 9.85722 6.00032Z" fill="#E0001A"/>
+								<path d="M11.5195 0.480597C11.2118 0.172826 10.7944 -4.34432e-05 10.3592 6.78048e-06C9.92369 -0.00124881 9.50588 0.171922 9.19902 0.480873L3.5538 6.12561C3.50697 6.1728 3.47163 6.23015 3.45051 6.29318L2.59337 8.86464C2.51856 9.08921 2.63998 9.33189 2.86455 9.40667C2.90812 9.42119 2.95375 9.4286 2.99966 9.42865C3.04566 9.42857 3.09139 9.42119 3.13508 9.4068L5.70654 8.54966C5.76969 8.52856 5.82707 8.49306 5.87411 8.44595L11.5193 2.80075C12.16 2.1601 12.1601 1.12133 11.5195 0.480597ZM10.9133 2.19516L5.34181 7.76665L3.67722 8.3225L4.23137 6.66004L9.80499 1.08858C10.1114 0.782768 10.6077 0.78327 10.9136 1.08968C11.0596 1.23606 11.1419 1.43422 11.1426 1.64101C11.1431 1.84892 11.0606 2.0484 10.9133 2.19516Z" fill="#E0001A"/>
+							</svg>
+							</span>
+						</p>
+						<ul class="order-item-total__details-items list-style-none pl-3">
+							<li class="order-item-total__details-item" data-seller-detail-type="delivery">
+								<p>
+									<span>Способ доставки:</span>
+									<b class="d-inline-flex align-items-center">
+										<span>Новая почта</span>
+									</b>
+								</p>
+							</li>
+							<li class="order-item-total__details-item" data-seller-detail-type="payment">
+								<p>
+									<span>Способ оплаты:</span>
+									<b class="d-inline-flex align-items-center">
+										<span>Наложенный платеж</span>
+									</b>
+								</p>
+							</li>
+							<li class="order-item-total__details-item" data-seller-detail-type="recipient">
+								<p>
+									<span>Получатель:</span>
+									<b class="d-inline-flex align-items-center">
+										<span>Я</span>
+									</b>
+								</p>
+							</li>
+							<li class="order-item-total__details-item" data-seller-detail-type="additional-services">
+								<p class="d-flex flex-column">
+									<span>Дополнительные услуги:</span>
+									<b class="d-inline-flex align-items-start">
+										<span>Доп.услуга 1, доп. услуга 2</span>
+									</b>
+								</p>
+							</li>
+						</ul>
+						<div class="row">
+							<div class="col-12 seller__order-detail-promocode">
+								<p class="font-weight-bold text-uppercase mt-4">Добавить промокод</p>
+								<p class="medium">Введите Ваш промокод ниже</p>
+								<div class="input-group mb-3 medium">
+									<input type="text" name="promocode" class="form-control px-4" data-mask="0000-0000-0000-0000" placeholder="Промокод" aria-label="Введите промокод..."
+										   aria-describedby="button-addon2">
+									<div class="input-group-append">
+										<button class="btn btn-md btn-default m-0 px-4 font-weight-semibold py-2 z-depth-0 waves-effect text-uppercase text-white bg-dark py-3" type="button" id="button-addon2">Применить</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="order-item-total details__block bg-light rounded p-4 mt-4" data-order-index="2">
+						<h4 class="seller__title mb-4">Заказ №2 (Название магазина)</h4>
+						<ul class="seller__products row list-style-none mb-0 p-0">
+							<li class="col-12 seller__product order-total__item product-card product-card--vertical">
+								<article class="product-card__wrap">
+									<span class="product-card__header">
+									<span class="product-card__stickers">
+										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
+									</span>
+								</span>
+									<a href="#" class="product-card__link">
+										<div class="product-card__image">
+											<img src="img/products/1.png" alt="Product image" />
+										</div>
+										<div class="product-card__content product-card__content--wp">
+											<h4 class="product-card__title">Стол для детей</h4>
+											<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
+											<div class="price product-card__price">
+												<span class="price__current">90 400 <span class="price__currency">тг</span></span>
+											</div>
+											<div class="product-card__count">Кол-во: <span>1</span> шт.</div>
+										</div>
+									</a>
+								</article>
+							</li>
+							<li class="col-12 seller__product order-total__item product-card product-card--vertical">
+								<article class="product-card__wrap">
+									<span class="product-card__header">
+									<span class="product-card__stickers">
+										<span class="product-card__sticker product-card__sticker--sale">-8%</span>
+									</span>
+								</span>
+									<a href="#" class="product-card__link">
+										<div class="product-card__image">
+											<img src="img/products/1.png" alt="Product image" />
+										</div>
+										<div class="product-card__content product-card__content--wp">
+											<h4 class="product-card__title">Стол для детей</h4>
+											<span class="product-card__vendor">E-LIRA Белорусская мебель</span>
+											<div class="price product-card__price">
+												<span class="price__current">90 400 <span class="price__currency">тг</span></span>
+											</div>
+											<div class="product-card__count">Кол-во: <span>1</span> шт.</div>
+										</div>
+									</a>
+								</article>
+							</li>
+						</ul>
+
+						<p class="mt-4 d-flex align-items-center">
+							<span class="font-weight-bold text-uppercase mr-4">Детали заказа</span>
+							<span class="medium font-weight-semibold color--accent d-flex align-items-center cursor-pointer" data-toggle="modal" data-target="#order-2">
+								<span>Редактировать</span>
+								<svg class="ml-2" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M9.85722 6.00032C9.62052 6.00032 9.42864 6.1922 9.42864 6.42891V10.7146C9.42864 10.9513 9.23676 11.1432 9.00005 11.1432H1.28573C1.04902 11.1432 0.857142 10.9513 0.857142 10.7146V2.14315C0.857142 1.90644 1.04902 1.71456 1.28573 1.71456H6.42863C6.66533 1.71456 6.85721 1.52268 6.85721 1.28598C6.85721 1.04928 6.66533 0.857422 6.42863 0.857422H1.28573C0.575638 0.857422 0 1.43306 0 2.14315V10.7146C0 11.4247 0.575638 12.0004 1.28573 12.0004H9.00008C9.71017 12.0004 10.2858 11.4247 10.2858 10.7146V6.42888C10.2858 6.1922 10.0939 6.00032 9.85722 6.00032Z" fill="#E0001A"/>
+								<path d="M11.5195 0.480597C11.2118 0.172826 10.7944 -4.34432e-05 10.3592 6.78048e-06C9.92369 -0.00124881 9.50588 0.171922 9.19902 0.480873L3.5538 6.12561C3.50697 6.1728 3.47163 6.23015 3.45051 6.29318L2.59337 8.86464C2.51856 9.08921 2.63998 9.33189 2.86455 9.40667C2.90812 9.42119 2.95375 9.4286 2.99966 9.42865C3.04566 9.42857 3.09139 9.42119 3.13508 9.4068L5.70654 8.54966C5.76969 8.52856 5.82707 8.49306 5.87411 8.44595L11.5193 2.80075C12.16 2.1601 12.1601 1.12133 11.5195 0.480597ZM10.9133 2.19516L5.34181 7.76665L3.67722 8.3225L4.23137 6.66004L9.80499 1.08858C10.1114 0.782768 10.6077 0.78327 10.9136 1.08968C11.0596 1.23606 11.1419 1.43422 11.1426 1.64101C11.1431 1.84892 11.0606 2.0484 10.9133 2.19516Z" fill="#E0001A"/>
+							</svg>
+							</span>
+						</p>
+						<ul class="order-item-total__details-items list-style-none pl-3">
+							<li class="order-item-total__details-item" data-seller-detail-type="delivery">
+								<p>
+									<span>Способ доставки:</span>
+									<b class="d-inline-flex align-items-center">
+										<span>Новая почта</span>
+									</b>
+								</p>
+							</li>
+							<li class="order-item-total__details-item" data-seller-detail-type="payment">
+								<p>
+									<span>Способ оплаты:</span>
+									<b class="d-inline-flex align-items-center">
+										<span>Наложенный платеж</span>
+									</b>
+								</p>
+							</li>
+							<li class="order-item-total__details-item" data-seller-detail-type="recipient">
+								<p>
+									<span>Получатель:</span>
+									<b class="d-inline-flex align-items-center">
+										<span>Я</span>
+									</b>
+								</p>
+							</li>
+							<li class="order-item-total__details-item" data-seller-detail-type="additional-services">
+								<p class="d-flex flex-column">
+									<span>Дополнительные услуги:</span>
+									<b class="d-inline-flex align-items-start">
+										<span>Доп.услуга 1, доп. услуга 2</span>
+									</b>
+								</p>
+							</li>
+						</ul>
+						<div class="row">
+							<div class="col-12 seller__order-detail-promocode">
+								<p class="font-weight-bold text-uppercase mt-4">Добавить промокод</p>
+								<p class="medium">Введите Ваш промокод ниже</p>
+								<div class="input-group mb-3 medium">
+									<input type="text" name="promocode" class="form-control px-4" data-mask="0000-0000-0000-0000" placeholder="Промокод" aria-label="Введите промокод..."
+										   aria-describedby="button-addon2">
+									<div class="input-group-append">
+										<button class="btn btn-md btn-default m-0 px-4 font-weight-semibold py-2 z-depth-0 waves-effect text-uppercase text-white bg-dark py-3" type="button" id="button-addon2">Применить</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="order__details col-12 col-md-6 col-lg-5" data-sticky-container>
+					<div class="order__total bg-light rounded p-4 mt-4">
+						<div class="seller__order-detail-total d-flex flex-column align-items-start justify-content-center">
+							<p class="h4 mb-4">Итого </p>
+							<div class="order-total__total mb-3">
+								<span>К оплате: </span>
+								<span class="price price__current">90 400 <span class="currency">тг</span></span>
+							</div>
+							<button type="submit" class="order-total__submit button btn-primary rounded">Заказ подтверждаю</button>
+							<p class="medium mt-3 mb-0">Подтверждая заказ, я принимаю условия пользовательского соглашения.</p>
+						</div>
 					</div>
 				</div>
 			</form>
@@ -1527,8 +1891,10 @@
 		</div>
 	</footer>
 
-<script src="js/scripts-min.js"></script>
+	<script src="js/scripts-min.js"></script>
+	<script src="libs/sticky.js"></script>
 	<script src="js/dest/page-order/order-min.js"></script>
 
 </body>
+
 </html>

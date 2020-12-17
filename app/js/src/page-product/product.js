@@ -142,4 +142,9 @@ $( document ).ready(function () {
         });
     }
 
+    // Add reviews
+    {
+
+    }
+
 });

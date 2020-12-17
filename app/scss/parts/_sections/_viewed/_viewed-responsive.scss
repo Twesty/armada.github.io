@@ -27,6 +27,13 @@
 // ≥768px
 @include media-breakpoint-down(sm) {
 
+  .viewed {
+    padding-top: 25px;
+    &__content {
+      margin-top: 20px;
+    }
+  }
+
 }
 
 // ≥360px

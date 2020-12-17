@@ -71,12 +71,13 @@ $( document ).ready(function () {
             editButton.on('click', function (e) {
                 e.preventDefault();
                 let form = $( this ).parents('.user-block__wrap');
-
                 if( $( this ).hasClass('active') ) {
-                    form.submit();
+
                 } else {
                     $( this ).addClass('active');
-                    editButton.find('span').text('Сохранить');
+                    $( this ).find('span').text('Сохранить');
+
+                    $( this ).replaceWith('<button type="submit" class="user-block__edit">' + $( this ).html() + '</button>');
 
                     $.each(inputs, function () {
                         let currentValue = $( this ).siblings('span');

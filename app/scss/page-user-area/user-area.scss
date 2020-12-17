@@ -34,14 +34,27 @@
 
 .user-sidebar {
     &__user {
-        padding-bottom: 17px;
+        position: relative;
+        overflow: hidden;
+        background: #FCE8E6;
+        border-radius: 5px;
+        &:before {
+            position: absolute;
+            content: '';
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 30px;
+            z-index: 1;
+            background: linear-gradient(to left, #FCE8E6, #FCE8E6 50%, transparent 100%);
+        }
     }
     &__user-wrap {
         display: flex;
-        padding: 12px 22px 9px 22px;
-        background: #FCE8E6;
-        border-radius: 5px;
+        margin: 12px 22px 9px 22px;
+
         svg {
+            min-width: 20px;
             margin-right: 20px;
             margin-top: 4px;
         }
@@ -52,6 +65,7 @@
         line-height: 1.2;
     }
     &__user-mail {
+        position: relative;
         font-size: 14px;
         b,
         span {
@@ -131,6 +145,8 @@
         align-items: center;
         color: $accent;
         cursor: pointer;
+        background: none;
+        border: none;
         svg {
             margin-right: 10px;
         }
@@ -198,7 +214,7 @@
     width: 100%;
     height: 180px;
     background-position: center center;
-    background:url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
+    background-image:url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
     background-color:#fff;
     background-size: cover;
     background-repeat:no-repeat;

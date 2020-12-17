@@ -36,7 +36,7 @@
     &__title {
       width: 100%;
       text-align: center;
-      font-size: 24px;
+      font-size: 20px;
     }
     &__header-text {
       display: none;
@@ -52,6 +52,11 @@
     }
     &__arrows {
       display: none;
+    }
+    &.youtube {
+      .section__arrows {
+        display: block;
+      }
     }
     &__background {
       display: none;

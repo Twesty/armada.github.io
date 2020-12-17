@@ -43,15 +43,19 @@
 
   .autosearch {
     &__wrap {
+      font-size: 14px;
       width: calc(100% - 30px);
       max-height: 500px;
-      padding: 15px 10px 15px 20px;
+      padding: 0 5px 15px 15px;
       #mCSB_1_container {
         flex-direction: column;
       }
     }
+    .mCSB_inside>.mCSB_container {
+      margin-right: 20px;
+    }
     &__column {
-      padding: 20px 0;
+      padding: 10px 0;
       &:last-child {
         padding-right: 0;
         ul {
@@ -78,6 +82,9 @@
     }
     &__column-wrap {
       overflow: initial;
+    }
+    &__column-title {
+      margin-bottom: 10px;
     }
   }
 
