@@ -87,6 +87,13 @@
     }
   }
 
+  .photo-modal {
+    &.active {
+      .photo-modal__arrow--prev {
+        padding: 0 100px 0 25px;
+      }
+    }
+  }
 
   .search {
     input {

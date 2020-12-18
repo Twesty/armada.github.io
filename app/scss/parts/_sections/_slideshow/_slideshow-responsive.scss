@@ -11,11 +11,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      margin: 0 -9px -15px -9px;
-    }
-    &__item {
-      width: calc(50% - 18px);
-      margin: 0 9px 15px 9px;
+      padding: 0 10px;
     }
   }
 

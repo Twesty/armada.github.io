@@ -4,7 +4,7 @@ $( document ).ready(function () {
 
     $('.mdb-select').materialSelect();
 
-    var sticky = new Sticky('.order__total');
+    //var sticky = new Sticky('.order__total');
 
     // Recipient
 

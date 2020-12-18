@@ -81,9 +81,7 @@
       margin-top: 0;
     }
     &__gallery {
-      & > div {
-        flex-direction: column-reverse;
-      }
+      margin-bottom: 25px;
     }
     &__title {
       font-size: 20px;
@@ -95,32 +93,6 @@
       max-width: 540px;
       margin: auto;
       padding-left: 0 !important;
-    }
-    &__thumbnails-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      max-width: 340px;
-      margin: 0 auto 30px auto;
-      width: auto;
-    }
-    &__thumbnails {
-      width: 100%;
-      margin-top: 0;
-    }
-    &__thumbnail {
-      margin: 0 10px;
-    }
-    &__arrow {
-      left: auto;
-      top: 50%;
-      transform: translateY(-50%);
-      &--prev {
-        transform: translateY(-50%) rotate(-90deg);
-      }
-      &--next {
-        transform: translateY(-50%) rotate(-90deg);
-      }
     }
   }
 
@@ -155,7 +127,20 @@
     }
   }
 
+  .photo-modal {
+    &.active {
+      .photo-modal__arrow--prev {
+        padding: 0 100px 0 25px;
+      }
+    }
+  }
+
   .product {
+    &__gallery {
+      & > div {
+        flex-direction: column-reverse;
+      }
+    }
     &__content {
       font-size: 14px;
       line-height: 1.4;
@@ -169,7 +154,7 @@
       font-size: 11px;
     }
     &__actions {
-      justify-content: start;
+      justify-content: center;
       flex-direction: row-reverse;
       flex-wrap: wrap;
     }
@@ -186,6 +171,7 @@
     &__callback {
       display: none;
     }
+
     &__add-to-card {
       flex-grow: 1;
       margin-left: 30px;
@@ -243,9 +229,32 @@
       max-width: 280px;
     }
     &__thumbnail {
-      width: 52px;
-      height: 46px;
+      width: 65px;
+      height: 46px !important;
       margin: 0 5px;
+    }
+    &__thumbnails-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 320px;
+      margin: 0 auto 30px auto;
+      width: auto;
+    }
+    &__thumbnails {
+      width: 100%;
+      margin-top: 0;
+    }
+    &__arrow {
+      left: auto;
+      top: 50%;
+      transform: translateY(-50%);
+      &--prev {
+        transform: translateY(-50%) rotate(-90deg);
+      }
+      &--next {
+        transform: translateY(-50%) rotate(-90deg);
+      }
     }
   }
 

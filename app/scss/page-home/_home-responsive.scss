@@ -13,8 +13,6 @@
     }
   }
 
-
-
 }
 
 // ≥1280px
@@ -61,6 +59,7 @@
       padding: 18px 15px 0 15px
     }
     &__popular-categories {
+      padding-bottom: 20px;
       padding-bottom: 0;
     }
     &__viewed,
@@ -78,11 +77,22 @@
         background: #F0F0F0;
       }
     }
+    &__special {
+      padding-top: 30px;
+    }
     &__recommended {
       padding-top: 40px;
     }
     &__youtube {
       padding-top: 35px;
+      padding-bottom: 30px;
+    }
+    &__about {
+      padding-top: 20px;
+    }
+    &__advantages {
+      padding-top: 30px;
+      padding-bottom: 30px;
     }
   }
 

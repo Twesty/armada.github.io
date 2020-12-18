@@ -30,6 +30,13 @@
 // ≥768px
 @include media-breakpoint-down(sm) {
 
+  .seo-text {
+    &__text {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  }
+
 }
 
 // ≥360px

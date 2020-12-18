@@ -4385,9 +4385,9 @@ $( document ).ready(function(){
             let offset = header.offset();
 
             if ( offset.top === 0 ){
-                $('.header__top, .header__bottom').slideDown(200);
+                $('.header__top, .header__categories, .header__bottom-pages').slideDown(200);
             } else if( offset.top > 30 ) {
-                $('.header__top, .header__bottom').slideUp(200);
+                $('.header__top, .header__categories, .header__bottom-pages').slideUp(200);
             }
 
             setTimeout(function () {
@@ -4460,10 +4460,11 @@ $( document ).ready(function(){
         let dropdown = $('.all-categories');
 
         button.on('click', function () {
-            dropdown.slideToggle(200, function(){
-                if ($(this).is(':visible'))
-                    $(this).css('display','flex');
-            });
+            if(dropdown.is(":visible")) {
+                dropdown.slideUp(200);
+            } else {
+                dropdown.slideDown(200);
+            }
         });
 
         $(document).mouseup(function(e)
@@ -4487,12 +4488,12 @@ $( document ).ready(function(){
             let dropdown = $( this ).find('.all-categories__subcategories');
 
             $( this ).on('mouseenter', function () {
-                dropdown.css({'display':'flex'});
+                dropdown.css({'display':'block'});
                 dropdown.find('.all-categories__subcategories-main-ul').css({
                     'height': dropdown.find('.all-categories__subcategories-items-wrap').height()
                 });
                 dropdown.find('.all-categories__subcategories-items-wrap').mCustomScrollbar({
-                    axis: 'y'
+                    axis: 'x'
                 });
             });
 
@@ -4513,6 +4514,7 @@ $( document ).ready(function(){
         let button = $('.dropdown');
 
         $.each(button, function(){
+            let closeIfOutsideClick = $( this ).attr('data-dropdown-outside-close');
             let dropdown = $('.' + $( this ).attr('data-dropdown'));
 
             $( this ).on('click', function () {
@@ -4522,6 +4524,19 @@ $( document ).ready(function(){
                     dropdown.slideDown(200);
                 }
             });
+
+            if(closeIfOutsideClick) {
+                $(document).mouseup(function(e)
+                {
+                    var container = dropdown;
+
+                    // if the target of the click isn't the container nor a descendant of the container
+                    if (!container.is(e.target) && container.has(e.target).length === 0)
+                    {
+                        container.slideUp(200);
+                    }
+                });
+            }
         });
     }
 
@@ -4531,7 +4546,7 @@ $( document ).ready(function(){
     // Custom scrollbar
 
     {
-        let content = $('.seo-text__content, .catalog__categories-list, .custom-scrollbar, .filters');
+        let content = $('.catalog__categories-list, .custom-scrollbar, .filters');
 
         $.each(content, function () {
             if($( this ).attr('data-scrollbar-axis') === 'x') {
@@ -4557,19 +4572,18 @@ $( document ).ready(function () {
         // ... more custom settings?
     });
 
-
     // Input masks
-
     {
         // Phone input mask
         let phoneInput = $('input[type=tel]');
 
-        $('[data-mask]').mask();
 
+        $('[data-mask]').mask();
         $.each(phoneInput, function () {
-            $(this).mask('+0 (000) 000-00-00', {placeholder: "+0 (123) 456 78 90"});
+            $(this).mask('+0 (000) 000-00-00', {placeholder: "+7 (---) --- -- --"});
         });
     }
+
 
     // Text crop
 

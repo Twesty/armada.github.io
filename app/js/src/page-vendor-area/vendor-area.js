@@ -549,8 +549,9 @@ $( document ).ready(function () {
                 }
             ],
             select: {
-                style: 'multi',
+                style:    'multiple',
                 selector: 'td:first-child'
+
             }
         });
 

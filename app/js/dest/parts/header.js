@@ -97,10 +97,11 @@ $( document ).ready(function(){
         let dropdown = $('.all-categories');
 
         button.on('click', function () {
-            dropdown.slideToggle(200, function(){
-                if ($(this).is(':visible'))
-                    $(this).css('display','flex');
-            });
+            if(dropdown.is(":visible")) {
+                dropdown.slideUp(200);
+            } else {
+                dropdown.slideDown(200);
+            }
         });
 
         $(document).mouseup(function(e)

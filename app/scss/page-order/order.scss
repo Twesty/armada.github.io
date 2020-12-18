@@ -4,11 +4,13 @@
 @import "../parts/_sections/_together/together";
 @import "../parts/_sections/_cart/cart";
 @import "../parts/_sections/_subscribe/subscribe";
+@import "../parts/_sections/_section/section";
 
 // Blocks
 @import "../parts/_blocks/_product-card/product-card";
 @import "../parts/_blocks/_price/price";
 @import "../parts/_blocks/_quantity/quantity";
+@import "../parts/_blocks/_breadcrumbs/breadcrumbs";
 
 .page-order {
   &__order {
