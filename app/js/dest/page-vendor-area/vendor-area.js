@@ -1213,22 +1213,23 @@ $( document ).ready(function () {
                             return;
                         }
 
-                        else if( $( this ).hasClass('user-block-info__value--password') ) {
-                            currentValue.fadeOut(200);
-
-                            setTimeout(() => {
-                                let cloneInput = $( this )
-                                    .clone()
-                                    .attr({
-                                        'name':'current-password',
-                                        'placeholder':'Текущий пароль'
-                                    })
-                                    .insertBefore($( this ))
-                                    .fadeIn(200);
-
-                                $( this ).fadeIn(200);
-                            }, 200)
-                        }
+                        // else if( $( this ).hasClass('user-block-info__value--password') ) {
+                        //     currentValue.fadeOut(200);
+                        //
+                        //     setTimeout(() => {
+                        //         let cloneInput = $( this )
+                        //             .clone()
+                        //             .attr({
+                        //                 'name':'current-password',
+                        //                 'placeholder':'Текущий пароль'
+                        //             })
+                        //             .insertBefore($( this ))
+                        //             .fadeIn(200);
+                        //
+                        //         $( this ).fadeIn(200);
+                        //     }, 200)
+                        // }
+                            
 
                         else {
                             currentValue.fadeOut(200);

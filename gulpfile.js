@@ -56,7 +56,6 @@ gulp.task('main-scripts', function() {
 		'app/libs/lazy/lazyload.min.js', // Lazy Load
 		//'app/libs/dateRangePicker/moment.min.js', // Date range picker
 		//'app/libs/dateRangePicker/daterangepicker.min.js', // Date range picker
-		//'app/libs/easy-zoom/jquery.zoom.min.js', // Easy zoom
 		//'app/libs/croppie/croppie.min.js', // Croppie
 		'app/js/src/parts/header.js', // Header
 		'app/js/src/parts/footer.js', // Footer
@@ -83,7 +82,6 @@ gulp.task('scripts-page-home', function() {
 		'app/libs/popup/YouTubePopUp.jquery.js', // Popup
 		'app/libs/popper.min.js', // Popper
 		'app/js/src/parts/product-card.js', // Product-card
-		'app/libs/easy-zoom/jquery.zoom.min.js', // Easy zoom
 		'app/js/src/parts/banner.js', // Banner
 		'app/js/src/parts/slideshow.js', // Slideshow
 		'app/js/src/parts/together.js', // Together
@@ -102,7 +100,6 @@ gulp.task('scripts-page-catalog', function() {
 		'app/libs/slick/slick.min.js', // Slick
 		'app/js/src/page-catalog/*.js', // Home
 		'app/js/src/parts/product-card.js', // Product-card
-		'app/libs/easy-zoom/jquery.zoom.min.js', // Easy zoom
 		'app/js/src/parts/custom-scrollbar.js', // Dropdown
 		'app/js/src/parts/banner.js', // Banner
 		'app/js/src/parts/filters.js', // Filters
@@ -155,7 +152,6 @@ gulp.task('scripts-page-product', function() {
 	return gulp.src([
 		'app/libs/slick/slick.min.js', // Slick
 		'app/libs/popup/YouTubePopUp.jquery.js', // Popup
-		'app/libs/easy-zoom/jquery.zoom.min.js', // Easy zoom
 		'app/js/src/parts/slideshow.js', // Slideshow
 		'app/js/src/parts/product-card.js', // Product-card
 		'app/js/src/parts/faq.js', // Faq
@@ -175,7 +171,7 @@ gulp.task('scripts-page-shops', function() {
 		'app/js/src/page-shops/*.js', // Home
 	])
 		.pipe(concat('shops.js'))
-		//.pipe(minify())
+		.pipe(minify())
 		.pipe(gulp.dest('app/js/dest/page-shops'))
 		.pipe(browserSync.reload({ stream: true }))
 });

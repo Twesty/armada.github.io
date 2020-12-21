@@ -177,7 +177,6 @@
     flex-direction: row-reverse;
     .project__content {
       left: initial;
-      right: -50px;
       padding: 50px 80px 60px 30px;
     }
   }
@@ -203,7 +202,6 @@
   }
   &__content {
     position: relative;
-    left: -50px;
     width: 100%;
     padding: 50px 30px 60px 80px;
     background: rgba(0, 0, 0, .10);

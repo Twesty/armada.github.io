@@ -74,4 +74,21 @@ $( document ).ready(function () {
         })
     }
 
+    let cursorFocus = function(elem) {
+        let x = window.scrollX, y = window.scrollY;
+        elem.focus();
+        window.scrollTo(x, y);
+    };
+
+    let searchInput = $('.header #search');
+
+    $('.section__header-text--search').on('click', function () {
+        cursorFocus(searchInput);
+        searchInput.addClass('active');
+
+        setTimeout(function () {
+            searchInput.removeClass('active');
+        }, 1000)
+    });
+
 });

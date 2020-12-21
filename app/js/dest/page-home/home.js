@@ -151,28 +151,28 @@ $( document ).ready(function(){
     });
 
     // Product card zoom
-    {
-        let loopButton = $('.product-card__zoom'),
-            loopModal = $('.photo-modal'),
-            loopClose = $('.photo-modal__close'),
-            loopModalImage = $('.photo-modal__current img');
-
-        loopButton.on('click', function () {
-            let loopProductImage = $( this ).parents('.product-card__wrap').find('.product-card__image img');
-            loopModalImage.attr('src', loopProductImage.attr('src'));
-
-            $('.photo-modal__zoom').zoom({
-                url: loopProductImage.attr('data-zoom-image')
-            });
-
-            loopModal.addClass('active');
-        });
-
-        loopClose.on('click', function () {
-            loopModal.removeClass('active');
-        });
-
-    }
+    // {
+    //     let loopButton = $('.product-card__zoom'),
+    //         loopModal = $('.photo-modal'),
+    //         loopClose = $('.photo-modal__close'),
+    //         loopModalImage = $('.photo-modal__current img');
+    //
+    //     loopButton.on('click', function () {
+    //         let loopProductImage = $( this ).parents('.product-card__wrap').find('.product-card__image img');
+    //         loopModalImage.attr('src', loopProductImage.attr('src'));
+    //
+    //         $('.photo-modal__zoom').zoom({
+    //             url: loopProductImage.attr('data-zoom-image')
+    //         });
+    //
+    //         loopModal.addClass('active');
+    //     });
+    //
+    //     loopClose.on('click', function () {
+    //         loopModal.removeClass('active');
+    //     });
+    //
+    // }
 
     // Product card limitation text and hover
 
@@ -248,12 +248,6 @@ $( document ).ready(function(){
     }
 
 });
-/*!
-	Zoom 1.7.21
-	license: MIT
-	http://www.jacklmoore.com/zoom
-*/
-(function(o){var t={url:!1,callback:!1,target:!1,duration:120,on:"mouseover",touch:!0,onZoomIn:!1,onZoomOut:!1,magnify:1};o.zoom=function(t,n,e,i){var u,c,a,r,m,l,s,f=o(t),h=f.css("position"),d=o(n);return t.style.position=/(absolute|fixed)/.test(h)?h:"relative",t.style.overflow="hidden",e.style.width=e.style.height="",o(e).addClass("zoomImg").css({position:"absolute",top:0,left:0,opacity:0,width:e.width*i,height:e.height*i,border:"none",maxWidth:"none",maxHeight:"none"}).appendTo(t),{init:function(){c=f.outerWidth(),u=f.outerHeight(),n===t?(r=c,a=u):(r=d.outerWidth(),a=d.outerHeight()),m=(e.width-c)/r,l=(e.height-u)/a,s=d.offset()},move:function(o){var t=o.pageX-s.left,n=o.pageY-s.top;n=Math.max(Math.min(n,a),0),t=Math.max(Math.min(t,r),0),e.style.left=t*-m+"px",e.style.top=n*-l+"px"}}},o.fn.zoom=function(n){return this.each(function(){var e=o.extend({},t,n||{}),i=e.target&&o(e.target)[0]||this,u=this,c=o(u),a=document.createElement("img"),r=o(a),m="mousemove.zoom",l=!1,s=!1;if(!e.url){var f=u.querySelector("img");if(f&&(e.url=f.getAttribute("data-src")||f.currentSrc||f.src),!e.url)return}c.one("zoom.destroy",function(o,t){c.off(".zoom"),i.style.position=o,i.style.overflow=t,a.onload=null,r.remove()}.bind(this,i.style.position,i.style.overflow)),a.onload=function(){function t(t){f.init(),f.move(t),r.stop().fadeTo(o.support.opacity?e.duration:0,1,o.isFunction(e.onZoomIn)?e.onZoomIn.call(a):!1)}function n(){r.stop().fadeTo(e.duration,0,o.isFunction(e.onZoomOut)?e.onZoomOut.call(a):!1)}var f=o.zoom(i,u,a,e.magnify);"grab"===e.on?c.on("mousedown.zoom",function(e){1===e.which&&(o(document).one("mouseup.zoom",function(){n(),o(document).off(m,f.move)}),t(e),o(document).on(m,f.move),e.preventDefault())}):"click"===e.on?c.on("click.zoom",function(e){return l?void 0:(l=!0,t(e),o(document).on(m,f.move),o(document).one("click.zoom",function(){n(),l=!1,o(document).off(m,f.move)}),!1)}):"toggle"===e.on?c.on("click.zoom",function(o){l?n():t(o),l=!l}):"mouseover"===e.on&&(f.init(),c.on("mouseenter.zoom",t).on("mouseleave.zoom",n).on(m,f.move)),e.touch&&c.on("touchstart.zoom",function(o){o.preventDefault(),s?(s=!1,n()):(s=!0,t(o.originalEvent.touches[0]||o.originalEvent.changedTouches[0]))}).on("touchmove.zoom",function(o){o.preventDefault(),f.move(o.originalEvent.touches[0]||o.originalEvent.changedTouches[0])}).on("touchend.zoom",function(o){o.preventDefault(),s&&(s=!1,n())}),o.isFunction(e.callback)&&e.callback.call(a)},a.setAttribute("role","presentation"),a.alt="",a.src=e.url})},o.fn.zoom.defaults=t})(window.jQuery);
 $( document ).ready(function(){
 
     // Banner slider
@@ -291,6 +285,7 @@ $( document ).ready(function(){
 
         $.each(slideshowSection, function () {
             let items = $( this ).find('.slideshow__items');
+            let itemsLength = items.find('.slideshow__item').length;
             let nextArrow = $( this ).find('.slideshow__arrow--next');
             let prevArrow = $( this ).find('.slideshow__arrow--prev');
 
@@ -300,12 +295,14 @@ $( document ).ready(function(){
 
             if($( this ).attr('data-slides-to-show-xs')) {
                 slidesToShowXs = parseInt($( this ).attr('data-slides-to-show-xs'));
-            } else {
+            }  else {
                 slidesToShowXs = 2;
             }
 
             if($( this ).attr('data-slides-to-show')) {
                 slidesToShow = parseInt($( this ).attr('data-slides-to-show'));
+            } else if(itemsLength <= 5) {
+                slidesToShow = itemsLength;
             } else {
                 slidesToShow = 5;
             }
@@ -362,38 +359,43 @@ $( document ).ready(function(){
     // Together slider
 
     {
-        let items = $('.together__items');
-        let nextArrow = $('.together__arrow--next');
-        let prevArrow = $('.together__arrow--prev');
+        let together = $('.together__wrap');
 
-        $('.header__cart').on('click', function () {
-            items.slick('slickGoTo', 1)
-        });
+        $.each(together, function () {
+            let items = $( this ).find('.together__items');
+            let nextArrow = $( this ).find('.together__arrow--next');
+            let prevArrow = $( this ).find('.together__arrow--prev');
 
-        items.slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: true,
-            nextArrow: nextArrow,
-            prevArrow: prevArrow,
-            responsive: [
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        dots: true
+            $('.header__cart').on('click', function () {
+                items.slick('slickGoTo', 1);
+            });
+
+            items.slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+                nextArrow: nextArrow,
+                prevArrow: prevArrow,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            dots: true
+                        }
                     }
-                }
-            ]
+                ]
+            });
+
+            let dots = $( this ).find('.slick-dots');
+
+            if(window.matchMedia('(max-width: 1024px)').matches){
+                dots.append(nextArrow);
+                dots.prepend(prevArrow);
+            } else {
+
+            }
         });
 
-        let dots = items.find('.slick-dots');
-
-        if(window.matchMedia('(max-width: 1024px)').matches){
-            dots.append(nextArrow);
-            dots.prepend(prevArrow);
-        } else {
-
-        }
 
     }
 

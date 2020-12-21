@@ -7,6 +7,7 @@ $( document ).ready(function(){
 
         $.each(slideshowSection, function () {
             let items = $( this ).find('.slideshow__items');
+            let itemsLength = items.find('.slideshow__item').length;
             let nextArrow = $( this ).find('.slideshow__arrow--next');
             let prevArrow = $( this ).find('.slideshow__arrow--prev');
 
@@ -16,12 +17,14 @@ $( document ).ready(function(){
 
             if($( this ).attr('data-slides-to-show-xs')) {
                 slidesToShowXs = parseInt($( this ).attr('data-slides-to-show-xs'));
-            } else {
+            }  else {
                 slidesToShowXs = 2;
             }
 
             if($( this ).attr('data-slides-to-show')) {
                 slidesToShow = parseInt($( this ).attr('data-slides-to-show'));
+            } else if(itemsLength <= 5) {
+                slidesToShow = itemsLength;
             } else {
                 slidesToShow = 5;
             }

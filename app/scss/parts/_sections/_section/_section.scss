@@ -45,6 +45,7 @@
     font-size: 35px;
     font-weight: 700;
     margin-bottom: 0;
+    user-select: none;
 
     &--light {
       color: #FFF;
@@ -85,7 +86,7 @@
   &__header-text {
     &--search,
     &--callback {
-      a {
+      & > span:last-child {
         display: flex;
         align-items: center;
         color: $accent;

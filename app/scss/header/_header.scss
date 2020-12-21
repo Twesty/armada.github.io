@@ -76,6 +76,14 @@
   &__search {
     flex-grow: 1;
     padding: 0 45px;
+    input {
+      border-color: #a3a3a3;
+      transition: border-color .35s;
+      &.active {
+        border-color: $accent;
+        transition: border-color .35s;
+      }
+    }
   }
   &__search-autosearch {
     position: absolute;
@@ -380,7 +388,6 @@
   &__subcategories-title {
     &.price__special {
       max-width: 350px;
-      min-width: 300px;
       display: inline-block;
       margin-left: 0;
       margin-bottom: 15px;
