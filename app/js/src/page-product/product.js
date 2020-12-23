@@ -57,7 +57,7 @@ $( document ).ready(function () {
             loopArrow = $('.photo-modal__arrow'),
             loopArrowNext = $('.photo-modal__arrow--next'),
             loopArrowPrev = $('.photo-modal__arrow--prev'),
-            loopClose = $('.photo-modal__close');
+            loopClose = $('.photo-modal__close, .photo-modal__wrap');
 
         let currentGalleryItemIndex = 0;
 

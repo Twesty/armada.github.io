@@ -193,6 +193,18 @@
       margin-right: 10px;
     }
   }
+  &__responsive-submenu {
+    display: none;
+    margin-top: 15px;
+  }
+  &__responsive-submenu-arrow {
+    transition: transform .3s;
+    transform: rotate(0deg);
+    &.active {
+      transition: transform .3s;
+      transform: rotate(90deg);
+    }
+  }
   &__responsive-link {
     font-weight: 500;
     margin: 10px 0;
@@ -200,7 +212,10 @@
       span {
         color: $accent;
       }
-      path {
+      svg[data-dropdown-arrow] {
+        fill: $accent;
+      }
+      .header__responsive-link-icon path {
         fill: $accent;
       }
     }

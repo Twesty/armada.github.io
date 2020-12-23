@@ -91,7 +91,7 @@
 $( document ).ready(function(){
 
     // Add to cart
-    let button = $('.product-card__add-to-card');
+    let button = $('.product-card__add-to-card-button');
 
     function addToCartButton(button) {
         $.each(button, function () {
@@ -151,28 +151,28 @@ $( document ).ready(function(){
     });
 
     // Product card zoom
-    // {
-    //     let loopButton = $('.product-card__zoom'),
-    //         loopModal = $('.photo-modal'),
-    //         loopClose = $('.photo-modal__close'),
-    //         loopModalImage = $('.photo-modal__current img');
-    //
-    //     loopButton.on('click', function () {
-    //         let loopProductImage = $( this ).parents('.product-card__wrap').find('.product-card__image img');
-    //         loopModalImage.attr('src', loopProductImage.attr('src'));
-    //
-    //         $('.photo-modal__zoom').zoom({
-    //             url: loopProductImage.attr('data-zoom-image')
-    //         });
-    //
-    //         loopModal.addClass('active');
-    //     });
-    //
-    //     loopClose.on('click', function () {
-    //         loopModal.removeClass('active');
-    //     });
-    //
-    // }
+    {
+        let loopButton = $('.product-card__zoom'),
+            loopModal = $('.photo-modal'),
+            loopClose = $('.photo-modal__close, .photo-modal__wrap'),
+            loopModalImage = $('.photo-modal__current img');
+
+        loopButton.on('click', function () {
+            let loopProductImage = $( this ).parents('.product-card__wrap').find('.product-card__image img');
+            loopModalImage.attr('src', loopProductImage.attr('src'));
+
+            // $('.photo-modal__zoom').zoom({
+            //     url: loopProductImage.attr('data-zoom-image')
+            // });
+
+            loopModal.addClass('active');
+        });
+
+        loopClose.on('click', function () {
+            loopModal.removeClass('active');
+        });
+
+    }
 
     // Product card limitation text and hover
 
@@ -403,6 +403,7 @@ $( document ).ready(function(){
 'use strict';
 
 $( document ).ready(function () {
+
 
     // Video popup
     {

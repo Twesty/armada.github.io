@@ -44,7 +44,6 @@ gulp.task('styles', function() {
 // JS
 gulp.task('main-scripts', function() {
 	return gulp.src([
-		'app/libs/jquery/dist/jquery.min.js', // Jquery
 		//'app/libs/jquery-ui/jquery-ui.min.js', // Jquery UI
 		'app/libs/jquery.mask.min.js', // Jquery mask
 		'app/libs/popper.js', // Popper

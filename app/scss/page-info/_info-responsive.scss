@@ -206,6 +206,12 @@
     padding-top: 110px;
   }
 
+  .advantage {
+    &__description {
+      max-width: 260px;
+    }
+  }
+
 }
 
 @media screen and (max-width: 576px) {

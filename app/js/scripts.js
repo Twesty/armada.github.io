@@ -4514,14 +4514,17 @@ $( document ).ready(function(){
         let button = $('.dropdown');
 
         $.each(button, function(){
+            let arrow = $( this ).find('svg[data-dropdown-arrow]');
             let closeIfOutsideClick = $( this ).attr('data-dropdown-outside-close');
             let dropdown = $('.' + $( this ).attr('data-dropdown'));
 
             $( this ).on('click', function () {
                 if(dropdown.is(":visible")) {
                     dropdown.slideUp(200);
+                    arrow.removeClass('active');
                 } else {
                     dropdown.slideDown(200);
+                    arrow.addClass('active');
                 }
             });
 
@@ -4534,6 +4537,7 @@ $( document ).ready(function(){
                     if (!container.is(e.target) && container.has(e.target).length === 0)
                     {
                         container.slideUp(200);
+                        arrow.removeClass('active');
                     }
                 });
             }
@@ -4564,7 +4568,6 @@ $( document ).ready(function(){
 'use strict';
 
 $( document ).ready(function () {
-
     // Lazy Load
 
     var lazyLoadInstance = new LazyLoad({

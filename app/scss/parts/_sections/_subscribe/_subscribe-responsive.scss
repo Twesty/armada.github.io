@@ -52,6 +52,12 @@
 // ≥768px
 @include media-breakpoint-down(sm) {
 
+  .subscribe {
+    &__content {
+      max-width: 320px;
+    }
+  }
+
 }
 
 // ≥360px

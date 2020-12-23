@@ -87,10 +87,17 @@
             flex-direction: column-reverse;
         }
         &__actions {
-            flex-direction: column;
+            display: flex;
             margin-top: 15px;
             justify-content: center;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
+        }
+        &__action {
+            display: flex;
+            align-items: center;
+            svg {
+                margin-right: 8px;
+            }
         }
     }
     .favorites {
@@ -98,6 +105,7 @@
             justify-content: center;
             flex-wrap: wrap;
             button {
+                margin-left: 15px;
                 font-size: 14px;
                 padding: 6px 15px;
                 line-height: 1;
