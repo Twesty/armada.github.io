@@ -135,10 +135,19 @@ $( document ).ready(function(){
         $.each(items, function () {
             let trigger = $( this ).find('.faq__question');
             let content = $( this ).find('.faq__response');
+            let expand = $( this ).find('.faq__expand');
 
             trigger.on('click', function () {
-                $( this ).find('.faq__expand').toggleClass('active');
-                content.slideToggle(200);
+                $('.faq__response').slideUp(200);
+                $('.faq__expand').removeClass('active');
+
+                if(content.is(':visible')) {
+                    content.slideUp(200);
+                    expand.removeClass('active');
+                } else {
+                    content.slideDown(200);
+                    expand.addClass('active');
+                }
             })
         });
 
@@ -147,6 +156,7 @@ $( document ).ready(function(){
 
 });
 'use strict';
+
 
 $( document ).ready(function () {
 
@@ -175,7 +185,6 @@ $( document ).ready(function () {
         let popup = $('.popup');
         let popupWidth = popup.width();
         let popupHeight = popup.height();
-
         let arrow = popup.find('.popup__arrow');
         let close = $('.popup__close');
 

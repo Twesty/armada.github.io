@@ -5,14 +5,13 @@ $( document ).ready(function () {
     // Matherial select
     $('.mdb-select').materialSelect();
 
-
     // TinyMCE
 
     {
         tinymce.init({
             selector: '.tinyMCE',
             plugin: 'a_tinymce_plugin',
-            plugins: 'codesample code',
+            plugins: 'codesample code image link',
             a_plugin_option: true,
             a_configuration_option: 400,
             toolbar: 'undo redo removeformat | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | codesample code',
@@ -480,6 +479,14 @@ $( document ).ready(function () {
                         "_": "Выбрано элементов: %d",
                         "0": "",
                         "1": "Выбран один элемент"
+                    }
+                },
+                "buttons": {
+                    "copyTitle": 'Скопированно в буфер обмена',
+                    "copyKeys": 'Нажмите <i>ctrl</i> или <i>\u2318</i> + <i>C</i> чтобы скопировать данные из таблицы в буфер обмена. <br><br>Для отмены щелкните на это сообщение или нажмите Esc.',
+                    "copySuccess": {
+                        _: 'Скопированно %d строк',
+                        1: 'Скопированна 1 строка'
                     }
                 }
             },

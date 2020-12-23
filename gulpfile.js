@@ -45,11 +45,10 @@ gulp.task('styles', function() {
 gulp.task('main-scripts', function() {
 	return gulp.src([
 		//'app/libs/jquery-ui/jquery-ui.min.js', // Jquery UI
-		'app/libs/jquery.mask.min.js', // Jquery mask
 		'app/libs/popper.js', // Popper
 		'app/libs/bootstrap/js/bootstrap.min.js', // Bootstrap
 		//'app/libs/bootstrap/js/bootstrap.bundle.min.js', // Bootstrap Bundle
-		//'app/libs/mdbootstrap/js/mdb.min.js', // MDB
+		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		//'app/libs/mdbootstrap/js/modules/file-input.min.js', // MDB
 		'app/libs/scrollbar/jquery.mCustomScrollbar.js', // ScrolL Bar
 		'app/libs/lazy/lazyload.min.js', // Lazy Load
@@ -60,6 +59,7 @@ gulp.task('main-scripts', function() {
 		'app/js/src/parts/footer.js', // Footer
 		'app/js/src/parts/dropdown.js', // Dropdown
 		'app/js/src/parts/custom-scrollbar.js', // mCustomScrollbar
+		'app/libs/jquery.mask.min.js', // Jquery mask
 		'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.js'))
@@ -276,7 +276,7 @@ gmWatch ? gulp.task('default', gulp.parallel(
 			'watch'
 		)) : gulp.task('default', gulp.parallel(
 		 	'styles',
-			//'main-scripts',
+			'main-scripts',
 			//'scripts-parts',
 			//'scripts-page-home',
 			//'scripts-page-catalog',

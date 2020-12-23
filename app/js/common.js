@@ -13,12 +13,12 @@ $( document ).ready(function () {
         // Phone input mask
         let phoneInput = $('input[type=tel]');
 
-
-        $('[data-mask]').mask();
         $.each(phoneInput, function () {
             $(this).mask('+0 (000) 000-00-00', {placeholder: "+7 (---) --- -- --"});
         });
     }
+
+    $('[data-mask]').mask();
 
 
     // Text crop
@@ -89,5 +89,25 @@ $( document ).ready(function () {
             searchInput.removeClass('active');
         }, 1000)
     });
+
+    // Callback
+
+    {
+        let form = $('.callback__form');
+        let success = $('.callback__success');
+        let header = $('.callback__header');
+
+        form.submit(function (e) {
+            e.preventDefault();
+
+            success.slideDown(200);
+            header.slideUp(200);
+            form.slideUp(200);
+
+            setTimeout(function () {
+                $('#callback').modal('hide');
+            }, 2000);
+        });
+    }
 
 });

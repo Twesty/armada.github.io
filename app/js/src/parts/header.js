@@ -104,6 +104,10 @@ $( document ).ready(function(){
             }
         });
 
+        dropdown.mouseleave(function () {
+            dropdown.slideUp(200);
+        });
+
         $(document).mouseup(function(e)
         {
             let container = dropdown;

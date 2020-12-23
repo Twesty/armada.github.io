@@ -79,6 +79,13 @@
         }
       }
     }
+    &__subcategories {
+      ul {
+        li {
+          max-width: 190px;
+        }
+      }
+    }
   }
 
   .contact {

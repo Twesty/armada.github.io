@@ -77,11 +77,13 @@
     flex-grow: 1;
     padding: 0 45px;
     input {
+      background-color: rgba(0,0,0,0);
       border-color: #a3a3a3;
-      transition: border-color .35s;
+      transition: border-color .5s, background-color .5s;
       &.active {
+        background-color: rgba(224, 0, 26, .05);
         border-color: $accent;
-        transition: border-color .35s;
+        transition: border-color .5s, background-color .5s;
       }
     }
   }
@@ -417,7 +419,7 @@
     width: calc(100% - 360px);
     left: 360px;
     top: 0;
-    height: 100%;
+    height: calc(100% - 5px);
     padding: 15px 25px 20px 25px;
     background: #FFFFFF;
     border-radius: 0 0 5px 0;
@@ -440,7 +442,6 @@
       list-style: none;
       font-weight: 400;
       li {
-        min-width: 220px;
         max-width: 320px;
       }
     }

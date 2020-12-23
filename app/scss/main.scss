@@ -621,5 +621,35 @@ a {
   background-position: center;
 }
 
+.callback {
+  &__success {
+    display: none;
+  }
+  
+  label {
+    margin-bottom: 0;
+  }
+
+  input {
+    min-height: 56px;
+  }
+
+  .md-form.md-outline label {
+    top: 5px;
+  }
+
+  .md-form.md-outline>input[type]:-webkit-autofill:not(.browser-default):not([type=search])+label.active {
+    transform: translateY(-15px) scale(.8);
+  }
+
+  .md-form.md-outline label.active {
+    transform: translateY(-17px) scale(.8)
+  }
+
+  .white-space-nowrap {
+    white-space: nowrap;
+  }
+}
+
 @import "bootstrap-customiation";
 @import "media"; // Always at the end

@@ -1,5 +1,6 @@
 'use strict';
 
+
 $( document ).ready(function () {
 
     // Material select
@@ -27,7 +28,6 @@ $( document ).ready(function () {
         let popup = $('.popup');
         let popupWidth = popup.width();
         let popupHeight = popup.height();
-
         let arrow = popup.find('.popup__arrow');
         let close = $('.popup__close');
 
