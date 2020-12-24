@@ -26,9 +26,10 @@ $( document ).ready(function(){
     {
         let button = $('.filter-apply');
         let filters = $('.filters');
-        let triggers = $('.filters input');
+        let triggers = $('.filters input, .filters select, .filters textarea');
 
-        let close = $('.filter-apply button:first-child');
+        let close = $('.filter-apply__close');
+        let apply = $('.filter-apply__apply');
 
         close.on('click', function () {
             button.fadeOut(100);
@@ -36,6 +37,8 @@ $( document ).ready(function(){
 
         $.each(triggers, function() {
             $( this ).on('change', function(){
+                let form = $( this ).parents('form');
+
                 let inputOffset = $( this ).offset();
                 let filtersOffset = filters.offset();
                 let offsetTop = inputOffset.top;
@@ -47,6 +50,11 @@ $( document ).ready(function(){
                     'left' : offsetLeft + filtersWidth + 25 + 'px',
                     'display' : 'block'
                 });
+
+                apply.on('click', function () {
+                    form.submit();
+                    console.log('123')
+                })
             })
         })
     }
