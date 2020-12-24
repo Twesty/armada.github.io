@@ -96,6 +96,7 @@ gulp.task('scripts-page-home', function() {
 gulp.task('scripts-page-catalog', function() {
 	return gulp.src([
 		'app/libs/jquery-ui/jquery-ui.min.js', // Jquery UI
+		'app/libs/jquery-ui/jquery.ui.touch-punch.min.js', // Jquery UI
 		'app/libs/slick/slick.min.js', // Slick
 		'app/js/src/page-catalog/*.js', // Home
 		'app/js/src/parts/product-card.js', // Product-card
@@ -205,6 +206,7 @@ gulp.task('scripts-page-vendor-area', function() {
 		'app/libs/tinyMCE/tinymce.min.js', // TinyMCE
 		'app/libs/tinyMCE/ru.js', // TinyMCE
 		'app/libs/jquery-ui/jquery-ui.min.js', // Jquery UI
+		'app/libs/jquery-ui/jquery.ui.touch-punch.min.js', // Jquery UI
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		'app/libs/dateRangePicker/moment.min.js', // Date range picker
 		'app/libs/dateRangePicker/daterangepicker.min.js', // Date range picker
@@ -277,17 +279,17 @@ gmWatch ? gulp.task('default', gulp.parallel(
 		)) : gulp.task('default', gulp.parallel(
 		 	'styles',
 			'main-scripts',
-			//'scripts-parts',
-			//'scripts-page-home',
-			//'scripts-page-catalog',
-			//'scripts-page-news',
-			//'scripts-page-login',
-			//'scripts-page-order',
-			//'scripts-page-product',
-			//'scripts-page-shops',
-			//'scripts-page-user-area',
-			//'scripts-page-vendor-area',
-			//'scripts-page-info',
+			'scripts-parts',
+			'scripts-page-home',
+			'scripts-page-catalog',
+			'scripts-page-news',
+			'scripts-page-login',
+			'scripts-page-order',
+			'scripts-page-product',
+			'scripts-page-shops',
+			'scripts-page-user-area',
+			'scripts-page-vendor-area',
+			'scripts-page-info',
 			'browser-sync',
 			'watch'
 		));

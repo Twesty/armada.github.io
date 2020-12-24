@@ -42,6 +42,9 @@ $( document ).ready(function(){
                 $(this).find('.slick-slide').css('height', slickTrackHeight + 'px');
             });
 
+            console.log(slidesToShow);
+            console.log(itemsLength);
+
             items.slick({
                 slidesToShow: slidesToShow,
                 slidesToScroll: 1,

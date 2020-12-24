@@ -49,6 +49,10 @@
 
   }
 
+  .product-card--vertical .product-card__image {
+    height: 100px;
+  }
+
   &__product {
     display: flex;
     align-items: center;

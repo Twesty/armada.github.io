@@ -44,6 +44,9 @@
   }
 
   .catalog {
+    &__wrap {
+      padding-top: 20px;
+    }
     &__items {
       margin-left: -5px;
       margin-right: -5px;

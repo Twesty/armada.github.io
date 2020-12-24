@@ -98,7 +98,7 @@
                 path {
                     fill: $accent;
                 }
-                circle, {
+                circle {
                     fill: #fce8e6;
                 }
             }
@@ -260,6 +260,12 @@
     font-size:15px;
     &.disabled {
         opacity: .3;
+    }
+}
+
+.datepicker.md-form  {
+    .input-prefix {
+        top: 12px;
     }
 }
 

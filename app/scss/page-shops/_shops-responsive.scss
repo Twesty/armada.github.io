@@ -53,6 +53,9 @@
   }
 
   .shop {
+    &__wrap {
+      margin: auto;
+    }
     &__links {
       justify-content: center;
       flex-wrap: wrap;

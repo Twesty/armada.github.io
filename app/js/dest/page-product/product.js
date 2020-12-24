@@ -125,6 +125,9 @@ $( document ).ready(function(){
                 $(this).find('.slick-slide').css('height', slickTrackHeight + 'px');
             });
 
+            console.log(slidesToShow);
+            console.log(itemsLength);
+
             items.slick({
                 slidesToShow: slidesToShow,
                 slidesToScroll: 1,
@@ -248,7 +251,7 @@ $( document ).ready(function(){
     // Product card limitation text and hover
 
     {
-        let productCard = $('.product-card__wrap');
+        let productCard = $('.product-card__wrap:not(.product-card__wrap--no-hover)');
 
         $.each(productCard, function () {
             let title = $(this).find('.product-card__title'),

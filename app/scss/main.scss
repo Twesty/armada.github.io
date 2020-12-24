@@ -13,6 +13,10 @@
   color: #fff;
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -408,7 +412,7 @@ a {
   display: none;
   text-align: center;
   font-weight: 500;
-  z-index: 999;
+  z-index: 9;
 
   &__wrap {
     position: relative;
@@ -649,6 +653,10 @@ a {
   .white-space-nowrap {
     white-space: nowrap;
   }
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 @import "bootstrap-customiation";
