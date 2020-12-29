@@ -116,6 +116,13 @@ a {
   border: none;
   min-width: 120px;
   text-align: center;
+  &.btn-primary {
+    a {
+      &:hover {
+        color: #FFF;
+      }
+    }
+  }
 
   &:disabled {
     opacity: .3;
@@ -650,13 +657,29 @@ a {
     transform: translateY(-17px) scale(.8)
   }
 
-  .white-space-nowrap {
-    white-space: nowrap;
-  }
+}
+
+.white-space-nowrap {
+  white-space: nowrap;
 }
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform .2s;
+  z-index: 9;
+  &:hover {
+    transform: scale(1.05);
+    transform-origin: center;
+    transition: transform .2s;
+  }
 }
 
 @import "bootstrap-customiation";

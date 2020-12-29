@@ -9,12 +9,18 @@ $( document ).ready(function(){
         let overlay = $('.overlay, .header__overlay');
 
         close.on('click', function () {
+            if( filters.hasClass('active') ) {
+                $('.filter-apply').fadeOut(100);
+            }
             filters.removeClass('active');
             overlay.fadeOut(200);
         });
 
         $.each(open, function () {
             $( this ).on('click', function () {
+                if( filters.hasClass('active') ) {
+                    $('.filter-apply').fadeOut(100);
+                }
                 overlay.fadeIn(200);
                 filters.toggleClass('active');
             })
@@ -35,28 +41,29 @@ $( document ).ready(function(){
             button.fadeOut(100);
         });
 
-        $.each(triggers, function() {
-            $( this ).on('change', function(){
-                let form = $( this ).parents('form');
+        setTimeout(function () {
+            $.each(triggers, function() {
+                $( this ).on('change', function(){
+                    let form = $( this ).parents('form');
 
-                let inputOffset = $( this ).offset();
-                let filtersOffset = filters.offset();
-                let offsetTop = inputOffset.top;
-                let offsetLeft = filtersOffset.left;
-                let filtersWidth = filters.width();
+                    let inputOffset = $( this ).offset();
+                    let filtersOffset = filters.offset();
+                    let offsetTop = inputOffset.top;
+                    let offsetLeft = filtersOffset.left;
+                    let filtersWidth = filters.width();
 
-                button.css({
-                    'top' : offsetTop + 'px',
-                    'left' : offsetLeft + filtersWidth + 25 + 'px',
-                    'display' : 'block'
-                });
+                    button.css({
+                        'top' : offsetTop + 'px',
+                        'left' : offsetLeft + filtersWidth + 25 + 'px',
+                        'display' : 'block'
+                    });
 
-                apply.on('click', function () {
-                    form.submit();
-                    console.log('123')
+                    apply.on('click', function () {
+                        form.submit();
+                    })
                 })
             })
-        })
+        }, 1500)
     }
 
 });

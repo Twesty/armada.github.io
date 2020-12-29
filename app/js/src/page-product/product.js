@@ -57,7 +57,7 @@ $( document ).ready(function () {
             loopArrow = $('.photo-modal__arrow'),
             loopArrowNext = $('.photo-modal__arrow--next'),
             loopArrowPrev = $('.photo-modal__arrow--prev'),
-            loopClose = $('.photo-modal__close, .photo-modal__wrap');
+            loopClose = $('.photo-modal__close');
 
         let currentGalleryItemIndex = 0;
 
@@ -72,6 +72,16 @@ $( document ).ready(function () {
 
         loopClose.on('click', function () {
             loopModal.removeClass('active');
+        });
+
+        $(document).mouseup(function(e)
+        {
+            let container = loopArrow;
+
+            if (!container.is(e.target) && container.has(e.target).length === 0)
+            {
+                loopModal.removeClass('active');
+            }
         });
 
         loopArrowNext.on('click', function () {

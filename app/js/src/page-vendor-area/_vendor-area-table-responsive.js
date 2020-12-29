@@ -537,8 +537,8 @@ $( document ).ready(function () {
             }
         });
 
-        $('.dt-buttons').addClass('d-flex align-items-center').prepend('<span class="mr-3">Экспорт:</span>');
-        $('.dt-button').addClass('button btn-sm btn-light rounded mr-2').removeClass('dt-button');
+        $('.dt-buttons').addClass('d-flex align-items-center flex-wrap').prepend('<span class="mr-3">Экспорт:</span>');
+        $('.dt-button').addClass('button btn-sm btn-light rounded mr-2 mt-2').removeClass('dt-button');
 
         $('.dataTables_length').addClass('bs-select');
     }

@@ -45,7 +45,7 @@ gulp.task('styles', function() {
 gulp.task('main-scripts', function() {
 	return gulp.src([
 		//'app/libs/jquery-ui/jquery-ui.min.js', // Jquery UI
-		'app/libs/popper.js', // Popper
+		'app/libs/popper.min.js', // Popper
 		'app/libs/bootstrap/js/bootstrap.min.js', // Bootstrap
 		//'app/libs/bootstrap/js/bootstrap.bundle.min.js', // Bootstrap Bundle
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
@@ -58,6 +58,7 @@ gulp.task('main-scripts', function() {
 		'app/js/src/parts/header.js', // Header
 		'app/js/src/parts/footer.js', // Footer
 		'app/js/src/parts/dropdown.js', // Dropdown
+		'app/js/src/parts/product-card.js', // Product-card
 		'app/js/src/parts/custom-scrollbar.js', // mCustomScrollbar
 		'app/libs/jquery.mask.min.js', // Jquery mask
 		'app/js/common.js', // Always at the end
@@ -79,8 +80,6 @@ gulp.task('scripts-page-home', function() {
 	return gulp.src([
 		'app/libs/slick/slick.min.js', // Slick
 		'app/libs/popup/YouTubePopUp.jquery.js', // Popup
-		'app/libs/popper.min.js', // Popper
-		'app/js/src/parts/product-card.js', // Product-card
 		'app/js/src/parts/banner.js', // Banner
 		'app/js/src/parts/slideshow.js', // Slideshow
 		'app/js/src/parts/together.js', // Together
@@ -99,7 +98,6 @@ gulp.task('scripts-page-catalog', function() {
 		'app/libs/jquery-ui/jquery.ui.touch-punch.min.js', // Jquery UI
 		'app/libs/slick/slick.min.js', // Slick
 		'app/js/src/page-catalog/*.js', // Home
-		'app/js/src/parts/product-card.js', // Product-card
 		'app/js/src/parts/custom-scrollbar.js', // Dropdown
 		'app/js/src/parts/banner.js', // Banner
 		'app/js/src/parts/filters.js', // Filters
@@ -124,7 +122,6 @@ gulp.task('scripts-page-login', function() {
 
 gulp.task('scripts-page-news', function() {
 	return gulp.src([
-		'app/js/src/parts/product-card.js', // Product-card
 		'app/js/src/parts/together.js', // Together
 		'app/js/src/page-news/*.js', // Home
 	])
@@ -136,7 +133,6 @@ gulp.task('scripts-page-news', function() {
 
 gulp.task('scripts-page-order', function() {
 	return gulp.src([
-		'app/js/src/parts/product-card.js', // Product-card
 		'app/js/src/parts/together.js', // Together
 		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		'app/libs/sticky.js', // Sticky
@@ -150,13 +146,12 @@ gulp.task('scripts-page-order', function() {
 
 gulp.task('scripts-page-product', function() {
 	return gulp.src([
+		'app/libs/sticky.js', // Sticky
 		'app/libs/slick/slick.min.js', // Slick
 		'app/libs/popup/YouTubePopUp.jquery.js', // Popup
 		'app/js/src/parts/slideshow.js', // Slideshow
-		'app/js/src/parts/product-card.js', // Product-card
 		'app/js/src/parts/faq.js', // Faq
 		'app/js/src/parts/together.js', // Together
-		'app/libs/sticky.js', // Sticky
 		'app/js/src/page-product/*.js', // Home
 	])
 		.pipe(concat('product.js'))
@@ -167,6 +162,8 @@ gulp.task('scripts-page-product', function() {
 
 gulp.task('scripts-page-shops', function() {
 	return gulp.src([
+		'app/libs/jquery-ui/jquery-ui.min.js', // Jquery UI
+		'app/libs/jquery-ui/jquery.ui.touch-punch.min.js', // Jquery UI
 		'app/js/src/parts/filters.js', // Filters
 		'app/js/src/page-shops/*.js', // Home
 	])
@@ -278,18 +275,18 @@ gmWatch ? gulp.task('default', gulp.parallel(
 			'watch'
 		)) : gulp.task('default', gulp.parallel(
 		 	'styles',
-			'main-scripts',
-			'scripts-parts',
-			'scripts-page-home',
-			'scripts-page-catalog',
-			'scripts-page-news',
-			'scripts-page-login',
-			'scripts-page-order',
-			'scripts-page-product',
-			'scripts-page-shops',
-			'scripts-page-user-area',
-			'scripts-page-vendor-area',
-			'scripts-page-info',
+			//'main-scripts',
+			//'scripts-parts',
+			//'scripts-page-home',
+			//'scripts-page-catalog',
+			//'scripts-page-news',
+			//'scripts-page-login',
+			//'scripts-page-order',
+			//'scripts-page-product',
+			//'scripts-page-shops',
+			//'scripts-page-user-area',
+			//'scripts-page-vendor-area',
+			//'scripts-page-info',
 			'browser-sync',
 			'watch'
 		));

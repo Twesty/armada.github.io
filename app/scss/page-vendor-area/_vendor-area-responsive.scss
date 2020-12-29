@@ -304,6 +304,27 @@
     }
   }
 
+  .dataTables_paginate {
+    justify-content: center;
+  }
+
+  .dt-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+
+  #dt-multi-checkbox_filter {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .vendor {
+    &__products-table {
+      padding-bottom: 40px;
+    }
+  }
+
 }
 
 // ≥360px

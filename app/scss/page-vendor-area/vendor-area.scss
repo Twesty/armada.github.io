@@ -1286,6 +1286,8 @@ figure figcaption {
 .form-row {
   position: relative;
   margin-bottom: 10px;
+  margin-left: 0;
+  margin-right: 0;
   .tox-tinymce {
     width: 100%;
     min-height: 100%;
@@ -1400,6 +1402,13 @@ figure figcaption {
   }
   &__add {
     display: none;
+  }
+}
+
+#dt-multi-checkbox_filter {
+  margin-top: 10px;
+  input[type="search"] {
+    margin-left: 15px;
   }
 }
 

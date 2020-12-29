@@ -122,6 +122,7 @@
 }
 
 .filters {
+  overflow: auto;
   &--hidden {
     position: fixed;
     top: 0;

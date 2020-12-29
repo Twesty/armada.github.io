@@ -56,6 +56,13 @@
 // ≥768px
 @include media-breakpoint-down(sm) {
 
+  .filters {
+    font-size: 15px;
+    .custom-control-label {
+
+    }
+  }
+
 }
 
 // ≥360px

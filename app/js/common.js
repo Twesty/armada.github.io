@@ -1,6 +1,12 @@
 'use strict';
 
 $( document ).ready(function () {
+
+    // Tooltip
+    $(function () {
+        $("[rel='tooltip']").tooltip();
+    });
+
     // Lazy Load
 
     var lazyLoadInstance = new LazyLoad({
@@ -19,7 +25,6 @@ $( document ).ready(function () {
     }
 
     $('[data-mask]').mask();
-
 
     // Text crop
 

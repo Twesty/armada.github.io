@@ -137,9 +137,15 @@
 
     &:hover,
     &.active {
+      * {
+        transition: fill .2s, stroke .2s;
+      }
       svg {
         display: flex;
         fill: $accent;
+        path {
+          stroke: $accent;
+        }
       }
     }
   }

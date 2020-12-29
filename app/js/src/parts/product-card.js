@@ -64,7 +64,8 @@ $( document ).ready(function(){
     {
         let loopButton = $('.product-card__zoom'),
             loopModal = $('.photo-modal'),
-            loopClose = $('.photo-modal__close, .photo-modal__wrap'),
+            loopClose = $('.photo-modal__close'),
+            loopArrow = $('.photo-modal__arrow'),
             loopModalImage = $('.photo-modal__current img');
 
         loopButton.on('click', function () {
@@ -76,6 +77,16 @@ $( document ).ready(function(){
             // });
 
             loopModal.addClass('active');
+        });
+
+        $(document).mouseup(function(e)
+        {
+            let container = loopArrow;
+
+            if (!container.is(e.target) && container.has(e.target).length === 0)
+            {
+                loopModal.removeClass('active');
+            }
         });
 
         loopClose.on('click', function () {
@@ -154,6 +165,16 @@ $( document ).ready(function(){
                 }
             }
 
+        })
+    }
+
+    // Favorite
+
+    {
+        let button = $('.product-card__favorite');
+
+        button.on('click', function () {
+            $( this ).toggleClass('active')
         })
     }
 
