@@ -75,6 +75,11 @@
     &__status {
       font-size: 10px;
     }
+    &__add.button {
+      a {
+        padding: 9px 24px 9px 24px;
+      }
+    }
   }
 
 }
@@ -322,6 +327,14 @@
   .vendor {
     &__products-table {
       padding-bottom: 40px;
+    }
+  }
+
+  .products {
+    &__add.button {
+      a {
+        padding: 6px 15px 6px 15px;
+      }
     }
   }
 

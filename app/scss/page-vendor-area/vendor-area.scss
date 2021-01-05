@@ -253,6 +253,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .select-wrapper.mdb-select.md-form {
+      .select-dropdown {
+        min-width: 240px;
+        padding: 14px 0 0 0;
+        min-height: 52px;
+        margin-bottom: 0;
+      }
+      span.caret {
+        top: 50%;
+      }
+    }
   }
   &__title {
     font-weight: 700;
@@ -584,6 +595,14 @@
           background: #FFF;
         }
       }
+    }
+  }
+  &__add.button {
+    padding: 0;
+    min-width: auto;
+    a {
+      padding: 11px 32px 10px 32px;
+      display: block;
     }
   }
   &__status {
@@ -1409,6 +1428,12 @@ figure figcaption {
   margin-top: 10px;
   input[type="search"] {
     margin-left: 15px;
+  }
+}
+
+.datepicker.md-form  {
+  .input-prefix {
+    top: 12px;
   }
 }
 

@@ -1137,6 +1137,11 @@ $( document ).ready(function(){
 'use strict';
 $( document ).ready(function () {
 
+    // Date mask
+    {
+        $('.date input').mask('00.00.0000', {placeholder: "--.--.----"});
+    }
+
     // Matherial select
 
     $('.mdb-select').materialSelect();
@@ -1419,28 +1424,35 @@ $( document ).ready(function () {
         $.each(wrap, function () {
             let $this = $( this );
             let addButton = $( this ).find('.duplicate__add');
+            let ai = $( this ).attr('data-auto-increment-name');
+            console.log(ai);
 
             addButton.on('click', function () {
-                let items = $this.find('.duplicate__item');
+                let items = $this.find('.duplicate__item'),
+                    itemsLength = items.length,
+                    newItemPattern = items.eq(itemsLength - 1).clone(),
+                    inputs = newItemPattern.find('input:not(.select-dropdown), select'),
+                    newItemIndex = parseInt(newItemPattern.attr('data-duplicate-item-id')) + 1;
 
-                let itemsLength = items.length;
+                if( ai === 'false' ) {
+                    $.each(inputs, function () {
+                        $( this ).val('');
+                        $( this ).attr('placeholder', '');
+                        $( this ).siblings('span').text('Не указано');
+                    });
+                } else {
 
-                let newItemPattern = items.eq(itemsLength - 1).clone();
-
-                let inputs = newItemPattern.find('input:not(.select-dropdown), select');
-                let newItemIndex = parseInt(newItemPattern.attr('data-duplicate-item-id')) + 1;
-
-                $.each(inputs, function () {
-                    $( this ).attr('name', $( this ).attr('name').slice(0, -1) + newItemIndex);
-                    $( this ).val('');
-                    $( this ).attr('placeholder', '');
-                    $( this ).siblings('span').text('Не указано');
-                });
+                    $.each(inputs, function () {
+                        $( this ).attr('name', $( this ).attr('name').slice(0, -1) + newItemIndex);
+                        $( this ).val('');
+                        $( this ).attr('placeholder', '');
+                        $( this ).siblings('span').text('Не указано');
+                    });
+                }
 
                 newItemPattern.attr('data-duplicate-item-id', newItemIndex);
 
                 items.eq(itemsLength-1).after(newItemPattern);
-
                 let phoneInput = $('input[type=tel]');
 
                 $.each(phoneInput, function () {
@@ -1459,6 +1471,11 @@ $( document ).ready(function () {
 
     // Data Picker Initialization
     {
+        // let d = new Date();
+        //
+        // let month = d.getMonth()+1;
+        // let day = d.getDate();
+
         $('.datepicker').datepicker({
             format: 'dd.mm.yyyy',
 
@@ -1690,30 +1707,6 @@ $( document ).ready(function () {
                     exportOptions: {
                         columns: arrayToExport
                     }
-                },
-                {
-                    extend: 'pdf',
-                    text: 'PDF',
-                    charset: 'utf-8',
-                    exportOptions: {
-                        columns: arrayToExport
-                    }
-                },
-                {
-                    extend: 'print',
-                    text: 'Распечатать',
-                    charset: 'utf-8',
-                    exportOptions: {
-                        columns: arrayToExport
-                    }
-                },
-                {
-                    extend: 'copy',
-                    text: 'Копировать',
-                    charset: 'utf-8',
-                    exportOptions: {
-                        columns: arrayToExport
-                    }
                 }
             ],
             columnDefs: [
@@ -1737,11 +1730,15 @@ $( document ).ready(function () {
             select: {
                 style:    'multiple',
                 selector: 'td:first-child'
-
             }
         });
 
-        $('.dt-buttons').addClass('d-flex align-items-center flex-wrap').prepend('<span class="mr-3">Экспорт:</span>');
+        let xmlExportButton = $('.xmlExport');
+        let dtButtons = $('.dt-buttons');
+
+        
+        dtButtons.addClass('d-flex align-items-center flex-wrap').prepend('<span class="mr-3">Экспорт:</span>');
+        dtButtons.append(xmlExportButton.removeClass('d-none'));
         $('.dt-button').addClass('button btn-sm btn-light rounded mr-2 mt-2').removeClass('dt-button');
 
         $('.dataTables_length').addClass('bs-select');
