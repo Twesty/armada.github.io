@@ -178,7 +178,7 @@
     flex-direction: row-reverse;
     .project__content {
       left: initial;
-      padding: 50px 80px 60px 30px;
+      padding: 50px 30px 60px 30px;
     }
   }
   &__image {
@@ -204,10 +204,13 @@
   &__content {
     position: relative;
     width: 100%;
-    padding: 50px 30px 60px 80px;
+    padding: 50px 30px 60px 30px;
     background: rgba(0, 0, 0, .10);
     font-size: 14px;
     font-weight: 300;
+    a {
+      color: $accent;
+    }
   }
   &__title {
     margin-top: 0;

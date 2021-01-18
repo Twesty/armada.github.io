@@ -2,6 +2,9 @@
 
 $( document ).ready(function () {
 
+    $( window ).on('load',function() {
+        $('.grecaptcha-badge').hide();
+    });
 
     // Video popup
     {

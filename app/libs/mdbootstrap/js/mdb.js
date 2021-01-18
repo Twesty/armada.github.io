@@ -20775,7 +20775,7 @@
                     i = this.get("highlight", "mmm"),
                     n = this.get("highlight", "dddd").slice(0, 3),
                     l = i.charAt(0).toUpperCase() + i.slice(1);
-                this.component.settings.inline || t.find(".picker__header").prepend('\n        <div class="picker__date-display">\n          <div class="picker__title-display">SELECT DATE</div>\n          <div class="picker__date-container">\n            <span class="picker__weekday-display">'.concat(n, ',</span>\n            <span class="picker__month-display">').concat(l, '</span>\n            <span class="picker__day-display">').concat(e, "</span>\n          </div>\n        </div>\n      "))
+                this.component.settings.inline || t.find(".picker__header").prepend('\n        <div class="picker__date-display">\n          <div class="picker__title-display">Выберите дату</div>\n          <div class="picker__date-container">\n            <span class="picker__weekday-display">'.concat(n, ',</span>\n            <span class="picker__month-display">').concat(l, '</span>\n            <span class="picker__day-display">').concat(e, "</span>\n          </div>\n        </div>\n      "))
             }
         }), $(".picker-opener").on("click", (function(t) {
             t.preventDefault(), t.stopPropagation();

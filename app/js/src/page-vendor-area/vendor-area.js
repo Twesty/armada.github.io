@@ -58,11 +58,13 @@ $( document ).ready(function () {
         tinymce.init({
             selector: '.tinyMCE',
             plugin: 'a_tinymce_plugin',
-            plugins: 'codesample code image link',
+            plugins: 'codesample code image paste link',
             a_plugin_option: true,
             a_configuration_option: 400,
             toolbar: 'undo redo removeformat | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | codesample code',
-            language: 'ru'
+            contextmenu: "paste | link image inserttable | cell row column deletetable",
+            language: 'ru',
+            paste_data_images: true
         });
 
         // Validation
@@ -334,80 +336,36 @@ $( document ).ready(function () {
     }
 
     // Data Picker Initialization
+
     {
-        // let d = new Date();
-        //
-        // let month = d.getMonth()+1;
-        // let day = d.getDate();
+        let datepicker = $('.datepicker');
 
-        $('.datepicker').datepicker({
-            format: 'dd.mm.yyyy',
+        $.each(datepicker, function () {
+            $( this ).datepicker({
+                format: 'dd.mm.yyyy',
+                startDate: new Date(),
+                endDate: new Date(new Date().setDate(new Date().getDate() + 5)),
+                minDate: new Date(),
+                maxDate: new Date(new Date().setDate(new Date().getDate() + 42)),
 
-            monthsFull: ['Январь', 'Февраль', 'Март', 'Апрель', 'Мая', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-            monthsShort: ['Янв', 'Февр', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Ноя', 'Дек'],
-            weekdaysFull: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
-            weekdaysShort: ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'],
+                monthsFull: ['Январь', 'Февраль', 'Март', 'Апрель', 'Мая', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+                monthsShort: ['Янв', 'Февр', 'Март', 'Апр', 'Май', 'Июнь', 'Июль', 'Авг', 'Сент', 'Окт', 'Ноя', 'Дек'],
+                weekdaysFull: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
+                weekdaysShort: ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'],
 
-            labelMonthNext: 'След. месяц',
-            labelMonthPrev: 'Пред. месяц',
-            labelMonthSelect: 'Выбрать месяц',
-            labelYearSelect: 'Выбрать год',
+                labelMonthNext: 'След. месяц',
+                labelMonthPrev: 'Пред. месяц',
+                labelMonthSelect: 'Выбрать месяц',
+                labelYearSelect: 'Выбрать год',
 
-            today: 'Сегодня',
-            clear: 'Очистить',
-            close: 'Закрыть',
+                today: 'Сегодня',
+                clear: 'Очистить',
+                close: 'Закрыть',
 
+
+            });
         });
     }
-
-    // // Date range picker
-    //
-    // {
-    //     moment.locale('ru', {
-    //         monthsShort : 'Янв._Февр._Март_Апр._Май_Июнь_Июль._Арг._Сент._Окт._Ноя._Дек.'.split('_'),
-    //         monthsParseExact : true,
-    //     });
-    //
-    //     $('input.picker__input').daterangepicker({
-    //         autoApply: false,
-    //         startDate: moment().startOf('hour'),
-    //         endDate: moment().startOf('hour').add(32, 'hour'),
-    //         opens: 'left',
-    //         locale: {
-    //             "format": 'DD.MM.YYYY',
-    //             "applyLabel" : "Применить",
-    //             "cancelLabel" : "Отменить",
-    //             "yearLabel" : "г.",
-    //             "daysOfWeek" : [
-    //                 "ПН",
-    //                 "ВТ",
-    //                 "СР",
-    //                 "ЧТ",
-    //                 "ПТ",
-    //                 "СБ",
-    //                 "ВС"
-    //             ],
-    //             "monthNames" : [
-    //                 "Январь",
-    //                 "Февраль",
-    //                 "Март",
-    //                 "Апрель",
-    //                 "Май",
-    //                 "Июнь",
-    //                 "Июль",
-    //                 "Август",
-    //                 "Сентябрь",
-    //                 "Октябрь",
-    //                 "Ноябрь",
-    //                 "Декабрь"
-    //             ]
-    //         },
-    //     });
-    //
-    //     $('input[name="daterange"]').on('apply.daterangepicker', function(ev, picker) {
-    //         $('.graph__date span').text(picker.startDate.format('MM.DD.YY') + ' - ' + picker.endDate.format('MM.DD.YY'))
-    //     });
-    // }
 
     // Map
 
@@ -606,6 +564,43 @@ $( document ).ready(function () {
         $('.dt-button').addClass('button btn-sm btn-light rounded mr-2 mt-2').removeClass('dt-button');
 
         $('.dataTables_length').addClass('bs-select');
+    }
+
+    // Delivery type required if checked
+
+    {
+        let deliveryStatus = $('.delivery-status');
+        let deliveryTypes = $('.delivery-type');
+        let deliveryTypesResponse = $('.delivery-types__response');
+
+        deliveryStatus.parents('form').on('submit', function (e) {
+            e.preventDefault();
+
+            let $this = $( this );
+            let atLeastOneIsChecked = false;
+
+            deliveryTypes.each(function () {
+                if ($(this).is(':checked')) {
+                    atLeastOneIsChecked = true;
+
+                    return false;
+                }
+            });
+
+            if(deliveryStatus.is(':checked') && !atLeastOneIsChecked) {
+                $([document.documentElement, document.body]).animate({
+                    scrollTop:deliveryTypesResponse.offset().top
+                });
+
+                deliveryTypesResponse.text('Выберите тип доставки').slideDown(200);
+
+                setTimeout(function () {
+                    deliveryTypesResponse.slideUp(200);
+                }, 3000)
+            } else {
+                $this.unbind('submit').submit();
+            }
+        })
     }
 
 });

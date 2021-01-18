@@ -1413,7 +1413,7 @@ $.extend($.fn.datepicker.defaults, {
     if (!isInline) {
       $pickerInstance.find('.picker__header').prepend(`
         <div class="picker__date-display">
-          <div class="picker__title-display">SELECT DATE</div>
+          <div class="picker__title-display">Выберите дату</div>
           <div class="picker__date-container">
             <span class="picker__weekday-display">${labeldayFirstThreeLetters},</span>
             <span class="picker__month-display">${monthFirstUC}</span>

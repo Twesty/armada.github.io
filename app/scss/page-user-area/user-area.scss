@@ -6,6 +6,7 @@
 @import "../parts/_sections/_subscribe/subscribe";
 @import "../parts/_sections/_pagination/pagination";
 @import "../parts/_sections/_orders/orders";
+@import "../parts/_sections/_filters/filters";
 
 // Blocks
 @import "../parts/_blocks/_product-card/product-card";
@@ -266,6 +267,20 @@
 .datepicker.md-form  {
     .input-prefix {
         top: 12px;
+    }
+}
+
+.loyalty-shop {
+    &__image {
+        overflow: hidden;
+        width: 140px;
+        height: 90px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-position: center;
+            object-fit: cover;
+        }
     }
 }
 

@@ -111,7 +111,7 @@ gulp.task('scripts-page-catalog', function() {
 
 gulp.task('scripts-page-login', function() {
 	return gulp.src([
-		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
+		//'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		'app/js/src/page-login/*.js', // Home
 	])
 		.pipe(concat('login.js'))
@@ -134,7 +134,7 @@ gulp.task('scripts-page-news', function() {
 gulp.task('scripts-page-order', function() {
 	return gulp.src([
 		'app/js/src/parts/together.js', // Together
-		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
+		//'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		'app/libs/sticky.js', // Sticky
 		'app/js/src/page-order/*.js', // Home
 	])
@@ -175,7 +175,8 @@ gulp.task('scripts-page-shops', function() {
 
 gulp.task('scripts-page-user-area', function() {
 	return gulp.src([
-		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
+		//'app/libs/mdbootstrap/js/mdb.min.js', // MDB
+		'app/js/src/parts/filters.js', // Filters
 		'app/js/src/page-user-area/*.js', // Home
 	])
 		.pipe(concat('user-area.js'))
@@ -186,7 +187,7 @@ gulp.task('scripts-page-user-area', function() {
 
 gulp.task('scripts-page-info', function() {
 	return gulp.src([
-		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
+		//'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		'app/libs/slick/slick.min.js', // Slick
 		'app/js/src/parts/custom-scrollbar.js', // Dropdown
 		'app/js/src/parts/faq.js', // Faq
@@ -204,7 +205,7 @@ gulp.task('scripts-page-vendor-area', function() {
 		'app/libs/tinyMCE/ru.js', // TinyMCE
 		'app/libs/jquery-ui/jquery-ui.min.js', // Jquery UI
 		'app/libs/jquery-ui/jquery.ui.touch-punch.min.js', // Jquery UI
-		'app/libs/mdbootstrap/js/mdb.min.js', // MDB
+		//'app/libs/mdbootstrap/js/mdb.min.js', // MDB
 		'app/libs/dateRangePicker/moment.min.js', // Date range picker
 		'app/libs/dateRangePicker/daterangepicker.min.js', // Date range picker
 		'app/libs/dataTables/js/jquery.dataTables.min.js', // Data tables
@@ -220,7 +221,7 @@ gulp.task('scripts-page-vendor-area', function() {
 		'app/libs/dataTables/js/dataTables.responsive.min.js', // Data tables
 		'app/libs/cropper/cropper.min.js', // Cropper
 		'app/libs/croppie/croppie.min.js', // Croppie
-		'app/js/src/parts/filters.js', // Togethe
+		'app/js/src/parts/filters.js', // Filters
 		'app/js/src/page-vendor-area/vendor-area.js', // Vendor area
 	])
 		.pipe(concat('vendor-area.js'))
