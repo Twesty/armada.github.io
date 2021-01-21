@@ -115,6 +115,7 @@ $( document ).ready(function () {
         menu.on('mouseleave', function () {
             $('.vendor-menu__row').removeClass('active');
             $('.vendor-menu__dropdown').slideUp(200);
+            $('.vendor-menu__row-dropdown-arrow').removeClass('active');
 
             if ($(this).hasClass('active')) {
 
@@ -390,7 +391,7 @@ $( document ).ready(function () {
         $.each(item, function () {
             let $this = $( this );
             let arrow = $( this ).find('.vendor-menu__row-dropdown-arrow');
-            let trigger = $( this ).find('.vendor-menu__row-dropdown-arrow');
+            let trigger = $( this );
             let dropdown = $( this ).find('+ .vendor-menu__dropdown');
 
             trigger.on('click', function (e) {
@@ -602,5 +603,34 @@ $( document ).ready(function () {
             }
         })
     }
+
+    // Show/hide password
+
+    {
+        let inputWrap = $('.show_hide_password');
+
+        inputWrap.each(function () {
+            let button = $( this ).find('a');
+            let input = $( this ).find('input');
+            let icon = $( this ).find('i');
+
+            button.on('click', function (e) {
+                e.preventDefault();
+
+                if(input.attr("type") == "text"){
+                    input.attr('type', 'password');
+                    icon
+                        .addClass( "fa-eye-slash" )
+                        .removeClass( "fa-eye" );
+                }else if(input.attr("type") == "password"){
+                    input.attr('type', 'text');
+                    icon
+                        .removeClass( "fa-eye-slash" )
+                        .addClass( "fa-eye" );
+                }
+            })
+        });
+    }
+
 
 });
